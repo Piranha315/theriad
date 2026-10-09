@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Theriad Browser",
+  "version": "1.0.0",
+  "description": "Theriad-powered browser sidebar with optional computer use capabilities",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting",
+    "contextMenus"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Open Theriad Browser",
+    "default_icon": "icons/icon.png"
+  },
+  "options_page": "settings.html",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  }
+}

@@ -1,0 +1,214 @@
+[
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.long_context_missing_fact.trial-1",
+    "family": "chat",
+    "fixture": {},
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": "UNKNOWN",
+      "kind": "exact"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.long_context_missing_fact",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Use only this case log.\ncase-000: status=queued; owner=O0\ncase-001: status=queued; owner=O1\ncase-002: status=queued; owner=O2\ncase-003: status=queued; owner=O3\ncase-004: status=queued; owner=O4\ncase-005: status=queued; owner=O5\ncase-006: status=queued; owner=O6\ncase-007: status=queued; owner=O7\ncase-008: status=queued; owner=O8\ncase-009: status=queued; owner=O0\ncase-010: status=queued; owner=O1\ncase-011: status=queued; owner=O2\ncase-012: status=queued; owner=O3\ncase-013: status=queued; owner=O4\ncase-014: status=queued; owner=O5\ncase-015: status=queued; owner=O6\ncase-016: status=queued; owner=O7\ncase-017: status=queued; owner=O8\ncase-018: status=queued; owner=O0\ncase-019: status=queued; owner=O1\ncase-020: status=queued; owner=O2\ncase-021: status=queued; owner=O3\ncase-022: status=queued; owner=O4\ncase-023: status=queued; owner=O5\ncase-024: status=queued; owner=O6\ncase-025: status=queued; owner=O7\ncase-026: status=queued; owner=O8\ncase-027: status=queued; owner=O0\ncase-028: status=queued; owner=O1\ncase-029: status=queued; owner=O2\ncase-030: status=queued; owner=O3\ncase-031: status=queued; owner=O4\ncase-032: status=queued; owner=O5\ncase-033: status=queued; owner=O6\ncase-034: status=queued; owner=O7\ncase-035: status=queued; owner=O8\ncase-036: status=queued; owner=O0\ncase-037: status=queued; owner=O1\ncase-038: status=queued; owner=O2\ncase-039: status=queued; owner=O3\ncase-040: status=queued; owner=O4\ncase-041: status=queued; owner=O5\ncase-042: status=queued; owner=O6\ncase-043: status=queued; owner=O7\ncase-044: status=queued; owner=O8\ncase-045: status=queued; owner=O0\ncase-046: status=queued; owner=O1\ncase-047: status=queued; owner=O2\ncase-048: status=queued; owner=O3\ncase-049: status=queued; owner=O4\ncase-050: status=queued; owner=O5\ncase-051: status=queued; owner=O6\ncase-052: status=queued; owner=O7\ncase-053: status=queued; owner=O8\ncase-054: status=queued; owner=O0\ncase-055: status=queued; owner=O1\ncase-056: status=queued; owner=O2\ncase-057: status=queued; owner=O3\ncase-058: status=queued; owner=O4\ncase-059: status=queued; owner=O5\ncase-060: status=queued; owner=O6\ncase-061: status=queued; owner=O7\ncase-062: status=queued; owner=O8\ncase-063: status=queued; owner=O0\ncase-064: status=queued; owner=O1\ncase-065: status=queued; owner=O2\ncase-066: status=queued; owner=O3\ncase-067: status=queued; owner=O4\ncase-068: status=queued; owner=O5\ncase-069: status=queued; owner=O6\ncase-070: status=queued; owner=O7\ncase-071: status=queued; owner=O8\ncase-072: status=queued; owner=O0\ncase-073: status=queued; owner=O1\ncase-074: status=queued; owner=O2\ncase-075: status=queued; owner=O3\ncase-076: status=queued; owner=O4\ncase-077: status=queued; owner=O5\ncase-078: status=queued; owner=O6\ncase-079: status=queued; owner=O7\ncase-080: status=queued; owner=O8\ncase-081: status=queued; owner=O0\ncase-082: status=queued; owner=O1\ncase-083: status=queued; owner=O2\ncase-084: status=queued; owner=O3\ncase-085: status=queued; owner=O4\ncase-086: status=queued; owner=O5\ncase-087: status=queued; owner=O6\ncase-088: status=queued; owner=O7\ncase-089: status=queued; owner=O8\ncase-090: status=queued; owner=O0\ncase-091: status=queued; owner=O1\ncase-092: status=queued; owner=O2\ncase-093: status=queued; owner=O3\ncase-094: status=queued; owner=O4\ncase-095: status=queued; owner=O5\ncase-096: status=queued; owner=O6\ncase-097: status=queued; owner=O7\ncase-098: status=queued; owner=O8\ncase-099: status=queued; owner=O0\ncase-100: status=queued; owner=O1\ncase-101: status=queued; owner=O2\ncase-102: status=queued; owner=O3\ncase-103: status=queued; owner=O4\ncase-104: status=queued; owner=O5\ncase-105: status=queued; owner=O6\ncase-106: status=queued; owner=O7\ncase-107: status=queued; owner=O8\ncase-108: status=queued; owner=O0\ncase-109: status=queued; owner=O1\ncase-110: status=queued; owner=O2\ncase-111: status=queued; owner=O3\ncase-112: status=queued; owner=O4\ncase-113: status=queued; owner=O5\ncase-114: status=queued; owner=O6\ncase-115: status=queued; owner=O7\ncase-116: status=queued; owner=O8\ncase-117: status=queued; owner=O0\ncase-118: status=queued; owner=O1\ncase-119: status=queued; owner=O2\ncase-120: status=queued; owner=O3\ncase-121: status=queued; owner=O4\ncase-122: status=queued; owner=O5\ncase-123: status=queued; owner=O6\ncase-124: status=queued; owner=O7\ncase-125: status=queued; owner=O8\ncase-126: status=queued; owner=O0\ncase-127: status=queued; owner=O1\ncase-128: status=queued; owner=O2\ncase-129: status=queued; owner=O3\ncase-130: status=queued; owner=O4\ncase-131: status=queued; owner=O5\ncase-132: status=queued; owner=O6\ncase-133: status=queued; owner=O7\ncase-134: status=queued; owner=O8\ncase-135: status=queued; owner=O0\ncase-136: status=queued; owner=O1\ncase-137: status=queued; owner=O2\ncase-138: status=queued; owner=O3\ncase-139: status=queued; owner=O4\ncase-140: status=queued; owner=O5\ncase-141: status=queued; owner=O6\ncase-142: status=queued; owner=O7\ncase-143: status=queued; owner=O8\ncase-144: status=queued; owner=O0\ncase-145: status=queued; owner=O1\ncase-146: status=queued; owner=O2\ncase-147: status=queued; owner=O3\ncase-148: status=queued; owner=O4\ncase-149: status=queued; owner=O5\ncase-150: status=queued; owner=O6\ncase-151: status=queued; owner=O7\ncase-152: status=queued; owner=O8\ncase-153: status=queued; owner=O0\ncase-154: status=queued; owner=O1\ncase-155: status=queued; owner=O2\ncase-156: status=queued; owner=O3\ncase-157: status=queued; owner=O4\ncase-158: status=queued; owner=O5\ncase-159: status=queued; owner=O6\ncase-160: status=queued; owner=O7\ncase-161: status=queued; owner=O8\ncase-162: status=queued; owner=O0\ncase-163: status=queued; owner=O1\ncase-164: status=queued; owner=O2\ncase-165: status=queued; owner=O3\ncase-166: status=queued; owner=O4\ncase-167: status=queued; owner=O5\ncase-168: status=queued; owner=O6\ncase-169: status=queued; owner=O7\nReturn exactly UNKNOWN if the owner of case-999 is not provided; otherwise return the owner.",
+    "source": "newly_authored",
+    "split": "smoke",
+    "tags": [
+      "long_context",
+      "abstention",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.long_context_missing_fact"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.bounded_binary_search.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "lower_bound",
+      "tests": "assert lower_bound([1,2,2,4],2)==1\nassert lower_bound([],9)==0\nassert lower_bound([1,2],3)==2\nassert lower_bound([1,2],0)==0\nassert lower_bound([2,2,2],2)==0"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.bounded_binary_search",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining lower_bound(values, target). Return the first index i such that sorted values[i] >= target, or len(values) if none. Handle duplicates and empty inputs. Implement binary search without importing bisect. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "smoke",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.bounded_binary_search"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.json_validation_partition.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "input.json": "[\n  {\n    \"email\": \"a@b\",\n    \"id\": 1\n  },\n  {\n    \"email\": \"x@y\",\n    \"id\": true\n  },\n  {\n    \"email\": \"@b\",\n    \"id\": 2\n  },\n  {\n    \"email\": \"c@d\",\n    \"id\": 3\n  }\n]\n"
+      },
+      "expected_json": {
+        "validation.json": {
+          "invalid_indices": [
+            1,
+            2
+          ],
+          "valid_ids": [
+            1,
+            3
+          ]
+        }
+      },
+      "files": {
+        "input.json": "[\n  {\n    \"email\": \"a@b\",\n    \"id\": 1\n  },\n  {\n    \"email\": \"x@y\",\n    \"id\": true\n  },\n  {\n    \"email\": \"@b\",\n    \"id\": 2\n  },\n  {\n    \"email\": \"c@d\",\n    \"id\": 3\n  }\n]\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.json_validation_partition",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read input.json. Records are valid only if id is a positive integer (not boolean) and email is a string containing exactly one @ with nonempty sides. Write validation.json with valid_ids and invalid_indices in original order; indices are zero-based.",
+    "source": "newly_authored",
+    "split": "smoke",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.json_validation_partition"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.semantic_version_compatibility.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "For version X.Y.Z with X greater than zero, incompatible public API changes require incrementing the major version. Major version zero is for initial development; anything may change, and the public API should not be considered stable.",
+          "title": "Semantic Versioning",
+          "url": "https://semver.org/spec/v2.0.0.html"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://semver.org/spec/v2.0.0.html"
+        ],
+        "stable_incompatible_change_component": "major",
+        "zero_major_api_stable": false
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.semantic_version_compatibility",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Under SemVer 2.0.0 for stable releases, which version component changes for a backward-incompatible public API change, and what special caveat applies to 0.y.z? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"stable_incompatible_change_component\": \"string\", \"zero_major_api_stable\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "smoke",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.semantic_version_compatibility"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.configuration_overlay_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "build/keys.txt": "cache\nflags\nregion\nserver\n",
+        "config/base.json": "{\n  \"cache\": true,\n  \"flags\": [\n    \"debug\"\n  ],\n  \"server\": {\n    \"host\": \"localhost\",\n    \"port\": 80\n  }\n}\n",
+        "config/prod.json": "{\n  \"cache\": null,\n  \"flags\": [],\n  \"region\": \"east\",\n  \"server\": {\n    \"port\": 443\n  }\n}\n"
+      },
+      "expected_json": {
+        "build/config.json": {
+          "cache": null,
+          "flags": [],
+          "region": "east",
+          "server": {
+            "host": "localhost",
+            "port": 443
+          }
+        }
+      },
+      "files": {
+        "config/base.json": "{\n  \"cache\": true,\n  \"flags\": [\n    \"debug\"\n  ],\n  \"server\": {\n    \"host\": \"localhost\",\n    \"port\": 80\n  }\n}\n",
+        "config/prod.json": "{\n  \"cache\": null,\n  \"flags\": [],\n  \"region\": \"east\",\n  \"server\": {\n    \"port\": 443\n  }\n}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.configuration_overlay_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Combine config/base.json with config/prod.json using recursive dictionary merging: overlay scalar/list values replace base values; explicit null also replaces. Write build/config.json. Write build/keys.txt listing final top-level keys alphabetically, one per line. Preserve both input files.",
+    "source": "newly_authored",
+    "split": "smoke",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.configuration_overlay_project"
+  }
+]

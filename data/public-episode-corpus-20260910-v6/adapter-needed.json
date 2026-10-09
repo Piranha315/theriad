@@ -1,0 +1,29 @@
+[
+  {
+    "domain": "airline",
+    "independent_groups": null,
+    "raw_tasks": 50,
+    "reason": "native domain environment, user simulator, official state/action grader and lineage adaptation required; generated scenarios are not counted as independent",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "source": "tau2",
+    "usable_episode_rows": 0
+  },
+  {
+    "domain": "retail",
+    "independent_groups": null,
+    "raw_tasks": 114,
+    "reason": "native domain environment, user simulator, official state/action grader and lineage adaptation required; generated scenarios are not counted as independent",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "source": "tau2",
+    "usable_episode_rows": 0
+  },
+  {
+    "domain": "telecom",
+    "independent_groups": null,
+    "raw_tasks": 2285,
+    "reason": "native domain environment, user simulator, official state/action grader and lineage adaptation required; generated scenarios are not counted as independent",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "source": "tau2",
+    "usable_episode_rows": 0
+  }
+]

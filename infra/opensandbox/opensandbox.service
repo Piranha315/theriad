@@ -1,0 +1,19 @@
+# Install to /etc/systemd/system/opensandbox.service, then:
+#   systemctl daemon-reload && systemctl enable --now opensandbox
+[Unit]
+Description=OpenSandbox server (Theriad chat browsing)
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+# Network + egress firewall must exist before any sandbox starts.
+ExecStartPre=/opt/theriad/infra/opensandbox/sandbox-firewall.sh
+ExecStart=/usr/local/bin/uvx opensandbox-server==0.2.3 --config /etc/theriad/opensandbox.toml
+Restart=on-failure
+RestartSec=5
+StateDirectory=opensandbox
+Environment=UV_CACHE_DIR=/var/cache/opensandbox-uv
+
+[Install]
+WantedBy=multi-user.target

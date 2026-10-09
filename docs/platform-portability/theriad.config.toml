@@ -1,0 +1,22 @@
+# Opt-in Codex 0.145.0 profile. Contains no secret values.
+model = "theriad/agent"
+model_provider = "theriad"
+model_context_window = 64000
+model_reasoning_summary = "none"
+# The live Codex profile uses low effort and advertises sequential tool calls.
+model_reasoning_effort = "low"
+web_search = "disabled"
+
+[features]
+apply_patch_freeform = false
+apps = false
+plugins = false
+multi_agent = false
+multi_agent_v2 = false
+
+[model_providers.theriad]
+name = "Theriad"
+base_url = "http://127.0.0.1:8010/v1"
+env_key = "THERIAD_API_KEY"
+wire_api = "responses"
+supports_websockets = false

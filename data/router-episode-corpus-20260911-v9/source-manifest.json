@@ -1,0 +1,173 @@
+[
+  {
+    "bytes": 1062,
+    "path": "../public-episode-corpus-20260910-v4/sources/gsm8k/LICENSE",
+    "retrieved_at": "2026-09-10T11:54:50.439312+00:00",
+    "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+    "sha256": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b",
+    "source": "gsm8k",
+    "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/LICENSE"
+  },
+  {
+    "bytes": 6112,
+    "path": "../public-episode-corpus-20260910-v4/sources/gsm8k/README.md",
+    "retrieved_at": "2026-09-10T11:54:50.440788+00:00",
+    "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+    "sha256": "27e1676d572f2289210170ff6dbb8c2ef7d9f6950c0f08c978ea8ee6b39dca29",
+    "source": "gsm8k",
+    "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/README.md"
+  },
+  {
+    "bytes": 749738,
+    "path": "../public-episode-corpus-20260910-v4/sources/gsm8k/grade_school_math/data/test.jsonl",
+    "retrieved_at": "2026-09-10T11:54:50.640008+00:00",
+    "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+    "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+    "source": "gsm8k",
+    "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test.jsonl"
+  },
+  {
+    "bytes": 4166206,
+    "path": "../public-episode-corpus-20260910-v4/sources/gsm8k/grade_school_math/data/train.jsonl",
+    "retrieved_at": "2026-09-10T11:54:50.882241+00:00",
+    "revision": "3101c7d5072418e28b9008a6636bde82a006892c",
+    "sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+    "source": "gsm8k",
+    "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/train.jsonl"
+  },
+  {
+    "bytes": 9522,
+    "path": "../public-episode-corpus-20260910-v4/sources/hotpotqa/README.md",
+    "retrieved_at": "2026-09-10T11:56:38.428421+00:00",
+    "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+    "sha256": "3cfab003a856275d3198b031c6b2ac46c63178fb462a4123705f652b71b22813",
+    "source": "hotpotqa",
+    "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/1908d6afbbead072334abe2965f91bd2709910ab/README.md"
+  },
+  {
+    "bytes": 27452575,
+    "path": "../public-episode-corpus-20260910-v4/sources/hotpotqa/distractor/validation-00000-of-00001.parquet",
+    "retrieved_at": "2026-09-10T11:56:40.062813+00:00",
+    "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+    "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+    "source": "hotpotqa",
+    "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/1908d6afbbead072334abe2965f91bd2709910ab/distractor/validation-00000-of-00001.parquet"
+  },
+  {
+    "bytes": 46608428,
+    "derived_from_sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+    "path": "../public-episode-corpus-20260910-v4/sources/hotpotqa/distractor/validation.jsonl",
+    "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+    "sha256": "c301b4d689fabff61df514e4511a4688e8e10a16ed2cee28484bc85ed8dc72e4",
+    "source": "hotpotqa",
+    "transform": "pyarrow.to_pylist then UTF-8 JSONL; values preserved",
+    "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/tree/1908d6afbbead072334abe2965f91bd2709910ab/distractor"
+  },
+  {
+    "bytes": 144422,
+    "path": "../public-episode-corpus-20260910-v4/sources/hotpotqa/source-homepage.html",
+    "retrieved_at": "2026-09-10T11:54:51.120073+00:00",
+    "revision": "download_metadata",
+    "sha256": "1aa51a46cd7080b941a788c61ae3cebaea8df88cd2f4d22e1d98fff39d0e79c7",
+    "source": "hotpotqa",
+    "url": "https://hotpotqa.github.io/"
+  },
+  {
+    "bytes": 1083,
+    "path": "../public-episode-corpus-20260910-v4/sources/humaneval/LICENSE",
+    "retrieved_at": "2026-09-10T11:54:50.459881+00:00",
+    "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+    "sha256": "bcba3de214851cce46ed5af42d6698044616eeace887c3231bc7a20474ab639e",
+    "source": "humaneval",
+    "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/LICENSE"
+  },
+  {
+    "bytes": 4848,
+    "path": "../public-episode-corpus-20260910-v4/sources/humaneval/README.md",
+    "retrieved_at": "2026-09-10T11:54:50.463100+00:00",
+    "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+    "sha256": "2649c7f6b03c8aecdc480e4f25333b113e4d89bf819ba911e4a7983adabd12ce",
+    "source": "humaneval",
+    "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/README.md"
+  },
+  {
+    "bytes": 44877,
+    "path": "../public-episode-corpus-20260910-v4/sources/humaneval/data/HumanEval.jsonl.gz",
+    "retrieved_at": "2026-09-10T11:54:50.480007+00:00",
+    "revision": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+    "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+    "source": "humaneval",
+    "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/data/HumanEval.jsonl.gz"
+  },
+  {
+    "bytes": 1072,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/LICENSE",
+    "retrieved_at": "2026-09-10T11:54:50.677493+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "e67c5aa0074dfcaefd3c3a1aedb94cb539234aecd15d5a972574e3200e6252fe",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/LICENSE"
+  },
+  {
+    "bytes": 10443,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/README.md",
+    "retrieved_at": "2026-09-10T11:54:50.713928+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "ed39688aa5d40bd73007355df65f4e41a6c250960642e56764c3ad44da1df8d2",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/README.md"
+  },
+  {
+    "bytes": 7676,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/airline/policy.md",
+    "retrieved_at": "2026-09-10T11:54:50.930215+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/data/tau2/domains/airline/policy.md"
+  },
+  {
+    "bytes": 155528,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/airline/tasks.json",
+    "retrieved_at": "2026-09-10T11:54:50.630496+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "ccd8ba737b4cc371415af70151187788f728d6108d0916e73bb4317b40542052",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/data/tau2/domains/airline/tasks.json"
+  },
+  {
+    "bytes": 6699,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/retail/policy.md",
+    "retrieved_at": "2026-09-10T11:54:50.921587+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/data/tau2/domains/retail/policy.md"
+  },
+  {
+    "bytes": 345982,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/retail/tasks.json",
+    "retrieved_at": "2026-09-10T11:54:51.060381+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "8e03ebce7901bd6218e7a7dc3105faa9324091a68058f7fe61c65262868812e8",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/data/tau2/domains/retail/tasks.json"
+  },
+  {
+    "bytes": 13977063,
+    "path": "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/telecom/tasks.json",
+    "retrieved_at": "2026-09-10T11:54:52.047920+00:00",
+    "revision": "caca045853d1e1cb1f9550846155a8299fd000a4",
+    "sha256": "37e562e1ae3242577407e1303b1548bc64e7ea68e37d36173e6747990ceaf8a4",
+    "source": "tau2",
+    "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/caca045853d1e1cb1f9550846155a8299fd000a4/data/tau2/domains/telecom/tasks.json"
+  },
+  {
+    "path": "../router-v2-authored-20260911/specs-v4/coding_tasks.py",
+    "sha256": "f2fe7b9d3091ee0a8662465873308c054b75bc569f13f225359e0cf9072d8345"
+  },
+  {
+    "path": "../router-v2-authored-20260911/specs-v4/workspace_tasks.py",
+    "sha256": "8b0a1da5b490b1f8c6a48f59f9c8e4477dbe36d52755811d5ae071ace68ad982"
+  }
+]

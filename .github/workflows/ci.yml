@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install test dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[dev,browser]"
+
+      - name: Run test suite
+        run: python -m pytest -q
+
+  # Deploys to the production host by SSHing in and running the same
+  # scripts/deploy.sh a human would run manually (git pull, rebuild, restart
+  # with health checks, automatic rollback on failure). Requires these repo
+  # secrets (Settings -> Secrets and variables -> Actions):
+  #   DEPLOY_SSH_HOST        e.g. theriad.ai
+  #   DEPLOY_SSH_USER        SSH user with passwordless sudo for deploy.sh
+  #   DEPLOY_SSH_KEY         private key matching a public key authorized on the host
+  #   DEPLOY_SSH_KNOWN_HOSTS output of `ssh-keyscan <host>`, so the host key is
+  #                          pinned instead of trusted on first use
+  deploy:
+    name: Deploy to production
+    needs: backend-tests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_PRODUCTION_DEPLOY == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.DEPLOY_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$SSH_PRIVATE_KEY" || -z "$SSH_KNOWN_HOSTS" ]]; then
+            echo "::error::DEPLOY_SSH_KEY and/or DEPLOY_SSH_KNOWN_HOSTS repo secrets are not set. See the comment above the 'deploy' job for what's required." >&2
+            exit 1
+          fi
+          umask 077
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          ssh-keygen -y -f ~/.ssh/deploy_key | ssh-keygen -lf -
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Run deploy.sh on the production host
+        env:
+          SSH_HOST: ${{ secrets.DEPLOY_SSH_HOST }}
+          SSH_USER: ${{ secrets.DEPLOY_SSH_USER }}
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${SSH_USER}@${SSH_HOST}" \
+            "sudo /opt/theriad/scripts/deploy.sh"
+
+      - name: Clean up SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

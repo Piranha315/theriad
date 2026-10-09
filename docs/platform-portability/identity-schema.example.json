@@ -1,0 +1,17 @@
+[
+  {
+    "provider_id": "CREATOR/MODEL",
+    "revision": "EXACT_PROVIDER_CANONICAL_REVISION",
+    "hosting_provider": "EXACT_OPENROUTER_PROVIDER_ENDPOINT_TAG",
+    "region": "provider-managed",
+    "serving_variant": "VERIFIED_SERVING_CONFIGURATION",
+    "reasoning_profile": "VERIFIED_REASONING_CONFIGURATION",
+    "reasoning_config": {},
+    "tiers": ["cheap_code"],
+    "aa_slug": "EXACT_AA_SLUG",
+    "aa_id": "EXACT_STABLE_AA_ID",
+    "benchmark_name": "EXACT_AA_NAME_INCLUDING_REASONING_VARIANT",
+    "benchmark_version": 4.3,
+    "origin": "VERIFIED_MODEL_CREATOR_ORIGIN"
+  }
+]

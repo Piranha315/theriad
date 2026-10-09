@@ -1,0 +1,33 @@
+32 calls, estimated $0.07
+extracted content is empty
+1/32extracted content is empty
+2/32extracted content is empty
+3/32extracted content is empty
+4/325/326/32extracted content is empty
+7/328/329/32extracted content is empty
+10/3211/3212/3213/3214/3215/3216/3217/3218/3219/3220/3221/32extracted content is empty
+22/3223/3224/3225/3226/3227/32extracted content is empty
+28/32extracted content is empty
+29/3230/32extracted content is empty
+31/3232/32
+grid saved to eval_grid.json: 2254 cells, 2208 trials
+
+ERROR: 2 of 32 calls failed and were NOT recorded. Those cells are absent from the grid, so re-running this command retries them.
+  openai/gpt-oss-20b                       1 failed
+  moonshotai/kimi-k2.7-code                1 failed
+
+  distinct errors:
+    ProviderError: [openrouter] request error: peer closed connection without sending complete message body (incomplete chunked read)
+
+WARNING: 123 calls were truncated by the output cap across 76 cells and were EXCLUDED from the success-rate estimates.
+Those cells are measured on a biased subsample. Raise --generation-cap (or leave it unset for no cap) and re-run before trusting the grid.
+  moonshotai/kimi-k2.7-code            gpqa_00079       3/3 truncated
+  moonshotai/kimi-k2.7-code            mmlu_pro_00043   2/2 truncated
+  z-ai/glm-5.2                         mmlu_pro_00077   3/3 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  mmlu_00099       1/1 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  gpqa_00098       1/1 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  gpqa_00063       1/1 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  gpqa_00018       1/1 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  gpqa_00033       1/1 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  gpqa_00071       1/1 truncated
+  nvidia/nemotron-3-nano-30b-a3b:free  gpqa_00068       1/1 truncated

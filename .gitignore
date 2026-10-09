@@ -1,0 +1,84 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Node
+node_modules/
+theriad-ui/node_modules/
+theriad-ui/dist/
+frontend/node_modules/
+frontend/dist/
+
+# Local data
+~/.theriad/
+*.jsonl
+# These public, pinned corpus snapshots are required to reproduce the
+# repository's deterministic routing verification tests.
+!data/public-episode-corpus-20260910-v4/combined-episodes.jsonl
+!data/public-episode-corpus-20260910-v4/sources/gsm8k/grade_school_math/data/test.jsonl
+!data/public-episode-corpus-20260910-v4/sources/gsm8k/grade_school_math/data/train.jsonl
+!data/public-episode-corpus-20260910-v4/sources/hotpotqa/distractor/validation.jsonl
+!data/public-episode-corpus-20260910-v6/combined-episodes.jsonl
+!data/public-episode-corpus-20260910-v6/classification-ledger.jsonl
+!data/public-episode-corpus-20260910-v6/excluded-episodes.jsonl
+!data/public-episode-corpus-20260910-v6/legacy-comparison.jsonl
+!data/public-episode-corpus-20260910-v6/new-episodes.jsonl
+!data/public-episode-corpus-20260910-v6/reference-answers.jsonl
+!data/router-episode-corpus-20260911-v9/added-episodes.jsonl
+!data/router-episode-corpus-20260911-v9/addition-decisions.jsonl
+!data/router-episode-corpus-20260911-v9/classification-ledger.jsonl
+!data/router-episode-corpus-20260911-v9/combined-episodes.jsonl
+!data/router-episode-corpus-20260911-v9/comparison-corpus.jsonl
+!data/router-episode-corpus-20260911-v9/comparison-decisions.jsonl
+!data/router-episode-corpus-20260911-v9/excluded-additions.jsonl
+!data/router-episode-corpus-20260911-v9/new-episodes.jsonl
+!data/router-episode-corpus-20260911-v9/reference-answers.jsonl
+!data/router-v2-authored-20260911/candidates-v5/candidates.jsonl
+!data/router-v2-authored-20260911/candidates-v5/reference-answers.jsonl
+*.sqlite
+*.db
+data/memory.json
+data/*.db-*
+data/uploads/
+# Agent runtime snapshots are local state, not source or deploy artifacts.
+data/agent-tasks/
+data/browser-sessions/
+# Router V2 public-anchor raw/cache material is reproducible but not committed.
+data/router-v2/raw/
+data/router-v2/cache/
+data/router-v2/observation-masking-anchors.jsonl
+data/router-v2/observation-masking-rejections.jsonl
+_wtest
+
+# Secrets / local copies
+.env*
+!.env.example
+
+# macOS
+.DS_Store
+.DS_Store?
+
+# Python scratch
+.venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Build and editor artifacts inside nested apps
+**/node_modules/
+**/dist/
+**/*.tsbuildinfo
+**/.Rhistory
+data/*.db.*
+
+# FUSE mount artifacts from sandboxed sessions
+data/.fuse_hidden*

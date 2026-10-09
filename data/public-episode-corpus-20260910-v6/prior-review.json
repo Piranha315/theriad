@@ -1,0 +1,284 @@
+{
+  "version": "semantic-review-20260910-v1",
+  "reviewer": "Codex qualitative review; not independent second reviewer",
+  "input_sha256": "c838edd20fa65baa7a8209ca672ce59ee72b7becb8c31d8192f9100bf34d32c3",
+  "scope": "Targeted qualitative review of retrieved neighbors and selected coding algorithm families. Remaining items are unreviewed, not cleared by a similarity threshold.",
+  "clusters": [
+    {
+      "id": "strided_sort",
+      "members": [
+        "humaneval:HumanEval/33",
+        "humaneval:HumanEval/37"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Identical gather-sort-scatter algorithm with stride changed from two to three; actual train/test leakage."
+    },
+    {
+      "id": "fibonacci_recurrence",
+      "members": [
+        "humaneval:HumanEval/55",
+        "humaneval:HumanEval/63",
+        "humaneval:HumanEval/46",
+        "humaneval:HumanEval/39"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Rolling recurrence variants share a state-update algorithm. Prime Fibonacci also shares the primality subproblem, so union these groups transitively."
+    },
+    {
+      "id": "primality_and_factorization",
+      "members": [
+        "humaneval:HumanEval/31",
+        "humaneval:HumanEval/82",
+        "humaneval:HumanEval/143",
+        "humaneval:HumanEval/150",
+        "humaneval:HumanEval/94",
+        "humaneval:HumanEval/96",
+        "humaneval:HumanEval/39",
+        "humaneval:HumanEval/25",
+        "humaneval:HumanEval/59",
+        "humaneval:HumanEval/75",
+        "humaneval:HumanEval/24"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Trial division/primality reused directly or as a material subroutine; input wrappers and aggregation do not justify disjoint evaluation groups. Broad conservative grouping, not asserted equivalence."
+    },
+    {
+      "id": "palindrome",
+      "members": [
+        "humaneval:HumanEval/48",
+        "humaneval:HumanEval/10",
+        "humaneval:HumanEval/72",
+        "humaneval:HumanEval/73",
+        "humaneval:HumanEval/107",
+        "humaneval:HumanEval/112"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Mirror equality is the core operation or an explicit subroutine; construction/counting/deletion variants conservatively stay together. HumanEval/10 even supplies an is_palindrome helper."
+    },
+    {
+      "id": "bracket_balance",
+      "members": [
+        "humaneval:HumanEval/1",
+        "humaneval:HumanEval/6",
+        "humaneval:HumanEval/56",
+        "humaneval:HumanEval/119",
+        "humaneval:HumanEval/132"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Bracket depth/balance scanning reused across grouping, depth, validation, concatenation and nesting. Conservative broader skill cluster."
+    },
+    {
+      "id": "predicate_filter",
+      "members": [
+        "humaneval:HumanEval/7",
+        "humaneval:HumanEval/29",
+        "humaneval:HumanEval/22",
+        "humaneval:HumanEval/30"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Same stable list filtering skeleton with changed membership/prefix/type/sign predicates; broader than exact paraphrase."
+    },
+    {
+      "id": "set_and_uniqueness",
+      "members": [
+        "coding.stable_unique.trial-1",
+        "humaneval:HumanEval/34",
+        "humaneval:HumanEval/58",
+        "humaneval:HumanEval/54",
+        "humaneval:HumanEval/16",
+        "humaneval:HumanEval/26"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Set/frequency operations with unique-count, intersection, character and duplicate wrappers. Conservative shared-skill cluster including the authored seed; preserve its early exposure split."
+    },
+    {
+      "id": "alphabet_transform",
+      "members": [
+        "humaneval:HumanEval/50",
+        "humaneval:HumanEval/89",
+        "humaneval:HumanEval/93",
+        "humaneval:HumanEval/27",
+        "humaneval:HumanEval/161"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Alphabet shifts and case transforms overlap through the composite encode task. Keep the transitive component in one split."
+    },
+    {
+      "id": "radix_conversion",
+      "members": [
+        "humaneval:HumanEval/44",
+        "humaneval:HumanEval/79"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "General positional base conversion contains binary formatting as a special case; sentinel strings are cosmetic."
+    },
+    {
+      "id": "zero_sum_combinations",
+      "members": [
+        "humaneval:HumanEval/43",
+        "humaneval:HumanEval/40"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Pair/triple zero-sum search shares combination enumeration and predicate; arity changes complexity, so this is conservative dependence grouping."
+    },
+    {
+      "id": "closest_pair",
+      "members": [
+        "humaneval:HumanEval/0",
+        "humaneval:HumanEval/20"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Minimum pair distance used as boolean threshold versus argmin pair output."
+    },
+    {
+      "id": "number_word_order",
+      "members": [
+        "humaneval:HumanEval/19",
+        "humaneval:HumanEval/105"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Shared digit-to-word mapping and numeric sorting, with changed direction/filter wrapper."
+    },
+    {
+      "id": "remaining_inventory",
+      "members": [
+        "gsm8k:test/1301",
+        "gsm8k:train/242"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Both sum initial category inventories, subtract outgoing quantities and add incoming stock; different arithmetic traces do not remove shared balance structure."
+    },
+    {
+      "id": "parking_capacity",
+      "members": [
+        "gsm8k:train/4149",
+        "gsm8k:train/674",
+        "gsm8k:train/5834"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Same capacity-minus-occupancy structure across parking levels/lots; conservative regrouping despite direction and per-level differences."
+    },
+    {
+      "id": "relative_age",
+      "members": [
+        "gsm8k:train/4304",
+        "gsm8k:train/3076",
+        "gsm8k:train/2964",
+        "gsm8k:train/4566"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Relative-age affine relations and time offsets; shared skill grouping, broader than identical equation."
+    },
+    {
+      "id": "pay_rate",
+      "members": [
+        "gsm8k:train/1344",
+        "gsm8k:train/4044"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Piecewise/differential hours-times-rate earnings; same wage accounting skill conservatively grouped."
+    },
+    {
+      "id": "ratio_population",
+      "members": [
+        "gsm8k:train/4573",
+        "gsm8k:train/246",
+        "gsm8k:train/1035"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Related group-size relations, ratio/difference and total-part reasoning; conservative grouping rather than exact equivalence."
+    },
+    {
+      "id": "tank_capacity",
+      "members": [
+        "gsm8k:train/5478",
+        "gsm8k:train/5506"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Capacity/fraction-filled/remaining-volume balance, with intermediate dependency differences."
+    },
+    {
+      "id": "county_seat_bridge",
+      "members": [
+        "hotpotqa:5a7a616355429941d65f25f7",
+        "hotpotqa:5a84995d5542997b5ce3fee4"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Resolve institution/team location then city-to-county-seat relation; changing source entities does not change the relation chain."
+    },
+    {
+      "id": "album_count_comparison",
+      "members": [
+        "hotpotqa:5abc25b6554299700f9d77f9",
+        "hotpotqa:5a7ec7f355429934daa2fc64"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Compare album counts across two bands; original-member qualifier adds a constraint but shares the main retrieval/comparison template."
+    },
+    {
+      "id": "tennis_birth_comparison",
+      "members": [
+        "hotpotqa:5a746a4455429974ef308bf6",
+        "hotpotqa:5a7e5ec25542991319bc947a"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Compare two birth dates, selecting older or younger tennis player; entities and comparison direction differ."
+    },
+    {
+      "id": "county_city_type",
+      "members": [
+        "hotpotqa:5ac283f7554299677310254a",
+        "hotpotqa:5ae5390355429960a22e0271"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Lookup county-level city classification for two entities; selection versus conjunction is a conservative template group."
+    },
+    {
+      "id": "football_player_club",
+      "members": [
+        "hotpotqa:5ab85c8d55429934fafe6d84",
+        "hotpotqa:5ae60530554299546bf8301e"
+      ],
+      "decision": "group_conservatively",
+      "rationale": "Player-to-club lookup with club city constraint; same relation chain under different entities."
+    }
+  ],
+  "not_grouped_examples": [
+    {
+      "members": [
+        "humaneval:HumanEval/45",
+        "humaneval:HumanEval/71"
+      ],
+      "rationale": "Shared triangle vocabulary, but base-height formula versus Heron formula plus triangle validity; lexical similarity alone does not establish template equivalence."
+    },
+    {
+      "members": [
+        "coding.run_length_codec.trial-1",
+        "coding.stable_unique.trial-1"
+      ],
+      "rationale": "Contiguous run segmentation/count versus stable global deduplication. Shared instruction boilerplate is not semantic equivalence."
+    },
+    {
+      "members": [
+        "gsm8k:train/5388",
+        "gsm8k:train/4575"
+      ],
+      "rationale": "Same poster vocabulary, but fractional remainder versus multi-product profit over time."
+    },
+    {
+      "members": [
+        "gsm8k:train/7287",
+        "gsm8k:train/1952"
+      ],
+      "rationale": "Same candy vocabulary, but simultaneous relative quantities versus arithmetic progression and revenue."
+    }
+  ],
+  "limitations": [
+    "Unreviewed remainder is not certified independent.",
+    "No model-output inspection was used for grouping.",
+    "Public benchmark pretraining exposure cannot be excluded.",
+    "Legacy local and cross-family semantic overlap still need exhaustive review.",
+    "No independent public tool/agent environments have been adapted.",
+    "Do not use this package for paid collection or promotion."
+  ]
+}

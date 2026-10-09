@@ -1,0 +1,227 @@
+{
+  "agents.configuration_overlay_project.trial-1": {
+    "adapter": "task_engine_project_fixture",
+    "assistant_provider": "theriad",
+    "capabilities": [
+      "project"
+    ],
+    "kind": "current",
+    "models": {
+      "agent_planner": "deepseek/deepseek-v4-flash-0731"
+    },
+    "permission_profile": "autonomous"
+  },
+  "chat.long_context_missing_fact.trial-1": {
+    "adapter": "shared_chat_core_with_fixture_context",
+    "assistant_provider": "theriad",
+    "chain": [
+      [
+        "openrouter",
+        "nvidia/nemotron-3-super-120b-a12b:free"
+      ],
+      [
+        "openrouter",
+        "openai/gpt-oss-20b"
+      ],
+      [
+        "openrouter",
+        "xiaomi/mimo-v2.5"
+      ],
+      [
+        "openrouter",
+        "deepseek/deepseek-v4-flash-0731"
+      ]
+    ],
+    "context_prefix": "",
+    "context_truncated": false,
+    "history_summarized": false,
+    "isolated_user_features": [
+      "account_and_entitlement_http_gates",
+      "persistent_memory",
+      "enabled_personal_skills",
+      "conversation_continuity",
+      "live_circuit_state"
+    ],
+    "kind": "current",
+    "max_output_tokens": 1200,
+    "objective_verification": true,
+    "preferences": {
+      "quality": 50,
+      "speed": 50
+    },
+    "request_extras": {
+      "deepseek/deepseek-v4-flash-0731": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "nvidia/nemotron-3-super-120b-a12b:free": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "openai/gpt-oss-20b": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "xiaomi/mimo-v2.5": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      }
+    },
+    "system_prompt": "You are Theriad, an AI assistant powered by the Theriad cost-optimization engine. When Theriad routing is selected, Theriad routes each query to the cheapest capable LLM using a multi-layer classification pipeline. When OpenAI or Anthropic direct mode is selected, stay within that provider and choose a model tier appropriate to the task. Live web access is provided only by Theriad's server-side web-research harness; never claim to have browsed or cite current information unless retrieved web evidence is present in the prompt. Answer the user's question directly and helpfully. If the user asks what you are or how you work, explain that you are Theriad and clearly distinguish routed and direct-provider modes.",
+    "tier": "cheap_bulk",
+    "timeout_seconds": 20.0
+  },
+  "coding.bounded_binary_search.trial-1": {
+    "adapter": "shared_chat_core_with_fixture_context",
+    "assistant_provider": "theriad",
+    "chain": [
+      [
+        "openrouter",
+        "nvidia/nemotron-3-super-120b-a12b:free"
+      ],
+      [
+        "openrouter",
+        "openai/gpt-oss-20b"
+      ],
+      [
+        "openrouter",
+        "poolside/laguna-xs-2.1:free"
+      ],
+      [
+        "openrouter",
+        "xiaomi/mimo-v2.5"
+      ],
+      [
+        "openrouter",
+        "qwen/qwen3.6-plus"
+      ]
+    ],
+    "context_prefix": "",
+    "context_truncated": false,
+    "history_summarized": false,
+    "isolated_user_features": [
+      "account_and_entitlement_http_gates",
+      "persistent_memory",
+      "enabled_personal_skills",
+      "conversation_continuity",
+      "live_circuit_state"
+    ],
+    "kind": "current",
+    "max_output_tokens": 3500,
+    "objective_verification": true,
+    "preferences": {
+      "quality": 50,
+      "speed": 50
+    },
+    "request_extras": {
+      "nvidia/nemotron-3-super-120b-a12b:free": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "openai/gpt-oss-20b": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "poolside/laguna-xs-2.1:free": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "qwen/qwen3.6-plus": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      },
+      "xiaomi/mimo-v2.5": {
+        "cache_control": {
+          "type": "ephemeral"
+        },
+        "provider": {
+          "allow_fallbacks": true,
+          "preferred_min_throughput": 60,
+          "require_parameters": true,
+          "sort": "price"
+        }
+      }
+    },
+    "system_prompt": "You are Theriad, an AI assistant powered by the Theriad cost-optimization engine. When Theriad routing is selected, Theriad routes each query to the cheapest capable LLM using a multi-layer classification pipeline. When OpenAI or Anthropic direct mode is selected, stay within that provider and choose a model tier appropriate to the task. Live web access is provided only by Theriad's server-side web-research harness; never claim to have browsed or cite current information unless retrieved web evidence is present in the prompt. Answer the user's question directly and helpfully. If the user asks what you are or how you work, explain that you are Theriad and clearly distinguish routed and direct-provider modes.",
+    "tier": "cheap_code",
+    "timeout_seconds": 45.0
+  },
+  "search.semantic_version_compatibility.trial-1": {
+    "adapter": "search_synthesis_frozen_evidence",
+    "assistant_provider": "theriad",
+    "kind": "current",
+    "models": {
+      "search_query": "xiaomi/mimo-v2.5",
+      "search_synthesis": "xiaomi/mimo-v2.5"
+    },
+    "synthesis_enabled": true
+  },
+  "tools.json_validation_partition.trial-1": {
+    "adapter": "task_engine_project_fixture",
+    "assistant_provider": "theriad",
+    "capabilities": [
+      "project"
+    ],
+    "kind": "current",
+    "models": {
+      "agent_planner": "deepseek/deepseek-v4-flash-0731"
+    },
+    "permission_profile": "autonomous"
+  }
+}

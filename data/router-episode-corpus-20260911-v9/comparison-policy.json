@@ -1,0 +1,1053 @@
+{
+  "additional_edges": [
+    {
+      "id": "interval_primality",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/127",
+        "humaneval:HumanEval/31"
+      ],
+      "rationale": "The interval task explicitly tests the primality of the intersection length."
+    },
+    {
+      "id": "gcd_divisor",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/13",
+        "humaneval:HumanEval/24"
+      ],
+      "rationale": "Euclidean GCD and largest-divisor search share divisor structure; conservatively pool, without claiming equivalent algorithms."
+    },
+    {
+      "id": "binary_numeric_composite",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/103",
+        "humaneval:HumanEval/84",
+        "humaneval:HumanEval/44"
+      ],
+      "rationale": "Both composite tasks reuse numeric-to-binary conversion as required output logic."
+    },
+    {
+      "id": "digit_predicates",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/104",
+        "humaneval:HumanEval/146",
+        "humaneval:HumanEval/113",
+        "humaneval:HumanEval/155",
+        "humaneval:HumanEval/131"
+      ],
+      "rationale": "Digit parity/filter/endpoint variants share digit decomposition and predicate aggregation; conservative pool."
+    },
+    {
+      "id": "indexed_aggregate",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/121",
+        "humaneval:HumanEval/85",
+        "humaneval:HumanEval/142",
+        "humaneval:HumanEval/151"
+      ],
+      "rationale": "Index predicates select terms for an aggregate; parity reversal and powers do not justify independent template counts."
+    },
+    {
+      "id": "power_aggregate",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/133",
+        "humaneval:HumanEval/151"
+      ],
+      "rationale": "Transform to squares then aggregate, with ceiling or positive filtering wrappers; conservative pool."
+    },
+    {
+      "id": "string_rotation",
+      "kind": "within_family",
+      "members": [
+        "humaneval:HumanEval/38",
+        "humaneval:HumanEval/154",
+        "humaneval:HumanEval/65"
+      ],
+      "rationale": "Cyclic string rotation is the shared material operation, including blockwise decoding."
+    },
+    {
+      "id": "record_filter",
+      "kind": "cross_family",
+      "members": [
+        "chat.constraint_filtering.trial-1",
+        "tools.csv_row_filter.trial-1",
+        "humaneval:HumanEval/30"
+      ],
+      "rationale": "Predicate filtering is the core operation with text/CSV/function wrappers. Exclude component under the current family-independent inference design."
+    },
+    {
+      "id": "nested_config",
+      "kind": "cross_family",
+      "members": [
+        "tools.json_configuration_patch.trial-1",
+        "agents.configuration_overlay_project.trial-1"
+      ],
+      "rationale": "Explicit nested config patch is contained in recursive overlay; preserve-null semantics differ but a shared substantial operation remains. Exclude cross-family component."
+    },
+    {
+      "id": "heading_section",
+      "kind": "cross_family",
+      "members": [
+        "tools.markdown_heading_index.trial-1",
+        "agents.release_manifest_project.trial-1"
+      ],
+      "rationale": "Markdown heading/section parsing is reused by release-note extraction; exclude component conservatively."
+    },
+    {
+      "id": "lookup_join",
+      "kind": "cross_family",
+      "members": [
+        "tools.csv_join.trial-1",
+        "agents.invoice_reconciliation_project.trial-1"
+      ],
+      "rationale": "ID join with missing-key handling is the shared core; reconciliation adds aggregation. Exclude component conservatively."
+    },
+    {
+      "id": "document_pool_0",
+      "kind": "source_template",
+      "members": [
+        "hotpotqa:5add1aa65542990d50227de1",
+        "hotpotqa:5ae138d855429920d523432d"
+      ],
+      "rationale": "Sequel and original reuse named creators/cast and a film universe."
+    },
+    {
+      "id": "document_pool_1",
+      "kind": "source_template",
+      "members": [
+        "hotpotqa:5ac1a04e5542991316484b63",
+        "hotpotqa:5a72334755429971e9dc934c"
+      ],
+      "rationale": "Song paragraphs reuse a closely matched chart/release template with substituted artists and dates."
+    },
+    {
+      "id": "document_pool_2",
+      "kind": "source_template",
+      "members": [
+        "hotpotqa:5a81141855429938b61422ad",
+        "hotpotqa:5abe45b855429976d4830ad0"
+      ],
+      "rationale": "Race summaries reuse event-series structure with years/venues changed."
+    },
+    {
+      "id": "document_pool_3",
+      "kind": "source_template",
+      "members": [
+        "hotpotqa:5a884adb5542996e4f308938",
+        "hotpotqa:5ae0ba15554299603e41844d"
+      ],
+      "rationale": "Plant genus descriptions reuse taxonomic membership structure."
+    },
+    {
+      "id": "category_remainder_wrapper",
+      "kind": "cross_family",
+      "members": [
+        "humaneval:HumanEval/67",
+        "gsm8k:train/1580",
+        "gsm8k:test/740"
+      ],
+      "rationale": "A total minus named category counts is the same arithmetic word-problem core; computing a part first or placing it in a Python function does not establish independent task errors."
+    },
+    {
+      "id": "sum_reduction_wrapper",
+      "kind": "cross_family",
+      "members": [
+        "tools.integer_ledger_total.trial-1",
+        "humaneval:HumanEval/8"
+      ],
+      "rationale": "The list sum operation is material in both tasks; count versus product and file versus function wrappers add requirements but do not establish independence."
+    },
+    {
+      "id": "award_source_template",
+      "kind": "source_template",
+      "members": [
+        "hotpotqa:5a7ad6045542992d025e6706",
+        "hotpotqa:5a88f2cc55429938390d3ffb",
+        "hotpotqa:5ab3af70554299233954ff81"
+      ],
+      "rationale": "Frozen paragraphs share the same 17-word Academy Award submission/non-nomination construction. Conservatively pool this source template even if the downstream question differs."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:utf8_validation",
+        "authored-20260911:quoted_bytes",
+        "authored-20260911:armored_records"
+      ],
+      "rationale": "Strict UTF-8 decoding is a shared required subroutine across coding/tools."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:path_segments",
+        "authored-20260911:symbolic_links",
+        "agents.documentation_link_audit.trial-1"
+      ],
+      "rationale": "Path resolution and normalization are shared required subroutines."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:calendar_slots",
+        "tools.csv_row_filter.trial-1"
+      ],
+      "rationale": "Conservative predicate-filter solution pool."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:transport_text",
+        "tools.atomic_text_substitution.trial-1"
+      ],
+      "rationale": "Literal substitution core reused with transport wrapper."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:range_tombstones",
+        "authored-20260911:fenced_writes",
+        "tools.timestamp_latest_record.trial-1"
+      ],
+      "rationale": "Latest version/generation acceptance core reused."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:seat_apportionment",
+        "gsm8k:train/4380"
+      ],
+      "rationale": "Proportional quota allocation is a required subroutine."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:coin_optimum",
+        "authored-20260911:quota_reclamation",
+        "authored-20260911:test_set_cover"
+      ],
+      "rationale": "Conservative minimum-cost integer covering pool across families."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:style_runs",
+        "coding.run_length_codec.trial-1"
+      ],
+      "rationale": "Consecutive equal-state run segmentation reused."
+    },
+    {
+      "kind": "authored_extension_manual_dependence",
+      "members": [
+        "authored-20260911:wire_labels",
+        "authored-20260911:chunked_payload"
+      ],
+      "rationale": "Length-prefixed cursor framing and termination; count once."
+    }
+  ],
+  "aliases": {
+    "adaptation_source": "work_source",
+    "arithmetic_progression": "linear_progression",
+    "arithmetic_progression_revenue": "linear_progression",
+    "arithmetic_series": "factorial_series",
+    "basket_dot_product": "weighted_sum",
+    "bid_sequence_difference": "linear_progression",
+    "both_affiliation": "affiliation_predicate",
+    "both_location": "location_predicate",
+    "both_nationality": "country_predicate",
+    "both_occupation": "occupation_predicate",
+    "both_type": "type_predicate",
+    "capacity_density_difference": "capacity_balance",
+    "capacity_flow_balance": "capacity_balance",
+    "capacity_occupancy": "capacity_balance",
+    "capacity_rate_remainder": "capacity_balance",
+    "capacity_remainder": "capacity_balance",
+    "capacity_unit_conversion": "proportional_scaling",
+    "changed_speed_duration": "work_rate",
+    "coach_birthdate": "creator_birthdate",
+    "collaborator_birthdate": "creator_birthdate",
+    "collaborator_birthyear": "creator_birthdate",
+    "colleague_institution": "person_institution",
+    "compare_album_count": "compare_numeric",
+    "compare_birthdate": "compare_date",
+    "compare_count": "compare_numeric",
+    "compare_date": "compare_date",
+    "compare_deathdate": "compare_date",
+    "compare_duration": "compare_numeric",
+    "compare_event_date": "compare_date",
+    "compare_height": "compare_numeric",
+    "compare_length": "compare_numeric",
+    "compare_longitude": "compare_numeric",
+    "compare_name_length": "compare_numeric",
+    "compare_recognition_date": "compare_date",
+    "compare_region_area": "compare_numeric",
+    "compare_speed": "compare_numeric",
+    "conditional_tokenize": "delimiter_tokenize",
+    "context_vowel_scan": "vowel_scan",
+    "county_seat_bridge": "county_bridge",
+    "cyclic_monotonic": "monotonic_scan",
+    "denomination_count": "equal_partition",
+    "descent_index": "monotonic_scan",
+    "differential_rate_time": "work_rate",
+    "digit_sum_binary": "radix_conversion",
+    "discount_savings": "percentage_price",
+    "discounted_price_difference": "percentage_price",
+    "discounted_purchase": "percentage_price",
+    "discounted_unit_price": "percentage_price",
+    "distinct_character_count": "set_uniqueness",
+    "duration_unit_conversion": "proportional_scaling",
+    "earning_target_time": "resource_rate",
+    "event_host_location": "event_location",
+    "event_location": "event_location",
+    "event_site_county": "county_bridge",
+    "event_venue": "event_location",
+    "event_venue_location": "event_location",
+    "factorial_product": "factorial_series",
+    "factorial_series_composite": "factorial_series",
+    "founder_birthdate": "creator_birthdate",
+    "fraction_complement": "fraction_remainder",
+    "fraction_complement_weighted": "fraction_remainder",
+    "fraction_remainder_share": "fraction_remainder",
+    "fractional_allocation": "fraction_remainder",
+    "fractional_target_time": "resource_rate",
+    "indexed_vowel_count": "vowel_scan",
+    "infer_total_fraction_remainder": "sequential_fraction",
+    "integer_cube_test": "power_membership",
+    "integer_power_test": "power_membership",
+    "interval_mean_binary": "radix_conversion",
+    "inventory_balance": "inventory_balance",
+    "inventory_fraction_balance": "fraction_remainder",
+    "inventory_fraction_remainder": "fraction_remainder",
+    "inventory_share": "fraction_remainder",
+    "inverse_after_tax_income": "inverse_percentage_price",
+    "inverse_capacity_remainder": "capacity_balance",
+    "inverse_discount_price": "inverse_percentage_price",
+    "inverse_fraction_complement": "sequential_fraction",
+    "inverse_inventory_balance": "inventory_balance",
+    "inverse_nested_fraction": "sequential_fraction",
+    "inverse_percentage_change": "inverse_percentage_price",
+    "inverse_population_balance": "inventory_balance",
+    "inverse_relative_count": "relative_count_algebra",
+    "inverse_remaining_fraction": "sequential_fraction",
+    "inverse_worker_rate": "work_rate",
+    "investment_break_even_time": "resource_rate",
+    "linear_price_growth": "linear_progression",
+    "material_dot_product": "weighted_sum",
+    "maximum_relative_value": "relative_count_algebra",
+    "meeting_relative_speed": "work_rate",
+    "mixed_delimiter_tokenize": "delimiter_tokenize",
+    "mixed_unit_balance": "inventory_balance",
+    "mixed_unit_currency": "proportional_scaling",
+    "mixed_unit_duration": "proportional_scaling",
+    "mixed_unit_weight": "proportional_scaling",
+    "monetary_balance": "inventory_balance",
+    "monotonic": "monotonic_scan",
+    "monotonic_with_duplicate_limit": "monotonic_scan",
+    "nested_subset_fraction": "sequential_fraction",
+    "nested_subset_remainder": "sequential_fraction",
+    "nested_subset_weighted": "sequential_fraction",
+    "net_pay_deductions": "recurring_profit",
+    "net_rate_target": "work_rate",
+    "opponent_birthdate": "creator_birthdate",
+    "opponent_birthyear": "creator_birthdate",
+    "organization_base_county": "county_bridge",
+    "organization_county": "county_bridge",
+    "organization_founder_birthdate": "creator_birthdate",
+    "overtime_wages": "overtime_wages",
+    "parallel_fraction_remainder": "fraction_remainder",
+    "percentage_commission": "percentage_price",
+    "percentage_markup": "percentage_price",
+    "percentage_rate_total": "proportional_scaling",
+    "percentage_reward": "percentage_price",
+    "percentage_surcharge": "percentage_price",
+    "percentage_tip": "percentage_price",
+    "performer_other_work": "performer_other_work",
+    "performer_role": "work_cast_role",
+    "performer_sameyear_work": "performer_other_work",
+    "performer_work_artist": "performer_work_creator",
+    "performer_work_creator": "performer_work_creator",
+    "performer_work_director": "performer_work_creator",
+    "person_event_identification": "person_identity",
+    "person_identification": "person_identity",
+    "person_institution": "person_institution",
+    "person_organization_identification": "person_identity",
+    "piecewise_travel_distance": "round_trip",
+    "piecewise_travel_time": "round_trip",
+    "piecewise_wage_total": "overtime_wages",
+    "price_difference": "price_difference",
+    "property_tax_rate": "percentage_price",
+    "proportional_population": "proportional_scaling",
+    "proportional_quantity": "proportional_scaling",
+    "publication_founder_birthdate": "creator_birthdate",
+    "radix_conversion": "radix_conversion",
+    "ratio_difference_total": "ratio_allocation",
+    "ratio_share_payment": "ratio_allocation",
+    "ratio_total_allocation": "ratio_allocation",
+    "ratio_total_difference": "ratio_allocation",
+    "ratio_unit_total": "ratio_allocation",
+    "recurring_distance": "recurring_quantity",
+    "recurring_duration": "recurring_quantity",
+    "recurring_fixed_variable_cost": "recurring_profit",
+    "recurring_ingredient_cost": "recurring_quantity",
+    "recurring_material_cost": "recurring_quantity",
+    "recurring_material_quantity": "recurring_quantity",
+    "recurring_out_of_pocket": "recurring_profit",
+    "recurring_output": "recurring_quantity",
+    "recurring_output_pay": "recurring_quantity",
+    "recurring_profit": "recurring_profit",
+    "recurring_service_material": "recurring_profit",
+    "recurring_unit_cost": "recurring_quantity",
+    "recurring_wage_total": "recurring_quantity",
+    "relative_age": "relative_age_algebra",
+    "relative_age_difference": "relative_age_algebra",
+    "relative_age_residual": "relative_age_algebra",
+    "relative_age_time": "relative_age_algebra",
+    "relative_basket_cost": "weighted_sum",
+    "relative_birth_year": "relative_age_algebra",
+    "relative_budget_total": "relative_count_algebra",
+    "relative_coin_value": "relative_count_algebra",
+    "relative_consumption_total": "relative_count_algebra",
+    "relative_cost_sum": "relative_count_algebra",
+    "relative_counts_difference": "relative_count_algebra",
+    "relative_counts_fraction": "relative_count_algebra",
+    "relative_counts_mean": "relative_count_algebra",
+    "relative_counts_share": "relative_count_algebra",
+    "relative_counts_sum": "relative_count_algebra",
+    "relative_counts_transform": "relative_count_algebra",
+    "relative_counts_weighted": "relative_count_algebra",
+    "relative_duration_sum": "relative_count_algebra",
+    "relative_fraction_remainder": "fraction_remainder",
+    "relative_inventory_balance": "inventory_balance",
+    "relative_inventory_difference": "relative_count_algebra",
+    "relative_inventory_remainder": "relative_count_algebra",
+    "relative_replacement_balance": "inventory_balance",
+    "relative_speed_time": "work_rate",
+    "relative_target_excess": "relative_count_algebra",
+    "relative_total_residual": "relative_count_algebra",
+    "remaining_work_time": "work_rate",
+    "residual_denomination_count": "equal_partition",
+    "residual_equal_partition": "equal_partition",
+    "residual_equal_share": "equal_partition",
+    "residual_inventory_used": "inventory_balance",
+    "residual_purchase_quantity": "equal_partition",
+    "resource_duration": "resource_rate",
+    "reverse_bill_quantity": "equal_partition",
+    "reverse_discount_bill": "inverse_percentage_price",
+    "reverse_inventory": "inventory_balance",
+    "round_trip_time": "round_trip",
+    "route_place_county": "county_bridge",
+    "run_length_encoding": "run_length",
+    "same_affiliation": "affiliation_predicate",
+    "same_country": "country_predicate",
+    "same_genre": "genre_predicate",
+    "same_nationality": "country_predicate",
+    "same_occupation": "occupation_predicate",
+    "same_taxonomic_rank": "group_taxonomy",
+    "savings_accumulation": "resource_rate",
+    "savings_target_time": "resource_rate",
+    "sequential_fraction_remainder": "sequential_fraction",
+    "sequential_fraction_revenue": "sequential_fraction",
+    "sequential_fraction_wages": "sequential_fraction",
+    "set_equality": "set_uniqueness",
+    "set_intersection": "set_uniqueness",
+    "set_unique": "set_uniqueness",
+    "set_uniqueness": "set_uniqueness",
+    "shared_country": "country_predicate",
+    "shared_employer": "affiliation_predicate",
+    "shared_genre": "genre_predicate",
+    "shared_group_type": "group_taxonomy",
+    "shared_institution": "affiliation_predicate",
+    "shared_location": "location_predicate",
+    "shared_occupation": "occupation_predicate",
+    "shared_taxonomic_rank": "group_taxonomy",
+    "shared_type": "type_predicate",
+    "signed_digit_predicate": "signed_digit_rule",
+    "singleton_frequency_filter": "set_uniqueness",
+    "stable_digit_sum_sort": "signed_digit_rule",
+    "successive_discount_amount": "successive_discount",
+    "successive_discount_comparison": "successive_discount",
+    "successive_discounts": "successive_discount",
+    "successive_invoice_discount": "successive_discount",
+    "unit_conversion": "proportional_scaling",
+    "unit_price_savings": "price_difference",
+    "venue_county": "county_bridge",
+    "venue_location": "event_location",
+    "vowel_count": "vowel_scan",
+    "vowel_filter": "vowel_scan",
+    "wage_difference": "overtime_wages",
+    "wage_minus_spending": "recurring_profit",
+    "wage_total": "recurring_quantity",
+    "weighted_consumption": "weighted_sum",
+    "weighted_distribution": "weighted_sum",
+    "weighted_duration": "weighted_sum",
+    "weighted_event_outcome": "weighted_sum",
+    "weighted_fraction_total": "weighted_sum",
+    "weighted_height": "weighted_sum",
+    "weighted_part_cost": "weighted_sum",
+    "weighted_part_count": "weighted_sum",
+    "weighted_part_failure": "weighted_sum",
+    "weighted_recurring_duration": "recurring_quantity",
+    "weighted_vehicle_parts": "weighted_sum",
+    "weighted_wage_savings": "recurring_profit",
+    "weighted_win_count": "weighted_sum",
+    "whitespace_run_replace": "run_length",
+    "work_adaptation": "work_source",
+    "work_author": "work_creator",
+    "work_author_institution": "person_institution",
+    "work_composer": "work_creator",
+    "work_creator": "work_creator",
+    "work_creator_birthdate": "creator_birthdate",
+    "work_creator_institution": "person_institution",
+    "work_developer": "work_creator",
+    "work_director": "work_creator",
+    "work_narrator_birthdate": "creator_birthdate",
+    "work_performer_birthdate": "creator_birthdate",
+    "work_producer": "work_creator",
+    "work_role_actor": "work_cast_role",
+    "work_voice": "work_cast_role"
+  },
+  "collection_ready": false,
+  "exclusions": [
+    {
+      "episode_id": "gsm8k:train/7019",
+      "kind": "prompt_or_key_defect",
+      "reason": "Increase by 1.5 versus increase to 1.5 times is not specified; the key chooses 2.5 times."
+    },
+    {
+      "episode_id": "gsm8k:train/1777",
+      "kind": "prompt_or_key_defect",
+      "reason": "Donation count mixes discarded floats, bundled balls and individual donations; the key assumes an unstated counting convention."
+    },
+    {
+      "episode_id": "gsm8k:test/984",
+      "kind": "prompt_or_key_defect",
+      "reason": "Plant width, gap distance and endpoint placement are inconsistent with the key using 111/1.5 plants."
+    },
+    {
+      "episode_id": "gsm8k:train/1350",
+      "kind": "prompt_or_key_defect",
+      "reason": "The remainder is said to become caterpillars, while the key sells it as butterflies."
+    },
+    {
+      "episode_id": "gsm8k:train/486",
+      "kind": "prompt_or_key_defect",
+      "reason": "A weekly daily average needs weekend rainfall or a five-day denominator; the key silently uses five."
+    },
+    {
+      "episode_id": "gsm8k:train/2150",
+      "kind": "prompt_or_key_defect",
+      "reason": "The egg quantities can be read per person or collectively; the key assumes collective counts."
+    },
+    {
+      "episode_id": "gsm8k:train/7337",
+      "kind": "prompt_or_key_defect",
+      "reason": "Times more has two conventional readings; no explicit additive or multiplicative definition."
+    },
+    {
+      "episode_id": "gsm8k:train/4014",
+      "kind": "prompt_or_key_defect",
+      "reason": "Removing shampoo from a mixed bottle also removes hot sauce; the key retains all previously added sauce without stating separation."
+    },
+    {
+      "episode_id": "gsm8k:train/2755",
+      "kind": "prompt_or_key_defect",
+      "reason": "Times more has two conventional readings; no explicit additive or multiplicative definition."
+    },
+    {
+      "episode_id": "gsm8k:train/7072",
+      "kind": "prompt_or_key_defect",
+      "reason": "Three times older is inconsistent with common three-times-as-old reading; the key uses four times age."
+    },
+    {
+      "episode_id": "gsm8k:train/3233",
+      "kind": "prompt_or_key_defect",
+      "reason": "Mean per-bag percentage and pooled kernel percentage differ; weighting is not specified."
+    },
+    {
+      "episode_id": "gsm8k:train/5083",
+      "kind": "prompt_or_key_defect",
+      "reason": "Equal alternating bids and whether the initial bid is counted are unstated."
+    },
+    {
+      "episode_id": "gsm8k:train/5214",
+      "kind": "prompt_or_key_defect",
+      "reason": "The stated car counts imply 120 dogs after selling from 90 dogs; constraints contradict."
+    },
+    {
+      "episode_id": "gsm8k:train/2966",
+      "kind": "prompt_or_key_defect",
+      "reason": "The dosing window does not specify whether both endpoints are counted; key chooses three doses."
+    },
+    {
+      "episode_id": "gsm8k:train/5469",
+      "kind": "prompt_or_key_defect",
+      "reason": "Eight brown candies in the third and fourth bags can mean each or combined."
+    },
+    {
+      "episode_id": "gsm8k:train/3425",
+      "kind": "prompt_or_key_defect",
+      "reason": "Increased three times does not unambiguously define final multiplier versus additive increase."
+    },
+    {
+      "episode_id": "gsm8k:train/537",
+      "kind": "prompt_or_key_defect",
+      "reason": "Times more and converting workweeks to a month both require unstated conventions."
+    },
+    {
+      "episode_id": "gsm8k:train/7390",
+      "kind": "prompt_or_key_defect",
+      "reason": "Three times older versus three times as old changes the age equation."
+    },
+    {
+      "episode_id": "gsm8k:train/6831",
+      "kind": "prompt_or_key_defect",
+      "reason": "The third guess is 200 less than itself, a contradiction."
+    },
+    {
+      "episode_id": "gsm8k:train/4824",
+      "kind": "prompt_or_key_defect",
+      "reason": "Running, playing and barking categories are not stated to be disjoint."
+    },
+    {
+      "episode_id": "gsm8k:train/394",
+      "kind": "prompt_or_key_defect",
+      "reason": "Five crackers versus five two-cracker sandwiches changes consumption by a factor of two."
+    },
+    {
+      "episode_id": "gsm8k:train/2234",
+      "kind": "prompt_or_key_defect",
+      "reason": "The second spending fraction can apply to original earnings or the remaining money."
+    },
+    {
+      "episode_id": "gsm8k:train/4473",
+      "kind": "prompt_or_key_defect",
+      "reason": "Other pairwise intersections and inclusion of the three-way overlap in the pairwise count are unspecified."
+    },
+    {
+      "episode_id": "gsm8k:train/5834",
+      "kind": "prompt_or_key_defect",
+      "reason": "Thirty-nine cars can mean all cars or front-lot cars; key assumes front lot."
+    },
+    {
+      "episode_id": "gsm8k:train/6943",
+      "kind": "prompt_or_key_defect",
+      "reason": "Lisa and Leslie are different names; the necessary shared-person assumption is unstated."
+    },
+    {
+      "episode_id": "gsm8k:train/2364",
+      "kind": "prompt_or_key_defect",
+      "reason": "Strict mean above 75 requires absent score above 27, not 27; integer-score minimum would be 28."
+    },
+    {
+      "episode_id": "gsm8k:train/6327",
+      "kind": "prompt_or_key_defect",
+      "reason": "Salary and allowance increases may overlap; key assumes disjoint categories."
+    },
+    {
+      "episode_id": "gsm8k:train/4407",
+      "kind": "prompt_or_key_defect",
+      "reason": "Month length and whether the stated 20 members include Reese are unspecified."
+    },
+    {
+      "episode_id": "gsm8k:test/690",
+      "kind": "prompt_or_key_defect",
+      "reason": "Times more has two conventional readings; no explicit additive or multiplicative definition."
+    },
+    {
+      "episode_id": "gsm8k:train/3833",
+      "kind": "prompt_or_key_defect",
+      "reason": "Using decorative candles does not establish removal from the room; key counts unused candles."
+    },
+    {
+      "episode_id": "gsm8k:train/570",
+      "kind": "prompt_or_key_defect",
+      "reason": "Money put into pond is 225 cents; key answers the remaining balance of 200."
+    },
+    {
+      "episode_id": "gsm8k:train/3491",
+      "kind": "prompt_or_key_defect",
+      "reason": "Twelve cups of both can mean twelve total or twelve of each; key chooses each."
+    },
+    {
+      "episode_id": "humaneval:HumanEval/149",
+      "kind": "prompt_or_key_defect",
+      "reason": "Specification promises equal word lengths while examples and hidden tests use unequal lengths and an alternate function name."
+    },
+    {
+      "episode_id": "humaneval:HumanEval/21",
+      "kind": "prompt_or_key_defect",
+      "reason": "At least two values does not exclude all-equal inputs; no linear transform can map their shared minimum to zero and maximum to one."
+    },
+    {
+      "episode_id": "humaneval:HumanEval/116",
+      "kind": "prompt_or_key_defect",
+      "reason": "Examples sort by numeric value, contradicting popcount order and hidden tests; negative examples also contradict the nonnegative domain."
+    },
+    {
+      "episode_id": "hotpotqa:5ac2583b55429951e9e68565",
+      "kind": "prompt_or_key_defect",
+      "reason": "Undefined profession-scope comparison; frozen evidence gives Hutton two professions and Zulawski one, contrary to keyed answer."
+    },
+    {
+      "episode_id": "hotpotqa:5adf32165542993344016c15",
+      "kind": "prompt_or_key_defect",
+      "reason": "No operational measure of fame; an exact-answer grader cannot justify a unique quantitative comparison from these descriptions."
+    },
+    {
+      "episode_id": "hotpotqa:5abbf698554299114383a0b5",
+      "kind": "prompt_or_key_defect",
+      "reason": "The question assigns a WWII deployment to a jet introduced in 1951; the frozen squadron paragraph refers to different wars."
+    },
+    {
+      "episode_id": "hotpotqa:5a81d51a55429903bc27b9d2",
+      "kind": "prompt_or_key_defect",
+      "reason": "The subject is a New York place rather than the actor required by the evidence chain."
+    },
+    {
+      "episode_id": "hotpotqa:5ae347fb5542992e3233c368",
+      "kind": "prompt_or_key_defect",
+      "reason": "Question asks for the reelected politician and defeated incumbent, but the exact key contains only the incumbent."
+    },
+    {
+      "episode_id": "hotpotqa:5a9068075542990a9849361a",
+      "kind": "prompt_or_key_defect",
+      "reason": "An unrestricted request for a difference admits many supported answers while the key accepts one sentence fragment."
+    },
+    {
+      "episode_id": "hotpotqa:5a87f3cb5542994846c1ce03",
+      "kind": "prompt_or_key_defect",
+      "reason": "The question is missing the predicate connecting the radiologist to the conditions."
+    },
+    {
+      "episode_id": "hotpotqa:5ab98d70554299753720f82f",
+      "kind": "prompt_or_key_defect",
+      "reason": "An unrestricted common-action question is keyed to the isolated word founded; other descriptions can satisfy it."
+    },
+    {
+      "episode_id": "hotpotqa:5ae358c05542990afbd1e10f",
+      "kind": "prompt_or_key_defect",
+      "reason": "Year 972 in the question contradicts the 1972 event in frozen evidence."
+    },
+    {
+      "episode_id": "hotpotqa:5ac3c08a5542995ef918c217",
+      "kind": "prompt_or_key_defect",
+      "reason": "McClure hosts several named programs; the question does not select a unique series or cast."
+    },
+    {
+      "episode_id": "hotpotqa:5ade6acf554299728e26c71a",
+      "kind": "prompt_or_key_defect",
+      "reason": "Creative titles is undefined between professional roles and works; key implicitly counts roles."
+    },
+    {
+      "episode_id": "gsm8k:train/1580",
+      "kind": "prompt_or_key_defect",
+      "reason": "Two times more green flowers permits additive or multiplicative readings; the red-flower key assumes one without defining it."
+    },
+    {
+      "episode_id": "authored-20260911:utf8_validation",
+      "reason": "EXCLUDE with quoted_bytes and armored_records: strict UTF-8 decode is an explicit shared required subroutine across coding and tools."
+    },
+    {
+      "episode_id": "authored-20260911:quoted_bytes",
+      "reason": "EXCLUDE in UTF-8 component; escaping wrapper does not remove required strict UTF-8 decoder overlap."
+    },
+    {
+      "episode_id": "authored-20260911:armored_records",
+      "reason": "EXCLUDE in UTF-8 component; armor/base64 wrapper does not remove shared strict UTF-8 decoder. Fenced-block parsing also resembles old heading extraction."
+    },
+    {
+      "episode_id": "authored-20260911:path_segments",
+      "reason": "EXCLUDE with symbolic_links and old documentation-link audit: relative path interpretation and dot-segment normalization are shared required path resolution operations."
+    },
+    {
+      "episode_id": "authored-20260911:symbolic_links",
+      "reason": "EXCLUDE in path component; link recursion adds work but explicitly reuses the path normalization contract."
+    },
+    {
+      "episode_id": "authored-20260911:calendar_slots",
+      "reason": "EXCLUDE with old predicate-filter component: emitting entries satisfying component/range predicates is the same filtering template."
+    },
+    {
+      "episode_id": "authored-20260911:transport_text",
+      "reason": "EXCLUDE against atomic text substitution: ordered literal replacements are required core logic despite added initial-BOM condition."
+    },
+    {
+      "episode_id": "authored-20260911:range_tombstones",
+      "reason": "EXCLUDE against latest-per-key storage selection: visibility wrapper still selects highest sequence surviving values."
+    },
+    {
+      "episode_id": "authored-20260911:fenced_writes",
+      "reason": "EXCLUDE against latest-per-key and range_tombstones: monotonically accepted generation/value updates reuse the maximum-version selection core."
+    },
+    {
+      "episode_id": "authored-20260911:seat_apportionment",
+      "reason": "EXCLUDE against ratio allocation: proportional quota calculation is a required subroutine; remainder awards do not erase cross-family overlap."
+    },
+    {
+      "episode_id": "authored-20260911:coin_optimum",
+      "reason": "EXCLUDE with quota_reclamation and test_set_cover: conservatively connect minimum-cost integer covering variants across coding and agents rather than count objective/constraint variations independently."
+    },
+    {
+      "episode_id": "authored-20260911:quota_reclamation",
+      "reason": "EXCLUDE in integer covering component; bounded loss-minimizing subset selection is related to minimum-coin and weighted set-cover optimization."
+    },
+    {
+      "episode_id": "authored-20260911:test_set_cover",
+      "reason": "EXCLUDE in integer covering component; changed coverage constraints do not justify independent cross-family counts here."
+    },
+    {
+      "episode_id": "authored-20260911:style_runs",
+      "reason": "EXCLUDE against old run-length codec: maximal adjacent equal-attribute runs reuse consecutive-run segmentation despite rendering context."
+    },
+    {
+      "episode_id": "authored-20260911:chunked_payload",
+      "reason": "Excluded redundant representative of the reviewed wire-label/chunk-framing component. Keep wire_labels (which includes malformed cases) to minimize added rows; the dependence edge remains and this row cannot later be counted independently."
+    }
+  ],
+  "extension_review_sha256": "ac8199a95586190578d46e65e47e78f3e9da35ed7ee7f828e51f45d8d6b1e18f",
+  "input_sha256": "c838edd20fa65baa7a8209ca672ce59ee72b7becb8c31d8192f9100bf34d32c3",
+  "ledger_sha256": "987d5c2de1d371040e1dc3b5d9f96952290ec0c25744aa36c490a39026ce191f",
+  "legacy_sha256": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f",
+  "limitations": [
+    "Review is a complete row census with mechanistic pooling and all-corpus retrieval support; it is not manual inspection of every one of the 997578 possible row pairs.",
+    "No second independent reviewer or model pretraining provenance is available. Public benchmark exposure cannot be ruled out.",
+    "Mechanism taxonomy is judgmental. Report source-level and cross-family stress groupings as sensitivity, not new independent observations.",
+    "Exclusions and regrouping may empty family/split cells. Do not refill from previously exposed rows or claim a powered five-family test.",
+    "No model performance outcomes informed review. No provider calls or native tau2 adapter were added.",
+    "Full semantic correctness of all source answer keys and every possible code input is not certified by this independence review."
+  ],
+  "pooling_rule": "Within each workload family, pool the same manually classified mechanism after explicit alias normalization; preserve every v1 component and take transitive closure. This is conservative solution-template grouping, not proof of dependence. Components touching legacy rows are development-only. Cross-family components are excluded rather than passed to a family-independent bootstrap.",
+  "resolved_flags": [
+    {
+      "decision": "retain_with_frozen_context",
+      "episode_id": "hotpotqa:5a84bbb35542991dd0999dc0",
+      "reason": "The only mother/daughter pair in frozen evidence explicitly shares Malayalam movies."
+    },
+    {
+      "decision": "retain_with_frozen_context",
+      "episode_id": "hotpotqa:5a90629855429916514e749e",
+      "reason": "Frozen evidence connects oil-derived reserves to terrorist risk against North Sea platforms; interpretation is constrained to that snapshot."
+    },
+    {
+      "decision": "retain_with_frozen_context",
+      "episode_id": "hotpotqa:5a75377c55429929fddd8514",
+      "reason": "Frozen documents supply exactly one American player to team link, Adelaide Lightning."
+    },
+    {
+      "decision": "retain_with_frozen_context",
+      "episode_id": "hotpotqa:5ae7f7d85542994a481bbe52",
+      "reason": "The queried date and label are explicitly supported by the frozen War Is the Answer paragraph. This is snapshot comprehension, not verification of current world facts."
+    },
+    {
+      "episode_id": "authored-20260911:cache_lru",
+      "reason": "Compare prior stable uniqueness and sliding windows: recency-changing hits and eviction order require cache state absent from those set/average templates."
+    },
+    {
+      "episode_id": "authored-20260911:graph_scc",
+      "reason": "Compare topological layers and new shortest paths: mutual reachability partitions cycles rather than rejecting cycles or optimizing a distance."
+    },
+    {
+      "episode_id": "authored-20260911:weighted_routes",
+      "reason": "Compare old lexicographic grid walk and topological layers: weighted path relaxation has a distinct objective and state from either."
+    },
+    {
+      "episode_id": "authored-20260911:capacity_flow",
+      "reason": "Compare shortest paths and new stable matching: residual capacities and conservation optimize throughput; preference stability and shortest distance are different solution structures."
+    },
+    {
+      "episode_id": "authored-20260911:edit_distance",
+      "reason": "Compare palindrome edit count and wildcard match: global minimum alignment allows insertions and deletions; mirrored mismatch counting and Boolean wildcard acceptance cannot be reused as its solver."
+    },
+    {
+      "episode_id": "authored-20260911:convex_hull",
+      "reason": "Compare triangle area, matrix coordinate sort and new perspective division: ordered geometric envelope via orientation is distinct from a scalar area or projecting each point independently."
+    },
+    {
+      "episode_id": "authored-20260911:lzw_dictionary",
+      "reason": "Compare old run-length codec: adaptive phrase dictionary emits across nonconsecutive repeats; run segmentation and counts cannot implement LZW."
+    },
+    {
+      "episode_id": "authored-20260911:wildcard_match",
+      "reason": "Compare escaped delimiters, prefix filtering and new edit distance: variable-width wildcard acceptance over the full input is distinct from token splitting and minimum-cost edit alignment."
+    },
+    {
+      "episode_id": "authored-20260911:instruction_machine",
+      "reason": "Compare old expression evaluation and new breaker recovery: branch targets, mutable registers and fuel produce general instruction control flow; neither arithmetic expression evaluation nor a fixed breaker transition table is its solution."
+    },
+    {
+      "episode_id": "authored-20260911:stable_matching",
+      "reason": "Compare max flow and scheduling: preference-ranked deferred acceptance with rejection chains differs from capacity or prerequisite feasibility."
+    },
+    {
+      "episode_id": "authored-20260911:continued_config",
+      "reason": "Compare old recursive overlay, validation and multipart envelopes: continued physical lines reconstruct a logical value; no recursive merge, schema partition or multipart body framing is required."
+    },
+    {
+      "episode_id": "authored-20260911:permission_bits",
+      "reason": "Compare binary string XOR, radix rendering, network blocks and endian decode: per-position permission-bit projection is not XOR between strings, prefix range calculation or signed integer decoding."
+    },
+    {
+      "episode_id": "authored-20260911:wire_labels",
+      "reason": "POOL with chunked_payload: length-prefixed cursor advancement, payload extraction, termination and truncation rejection are shared despite different length encodings and delimiters."
+    },
+    {
+      "episode_id": "authored-20260911:terminal_overwrite",
+      "reason": "Compare old literal substitution, style runs and pen plotter: cursor overwrite with nondeleting CR/BS differs from substring replacement, adjacent-run segmentation and planar movement."
+    },
+    {
+      "episode_id": "authored-20260911:context_patch",
+      "reason": "Compare old nested JSON patch and literal substitution: positional hunks verified against immutable original coordinates with all-or-nothing context acceptance require a different edit protocol."
+    },
+    {
+      "episode_id": "authored-20260911:table_transpose",
+      "reason": "Compare old CSV join/filter and matrix coordinate sorting: fixed axis exchange preserves every cell without relational matching, filtering or coordinate selection."
+    },
+    {
+      "episode_id": "authored-20260911:multipart_envelopes",
+      "reason": "Compare fenced-heading extraction and continued config: header/body sections and boundary termination are a distinct grammar; heading extraction only tracks fenced visibility. No assertion that all parsers have independent errors."
+    },
+    {
+      "episode_id": "authored-20260911:sheet_literal_cells",
+      "reason": "Compare escaped delimiters and literal substitution: formula-risk prefix guarding preserves the original whole cell; it does not tokenize escaped separators or replace matched substrings."
+    },
+    {
+      "episode_id": "authored-20260911:network_blocks",
+      "reason": "Compare permission bits and radix conversion: address-prefix mask plus complement determine network extrema; per-octal-digit flags and numeral rendering do not solve this contract."
+    },
+    {
+      "episode_id": "authored-20260911:canonical_unicode",
+      "reason": "Compare alphabet transforms, UTF-8 and transport text: NFC canonical composition differs from encoded-byte validity, fixed substitutions or ASCII case transforms. Familiar Unicode examples remain a pretraining risk."
+    },
+    {
+      "episode_id": "authored-20260911:clock_fold",
+      "reason": "Compare elapsed-clock and piecewise-rate arithmetic: enumerate multiple inverse mappings of a discontinuous clock, including missing/ambiguous local times; no single duration/rate answer suffices."
+    },
+    {
+      "episode_id": "authored-20260911:three_value_logic",
+      "reason": "Compare predicate filtering and universal thresholds: explicit Kleene truth tables preserve unknown rather than Boolean inclusion decisions. Primitive Boolean operations alone are not a dependence edge."
+    },
+    {
+      "episode_id": "authored-20260911:serial_numbers",
+      "reason": "Compare modular arithmetic and maximum selection: half-range cyclic order has ambiguity and wraparound, unlike ordinary order or modular exponentiation/product."
+    },
+    {
+      "episode_id": "authored-20260911:pen_plotter",
+      "reason": "Compare old route-distance sums and terminal cursor: evolving heading determines signed 2D position and extents; a scalar distance sum or one-line overwrite cannot solve it."
+    },
+    {
+      "episode_id": "authored-20260911:committed_journal",
+      "reason": "Compare chronological override, inventory and new OR-set: transaction buffering and atomic commit/abort visibility are distinct from last-message overwrite and tag tombstones."
+    },
+    {
+      "episode_id": "authored-20260911:deficit_scheduler",
+      "reason": "Compare logical/topological scheduling and token bucket: queue-local credits, head-of-line service and round progression differ from precedence constraints and time-based admission."
+    },
+    {
+      "episode_id": "authored-20260911:replicated_commit",
+      "reason": "Compare latest-per-key and quorum witness: term-qualified majority replication establishes an index; selecting a latest record or showing quorum-set intersection does not implement majority acknowledgement by log prefix."
+    },
+    {
+      "episode_id": "authored-20260911:causal_versions",
+      "reason": "Compare latest timestamps and predicate filtering: componentwise vector-clock partial order must distinguish concurrency from equality and before; scalar recency cannot do so."
+    },
+    {
+      "episode_id": "authored-20260911:quorum_witness",
+      "reason": "Compare replicated commit and old combinatorial/group-algebra rows: disjoint-set witness for arbitrary read/write subsets establishes intersection guarantee, distinct from a concrete replicated-prefix count."
+    },
+    {
+      "episode_id": "authored-20260911:observed_remove",
+      "reason": "Compare old set uniqueness and journal: persistent observed-tag tombstones with out-of-order adds and concurrent surviving tags are material new state, not simple duplicate removal."
+    },
+    {
+      "episode_id": "authored-20260911:automaton_minimize",
+      "reason": "Compare new SCC and finite-state simulations: language-equivalence partition refinement is different from reachability, graph cycles and executing one event trace."
+    },
+    {
+      "episode_id": "authored-20260911:archive_inverse",
+      "reason": "Compare LZW/run-length/block-cyclic decode: global sorted-rotation reconstruction of BWT differs from dictionary compression, run expansion or fixed-position character cycling."
+    },
+    {
+      "episode_id": "authored-20260911:prefix_archive",
+      "reason": "Compare old stable argmin and LZW: weighted prefix-tree construction and code assignment are distinct from single argmin selection and adaptive phrase dictionaries. Generic sorting is not treated as a template edge."
+    },
+    {
+      "episode_id": "authored-20260911:optimal_wrap",
+      "reason": "Compare word sorting and integer covering: ordered contiguous line segmentation with last-line exception and slack-squared objective differs from choosing unordered subsets/coin counts."
+    },
+    {
+      "episode_id": "authored-20260911:avl_insertion",
+      "reason": "Compare bounded binary search, topological layers and SCC: insertion changes a tree through balance-driven rotations; lookup in a static sorted array and graph partitioning have no shared required solver."
+    },
+    {
+      "episode_id": "authored-20260911:escrow_reservations",
+      "reason": "Compare inventory replenishment/bounded transfer and journal: ID-specific reserve/commit/cancel transitions with replay rejection are the core, not a reorder quantity or transaction write visibility."
+    },
+    {
+      "episode_id": "authored-20260911:record_layout",
+      "reason": "Compare batch ceiling and matrix-index arithmetic: sequential alignment at field-specific moduli plus final structure alignment differs from a single homogeneous capacity ceiling. Rounding primitives alone are not a dependence edge."
+    },
+    {
+      "episode_id": "authored-20260911:token_admission",
+      "reason": "Compare bounded inventory transfer and deficit scheduler: refill at elapsed time capped at capacity plus reject-without-consumption differs from static transfer totals and queue-round service."
+    },
+    {
+      "episode_id": "authored-20260911:breaker_recovery",
+      "reason": "Compare token admission and instruction machine: consecutive-failure trip, cooldown, half-open probe and recovery depend on outcomes; token accounting and general interpreted branches are different contracts."
+    },
+    {
+      "episode_id": "authored-20260911:dependency_resolution",
+      "reason": "Compare old deployment readiness and semantic version reference: root/transitive finite range constraints require global assignment, not checking existing flags or recalling compatible version rules. Versions are explicit integer ranges."
+    },
+    {
+      "episode_id": "authored-20260911:endian_registers",
+      "reason": "Compare radix rendering, binary XOR and permission bits: byte-order interpretation with signed two-complement adjustment is a different representation contract."
+    },
+    {
+      "episode_id": "authored-20260911:delta_varints",
+      "reason": "Compare length framing, radix conversion and UTF-8: continuation bits accumulate a variable-length integer followed by zigzag/delta reconstruction; payload-length cursor slicing and scalar-character decoding are distinct."
+    },
+    {
+      "episode_id": "authored-20260911:column_type_inference",
+      "reason": "Compare record validation/migration: type-lattice joins across a column with bool/int distinction differ from rejecting rows or applying a known field schema."
+    },
+    {
+      "episode_id": "authored-20260911:hardlink_lifecycle",
+      "reason": "Compare file manifest, contact deduplication and reservations: many names alias persistent inode identity, and reclamation occurs on last unlink; content deduplication and reserved quantities cannot substitute."
+    },
+    {
+      "episode_id": "authored-20260911:web_origin_comparison",
+      "reason": "Compare record filtering/URL path audit: tuple equivalence after scheme/host/default-port normalization is a different specific predicate from prior column or substring filters; produces comparison booleans rather than filtered records."
+    },
+    {
+      "episode_id": "authored-20260911:perspective_projection",
+      "reason": "Compare convex hull and area tasks: camera-space depth division and axis inversion are pointwise projection, not an orientation/envelope or polygon-area calculation."
+    },
+    {
+      "episode_id": "authored-20260911:banker_safety",
+      "reason": "Compare topological layers and replenishment: changing multi-resource availability after hypothetical process completion determines safety; static dependency edges and reorder targets do not solve it."
+    },
+    {
+      "episode_id": "authored-20260911:term_unification",
+      "reason": "Compare nested lookup/overlay and package constraints: substitution propagation with occurs-check on recursive symbolic terms differs from fetching or merging keys and finite version assignment."
+    },
+    {
+      "episode_id": "authored-20260911:cellular_step",
+      "reason": "Compare matrix transposition and scalar recurrences: simultaneous local neighbor transition across a 2D lattice differs from axis permutation and a one-dimensional scalar recurrence. Public Game-of-Life familiarity remains a limitation."
+    },
+    {
+      "episode_id": "authored-20260911:residual_quantizer",
+      "reason": "Compare decimal money rounding and prefix sums: error feedback makes each later quantization depend on previous residual; independent decimal rounding and accumulated totals do not implement the recurrence."
+    },
+    {
+      "episode_id": "authored-20260911:disk_look_schedule",
+      "reason": "Compare logical scheduling and alternating extrema sorting: directional nearest service pivots around current head and reverses only after exhausting a side; no prerequisite relation or alternating extrema rule is shared."
+    }
+  ],
+  "review_complete": true,
+  "reviewer": "Codex same author, direct qualitative review; no independent second reviewer",
+  "version": "authored-extension-review-20260911-v3"
+}

@@ -1,0 +1,15 @@
+{
+  "all_original_search_document_titles_disjoint": true,
+  "code_executed": false,
+  "code_reference_and_test_ast_checks": 163,
+  "model_calls": 0,
+  "production_changed": false,
+  "real_sandbox_available": false,
+  "rows_checked": 1163,
+  "schema_valid": true,
+  "search_fixture_service_checks": 500,
+  "semantic_independence_certified": false,
+  "source_file_checksums_verified": 18,
+  "source_provenance_present": true,
+  "text_grader_correct_and_wrong_answer_checks": 1000
+}

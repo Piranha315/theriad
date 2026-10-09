@@ -1,0 +1,89 @@
+{
+  "all_family_schema_eligible": false,
+  "candidate_rows_reviewed": 1213,
+  "classification_records": 1413,
+  "collection_ready": false,
+  "cross_family_excluded_rows": 17,
+  "development_only_prior_overlap_rows": 276,
+  "empty_family_split_cells": [
+    "tools/pilot",
+    "tools/calibration",
+    "agents/smoke"
+  ],
+  "excluded_rows": 63,
+  "explicit_prompt_or_key_exclusions": 47,
+  "groups_by_family_split": {
+    "agents": {
+      "calibration": 1,
+      "pilot": 1,
+      "smoke": 0,
+      "test": 1,
+      "threshold_selection": 2,
+      "train": 2
+    },
+    "chat": {
+      "calibration": 25,
+      "pilot": 13,
+      "smoke": 8,
+      "test": 21,
+      "threshold_selection": 20,
+      "train": 85
+    },
+    "coding": {
+      "calibration": 16,
+      "pilot": 6,
+      "smoke": 4,
+      "test": 10,
+      "threshold_selection": 19,
+      "train": 46
+    },
+    "search": {
+      "calibration": 46,
+      "pilot": 16,
+      "smoke": 8,
+      "test": 44,
+      "threshold_selection": 40,
+      "train": 162
+    },
+    "tools": {
+      "calibration": 0,
+      "pilot": 0,
+      "smoke": 1,
+      "test": 1,
+      "threshold_selection": 1,
+      "train": 2
+    }
+  },
+  "input_sha256": "c838edd20fa65baa7a8209ca672ce59ee72b7becb8c31d8192f9100bf34d32c3",
+  "legacy_rows_reviewed": 200,
+  "legacy_sha256": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f",
+  "limitations": [
+    "Review is a complete row census with mechanistic pooling and all-corpus retrieval support; it is not manual inspection of every one of the 997578 possible row pairs.",
+    "No second independent reviewer or model pretraining provenance is available. Public benchmark exposure cannot be ruled out.",
+    "Mechanism taxonomy is judgmental. Report source-level and cross-family stress groupings as sensitivity, not new independent observations.",
+    "Exclusions and regrouping may empty family/split cells. Do not refill from previously exposed rows or claim a powered five-family test.",
+    "No model performance outcomes informed review. No provider calls or native tau2 adapter were added.",
+    "Full semantic correctness of all source answer keys and every possible code input is not certified by this independence review."
+  ],
+  "model_calls": 0,
+  "output_sha256": "a28e5c6ff9099dae1e87e238da5d8144e37c07b82e1a88ce47de4a18bc97dc8f",
+  "retained_groups": 601,
+  "retained_rows": 1150,
+  "review_complete": true,
+  "review_hash": "3ab67c1a6c74e1944497444f19e0052eabaa542190a94a65a9d4910f32f92d51",
+  "semantic_independence_certified": false,
+  "source_level_test_stress_pools": {
+    "agents": 1,
+    "chat": 2,
+    "coding": 1,
+    "search": 2,
+    "tools": 1
+  },
+  "source_stress_interpretation": "Extreme sensitivity with all test rows from the same source pooled. Not an estimate of effective sample size or a claim of perfect dependence.",
+  "split_moves": 450,
+  "test_review_groups": 77,
+  "test_rows": 78,
+  "test_rows_excluded": 9,
+  "test_rows_moved_earlier": 138,
+  "unadjudicated_rows": 0
+}

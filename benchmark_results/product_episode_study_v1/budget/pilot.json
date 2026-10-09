@@ -1,0 +1,70 @@
+{
+  "entries": [
+    {
+      "actual_cost_usd": 0.000437532,
+      "expected_trajectory_tokens": 0,
+      "expected_turns": 1,
+      "idempotency_key": "e4e4a03d08d8038a64847b160b731b8f4d11dbd4ddabe9f9887553e97672244f",
+      "max_trajectory_tokens": 0,
+      "max_turns": 12,
+      "maximum_cost_usd": 0.04720128000000001,
+      "model": "paired-product-episode",
+      "phase": "train",
+      "potential_api_calls": 12,
+      "reservation_id": "420b4971-3a4d-432c-bcf2-76d279df6d0d"
+    },
+    {
+      "actual_cost_usd": 3.4635e-05,
+      "expected_trajectory_tokens": 0,
+      "expected_turns": 1,
+      "idempotency_key": "54f721603105c00480d16bd6216096dec01869383de2001fd1a9c40474d21742",
+      "max_trajectory_tokens": 0,
+      "max_turns": 16,
+      "maximum_cost_usd": 0.16235264000000002,
+      "model": "paired-product-episode",
+      "phase": "train",
+      "potential_api_calls": 16,
+      "reservation_id": "8721515f-a693-4c04-bceb-36bff868c019"
+    },
+    {
+      "actual_cost_usd": 0.0009135699999999999,
+      "expected_trajectory_tokens": 0,
+      "expected_turns": 1,
+      "idempotency_key": "185d7c948253a2e6f5a5dca6d0973ae5be97f212469771c1c548e9d519af386e",
+      "max_trajectory_tokens": 0,
+      "max_turns": 4,
+      "maximum_cost_usd": 0.015733760000000003,
+      "model": "paired-product-episode",
+      "phase": "train",
+      "potential_api_calls": 4,
+      "reservation_id": "199990a1-77c3-4a9f-bbd6-bb32186316ae"
+    },
+    {
+      "actual_cost_usd": 0.001101348,
+      "expected_trajectory_tokens": 0,
+      "expected_turns": 1,
+      "idempotency_key": "56d6d1a6ca89ab21faf3a3530fb98edaaacca257bdc9b31dc5967a751324a415",
+      "max_trajectory_tokens": 0,
+      "max_turns": 24,
+      "maximum_cost_usd": 0.09440256000000002,
+      "model": "paired-product-episode",
+      "phase": "train",
+      "potential_api_calls": 24,
+      "reservation_id": "8fedeebb-baba-443d-a623-48f4dbb60026"
+    },
+    {
+      "actual_cost_usd": 4.3794999999999997e-05,
+      "expected_trajectory_tokens": 0,
+      "expected_turns": 1,
+      "idempotency_key": "a334375b4bf90e4e796c887bd6b4885d33466c043dd4859167c71df5967f198a",
+      "max_trajectory_tokens": 0,
+      "max_turns": 16,
+      "maximum_cost_usd": 0.06293504000000001,
+      "model": "paired-product-episode",
+      "phase": "train",
+      "potential_api_calls": 16,
+      "reservation_id": "a1a3768e-3d51-4e39-84f6-9e29334964b2"
+    }
+  ],
+  "version": 1
+}

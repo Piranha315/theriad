@@ -1,0 +1,15 @@
+{
+  "code_sandbox": {
+    "duration_ms": 66.08624994987622,
+    "executor_id": "router-v2.macos.sandbox-exec",
+    "policy_version": "router-v2-code-sandbox-v2-default-deny",
+    "returncode": 0,
+    "status": "passed",
+    "stderr": "----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n",
+    "stdout": "",
+    "timed_out": false
+  },
+  "provider_key_present": true,
+  "real_browser_backend_verified": false,
+  "timestamp": "2026-09-08T03:41:15.242415+00:00"
+}

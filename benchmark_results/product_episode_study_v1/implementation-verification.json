@@ -1,0 +1,13 @@
+{
+  "full_regression_suite_passed": 615,
+  "git_diff_check": "passed",
+  "historical_execution_attested_by_this_snapshot": false,
+  "latest_targeted_suite_passed": 44,
+  "new_report_regressions_passed": 1,
+  "report_reproduced_from_archived_source": true,
+  "report_sha256": "42ab5bede8b0f6f88289df6f46e66f4eff643a3ba232fc683b690a6086ebf312",
+  "ruff": "passed",
+  "scope": "Tests use provider doubles except the deny-by-default executable grader. Paid fixture smoke outcomes are separate; no live user HTTP or browser claim.",
+  "snapshot_captured_after_collection": true,
+  "snapshot_manifest_hash": "f949f4c8272c7720030933740080d35ddd697a7a7080520c390923983e2ee222"
+}

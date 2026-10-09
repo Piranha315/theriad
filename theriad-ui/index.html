@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://theriad.ai/" />
+    <link rel="describedby" type="text/markdown" href="/llms.txt" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Theriad previews the cost and tradeoff for each AI task, routes routine work to capable lower-cost models, and keeps premium models available when quality matters." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#080a12" />
+    <title>Theriad — Cost-aware AI model routing</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Theriad",
+        "url": "https://theriad.ai/",
+        "description": "Theriad previews the cost and tradeoff for each AI task, routes routine work to capable lower-cost models, and keeps premium models available when quality matters."
+      }
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Theriad" />
+    <meta property="og:title" content="Theriad — Cost-aware AI model routing" />
+    <meta property="og:description" content="Preview the cost and tradeoff for each AI task. Theriad routes routine work to capable lower-cost models and keeps premium models ready when quality matters." />
+    <meta property="og:url" content="https://theriad.ai/" />
+    <meta property="og:image" content="https://theriad.ai/theriad-hero-poster.jpg" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="934" />
+    <meta property="og:image:alt" content="Theriad — cost-aware AI model routing" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Theriad — Cost-aware AI model routing" />
+    <meta name="twitter:description" content="Preview the cost and tradeoff for each AI task. Theriad routes routine work to capable lower-cost models and keeps premium models ready when quality matters." />
+    <meta name="twitter:url" content="https://theriad.ai/" />
+    <meta name="twitter:image" content="https://theriad.ai/theriad-hero-poster.jpg" />
+    <meta name="twitter:image:width" content="1920" />
+    <meta name="twitter:image:height" content="934" />
+    <meta name="twitter:image:alt" content="Theriad — cost-aware AI model routing" />
+    <script>
+      // Theriad is dark-only. Set before first paint to avoid a flash.
+      document.documentElement.dataset.theme = 'dark';
+    </script>
+    <style>
+      /* Critical boot surface: this paints before the JS bundle, fonts, or
+         image assets arrive, so navigation never starts from a blank screen. */
+      .theriad-boot-shell {
+        display: grid;
+        min-height: 100vh;
+        place-content: center;
+        gap: 24px;
+        box-sizing: border-box;
+        padding: 20px;
+        color: #f7f5f0;
+        background: #080c16;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      .theriad-boot-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: min(100%, 432px);
+      }
+      .theriad-boot-mark {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid rgba(255, 194, 111, .42);
+        border-radius: 14px;
+        color: #ffc26f;
+        background: linear-gradient(135deg, rgba(255, 194, 111, .16), rgba(125, 157, 255, .12));
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .theriad-boot-brand {
+        margin: 0;
+        color: #ffc26f;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+      .theriad-boot-message {
+        margin: 5px 0 0;
+        color: #b7c2d5;
+        font-size: 13px;
+      }
+      .theriad-boot-skeleton {
+        display: grid;
+        gap: 11px;
+        width: min(100%, 432px);
+        padding: 16px;
+        box-sizing: border-box;
+        border: 1px solid rgba(181, 202, 235, .14);
+        border-radius: 16px;
+        background: rgba(18, 27, 45, .58);
+      }
+      .theriad-boot-line,
+      .theriad-boot-card {
+        display: block;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(181, 202, 235, .09), rgba(255, 194, 111, .18), rgba(181, 202, 235, .09));
+        background-size: 200% 100%;
+        animation: theriad-boot-shimmer 1.5s ease-in-out infinite;
+      }
+      .theriad-boot-line { width: 76%; height: 11px; }
+      .theriad-boot-line--short { width: 44%; }
+      .theriad-boot-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .theriad-boot-card { height: 58px; border-radius: 12px; animation-delay: 140ms; }
+      .theriad-boot-card:nth-child(2) { animation-delay: 280ms; }
+      .theriad-boot-card:nth-child(3) { animation-delay: 420ms; }
+      @keyframes theriad-boot-shimmer {
+        0% { background-position: 100% 0; }
+        100% { background-position: -100% 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .theriad-boot-line, .theriad-boot-card { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="theriad-boot-shell" role="status" aria-live="polite">
+        <div class="theriad-boot-header">
+          <div class="theriad-boot-mark" aria-hidden="true">T</div>
+          <div>
+            <p class="theriad-boot-brand">Theriad</p>
+            <p class="theriad-boot-message">Preparing your workspace…</p>
+          </div>
+        </div>
+        <div class="theriad-boot-skeleton" aria-hidden="true">
+          <span class="theriad-boot-line"></span>
+          <span class="theriad-boot-line theriad-boot-line--short"></span>
+          <div class="theriad-boot-cards">
+            <span class="theriad-boot-card"></span>
+            <span class="theriad-boot-card"></span>
+            <span class="theriad-boot-card"></span>
+          </div>
+        </div>
+      </div>
+      <noscript>Theriad needs JavaScript enabled to load the workspace.</noscript>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

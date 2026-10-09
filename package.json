@@ -1,0 +1,18 @@
+{
+  "name": "theriad",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Theriad — one-command local dev launcher for the Theriad backend and UI",
+  "scripts": {
+    "dev": "concurrently -k -n BACKEND,FRONTEND -c blue,green \"uvicorn theriad.api.server:app --reload --port 8000\" \"cd theriad-ui && npm run dev\"",
+    "dev:backend": "uvicorn theriad.api.server:app --reload --port 8000",
+    "dev:frontend": "cd theriad-ui && npm run dev",
+    "test:agent": "pytest tests/unit/api/test_initial_navigation.py tests/unit/api/test_captcha_search.py tests/unit/api/test_local_browser_runtime.py -q",
+    "test:agent:e2e": "python scripts/agent_e2e_smoke.py",
+    "debug:agent": "pytest tests/unit/api/test_initial_navigation.py tests/unit/api/test_captcha_search.py -vv -s",
+    "agent:selftest": "python scripts/agent_selftest.py"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

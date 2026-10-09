@@ -1,0 +1,3119 @@
+{
+  "data_quality": {
+    "cells_with_trials_and_truncation": 30,
+    "cost_handling": "cost_usd is treated as accumulated cell cost and divided by usable trials; train means are used for routing decisions.",
+    "grid_cells": 2254,
+    "latency_available": false,
+    "latency_or_output_tokens_fabricated": false,
+    "non_usable_cells_excluded_union": 76,
+    "output_tokens_available": false,
+    "total_recorded_cost_usd": 8.01692268,
+    "total_trials": 2208,
+    "total_truncated_calls": 123,
+    "transcripts_used_for_fit": false,
+    "truncated_cells_excluded": 76,
+    "usable_cells": 2178,
+    "zero_trial_cells_excluded": 46
+  },
+  "evaluation": {
+    "diagnostic_holdout": {
+      "baselines": {
+        "always_cheapest_train_cost": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 0.0,
+          "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "model_usage": {
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 50,
+              "scored_share": 1.0,
+              "selected_items": 50,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0,
+          "observed_success_rate_scored": 0.0,
+          "observed_total_cost_usd_scored_requests": 0.0,
+          "policy_kind": "always_cheapest_train_cost",
+          "scored_items": 50,
+          "selected_items": 50,
+          "target_items": 50
+        },
+        "always_dearest_train_cost": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 0.006655745499999999,
+          "model": "qwen/qwen3.6-plus",
+          "model_usage": {
+            "qwen/qwen3.6-plus": {
+              "scored_items": 50,
+              "scored_share": 1.0,
+              "selected_items": 50,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0075292286,
+          "observed_success_rate_scored": 0.9,
+          "observed_total_cost_usd_scored_requests": 0.37646143,
+          "policy_kind": "always_dearest_train_cost",
+          "scored_items": 50,
+          "selected_items": 50,
+          "target_items": 50
+        },
+        "itemwise_observed_quality_oracle": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 2.7616668000000005e-05,
+          "interpretation": "Optimistic upper bound using the realized target-cell outcome; not available to a live router.",
+          "model_usage": {
+            "cohere/north-mini-code:free": {
+              "scored_items": 41,
+              "scored_share": 0.82,
+              "selected_items": 41,
+              "selected_share_of_target": 0.82
+            },
+            "google/gemini-2.5-flash": {
+              "scored_items": 1,
+              "scored_share": 0.02,
+              "selected_items": 1,
+              "selected_share_of_target": 0.02
+            },
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "scored_items": 5,
+              "scored_share": 0.1,
+              "selected_items": 5,
+              "selected_share_of_target": 0.1
+            },
+            "openai/gpt-oss-20b": {
+              "scored_items": 2,
+              "scored_share": 0.04,
+              "selected_items": 2,
+              "selected_share_of_target": 0.04
+            },
+            "xiaomi/mimo-v2.5": {
+              "scored_items": 1,
+              "scored_share": 0.02,
+              "selected_items": 1,
+              "selected_share_of_target": 0.02
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0002104488,
+          "observed_success_rate_scored": 0.92,
+          "observed_total_cost_usd_scored_requests": 0.01052244,
+          "policy_kind": "itemwise_observed_quality_oracle",
+          "scored_items": 50,
+          "selected_items": 50,
+          "target_items": 50
+        },
+        "strongest_fixed_train_success": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 0.0,
+          "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "model_usage": {
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 50,
+              "scored_share": 1.0,
+              "selected_items": 50,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0,
+          "observed_success_rate_scored": 0.0,
+          "observed_total_cost_usd_scored_requests": 0.0,
+          "policy_kind": "strongest_fixed_train_success",
+          "scored_items": 50,
+          "selected_items": 50,
+          "target_items": 50
+        }
+      },
+      "items": 50,
+      "proxy_policy": {
+        "coverage": 0.98,
+        "expected_mean_cost_usd_per_decision": 8.101026000000002e-06,
+        "model_usage": {
+          "cohere/north-mini-code:free": {
+            "scored_items": 13,
+            "scored_share": 0.2653061224489796,
+            "selected_items": 13,
+            "selected_share_of_target": 0.26
+          },
+          "nvidia/nemotron-3-super-120b-a12b:free": {
+            "scored_items": 19,
+            "scored_share": 0.3877551020408163,
+            "selected_items": 19,
+            "selected_share_of_target": 0.38
+          },
+          "openai/gpt-oss-20b": {
+            "scored_items": 8,
+            "scored_share": 0.16326530612244897,
+            "selected_items": 9,
+            "selected_share_of_target": 0.18
+          },
+          "poolside/laguna-xs-2.1:free": {
+            "scored_items": 9,
+            "scored_share": 0.1836734693877551,
+            "selected_items": 9,
+            "selected_share_of_target": 0.18
+          }
+        },
+        "observed_mean_cost_usd_per_scored_request": 0.00013499551020408165,
+        "observed_success_rate_scored": 0.8367346938775511,
+        "observed_total_cost_usd_scored_requests": 0.00661478,
+        "policy_kind": "surface_success_threshold",
+        "scored_items": 49,
+        "selected_items": 50,
+        "target_items": 50,
+        "threshold": 0.92
+      }
+    },
+    "train": {
+      "baselines": {
+        "always_cheapest_train_cost": {
+          "coverage": 0.99,
+          "expected_mean_cost_usd_per_decision": 0.0,
+          "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "model_usage": {
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 99,
+              "scored_share": 1.0,
+              "selected_items": 100,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0,
+          "observed_success_rate_scored": 0.9595959595959596,
+          "observed_total_cost_usd_scored_requests": 0.0,
+          "policy_kind": "always_cheapest_train_cost",
+          "scored_items": 99,
+          "selected_items": 100,
+          "target_items": 100
+        },
+        "always_dearest_train_cost": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 0.006655745500000001,
+          "model": "qwen/qwen3.6-plus",
+          "model_usage": {
+            "qwen/qwen3.6-plus": {
+              "scored_items": 100,
+              "scored_share": 1.0,
+              "selected_items": 100,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0066557455,
+          "observed_success_rate_scored": 0.88,
+          "observed_total_cost_usd_scored_requests": 0.66557455,
+          "policy_kind": "always_dearest_train_cost",
+          "scored_items": 100,
+          "selected_items": 100,
+          "target_items": 100
+        },
+        "itemwise_observed_quality_oracle": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 4.5005700000000007e-07,
+          "interpretation": "Optimistic upper bound using the realized target-cell outcome; not available to a live router.",
+          "model_usage": {
+            "cohere/north-mini-code:free": {
+              "scored_items": 95,
+              "scored_share": 0.95,
+              "selected_items": 95,
+              "selected_share_of_target": 0.95
+            },
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 3,
+              "scored_share": 0.03,
+              "selected_items": 3,
+              "selected_share_of_target": 0.03
+            },
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "scored_items": 1,
+              "scored_share": 0.01,
+              "selected_items": 1,
+              "selected_share_of_target": 0.01
+            },
+            "openai/gpt-oss-20b": {
+              "scored_items": 1,
+              "scored_share": 0.01,
+              "selected_items": 1,
+              "selected_share_of_target": 0.01
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 9.060000000000001e-07,
+          "observed_success_rate_scored": 0.98,
+          "observed_total_cost_usd_scored_requests": 9.06e-05,
+          "policy_kind": "itemwise_observed_quality_oracle",
+          "scored_items": 100,
+          "selected_items": 100,
+          "target_items": 100
+        },
+        "strongest_fixed_train_success": {
+          "coverage": 0.99,
+          "expected_mean_cost_usd_per_decision": 0.0,
+          "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "model_usage": {
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 99,
+              "scored_share": 1.0,
+              "selected_items": 100,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0,
+          "observed_success_rate_scored": 0.9595959595959596,
+          "observed_total_cost_usd_scored_requests": 0.0,
+          "policy_kind": "strongest_fixed_train_success",
+          "scored_items": 99,
+          "selected_items": 100,
+          "target_items": 100
+        }
+      },
+      "items": 100,
+      "proxy_policy": {
+        "coverage": 1.0,
+        "expected_mean_cost_usd_per_decision": 3.2355888e-05,
+        "model_usage": {
+          "cohere/north-mini-code:free": {
+            "scored_items": 22,
+            "scored_share": 0.22,
+            "selected_items": 22,
+            "selected_share_of_target": 0.22
+          },
+          "google/gemini-2.5-flash": {
+            "scored_items": 3,
+            "scored_share": 0.03,
+            "selected_items": 3,
+            "selected_share_of_target": 0.03
+          },
+          "nvidia/nemotron-3-nano-30b-a3b:free": {
+            "scored_items": 44,
+            "scored_share": 0.44,
+            "selected_items": 44,
+            "selected_share_of_target": 0.44
+          },
+          "nvidia/nemotron-3-super-120b-a12b:free": {
+            "scored_items": 24,
+            "scored_share": 0.24,
+            "selected_items": 24,
+            "selected_share_of_target": 0.24
+          },
+          "openai/gpt-oss-20b": {
+            "scored_items": 4,
+            "scored_share": 0.04,
+            "selected_items": 4,
+            "selected_share_of_target": 0.04
+          },
+          "poolside/laguna-xs-2.1:free": {
+            "scored_items": 3,
+            "scored_share": 0.03,
+            "selected_items": 3,
+            "selected_share_of_target": 0.03
+          }
+        },
+        "observed_mean_cost_usd_per_scored_request": 1.12455e-05,
+        "observed_success_rate_scored": 0.98,
+        "observed_total_cost_usd_scored_requests": 0.00112455,
+        "policy_kind": "surface_success_threshold",
+        "scored_items": 100,
+        "selected_items": 100,
+        "target_items": 100,
+        "threshold": 0.92
+      }
+    },
+    "validation": {
+      "baselines": {
+        "always_cheapest_train_cost": {
+          "coverage": 0.8,
+          "expected_mean_cost_usd_per_decision": 0.0,
+          "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "model_usage": {
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 40,
+              "scored_share": 1.0,
+              "selected_items": 50,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0,
+          "observed_success_rate_scored": 0.475,
+          "observed_total_cost_usd_scored_requests": 0.0,
+          "policy_kind": "always_cheapest_train_cost",
+          "scored_items": 40,
+          "selected_items": 50,
+          "target_items": 50
+        },
+        "always_dearest_train_cost": {
+          "coverage": 0.94,
+          "expected_mean_cost_usd_per_decision": 0.006655745499999999,
+          "model": "qwen/qwen3.6-plus",
+          "model_usage": {
+            "qwen/qwen3.6-plus": {
+              "scored_items": 47,
+              "scored_share": 1.0,
+              "selected_items": 50,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.023735870000000003,
+          "observed_success_rate_scored": 0.9361702127659575,
+          "observed_total_cost_usd_scored_requests": 1.11558589,
+          "policy_kind": "always_dearest_train_cost",
+          "scored_items": 47,
+          "selected_items": 50,
+          "target_items": 50
+        },
+        "itemwise_observed_quality_oracle": {
+          "coverage": 1.0,
+          "expected_mean_cost_usd_per_decision": 1.590804876022454e-05,
+          "interpretation": "Optimistic upper bound using the realized target-cell outcome; not available to a live router.",
+          "model_usage": {
+            "cohere/north-mini-code:free": {
+              "scored_items": 38,
+              "scored_share": 0.76,
+              "selected_items": 38,
+              "selected_share_of_target": 0.76
+            },
+            "deepseek/deepseek-v4-flash-0731": {
+              "scored_items": 3,
+              "scored_share": 0.06,
+              "selected_items": 3,
+              "selected_share_of_target": 0.06
+            },
+            "gpt-5.4-mini": {
+              "scored_items": 1,
+              "scored_share": 0.02,
+              "selected_items": 1,
+              "selected_share_of_target": 0.02
+            },
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 2,
+              "scored_share": 0.04,
+              "selected_items": 2,
+              "selected_share_of_target": 0.04
+            },
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "scored_items": 4,
+              "scored_share": 0.08,
+              "selected_items": 4,
+              "selected_share_of_target": 0.08
+            },
+            "openai/gpt-5.6-luna": {
+              "scored_items": 1,
+              "scored_share": 0.02,
+              "selected_items": 1,
+              "selected_share_of_target": 0.02
+            },
+            "openai/gpt-oss-20b": {
+              "scored_items": 1,
+              "scored_share": 0.02,
+              "selected_items": 1,
+              "selected_share_of_target": 0.02
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0003515654,
+          "observed_success_rate_scored": 1.0,
+          "observed_total_cost_usd_scored_requests": 0.01757827,
+          "policy_kind": "itemwise_observed_quality_oracle",
+          "scored_items": 50,
+          "selected_items": 50,
+          "target_items": 50
+        },
+        "strongest_fixed_train_success": {
+          "coverage": 0.8,
+          "expected_mean_cost_usd_per_decision": 0.0,
+          "model": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "model_usage": {
+            "nvidia/nemotron-3-nano-30b-a3b:free": {
+              "scored_items": 40,
+              "scored_share": 1.0,
+              "selected_items": 50,
+              "selected_share_of_target": 1.0
+            }
+          },
+          "observed_mean_cost_usd_per_scored_request": 0.0,
+          "observed_success_rate_scored": 0.475,
+          "observed_total_cost_usd_scored_requests": 0.0,
+          "policy_kind": "strongest_fixed_train_success",
+          "scored_items": 40,
+          "selected_items": 50,
+          "target_items": 50
+        }
+      },
+      "items": 50,
+      "proxy_policy": {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 2.1062676447670907e-05,
+        "model_usage": {
+          "cohere/north-mini-code:free": {
+            "scored_items": 7,
+            "scored_share": 0.175,
+            "selected_items": 7,
+            "selected_share_of_target": 0.14
+          },
+          "nvidia/nemotron-3-nano-30b-a3b:free": {
+            "scored_items": 1,
+            "scored_share": 0.025,
+            "selected_items": 1,
+            "selected_share_of_target": 0.02
+          },
+          "nvidia/nemotron-3-super-120b-a12b:free": {
+            "scored_items": 10,
+            "scored_share": 0.25,
+            "selected_items": 10,
+            "selected_share_of_target": 0.2
+          },
+          "openai/gpt-5.6-luna": {
+            "scored_items": 1,
+            "scored_share": 0.025,
+            "selected_items": 4,
+            "selected_share_of_target": 0.08
+          },
+          "openai/gpt-oss-20b": {
+            "scored_items": 4,
+            "scored_share": 0.1,
+            "selected_items": 4,
+            "selected_share_of_target": 0.08
+          },
+          "poolside/laguna-xs-2.1:free": {
+            "scored_items": 16,
+            "scored_share": 0.4,
+            "selected_items": 23,
+            "selected_share_of_target": 0.46
+          },
+          "z-ai/glm-5.2": {
+            "scored_items": 1,
+            "scored_share": 0.025,
+            "selected_items": 1,
+            "selected_share_of_target": 0.02
+          }
+        },
+        "observed_mean_cost_usd_per_scored_request": 2.5277250000000003e-05,
+        "observed_success_rate_scored": 0.725,
+        "observed_total_cost_usd_scored_requests": 0.00101109,
+        "policy_kind": "surface_success_threshold",
+        "scored_items": 40,
+        "selected_items": 50,
+        "target_items": 50,
+        "threshold": 0.92
+      }
+    }
+  },
+  "frozen_router_v2_study_test_set_used": false,
+  "generated_at": "2026-09-04T03:22:46.207868+00:00",
+  "limitations": [
+    "This is a diagnostic proxy, not official Router V2 training or a production artifact.",
+    "The grid has sparse/asymmetric model coverage; scored routing metrics are conditional on a usable selected cell.",
+    "Truncated and zero-trial cells are excluded rather than treated as failures.",
+    "The grid has no reliable latency or output-token fields, so this report cannot evaluate latency or token efficiency.",
+    "The corpus has no general/code lane labels, so this proxy reports one unified lane.",
+    "The itemwise oracle uses realized outcomes and is an optimistic upper bound, not a deployable policy.",
+    "No Router V2 environment flag, registry entry, or runtime artifact is changed by this script."
+  ],
+  "loadable_router_artifact": false,
+  "method": {
+    "candidate_models": [
+      "cohere/north-mini-code:free",
+      "deepseek/deepseek-v4-flash-0731",
+      "google/gemini-2.5-flash",
+      "gpt-5.4-mini",
+      "moonshotai/kimi-k2.7-code",
+      "nvidia/nemotron-3-nano-30b-a3b:free",
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "openai/gpt-5.6-luna",
+      "openai/gpt-oss-20b",
+      "poolside/laguna-xs-2.1:free",
+      "qwen/qwen3.6-plus",
+      "xiaomi/mimo-v2.5",
+      "z-ai/glm-5.2"
+    ],
+    "excluded_from_policy": [
+      "openai/gpt-oss-120b"
+    ],
+    "feature_count": 24,
+    "feature_mean_train": {
+      "char_count": 360.74,
+      "code_fence_count": 0.0,
+      "code_intent_count": 0.05,
+      "code_keyword_count": 0.13,
+      "code_ratio": 0.0,
+      "cue_calculate": 0.57,
+      "cue_negation": 0.01,
+      "cue_number": 6.16,
+      "cue_unit": 0.0,
+      "cue_which": 0.01,
+      "cue_why": 0.02,
+      "inline_code_count": 0.0,
+      "json_brace_ratio": 0.0007652579432476479,
+      "json_probability": 0.0,
+      "line_count": 5.5,
+      "log_chars": 5.866433332441659,
+      "log_words": 4.159763625972608,
+      "markdown_bold_count": 0.0,
+      "markdown_heading_count": 0.0,
+      "markdown_list_count": 0.0,
+      "markdown_ratio": 0.0,
+      "punctuation_ratio": 0.05330293707938788,
+      "token_count": 90.51,
+      "word_count": 64.78
+    },
+    "feature_names": [
+      "char_count",
+      "code_fence_count",
+      "code_intent_count",
+      "code_keyword_count",
+      "code_ratio",
+      "cue_calculate",
+      "cue_negation",
+      "cue_number",
+      "cue_unit",
+      "cue_which",
+      "cue_why",
+      "inline_code_count",
+      "json_brace_ratio",
+      "json_probability",
+      "line_count",
+      "log_chars",
+      "log_words",
+      "markdown_bold_count",
+      "markdown_heading_count",
+      "markdown_list_count",
+      "markdown_ratio",
+      "punctuation_ratio",
+      "token_count",
+      "word_count"
+    ],
+    "feature_stdev_train": {
+      "char_count": 80.66444322004585,
+      "code_fence_count": 1.0,
+      "code_intent_count": 0.2958039891549806,
+      "code_keyword_count": 0.4160528812542942,
+      "code_ratio": 1.0,
+      "cue_calculate": 0.6671581521648368,
+      "cue_negation": 0.09949874371066196,
+      "cue_number": 4.0291934676805985,
+      "cue_unit": 1.0,
+      "cue_which": 0.09949874371066197,
+      "cue_why": 0.13999999999999993,
+      "inline_code_count": 1.0,
+      "json_brace_ratio": 0.0027598502319466874,
+      "json_probability": 1.0,
+      "line_count": 2.5,
+      "log_chars": 0.2216610529793429,
+      "log_words": 0.2307740051095103,
+      "markdown_bold_count": 1.0,
+      "markdown_heading_count": 1.0,
+      "markdown_list_count": 1.0,
+      "markdown_ratio": 1.0,
+      "punctuation_ratio": 0.02421165491486343,
+      "token_count": 18.656095518623395,
+      "word_count": 15.24308367752404
+    },
+    "minimum_selection_coverage": 0.8,
+    "minimum_train_usable_cells": 20,
+    "minimum_validation_usable_cells": 10,
+    "model": "one deterministic ridge-logistic success head per model",
+    "representation": "prompt surface features from theriad.routing.difficulty.featurise",
+    "routing_rule": "choose the lowest expected-cost candidate whose predicted success is at least the threshold; otherwise choose the highest predicted success",
+    "threshold_selection": "validation-only Pareto knee over observed success and observed cost, requiring the configured minimum scored coverage"
+  },
+  "models": {
+    "cohere/north-mini-code:free": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 1,
+          "recorded_cells": 49,
+          "target_items": 50,
+          "trials": 49,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.98,
+          "usable_cells": 49,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.7551020408163265
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.93
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.76
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 50
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0,
+        "intercept": 3.3511015294730337,
+        "train_mean_success": 0.93,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 50,
+        "weights": {
+          "char_count": 0.04773321988337729,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.3354412855281879,
+          "code_keyword_count": -0.3631917489614959,
+          "code_ratio": 0.0,
+          "cue_calculate": 1.4821744985226943,
+          "cue_negation": 0.14215983420776643,
+          "cue_number": -0.5067452755045898,
+          "cue_unit": 0.0,
+          "cue_which": 0.12297803571738267,
+          "cue_why": -0.08983527239095623,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.27492259987399376,
+          "json_probability": 0.0,
+          "line_count": 0.45951645103498623,
+          "log_chars": -0.24417292922212622,
+          "log_words": -0.3118955378506875,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.6569660573878215,
+          "token_count": 0.22954198834226874,
+          "word_count": 0.009848845900812099
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.42857142857142855,
+          "brier": 0.4790595692669278,
+          "ece": 0.5254477757608771,
+          "log_loss": 2.0865979194349515,
+          "mean_observed_success": 0.7551020408163265,
+          "mean_predicted_success": 0.5250204323332401,
+          "n": 49,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.7,
+          "brier": 0.2572046987340042,
+          "ece": 0.26352584785519884,
+          "log_loss": 0.959637423213384,
+          "mean_observed_success": 0.76,
+          "mean_predicted_success": 0.8185990321361436,
+          "n": 50,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "free_suffix"
+    },
+    "deepseek/deepseek-v4-flash-0731": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 49,
+          "truncated_calls": 4,
+          "truncated_cells": 1,
+          "usable_cell_coverage": 0.98,
+          "usable_cells": 49,
+          "usable_mean_cost_usd_per_request": 0.00014270326530612247,
+          "usable_success_rate": 0.42857142857142855
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 6.71103e-05,
+          "usable_success_rate": 0.85
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 6,
+          "truncated_cells": 2,
+          "usable_cell_coverage": 0.96,
+          "usable_cells": 48,
+          "usable_mean_cost_usd_per_request": 0.001189340625,
+          "usable_success_rate": 0.9375
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 48
+      },
+      "head": {
+        "expected_cost_usd_per_request": 6.71103e-05,
+        "intercept": 2.320680255566258,
+        "train_mean_success": 0.85,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 48,
+        "weights": {
+          "char_count": -0.1546672432107848,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.3760590288472812,
+          "code_keyword_count": -0.07802980224626963,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.7865633193489702,
+          "cue_negation": 0.17258332197229823,
+          "cue_number": 0.021192419292988356,
+          "cue_unit": 0.0,
+          "cue_which": 0.2913416569951768,
+          "cue_why": -0.06219101698621206,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.19514761764034935,
+          "json_probability": 0.0,
+          "line_count": 0.9569821566502604,
+          "log_chars": -0.08753622353994457,
+          "log_words": -0.12612412691658428,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.6855825705330699,
+          "token_count": 0.48745596525188206,
+          "word_count": -0.162510193792155
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.42857142857142855,
+          "brier": 0.569103285519346,
+          "ece": 0.5697313764174148,
+          "log_loss": 4.222537276053284,
+          "mean_observed_success": 0.42857142857142855,
+          "mean_predicted_success": 0.9983028049888434,
+          "n": 49,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.9375,
+          "brier": 0.06538248336024406,
+          "ece": 0.07164047006010342,
+          "log_loss": 0.7705828174419711,
+          "mean_observed_success": 0.9375,
+          "mean_predicted_success": 0.9806093419304083,
+          "n": 48,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "google/gemini-2.5-flash": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.002337466,
+          "usable_success_rate": 0.74
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 0.001018522,
+          "usable_success_rate": 0.92
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 49,
+          "truncated_calls": 8,
+          "truncated_cells": 7,
+          "usable_cell_coverage": 0.86,
+          "usable_cells": 43,
+          "usable_mean_cost_usd_per_request": 0.0040465837209302325,
+          "usable_success_rate": 0.813953488372093
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 43
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.001018522,
+        "intercept": 2.81519476308118,
+        "train_mean_success": 0.92,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 43,
+        "weights": {
+          "char_count": 0.2956241466406245,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.25102893910276897,
+          "code_keyword_count": 0.5559893938384871,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.011239122222392964,
+          "cue_negation": 0.18356045869825116,
+          "cue_number": 0.2164304925358106,
+          "cue_unit": 0.0,
+          "cue_which": 0.2512949462522075,
+          "cue_why": 0.23491634506911493,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.27733031916611145,
+          "json_probability": 0.0,
+          "line_count": 0.09232560424699944,
+          "log_chars": -0.30223092016824454,
+          "log_words": -0.6363311128012679,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.29991924144684873,
+          "token_count": 0.1970871649917605,
+          "word_count": -0.0064911049372744665
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.74,
+          "brier": 0.2552836962591905,
+          "ece": 0.2516860653385298,
+          "log_loss": 1.5418547403658187,
+          "mean_observed_success": 0.74,
+          "mean_predicted_success": 0.9873278216075286,
+          "n": 50,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.813953488372093,
+          "brier": 0.18103181198659038,
+          "ece": 0.17672404665595304,
+          "log_loss": 1.355972108241371,
+          "mean_observed_success": 0.813953488372093,
+          "mean_predicted_success": 0.9826799397866008,
+          "n": 43,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "gpt-5.4-mini": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 28,
+          "recorded_cells": 22,
+          "target_items": 50,
+          "trials": 22,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.44,
+          "usable_cells": 22,
+          "usable_mean_cost_usd_per_request": 0.0008006931818181816,
+          "usable_success_rate": 0.7272727272727273
+        },
+        "train": {
+          "missing_cells": 57,
+          "recorded_cells": 43,
+          "target_items": 100,
+          "trials": 43,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.43,
+          "usable_cells": 43,
+          "usable_mean_cost_usd_per_request": 0.00045587790697674424,
+          "usable_success_rate": 0.813953488372093
+        },
+        "validation": {
+          "missing_cells": 22,
+          "recorded_cells": 28,
+          "target_items": 50,
+          "trials": 28,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.56,
+          "usable_cells": 28,
+          "usable_mean_cost_usd_per_request": 0.0008410446428571428,
+          "usable_success_rate": 0.7142857142857143
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 43,
+        "validation_usable_cells": 28
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.00045587790697674424,
+        "intercept": 2.1050122506624405,
+        "train_mean_success": 0.813953488372093,
+        "train_usable_cells": 43,
+        "validation_usable_cells": 28,
+        "weights": {
+          "char_count": 0.4002888917291541,
+          "code_fence_count": 0.0,
+          "code_intent_count": -0.13982858123302222,
+          "code_keyword_count": 0.04720362437813429,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.5465503458086951,
+          "cue_negation": -6.575967073790549e-17,
+          "cue_number": 0.3089275953353303,
+          "cue_unit": 0.0,
+          "cue_which": 0.2777736273476772,
+          "cue_why": -0.06190991131820756,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.40298059921260926,
+          "json_probability": 0.0,
+          "line_count": 0.48425796818016026,
+          "log_chars": -0.0803951387548245,
+          "log_words": -0.7186782720326405,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": -0.390069533501368,
+          "token_count": -0.19882866009997352,
+          "word_count": -0.47668619482385527
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.6363636363636364,
+          "brier": 0.2760906910295906,
+          "ece": 0.28341171689512634,
+          "log_loss": 1.0273947006324016,
+          "mean_observed_success": 0.7272727272727273,
+          "mean_predicted_success": 0.8968245445054563,
+          "n": 22,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.6071428571428571,
+          "brier": 0.3047382067977665,
+          "ece": 0.34272138089350834,
+          "log_loss": 1.8906802381017793,
+          "mean_observed_success": 0.7142857142857143,
+          "mean_predicted_success": 0.7674064917485596,
+          "n": 28,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "moonshotai/kimi-k2.7-code": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 23,
+          "recorded_cells": 27,
+          "target_items": 50,
+          "trials": 26,
+          "truncated_calls": 3,
+          "truncated_cells": 2,
+          "usable_cell_coverage": 0.5,
+          "usable_cells": 25,
+          "usable_mean_cost_usd_per_request": 0.005293904,
+          "usable_success_rate": 0.88
+        },
+        "train": {
+          "missing_cells": 58,
+          "recorded_cells": 42,
+          "target_items": 100,
+          "trials": 42,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.42,
+          "usable_cells": 42,
+          "usable_mean_cost_usd_per_request": 0.0009982666666666666,
+          "usable_success_rate": 0.8809523809523809
+        },
+        "validation": {
+          "missing_cells": 24,
+          "recorded_cells": 26,
+          "target_items": 50,
+          "trials": 25,
+          "truncated_calls": 11,
+          "truncated_cells": 5,
+          "usable_cell_coverage": 0.42,
+          "usable_cells": 21,
+          "usable_mean_cost_usd_per_request": 0.008362766666666663,
+          "usable_success_rate": 0.9523809523809523
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 42,
+        "validation_usable_cells": 21
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0009982666666666666,
+        "intercept": 2.3535411026231947,
+        "train_mean_success": 0.8809523809523809,
+        "train_usable_cells": 42,
+        "validation_usable_cells": 21,
+        "weights": {
+          "char_count": -0.22955889162435994,
+          "code_fence_count": 0.0,
+          "code_intent_count": 3.695329728832572e-16,
+          "code_keyword_count": 0.23481896681337194,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.4844634022969889,
+          "cue_negation": 2.4549178489402733e-16,
+          "cue_number": -0.04248870730700793,
+          "cue_unit": 0.0,
+          "cue_which": 3.0442898212677495e-16,
+          "cue_why": 0.3886627232883666,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.18886865455638324,
+          "json_probability": 0.0,
+          "line_count": 0.5450541657730195,
+          "log_chars": -0.27137318222913503,
+          "log_words": -0.5602994129652895,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.2582424676079265,
+          "token_count": -0.09171340046213944,
+          "word_count": -0.4977985517988751
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.6,
+          "brier": 0.3699678259704509,
+          "ece": 0.41776177981025714,
+          "log_loss": 1.969891964292733,
+          "mean_observed_success": 0.88,
+          "mean_predicted_success": 0.5154355949991991,
+          "n": 25,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.42857142857142855,
+          "brier": 0.5524876120863345,
+          "ece": 0.6461796802118805,
+          "log_loss": 3.0303446450214824,
+          "mean_observed_success": 0.9523809523809523,
+          "mean_predicted_success": 0.38411028133204733,
+          "n": 21,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "nvidia/nemotron-3-nano-30b-a3b:free": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.0
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 99,
+          "truncated_calls": 1,
+          "truncated_cells": 1,
+          "usable_cell_coverage": 0.99,
+          "usable_cells": 99,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.9595959595959596
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 40,
+          "truncated_calls": 10,
+          "truncated_cells": 10,
+          "usable_cell_coverage": 0.8,
+          "usable_cells": 40,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.475
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 99,
+        "validation_usable_cells": 40
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0,
+        "intercept": 3.7527088655874734,
+        "train_mean_success": 0.9595959595959596,
+        "train_usable_cells": 99,
+        "validation_usable_cells": 40,
+        "weights": {
+          "char_count": -0.2559150208478509,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.31570516595447295,
+          "code_keyword_count": -0.2038767561437771,
+          "code_ratio": 0.0,
+          "cue_calculate": 1.389886304160656,
+          "cue_negation": 0.15505139978960158,
+          "cue_number": -0.2249072277783853,
+          "cue_unit": 0.0,
+          "cue_which": 0.11011173908224123,
+          "cue_why": 0.4029563737591051,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.3300488968513493,
+          "json_probability": 0.0,
+          "line_count": 0.2734441973445583,
+          "log_chars": -0.47926645549252594,
+          "log_words": -0.14748208768572368,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.1922346623164193,
+          "token_count": 0.21670639062585978,
+          "word_count": 0.11825467667388105
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.32,
+          "brier": 0.5396508912409597,
+          "ece": 0.6611394313240904,
+          "log_loss": 1.9513277963092424,
+          "mean_observed_success": 0.0,
+          "mean_predicted_success": 0.6611394313240901,
+          "n": 50,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.575,
+          "brier": 0.370241170300479,
+          "ece": 0.35631895210053144,
+          "log_loss": 1.4473081636730585,
+          "mean_observed_success": 0.475,
+          "mean_predicted_success": 0.801846182287733,
+          "n": 40,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "free_suffix"
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.8
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.95
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.76
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 50
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0,
+        "intercept": 3.4496855785157425,
+        "train_mean_success": 0.95,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 50,
+        "weights": {
+          "char_count": -0.3063988942459961,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.34558792651809034,
+          "code_keyword_count": -0.05229048940056935,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.7627473478466544,
+          "cue_negation": 0.15403060612409633,
+          "cue_number": -0.00839189453088617,
+          "cue_unit": 0.0,
+          "cue_which": 0.1923134539820925,
+          "cue_why": 0.44207884022325017,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.23330111492029537,
+          "json_probability": 0.0,
+          "line_count": 0.3089679796738363,
+          "log_chars": -0.11566035123201687,
+          "log_words": -0.20585336092544324,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.3792124978297832,
+          "token_count": -0.053691494566523015,
+          "word_count": -0.174832772138373
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.7,
+          "brier": 0.23105364215062657,
+          "ece": 0.22791838466895936,
+          "log_loss": 0.8972666666414795,
+          "mean_observed_success": 0.8,
+          "mean_predicted_success": 0.7774529100473748,
+          "n": 50,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.58,
+          "brier": 0.33170479717910567,
+          "ece": 0.3331957414749817,
+          "log_loss": 1.1861379099189566,
+          "mean_observed_success": 0.76,
+          "mean_predicted_success": 0.6841231648999441,
+          "n": 50,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "free_suffix"
+    },
+    "openai/gpt-5.6-luna": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 26,
+          "recorded_cells": 24,
+          "target_items": 50,
+          "trials": 24,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.48,
+          "usable_cells": 24,
+          "usable_mean_cost_usd_per_request": 0.000182575,
+          "usable_success_rate": 0.875
+        },
+        "train": {
+          "missing_cells": 42,
+          "recorded_cells": 58,
+          "target_items": 100,
+          "trials": 58,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.58,
+          "usable_cells": 58,
+          "usable_mean_cost_usd_per_request": 9.318793103448276e-05,
+          "usable_success_rate": 0.7068965517241379
+        },
+        "validation": {
+          "missing_cells": 27,
+          "recorded_cells": 23,
+          "target_items": 50,
+          "trials": 23,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.46,
+          "usable_cells": 23,
+          "usable_mean_cost_usd_per_request": 0.0006048608695652174,
+          "usable_success_rate": 0.9565217391304348
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 58,
+        "validation_usable_cells": 23
+      },
+      "head": {
+        "expected_cost_usd_per_request": 9.318793103448276e-05,
+        "intercept": 1.9234064666933768,
+        "train_mean_success": 0.7068965517241379,
+        "train_usable_cells": 58,
+        "validation_usable_cells": 23,
+        "weights": {
+          "char_count": -0.172546529301525,
+          "code_fence_count": 0.0,
+          "code_intent_count": -0.26989149897655496,
+          "code_keyword_count": 0.13214896176925126,
+          "code_ratio": 0.0,
+          "cue_calculate": -0.13126665905620477,
+          "cue_negation": -4.4108416721350347e-16,
+          "cue_number": -0.3312438448107105,
+          "cue_unit": 0.0,
+          "cue_which": -4.568041254720953e-16,
+          "cue_why": -6.749574928898844e-16,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.06795465608006851,
+          "json_probability": 0.0,
+          "line_count": 1.4284702686106128,
+          "log_chars": -0.06265956439921574,
+          "log_words": 0.1380502279854765,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.725074310833491,
+          "token_count": 0.33500654333662694,
+          "word_count": 0.12877317022578733
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.875,
+          "brier": 0.12426420652161042,
+          "ece": 0.11846130810062061,
+          "log_loss": 0.9191395269118697,
+          "mean_observed_success": 0.875,
+          "mean_predicted_success": 0.9934613081006206,
+          "n": 24,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.9565217391304348,
+          "brier": 0.041588901296417735,
+          "ece": 0.03251740581302398,
+          "log_loss": 0.16478171065681488,
+          "mean_observed_success": 0.9565217391304348,
+          "mean_predicted_success": 0.9890391449434588,
+          "n": 23,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "openai/gpt-oss-120b": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 50,
+          "recorded_cells": 0,
+          "target_items": 50,
+          "trials": 0,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.0,
+          "usable_cells": 0,
+          "usable_mean_cost_usd_per_request": null,
+          "usable_success_rate": null
+        },
+        "train": {
+          "missing_cells": 46,
+          "recorded_cells": 54,
+          "target_items": 100,
+          "trials": 54,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.54,
+          "usable_cells": 54,
+          "usable_mean_cost_usd_per_request": 7.161296296296297e-05,
+          "usable_success_rate": 0.9629629629629629
+        },
+        "validation": {
+          "missing_cells": 50,
+          "recorded_cells": 0,
+          "target_items": 50,
+          "trials": 0,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.0,
+          "usable_cells": 0,
+          "usable_mean_cost_usd_per_request": null,
+          "usable_success_rate": null
+        }
+      },
+      "fit": {
+        "candidate_for_policy": false,
+        "excluded_reason": "below_minimum_validation_coverage",
+        "fit_status": "fit",
+        "train_usable_cells": 54,
+        "validation_usable_cells": 0
+      },
+      "head": {
+        "expected_cost_usd_per_request": 7.161296296296297e-05,
+        "intercept": 3.654181414604578,
+        "train_mean_success": 0.9629629629629629,
+        "train_usable_cells": 54,
+        "validation_usable_cells": 0,
+        "weights": {
+          "char_count": 0.046190064732685956,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.20516654516844984,
+          "code_keyword_count": 0.08608590426728274,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.23779403714180544,
+          "cue_negation": 0.15310340437741649,
+          "cue_number": 0.3502046095608832,
+          "cue_unit": 0.0,
+          "cue_which": -8.52837354900704e-17,
+          "cue_why": -2.0894334938177914e-16,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.21512218378702075,
+          "json_probability": 0.0,
+          "line_count": -0.1921411240416087,
+          "log_chars": -0.08481965402237825,
+          "log_words": -0.23829261366498797,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.28380511984854795,
+          "token_count": -0.010449522919629068,
+          "word_count": -0.09215204459655796
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "n": 0,
+          "status": "insufficient_observations"
+        },
+        "validation": {
+          "n": 0,
+          "status": "insufficient_observations"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "openai/gpt-oss-20b": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 2,
+          "truncated_cells": 2,
+          "usable_cell_coverage": 0.96,
+          "usable_cells": 48,
+          "usable_mean_cost_usd_per_request": 0.0003467008333333333,
+          "usable_success_rate": 0.8333333333333334
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 4.500570000000001e-05,
+          "usable_success_rate": 0.92
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 47,
+          "truncated_calls": 14,
+          "truncated_cells": 4,
+          "usable_cell_coverage": 0.92,
+          "usable_cells": 46,
+          "usable_mean_cost_usd_per_request": 0.0004304280434782608,
+          "usable_success_rate": 0.7391304347826086
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 46
+      },
+      "head": {
+        "expected_cost_usd_per_request": 4.500570000000001e-05,
+        "intercept": 3.2047330861987167,
+        "train_mean_success": 0.92,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 46,
+        "weights": {
+          "char_count": 0.3396645632907308,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.5641784381712468,
+          "code_keyword_count": -0.6919282241468808,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.8241683520700221,
+          "cue_negation": 0.1892135901482741,
+          "cue_number": 0.6493642432314489,
+          "cue_unit": 0.0,
+          "cue_which": 0.19952488479394812,
+          "cue_why": -0.2638179299738894,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.19398071605160327,
+          "json_probability": 0.0,
+          "line_count": 0.21826509347685955,
+          "log_chars": 0.03939556080118663,
+          "log_words": -0.5494767692388101,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.48430068068887,
+          "token_count": 0.08504909009849472,
+          "word_count": -0.29068512643581024
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.8333333333333334,
+          "brier": 0.15916748748109258,
+          "ece": 0.15176583026047638,
+          "log_loss": 1.214338450422938,
+          "mean_observed_success": 0.8333333333333334,
+          "mean_predicted_success": 0.97599263883466,
+          "n": 48,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.717391304347826,
+          "brier": 0.2701630655714709,
+          "ece": 0.27854282890351817,
+          "log_loss": 3.0934144867213087,
+          "mean_observed_success": 0.7391304347826086,
+          "mean_predicted_success": 0.956453843569541,
+          "n": 46,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "poolside/laguna-xs-2.1:free": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 40,
+          "truncated_calls": 10,
+          "truncated_cells": 10,
+          "usable_cell_coverage": 0.8,
+          "usable_cells": 40,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.775
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 98,
+          "truncated_calls": 4,
+          "truncated_cells": 4,
+          "usable_cell_coverage": 0.96,
+          "usable_cells": 96,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.8541666666666666
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 36,
+          "truncated_calls": 22,
+          "truncated_cells": 16,
+          "usable_cell_coverage": 0.68,
+          "usable_cells": 34,
+          "usable_mean_cost_usd_per_request": 0.0,
+          "usable_success_rate": 0.7352941176470589
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 96,
+        "validation_usable_cells": 34
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0,
+        "intercept": 2.256762858187881,
+        "train_mean_success": 0.8541666666666666,
+        "train_usable_cells": 96,
+        "validation_usable_cells": 34,
+        "weights": {
+          "char_count": 0.29590038534357715,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.5001968417171445,
+          "code_keyword_count": -0.21751903395301322,
+          "code_ratio": 0.0,
+          "cue_calculate": 1.1171318210145837,
+          "cue_negation": 0.27426379861033506,
+          "cue_number": 0.0646006793980618,
+          "cue_unit": 0.0,
+          "cue_which": 0.17079622218063026,
+          "cue_why": 0.3882349675853985,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.754533532208502,
+          "json_probability": 0.0,
+          "line_count": -0.14244163828742296,
+          "log_chars": 0.07829607787970311,
+          "log_words": -0.344758072102469,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.15754588044862788,
+          "token_count": 0.11821177174725542,
+          "word_count": -0.26526086585892333
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.775,
+          "brier": 0.18821868264269123,
+          "ece": 0.15034034197173451,
+          "log_loss": 0.6909285486881414,
+          "mean_observed_success": 0.775,
+          "mean_predicted_success": 0.8830133888657568,
+          "n": 40,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.7352941176470589,
+          "brier": 0.25984236160061736,
+          "ece": 0.28449901639205616,
+          "log_loss": 1.7562522102840499,
+          "mean_observed_success": 0.7352941176470589,
+          "mean_predicted_success": 0.9297266814896112,
+          "n": 34,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "free_suffix"
+    },
+    "qwen/qwen3.6-plus": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0075292286,
+          "usable_success_rate": 0.9
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 0.0066557455,
+          "usable_success_rate": 0.88
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 49,
+          "truncated_calls": 10,
+          "truncated_cells": 3,
+          "usable_cell_coverage": 0.94,
+          "usable_cells": 47,
+          "usable_mean_cost_usd_per_request": 0.023735870000000003,
+          "usable_success_rate": 0.9361702127659575
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 47
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0066557455,
+        "intercept": 2.4373682202360927,
+        "train_mean_success": 0.88,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 47,
+        "weights": {
+          "char_count": 0.45209387834769743,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.3433378995794296,
+          "code_keyword_count": -0.07382187999082816,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.8430022272738096,
+          "cue_negation": 0.17403076884744434,
+          "cue_number": -0.18554979387612935,
+          "cue_unit": 0.0,
+          "cue_which": 0.23751587750622669,
+          "cue_why": -0.08426955878974017,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.27213917278744054,
+          "json_probability": 0.0,
+          "line_count": 0.574265817613287,
+          "log_chars": -0.004405867234486935,
+          "log_words": -0.687580180294698,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.710178400111987,
+          "token_count": 0.2966128700103959,
+          "word_count": -0.20919545404614126
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.9,
+          "brier": 0.10058291415327608,
+          "ece": 0.09077778596516914,
+          "log_loss": 0.6327537147707819,
+          "mean_observed_success": 0.9,
+          "mean_predicted_success": 0.9694924748156568,
+          "n": 50,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.9361702127659575,
+          "brier": 0.06399617610659598,
+          "ece": 0.06561588117421795,
+          "log_loss": 0.4201747740528538,
+          "mean_observed_success": 0.9361702127659575,
+          "mean_predicted_success": 0.9764406801874096,
+          "n": 47,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "xiaomi/mimo-v2.5": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0012717768000000001,
+          "usable_success_rate": 0.88
+        },
+        "train": {
+          "missing_cells": 0,
+          "recorded_cells": 100,
+          "target_items": 100,
+          "trials": 100,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 100,
+          "usable_mean_cost_usd_per_request": 0.00027230000000000006,
+          "usable_success_rate": 0.9
+        },
+        "validation": {
+          "missing_cells": 0,
+          "recorded_cells": 50,
+          "target_items": 50,
+          "trials": 50,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 1.0,
+          "usable_cells": 50,
+          "usable_mean_cost_usd_per_request": 0.0020110887999999997,
+          "usable_success_rate": 0.84
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 100,
+        "validation_usable_cells": 50
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.00027230000000000006,
+        "intercept": 2.7723673358906438,
+        "train_mean_success": 0.9,
+        "train_usable_cells": 100,
+        "validation_usable_cells": 50,
+        "weights": {
+          "char_count": 0.0820667844776549,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.39260569932787726,
+          "code_keyword_count": -0.49553732181772103,
+          "code_ratio": 0.0,
+          "cue_calculate": 0.8111778929307029,
+          "cue_negation": 0.15313814370616088,
+          "cue_number": -0.24386852184159594,
+          "cue_unit": 0.0,
+          "cue_which": 0.1990961889028376,
+          "cue_why": -0.07463233439039588,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.19799823319869597,
+          "json_probability": 0.0,
+          "line_count": 0.44848837075929016,
+          "log_chars": -0.12093961593059574,
+          "log_words": -0.31913470880103934,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.775778234506025,
+          "token_count": 0.3325205888040243,
+          "word_count": -0.10245176884810286
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.86,
+          "brier": 0.11443540279769461,
+          "ece": 0.0937238915739101,
+          "log_loss": 0.5325667930599522,
+          "mean_observed_success": 0.88,
+          "mean_predicted_success": 0.91437253177615,
+          "n": 50,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.84,
+          "brier": 0.13823043475670924,
+          "ece": 0.1461627037985461,
+          "log_loss": 0.6976342852085392,
+          "mean_observed_success": 0.84,
+          "mean_predicted_success": 0.9367854744111169,
+          "n": 50,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    },
+    "z-ai/glm-5.2": {
+      "coverage": {
+        "holdout": {
+          "missing_cells": 26,
+          "recorded_cells": 24,
+          "target_items": 50,
+          "trials": 23,
+          "truncated_calls": 7,
+          "truncated_cells": 3,
+          "usable_cell_coverage": 0.42,
+          "usable_cells": 21,
+          "usable_mean_cost_usd_per_request": 0.0011937519047619046,
+          "usable_success_rate": 0.9523809523809523
+        },
+        "train": {
+          "missing_cells": 43,
+          "recorded_cells": 57,
+          "target_items": 100,
+          "trials": 57,
+          "truncated_calls": 0,
+          "truncated_cells": 0,
+          "usable_cell_coverage": 0.57,
+          "usable_cells": 57,
+          "usable_mean_cost_usd_per_request": 0.0005003592982456141,
+          "usable_success_rate": 0.8596491228070176
+        },
+        "validation": {
+          "missing_cells": 23,
+          "recorded_cells": 27,
+          "target_items": 50,
+          "trials": 27,
+          "truncated_calls": 11,
+          "truncated_cells": 6,
+          "usable_cell_coverage": 0.42,
+          "usable_cells": 21,
+          "usable_mean_cost_usd_per_request": 0.0017004080952380952,
+          "usable_success_rate": 0.9523809523809523
+        }
+      },
+      "fit": {
+        "candidate_for_policy": true,
+        "excluded_reason": null,
+        "fit_status": "fit",
+        "train_usable_cells": 57,
+        "validation_usable_cells": 21
+      },
+      "head": {
+        "expected_cost_usd_per_request": 0.0005003592982456141,
+        "intercept": 2.0616417282023733,
+        "train_mean_success": 0.8596491228070176,
+        "train_usable_cells": 57,
+        "validation_usable_cells": 21,
+        "weights": {
+          "char_count": 0.2543564523594751,
+          "code_fence_count": 0.0,
+          "code_intent_count": 0.4182431454966161,
+          "code_keyword_count": 0.030742494087437542,
+          "code_ratio": 0.0,
+          "cue_calculate": 1.0641054153544178,
+          "cue_negation": -7.004232167867343e-16,
+          "cue_number": -0.3264001406895795,
+          "cue_unit": 0.0,
+          "cue_which": -4.483046173601045e-16,
+          "cue_why": 9.187435290045934e-16,
+          "inline_code_count": 0.0,
+          "json_brace_ratio": 0.5585224501320403,
+          "json_probability": 0.0,
+          "line_count": 0.6627421997462765,
+          "log_chars": -0.336015054795151,
+          "log_words": -0.45291591059140635,
+          "markdown_bold_count": 0.0,
+          "markdown_heading_count": 0.0,
+          "markdown_list_count": 0.0,
+          "markdown_ratio": 0.0,
+          "punctuation_ratio": 0.23280919870898273,
+          "token_count": 0.07207795489080833,
+          "word_count": 0.14872987549017055
+        }
+      },
+      "prediction_quality": {
+        "holdout": {
+          "accuracy_at_0_5": 0.38095238095238093,
+          "brier": 0.4770868842372688,
+          "ece": 0.6001861727782313,
+          "log_loss": 1.6038804820111907,
+          "mean_observed_success": 0.9523809523809523,
+          "mean_predicted_success": 0.443605867363949,
+          "n": 21,
+          "status": "ok"
+        },
+        "validation": {
+          "accuracy_at_0_5": 0.7619047619047619,
+          "brier": 0.18383199711474632,
+          "ece": 0.301022843722845,
+          "log_loss": 0.5919907694482335,
+          "mean_observed_success": 0.9523809523809523,
+          "mean_predicted_success": 0.7213877410738446,
+          "n": 21,
+          "status": "ok"
+        }
+      },
+      "pricing_class_hint": "non_free_or_unclassified"
+    }
+  },
+  "production_eligible": false,
+  "report_kind": "router_v2_eval_grid_proxy_diagnostic",
+  "research_only": true,
+  "router_v2_enabled": false,
+  "runtime_mutations": [],
+  "schema_version": 1,
+  "sources": {
+    "category_counts": {
+      "qa": 100,
+      "reasoning": 100
+    },
+    "corpus": "/Users/puranvs/Cost-Optimization/eval_corpus.jsonl",
+    "corpus_item_count": 200,
+    "corpus_item_ids": [
+      "gpqa_00000",
+      "gpqa_00006",
+      "gpqa_00007",
+      "gpqa_00008",
+      "gpqa_00011",
+      "gpqa_00014",
+      "gpqa_00016",
+      "gpqa_00017",
+      "gpqa_00018",
+      "gpqa_00019",
+      "gpqa_00020",
+      "gpqa_00027",
+      "gpqa_00028",
+      "gpqa_00031",
+      "gpqa_00033",
+      "gpqa_00034",
+      "gpqa_00035",
+      "gpqa_00040",
+      "gpqa_00043",
+      "gpqa_00046",
+      "gpqa_00048",
+      "gpqa_00049",
+      "gpqa_00050",
+      "gpqa_00051",
+      "gpqa_00054",
+      "gpqa_00055",
+      "gpqa_00057",
+      "gpqa_00058",
+      "gpqa_00059",
+      "gpqa_00063",
+      "gpqa_00064",
+      "gpqa_00065",
+      "gpqa_00068",
+      "gpqa_00071",
+      "gpqa_00072",
+      "gpqa_00074",
+      "gpqa_00075",
+      "gpqa_00077",
+      "gpqa_00079",
+      "gpqa_00080",
+      "gpqa_00081",
+      "gpqa_00082",
+      "gpqa_00083",
+      "gpqa_00086",
+      "gpqa_00087",
+      "gpqa_00090",
+      "gpqa_00091",
+      "gpqa_00092",
+      "gpqa_00098",
+      "gpqa_00099",
+      "gsm8k_00002",
+      "gsm8k_00003",
+      "gsm8k_00005",
+      "gsm8k_00008",
+      "gsm8k_00009",
+      "gsm8k_00010",
+      "gsm8k_00012",
+      "gsm8k_00014",
+      "gsm8k_00015",
+      "gsm8k_00017",
+      "gsm8k_00020",
+      "gsm8k_00021",
+      "gsm8k_00024",
+      "gsm8k_00025",
+      "gsm8k_00026",
+      "gsm8k_00028",
+      "gsm8k_00029",
+      "gsm8k_00031",
+      "gsm8k_00034",
+      "gsm8k_00035",
+      "gsm8k_00037",
+      "gsm8k_00043",
+      "gsm8k_00045",
+      "gsm8k_00046",
+      "gsm8k_00047",
+      "gsm8k_00048",
+      "gsm8k_00049",
+      "gsm8k_00051",
+      "gsm8k_00052",
+      "gsm8k_00053",
+      "gsm8k_00058",
+      "gsm8k_00059",
+      "gsm8k_00061",
+      "gsm8k_00066",
+      "gsm8k_00067",
+      "gsm8k_00068",
+      "gsm8k_00070",
+      "gsm8k_00072",
+      "gsm8k_00073",
+      "gsm8k_00076",
+      "gsm8k_00079",
+      "gsm8k_00080",
+      "gsm8k_00084",
+      "gsm8k_00085",
+      "gsm8k_00091",
+      "gsm8k_00093",
+      "gsm8k_00094",
+      "gsm8k_00096",
+      "gsm8k_00097",
+      "gsm8k_00099",
+      "mmlu_00000",
+      "mmlu_00002",
+      "mmlu_00003",
+      "mmlu_00004",
+      "mmlu_00005",
+      "mmlu_00006",
+      "mmlu_00011",
+      "mmlu_00013",
+      "mmlu_00014",
+      "mmlu_00016",
+      "mmlu_00017",
+      "mmlu_00019",
+      "mmlu_00020",
+      "mmlu_00022",
+      "mmlu_00024",
+      "mmlu_00025",
+      "mmlu_00027",
+      "mmlu_00028",
+      "mmlu_00029",
+      "mmlu_00031",
+      "mmlu_00035",
+      "mmlu_00038",
+      "mmlu_00043",
+      "mmlu_00046",
+      "mmlu_00051",
+      "mmlu_00053",
+      "mmlu_00054",
+      "mmlu_00057",
+      "mmlu_00058",
+      "mmlu_00062",
+      "mmlu_00064",
+      "mmlu_00067",
+      "mmlu_00068",
+      "mmlu_00069",
+      "mmlu_00071",
+      "mmlu_00075",
+      "mmlu_00077",
+      "mmlu_00079",
+      "mmlu_00081",
+      "mmlu_00082",
+      "mmlu_00084",
+      "mmlu_00086",
+      "mmlu_00088",
+      "mmlu_00089",
+      "mmlu_00090",
+      "mmlu_00093",
+      "mmlu_00094",
+      "mmlu_00095",
+      "mmlu_00097",
+      "mmlu_00099",
+      "mmlu_pro_00000",
+      "mmlu_pro_00002",
+      "mmlu_pro_00004",
+      "mmlu_pro_00007",
+      "mmlu_pro_00008",
+      "mmlu_pro_00010",
+      "mmlu_pro_00013",
+      "mmlu_pro_00014",
+      "mmlu_pro_00016",
+      "mmlu_pro_00019",
+      "mmlu_pro_00020",
+      "mmlu_pro_00022",
+      "mmlu_pro_00025",
+      "mmlu_pro_00030",
+      "mmlu_pro_00033",
+      "mmlu_pro_00034",
+      "mmlu_pro_00035",
+      "mmlu_pro_00037",
+      "mmlu_pro_00038",
+      "mmlu_pro_00039",
+      "mmlu_pro_00041",
+      "mmlu_pro_00042",
+      "mmlu_pro_00043",
+      "mmlu_pro_00046",
+      "mmlu_pro_00047",
+      "mmlu_pro_00048",
+      "mmlu_pro_00049",
+      "mmlu_pro_00052",
+      "mmlu_pro_00055",
+      "mmlu_pro_00057",
+      "mmlu_pro_00058",
+      "mmlu_pro_00062",
+      "mmlu_pro_00064",
+      "mmlu_pro_00065",
+      "mmlu_pro_00066",
+      "mmlu_pro_00067",
+      "mmlu_pro_00068",
+      "mmlu_pro_00069",
+      "mmlu_pro_00073",
+      "mmlu_pro_00077",
+      "mmlu_pro_00080",
+      "mmlu_pro_00081",
+      "mmlu_pro_00082",
+      "mmlu_pro_00083",
+      "mmlu_pro_00088",
+      "mmlu_pro_00090",
+      "mmlu_pro_00091",
+      "mmlu_pro_00092",
+      "mmlu_pro_00094",
+      "mmlu_pro_00097"
+    ],
+    "grid": "/Users/puranvs/Cost-Optimization/eval_grid.json",
+    "grid_cell_count": 2254,
+    "grid_version": 1,
+    "model_count": 14,
+    "models": [
+      "cohere/north-mini-code:free",
+      "deepseek/deepseek-v4-flash-0731",
+      "google/gemini-2.5-flash",
+      "gpt-5.4-mini",
+      "moonshotai/kimi-k2.7-code",
+      "nvidia/nemotron-3-nano-30b-a3b:free",
+      "nvidia/nemotron-3-super-120b-a12b:free",
+      "openai/gpt-5.6-luna",
+      "openai/gpt-oss-120b",
+      "openai/gpt-oss-20b",
+      "poolside/laguna-xs-2.1:free",
+      "qwen/qwen3.6-plus",
+      "xiaomi/mimo-v2.5",
+      "z-ai/glm-5.2"
+    ],
+    "source_counts": {
+      "gpqa": 50,
+      "gsm8k": 50,
+      "mmlu": 50,
+      "mmlu_pro": 50
+    },
+    "vintage_counts": {
+      "2020": 50,
+      "2021": 50,
+      "2023": 50,
+      "2024": 50
+    }
+  },
+  "split_definition": {
+    "diagnostic_holdout": [
+      "2024"
+    ],
+    "holdout_tuning_used": false,
+    "note": "The 2024 vintage is an eval-grid diagnostic holdout. It is not the frozen Router V2 study test split.",
+    "train": [
+      "2020",
+      "2021"
+    ],
+    "validation": [
+      "2023"
+    ]
+  },
+  "threshold_selection": {
+    "eligible_threshold_count": 100,
+    "minimum_coverage": 0.8,
+    "status": "validation_knee",
+    "threshold": 0.92,
+    "validation_observed_mean_cost_usd_per_scored_request": 2.5277250000000003e-05,
+    "validation_observed_success_rate_scored": 0.725,
+    "validation_threshold_sweep": [
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.0
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.01
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.02
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.03
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.04
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.05
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.06
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.07
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.08
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.09
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.1
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.11
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.12
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.13
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.14
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.15
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.16
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.17
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.18
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.19
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.2
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.21
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.22
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.23
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.24
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.25
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.26
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.27
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.28
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.29
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.3
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.31
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.32
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.33
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.34
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.35000000000000003
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.36
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.37
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.38
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.39
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.4
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.41000000000000003
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.42
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.43
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.44
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.45
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.46
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.47000000000000003
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.48
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.49
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.5
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.51
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.52
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.53
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.54
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.55
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.56
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.5700000000000001
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.58
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.59
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.6
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.61
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 0.0,
+        "observed_mean_cost_usd_per_scored_request": 0.0,
+        "observed_success_rate_scored": 0.6904761904761905,
+        "scored_items": 42,
+        "threshold": 0.62
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.63
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.64
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.65
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.66
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.67
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.68
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.6900000000000001
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 9.001140000000001e-07,
+        "observed_mean_cost_usd_per_scored_request": 3.0665116279069768e-06,
+        "observed_success_rate_scored": 0.6976744186046512,
+        "scored_items": 43,
+        "threshold": 0.7000000000000001
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 2.24232e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.1506976744186046e-05,
+        "observed_success_rate_scored": 0.7209302325581395,
+        "scored_items": 43,
+        "threshold": 0.71
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 2.24232e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.1506976744186046e-05,
+        "observed_success_rate_scored": 0.7209302325581395,
+        "scored_items": 43,
+        "threshold": 0.72
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 3.5845259999999996e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.3428372093023255e-05,
+        "observed_success_rate_scored": 0.7209302325581395,
+        "scored_items": 43,
+        "threshold": 0.73
+      },
+      {
+        "coverage": 0.86,
+        "expected_mean_cost_usd_per_decision": 3.5845259999999996e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.3428372093023255e-05,
+        "observed_success_rate_scored": 0.7209302325581395,
+        "scored_items": 43,
+        "threshold": 0.74
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.75
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.76
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.77
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.78
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.79
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.8
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.81
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 4.106078620689655e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.24952380952381e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.8200000000000001
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 5.006192620689656e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.471214285714286e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.8300000000000001
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 5.006192620689656e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.471214285714286e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.84
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 5.006192620689656e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.471214285714286e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.85
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 5.906306620689656e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.817357142857143e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.86
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 5.906306620689656e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.817357142857143e-05,
+        "observed_success_rate_scored": 0.7142857142857143,
+        "scored_items": 42,
+        "threshold": 0.87
+      },
+      {
+        "coverage": 0.84,
+        "expected_mean_cost_usd_per_decision": 7.248512620689656e-06,
+        "observed_mean_cost_usd_per_scored_request": 9.48857142857143e-05,
+        "observed_success_rate_scored": 0.7380952380952381,
+        "scored_items": 42,
+        "threshold": 0.88
+      },
+      {
+        "coverage": 0.82,
+        "expected_mean_cost_usd_per_decision": 7.77006524137931e-06,
+        "observed_mean_cost_usd_per_scored_request": 4.934853658536586e-05,
+        "observed_success_rate_scored": 0.7317073170731707,
+        "scored_items": 41,
+        "threshold": 0.89
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 9.633823862068967e-06,
+        "observed_mean_cost_usd_per_scored_request": 5.114475e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.9
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 1.964100982698125e-05,
+        "observed_mean_cost_usd_per_scored_request": 5.90675e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.91
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 2.1062676447670907e-05,
+        "observed_mean_cost_usd_per_scored_request": 2.5277250000000003e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.92
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 2.1962790447670904e-05,
+        "observed_mean_cost_usd_per_scored_request": 3.462775e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.93
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 2.2862904447670908e-05,
+        "observed_mean_cost_usd_per_scored_request": 3.8344249999999995e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.9400000000000001
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 3.412627248275863e-05,
+        "observed_mean_cost_usd_per_scored_request": 5.9545e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.9500000000000001
+      },
+      {
+        "coverage": 0.8,
+        "expected_mean_cost_usd_per_decision": 3.502638648275863e-05,
+        "observed_mean_cost_usd_per_scored_request": 6.3096e-05,
+        "observed_success_rate_scored": 0.725,
+        "scored_items": 40,
+        "threshold": 0.96
+      },
+      {
+        "coverage": 0.82,
+        "expected_mean_cost_usd_per_decision": 5.3533067862068975e-05,
+        "observed_mean_cost_usd_per_scored_request": 0.00010733756097560975,
+        "observed_success_rate_scored": 0.7317073170731707,
+        "scored_items": 41,
+        "threshold": 0.97
+      },
+      {
+        "coverage": 0.82,
+        "expected_mean_cost_usd_per_decision": 5.899728248275863e-05,
+        "observed_mean_cost_usd_per_scored_request": 0.00020847463414634145,
+        "observed_success_rate_scored": 0.7073170731707317,
+        "scored_items": 41,
+        "threshold": 0.98
+      },
+      {
+        "coverage": 0.82,
+        "expected_mean_cost_usd_per_decision": 7.261012372413795e-05,
+        "observed_mean_cost_usd_per_scored_request": 0.0004383056097560976,
+        "observed_success_rate_scored": 0.6829268292682927,
+        "scored_items": 41,
+        "threshold": 0.99
+      }
+    ]
+  }
+}

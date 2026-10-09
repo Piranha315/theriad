@@ -1,0 +1,43 @@
+# Production OpenSandbox server config for Theriad's chat browsing tools.
+# Install to /etc/theriad/opensandbox.toml (mode 0600, owner root) and replace
+# api_key with a long random value; put the same value in the theriad unit as
+# THERIAD_OPENSANDBOX_API_KEY. Pin the server version in opensandbox.service:
+# opensandbox-server 1.1.0 fails to import (missing fast_sandbox.generated).
+
+[server]
+host = "127.0.0.1"          # never expose the control API publicly
+port = 8080
+max_sandbox_timeout_seconds = 900
+api_key = "REPLACE_WITH_RANDOM_SECRET"
+
+[proxy]
+resolve_internal = false
+
+[log]
+level = "INFO"
+
+[runtime]
+type = "docker"
+execd_image = "opensandbox/execd:v1.0.22"
+
+[storage]
+allowed_host_paths = []     # no host bind mounts into sandboxes
+
+[store]
+type = "sqlite"
+path = "/var/lib/opensandbox/opensandbox.db"
+
+[docker]
+# Dedicated bridge created by sandbox-firewall.sh; the firewall rules are
+# scoped to it so sandboxes can reach only the public internet.
+network_mode = "theriad-sandbox"
+port_range_min = 40000
+port_range_max = 40300
+drop_capabilities = ["AUDIT_WRITE", "MKNOD", "NET_ADMIN", "NET_RAW", "SYS_ADMIN", "SYS_MODULE", "SYS_PTRACE", "SYS_TIME", "SYS_TTY_CONFIG"]
+no_new_privileges = true
+apparmor_profile = ""
+pids_limit = 1024
+seccomp_profile = ""
+
+[ingress]
+mode = "direct"

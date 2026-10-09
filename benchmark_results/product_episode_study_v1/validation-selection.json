@@ -1,0 +1,348 @@
+{
+  "baseline": {
+    "cost_usd": 0.000337981,
+    "success": 0.5
+  },
+  "candidate_count": 54,
+  "candidates": [
+    {
+      "complexity": 1,
+      "cost_usd": 0.000337981,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0002758978,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0008135999999999999,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00020879560000000002,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00014671240000000002,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0006844145999999999,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0002539066,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0001918234,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0007295256,
+      "family": "task_fixed",
+      "success": 0.5
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00032639938359999997,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0002643161836,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0008020183836,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00019721398360000002,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0001351307836,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0006728329835999999,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00024232498359999998,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0001802417836,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007179439835999999,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00041776039999999996,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0003556772,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0008933794000000001,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.000288575,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00022649180000000003,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007641939999999999,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00033368600000000003,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0002716028,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.000809305,
+      "family": "task_fixed",
+      "success": 0.6
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00036856700000000004,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00030648380000000003,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0008441859999999999,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0002393816,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0001772984,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007150005999999999,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0002844926,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00022240940000000002,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007601115999999999,
+      "family": "task_fixed",
+      "success": 0.7
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0003569853836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0002949021836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0008326043836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.0002277999836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 2,
+      "cost_usd": 0.00016571678360000002,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007034189836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0002729109836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0002108277836,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007485299835999999,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00044834640000000005,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00038626320000000004,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0009239654,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.000319161,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00025707780000000003,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0007947799999999999,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.000364272,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.00030218880000000006,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    {
+      "complexity": 3,
+      "cost_usd": 0.0008398909999999999,
+      "family": "task_fixed",
+      "success": 0.8
+    }
+  ],
+  "cost_ceiling_usd": 0.00032108194999999997,
+  "feasible_count": 26,
+  "learners": [
+    {
+      "family": "surface",
+      "reason": "study row 0 is incomplete: ['benchmark_family', 'collection_vintage', 'license_name', 'license_status', 'license_status_not_approved', 'provenance_url', 'source_revision']",
+      "status": "ineligible"
+    },
+    {
+      "family": "hybrid",
+      "reason": "No frozen locally available embedding runtime; no download or paid embeddings used.",
+      "status": "ineligible"
+    }
+  ],
+  "selection_uses_test": false
+}

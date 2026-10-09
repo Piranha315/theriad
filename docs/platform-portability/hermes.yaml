@@ -1,0 +1,10 @@
+# Merge into an isolated Hermes profile; preserve the existing default profile.
+model:
+  default: theriad/agent
+  provider: custom
+  base_url: http://127.0.0.1:8010/v1
+  api_mode: chat_completions
+  key_env: THERIAD_API_KEY
+  context_length: 64000
+compression:
+  enabled: false

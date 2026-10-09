@@ -1,0 +1,22 @@
+# Theriad
+
+> Cost-aware AI workspace and routing layer that shows the route before an AI task runs.
+
+Theriad lets people describe work in plain language instead of choosing a model first. It weighs capability, speed, and cost, then presents the proposed route before execution.
+
+## Product
+
+- [Theriad](https://theriad.ai/): Public landing page and product overview.
+- [Pricing](https://theriad.ai/#pricing): Current public service pricing and policy.
+- [Source repository](https://github.com/Piranha315/Cost-Optimization): Public implementation and project documentation.
+
+## Key capabilities
+
+- Route work across free, lower-cost, and premium model tiers according to task needs.
+- Show the selected model, reasoning, confidence, estimated cost, and fallback before a call runs.
+- Keep projects, files, runs, and imported memory in the workspace context.
+- Let users preview paid work or keep the route on free models by default.
+
+## Public demo
+
+The public comparison demo replays a stored multi-step job to illustrate how routing changes the cost curve. It does not call providers.

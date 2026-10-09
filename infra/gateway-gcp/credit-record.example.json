@@ -1,0 +1,9 @@
+{
+  "project_id": "REPLACE_WITH_ACTUAL_PROJECT",
+  "billing_account": "REPLACE_WITH_ACTUAL_BILLING_ACCOUNT",
+  "remaining_usd": 0,
+  "expires_at": "REPLACE_WITH_VERIFIED_ISO_UTC_EXPIRY",
+  "verified_at": "REPLACE_WITH_ACTUAL_BILLING_CHECK_TIME",
+  "eligible_services": [],
+  "evidence_reference": "REPLACE_WITH_ACTUAL_BILLING_BALANCE_AND_ELIGIBILITY_EVIDENCE"
+}

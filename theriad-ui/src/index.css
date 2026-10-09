@@ -1,0 +1,4379 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Theriad theme tokens — dark only.
+   The product uses a deep ink canvas with warm signal accents so hierarchy is
+   readable at a glance without flattening into a generic purple console.
+   All component styling references these semantic tokens; never hardcode
+   palette values in JSX.
+--------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --surface: #080c16;              /* page background */
+  --surface-raised: #121b2d;       /* cards, panels, modals */
+  --surface-sunken: #090e19;       /* inputs, code wells, insets */
+  --surface-hover: #1b2940;        /* hover fills, pills, tracks */
+  --surface-chat: #16243a;         /* assistant messages */
+  --surface-chat-user: #2a1f3c;    /* user messages */
+
+  /* Ink */
+  --ink: #f7f5f0;
+  --ink-muted: #b7c2d5;
+  --ink-faint: #7f8da7;
+
+  /* Lines */
+  --line: rgba(181, 202, 235, 0.17);
+  --line-strong: rgba(194, 211, 240, 0.31);
+
+  /* Accent (brand) */
+  --accent: #b89cff;
+  --accent-strong: #d0baff;
+  --accent-rgb: 184 156 255;
+  --on-accent: #171126;       /* text on solid accent fills */
+
+  /* Signal colors: warm action, cool confidence, and calm completion. */
+  --signal-warm: #ffc26f;
+  --signal-warm-strong: #ffd58f;
+  --signal-cool: #7d9dff;
+
+  /* Status */
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --info: #7d9dff;
+
+  /* Aurora highlights (from brand gradient: teal -> blue -> violet).
+     Decorative only; never used for text or semantic state. */
+  --aurora-teal: #5eead4;
+  --aurora-blue: #4f8af5;
+  --aurora-violet: #9d6bf0;
+  --aurora-ambient: 13%;  /* strength of the background glow */
+
+  --aurora-text-teal: #5eead4;
+  --aurora-text-blue: #6ba0f7;
+  --aurora-text-violet: #ab7ef5;
+}
+
+/* High-context confirmation: a quiet checkpoint, not an alarm. */
+.cost-guard-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: color-mix(in srgb, #07090d 72%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.cost-guard-backdrop--queueable {
+  pointer-events: none;
+}
+
+.cost-guard-backdrop--queueable .cost-guard-dialog {
+  pointer-events: auto;
+}
+
+.cost-guard-dialog {
+  width: min(100%, 520px);
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  padding: 28px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 18px;
+  background: var(--color-surface);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, .48);
+}
+
+.cost-guard-kicker {
+  margin-bottom: 9px;
+  color: var(--color-accent);
+  font: 600 10px/1.2 'Space Grotesk', sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.cost-guard-dialog h2 {
+  margin: 0;
+  color: var(--color-ink);
+  font: 600 25px/1.16 'Space Grotesk', sans-serif;
+  letter-spacing: -.025em;
+}
+
+.cost-guard-dialog > p {
+  margin: 12px 0 0;
+  color: var(--color-ink-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cost-guard-queue-note {
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 194, 111, 0.2);
+  border-radius: 10px;
+  color: var(--color-ink) !important;
+  background: rgba(255, 194, 111, 0.07);
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+}
+
+.cost-guard-runway {
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-surface-hover);
+}
+
+.cost-guard-runway__topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--color-ink-faint);
+  font-size: 11px;
+}
+
+.cost-guard-runway__topline strong { color: var(--color-ink); font-weight: 600; }
+.cost-guard-runway__track {
+  height: 6px;
+  margin-top: 11px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-line);
+}
+.cost-guard-runway__track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-accent);
+}
+.cost-guard-runway p {
+  margin: 10px 0 0;
+  color: var(--color-ink-faint);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.cost-guard-estimate {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 16px;
+  padding: 18px 2px;
+  color: var(--color-ink-muted);
+  font-size: 12px;
+}
+.cost-guard-estimate strong { color: var(--color-ink); font: 600 15px/1 'Space Grotesk', sans-serif; }
+.cost-guard-estimate small { grid-column: 1 / -1; color: var(--color-ink-faint); }
+
+.cost-guard-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cost-guard-actions button { min-height: 44px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.cost-guard-primary { background: var(--color-accent); color: var(--color-on-accent); }
+.cost-guard-free { border: 1px solid var(--color-line-strong); color: var(--color-ink); background: transparent; }
+.cost-guard-free:disabled { cursor: not-allowed; opacity: .45; }
+.cost-guard-free span { display: block; margin-top: 2px; color: var(--color-ink-faint); font-size: 9px; font-weight: 400; }
+.cost-guard-cancel { grid-column: 1 / -1; min-height: 34px !important; color: var(--color-ink-faint); background: transparent; }
+.cost-guard-actions button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+@media (max-width: 520px) {
+  .cost-guard-dialog { padding: 22px; }
+  .cost-guard-actions { grid-template-columns: 1fr; }
+  .cost-guard-cancel { grid-column: auto; }
+}
+
+/* Expose tokens to Tailwind as first-class colors (bg-surface, text-ink,
+   border-line, bg-accent/10, text-warn, ...). `inline` keeps the utilities
+   pointing at the runtime variables so the theme switch is instant. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-chat: var(--surface-chat);
+  --color-surface-chat-user: var(--surface-chat-user);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-on-accent: var(--on-accent);
+  --color-signal-warm: var(--signal-warm);
+  --color-signal-warm-strong: var(--signal-warm-strong);
+  --color-signal-cool: var(--signal-cool);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+}
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+html {
+  background: var(--surface); /* fallback below the fixed atmosphere layer */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Auth context: keep the real Theriad landing surface visible behind the
+   first-run sign-in state without turning the backdrop into a second UI. */
+.theriad-auth-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(100% 100% at 0% 0%, rgb(var(--accent-rgb) / 0.17) 0%, transparent 58%),
+    #05060b;
+  pointer-events: none;
+}
+
+.theriad-auth-backdrop__site {
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.18;
+  filter: blur(16px) saturate(45%) brightness(38%);
+  transform: scale(1.06);
+  transform-origin: 50% 18%;
+}
+
+/* Purple adaptation of the supplied dark-gradient pattern. Keep the
+   decoration deliberately quiet so the auth form remains the only clear
+   decision on the page. */
+.theriad-auth-backdrop__pattern {
+  --theriad-auth-dot-spacing: clamp(14px, 1.7vw, 20px);
+  --theriad-auth-dot-radius: clamp(0.75px, 0.11vw, 1px);
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  opacity: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(100% 100% at 0% 0%, rgb(var(--accent-rgb) / 0.1) 0%, transparent 62%),
+    radial-gradient(circle at 1px 1px, rgb(var(--accent-rgb) / 0.11) var(--theriad-auth-dot-radius), transparent calc(var(--theriad-auth-dot-radius) + 0.5px));
+  background-size: 100% 100%, var(--theriad-auth-dot-spacing) var(--theriad-auth-dot-spacing);
+}
+
+.theriad-auth-backdrop__pattern::before {
+  position: absolute;
+  inset: -18%;
+  background:
+    linear-gradient(108deg, transparent 21%, rgb(var(--accent-rgb) / 0.18) 27%, transparent 33%),
+    linear-gradient(108deg, transparent 42%, rgb(var(--accent-rgb) / 0.12) 48%, transparent 54%),
+    linear-gradient(108deg, transparent 64%, rgb(var(--accent-rgb) / 0.14) 70%, transparent 76%);
+  content: '';
+  opacity: 0.68;
+  filter: blur(9px);
+  transform: skewX(38deg);
+}
+
+.theriad-auth-backdrop__pattern::after {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgb(var(--accent-rgb) / 0.3) var(--theriad-auth-dot-radius), transparent calc(var(--theriad-auth-dot-radius) + 0.5px));
+  background-size: var(--theriad-auth-dot-spacing) var(--theriad-auth-dot-spacing);
+  content: '';
+  opacity: 0.34;
+}
+
+.theriad-auth-backdrop__glow {
+  position: absolute;
+  inset: -10%;
+  background: radial-gradient(circle at 68% 18%, rgb(var(--accent-rgb) / 0.2), transparent 30%);
+  filter: blur(26px);
+}
+
+.theriad-auth-backdrop__veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgb(4 6 14 / 0.24), rgb(4 6 14 / 0.5)),
+    rgb(4 6 14 / 0.12);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.theriad-auth-modal-scrim {
+  background: rgb(4 6 14 / 0.2);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Keep the sign-in surface compact: one clear action, with secondary paths
+   available without competing with the form on first glance. */
+.theriad-auth-modal-stage {
+  display: grid;
+  box-sizing: border-box;
+  height: 100dvh;
+  min-height: 0;
+  place-items: center end;
+  padding: clamp(1rem, 4vw, 3.5rem) clamp(1rem, 5vw, 5rem);
+}
+
+.theriad-auth-card {
+  display: block;
+  box-sizing: border-box;
+  width: min(100%, 32rem);
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
+  border: 1px solid rgb(194 211 240 / 0.24);
+  border-radius: 1.35rem;
+  background: rgba(18, 27, 45, 0.94);
+  box-shadow: 0 32px 100px rgb(0 0 0 / 0.52), 0 20px 70px rgb(var(--accent-rgb) / 0.07), inset 0 1px 0 rgb(255 255 255 / 0.055);
+}
+
+.theriad-auth-context {
+  position: relative;
+  display: flex;
+  min-height: 37rem;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-right: 1px solid rgba(194, 211, 240, 0.16);
+  background:
+    radial-gradient(circle at 16% 10%, rgb(var(--accent-rgb) / 0.2), transparent 32%),
+    radial-gradient(circle at 96% 82%, rgb(var(--accent-rgb) / 0.16), transparent 38%),
+    linear-gradient(145deg, rgb(var(--accent-rgb) / 0.09), transparent 62%),
+    #0d1728;
+}
+
+.theriad-auth-context::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(194 211 240 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(194 211 240 / 0.045) 1px, transparent 1px);
+  background-size: 2.25rem 2.25rem;
+  content: '';
+  mask-image: linear-gradient(145deg, black, transparent 70%);
+}
+
+.theriad-auth-context > * {
+  position: relative;
+  z-index: 1;
+}
+
+.theriad-auth-context__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 680;
+  letter-spacing: -0.025em;
+}
+
+.theriad-auth-context__mark {
+  width: 2.05rem;
+  height: 2.15rem;
+  overflow: hidden;
+}
+
+.theriad-auth-context__mark-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+.theriad-auth-context__body {
+  max-width: 17rem;
+  margin: auto 0;
+}
+
+.theriad-auth-context__body h1 {
+  margin: 0.7rem 0 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 540;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.theriad-auth-context__body h1 em {
+  color: var(--accent-strong);
+  font-style: normal;
+}
+
+.theriad-auth-context__body > p:last-child {
+  max-width: 15rem;
+  margin: 1.2rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.theriad-auth-kicker {
+  margin: 0;
+  color: var(--accent-strong);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 760;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.theriad-auth-context__note {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--ink-faint);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+}
+
+.theriad-auth-context__note p { margin: 0; }
+
+.theriad-auth-context__rule {
+  width: 1.8rem;
+  height: 1px;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgb(var(--accent-rgb) / 0.55);
+}
+
+.theriad-auth-form-panel {
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: clamp(1.75rem, 4vw, 2.25rem);
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.018), transparent 42%), rgb(18 27 45 / 0.88);
+}
+
+.theriad-auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: clamp(1.5rem, 4vh, 2.25rem);
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 680;
+  letter-spacing: -0.025em;
+}
+
+.theriad-auth-brand__mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  overflow: hidden;
+}
+
+.theriad-auth-brand__mark-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.theriad-auth-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.theriad-auth-title {
+  margin: 0.55rem 0 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.theriad-auth-copy {
+  max-width: 27rem;
+  margin: 0.75rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.theriad-auth-close {
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  color: var(--ink-faint);
+  background: transparent;
+  font-size: 0.85rem;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theriad-auth-close:hover {
+  border-color: rgb(194 211 240 / 0.18);
+  color: var(--ink);
+  background: rgb(194 211 240 / 0.07);
+  transform: rotate(4deg);
+}
+
+.theriad-auth-form {
+  max-width: 31rem;
+  margin-top: 1.6rem;
+}
+
+.theriad-auth-fields {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.theriad-auth-field {
+  display: block;
+}
+
+.theriad-auth-field__label {
+  display: block;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.theriad-auth-input {
+  display: block;
+  width: 100%;
+  min-height: 3.15rem;
+  margin-top: 0.45rem;
+  padding: 0 0.95rem;
+  border: 1px solid rgb(194 211 240 / 0.21);
+  border-radius: 0.8rem;
+  color: var(--ink);
+  background: rgba(9, 14, 25, 0.72);
+  outline: none;
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.theriad-auth-input:hover {
+  border-color: rgb(194 211 240 / 0.34);
+}
+
+.theriad-auth-input:focus {
+  border-color: var(--accent);
+  background: rgba(9, 14, 25, 0.92);
+  box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / 0.1);
+}
+
+.theriad-auth-field__hint {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--ink-faint);
+  font-size: 0.64rem;
+  line-height: 1.45;
+}
+
+.theriad-auth-error {
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 0.7rem;
+  color: var(--danger);
+  background: rgba(248, 113, 113, 0.08);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.theriad-auth-primary {
+  display: flex;
+  min-height: 3.15rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.15rem;
+  padding: 0.75rem 1rem 0.75rem 1.1rem;
+  border: 0;
+  border-radius: 0.82rem;
+  color: var(--on-accent);
+  background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 10px 24px rgb(var(--accent-rgb) / 0.13);
+  font-size: 0.84rem;
+  font-weight: 750;
+  transition: box-shadow 160ms ease, filter 160ms ease, transform 160ms ease;
+}
+
+.theriad-auth-primary:hover {
+  filter: saturate(1.05) brightness(1.03);
+  box-shadow: 0 13px 28px rgb(var(--accent-rgb) / 0.2);
+  transform: translateY(-1px);
+}
+
+.theriad-auth-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+  transform: none;
+}
+
+.theriad-auth-primary__arrow {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(23, 17, 38, 0.12);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theriad-auth-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.theriad-auth-link {
+  min-height: 2.25rem;
+  padding: 0.4rem 0;
+  border: 0;
+  color: var(--accent-strong);
+  background: transparent;
+  font-size: 0.7rem;
+  font-weight: 680;
+  text-align: left;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.theriad-auth-link:hover {
+  color: #eee7ff;
+  transform: translateY(-1px);
+}
+
+.theriad-auth-link--muted {
+  color: var(--ink-muted);
+  font-weight: 520;
+  text-align: right;
+}
+
+.theriad-auth-link--muted:hover { color: var(--ink); }
+
+.theriad-auth-note {
+  max-width: 28rem;
+  margin: 0.95rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.66rem;
+  line-height: 1.55;
+}
+
+.theriad-auth-more {
+  max-width: 31rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid rgb(194 211 240 / 0.13);
+}
+
+.theriad-auth-divider {
+  display: flex;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.theriad-auth-divider::before,
+.theriad-auth-divider::after {
+  flex: 1;
+  height: 1px;
+  background: rgb(194 211 240 / 0.13);
+  content: '';
+}
+
+.theriad-auth-google-button {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgb(194 211 240 / 0.18);
+  border-radius: 0.78rem;
+  color: var(--ink-muted);
+  background: rgba(9, 14, 25, 0.36);
+  font-size: 0.74rem;
+  font-weight: 650;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theriad-auth-google-button:hover {
+  border-color: rgb(var(--accent-rgb) / 0.32);
+  color: var(--ink);
+  background: rgb(var(--accent-rgb) / 0.07);
+  transform: translateY(-1px);
+}
+
+.theriad-auth-google-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  transform: none;
+}
+
+.theriad-auth-guest-button {
+  display: block;
+  min-height: 2.25rem;
+  width: 100%;
+  margin-top: 0.45rem;
+  border: 0;
+  color: var(--ink-faint);
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 560;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.theriad-auth-guest-button:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.theriad-auth-guest-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
+.theriad-auth-google-mark,
+.theriad-auth-guest-mark {
+  display: grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.theriad-auth-google-mark {
+  box-sizing: border-box;
+  padding: 0.16rem;
+}
+
+.theriad-auth-google-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.theriad-auth-guest-mark {
+  color: var(--on-accent);
+  background: var(--accent);
+  font-size: 0.85rem;
+}
+
+.theriad-auth-more__hint {
+  margin: 0.6rem 0 0.1rem;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  line-height: 1.45;
+}
+
+.theriad-auth-card button:focus-visible,
+.theriad-auth-card input:focus-visible,
+.theriad-auth-card summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .theriad-auth-modal-stage {
+    place-items: center;
+  }
+
+  .theriad-auth-card {
+    width: min(100%, 31rem);
+    max-height: calc(100dvh - 1.5rem);
+    border-radius: 1.4rem;
+  }
+
+  .theriad-auth-context {
+    min-height: auto;
+    padding: 1.35rem 1.4rem 1.2rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(194, 211, 240, 0.16);
+  }
+
+  .theriad-auth-context__body {
+    max-width: 28rem;
+    margin: 1.7rem 0 0;
+  }
+
+  .theriad-auth-context__body h1 {
+    font-size: clamp(1.8rem, 8vw, 2.45rem);
+  }
+
+  .theriad-auth-context__body > p:last-child {
+    max-width: 26rem;
+    margin-top: 0.75rem;
+  }
+
+  .theriad-auth-context__note { margin-top: 1.35rem; }
+  .theriad-auth-form-panel { padding: 1.4rem; }
+  .theriad-auth-form { margin-top: 1.6rem; }
+}
+
+@media (max-width: 460px) {
+  .theriad-auth-modal-stage { padding: 0.75rem; }
+  .theriad-auth-card { max-height: calc(100dvh - 1rem); }
+  .theriad-auth-form-panel { padding: 1.25rem 1.1rem 1.35rem; }
+  .theriad-auth-brand { margin-bottom: 2rem; }
+  .theriad-auth-links { align-items: flex-start; flex-direction: column; gap: 0.1rem; }
+  .theriad-auth-link--muted { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theriad-auth-close,
+  .theriad-auth-input,
+  .theriad-auth-primary,
+  .theriad-auth-link,
+  .theriad-auth-google-button,
+  .theriad-auth-guest-button {
+    transition: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .theriad-auth-backdrop__pattern {
+    --theriad-auth-dot-spacing: clamp(14px, 2vw, 17px);
+  }
+
+  .theriad-auth-backdrop__pattern::before {
+    inset: -24%;
+    opacity: 0.52;
+    transform: skewX(32deg);
+  }
+
+  .theriad-auth-backdrop__glow {
+    inset: -18%;
+    filter: blur(20px);
+  }
+
+  .theriad-auth-backdrop__site {
+    filter: blur(7px) saturate(78%) brightness(58%);
+    transform: scale(1.09);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theriad-auth-backdrop__site {
+    filter: blur(6px) saturate(78%) brightness(60%);
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  /* Transparent so the aurora ambient layer on body::before shows through;
+     body carries the opaque surface color. */
+  background: transparent;
+}
+
+/* Ambient atmosphere: a quiet violet glow at the top of the viewport. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(760px 360px at 72% -12%, rgba(120, 91, 205, 0.16), transparent 72%),
+    radial-gradient(520px 300px at 4% 88%, rgba(255, 194, 111, 0.055), transparent 70%),
+    var(--surface);
+}
+
+/* Opaque framing in both themes: translucent/blurred panels over a gradient
+   made adjacent columns read as different tints. Flat surfaces keep the
+   three-pane screens (Chat) calm and consistent. */
+.ambient-panel,
+.ambient-panel-soft {
+  background: var(--surface-raised);
+}
+
+/* 2px brand hairline across the top of the app */
+.aurora-topline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 50;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    var(--accent-strong), var(--aurora-violet) 55%, var(--aurora-blue));
+}
+
+/* Wordmark: the single gradient-text moment in the app */
+.aurora-wordmark {
+  background: linear-gradient(100deg, var(--accent-strong), var(--aurora-text-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Theriad logo (dark variant only — the app is dark-only) */
+.theriad-logo-dark  { display: block; }
+.theriad-logo-light { display: none; }
+
+/* Code blocks must never expand the layout.
+   The output panel can scroll horizontally; the page cannot. */
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Long unbroken tokens (URLs, hashes, paths) should break at container edge */
+code {
+  word-break: break-word;
+}
+
+/* Assistant responses use a deliberately small Markdown surface. Keeping the
+   rules here instead of relying on browser defaults makes long answers scan
+   cleanly in both themes without changing the surrounding chat geometry. */
+.markdown-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.markdown-content > :first-child { margin-top: 0; }
+.markdown-content > :last-child { margin-bottom: 0; }
+
+.markdown-content p { margin: 0 0 1rem; }
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--ink);
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.markdown-content h1 { font-size: 1.25rem; }
+.markdown-content h2 { font-size: 1.125rem; }
+.markdown-content h3 { font-size: 1rem; }
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 { font-size: 0.9375rem; }
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+}
+
+.markdown-content li {
+  padding-left: 0.25rem;
+  margin: 0.35rem 0;
+}
+
+.markdown-content li::marker { color: var(--accent); }
+
+.markdown-content blockquote {
+  margin: 0 0 1rem;
+  padding: 0.25rem 0 0.25rem 0.85rem;
+  color: var(--ink-muted);
+  border-left: 2px solid var(--accent);
+}
+
+.markdown-content hr {
+  margin: 1.25rem 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.markdown-content strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.markdown-content a {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: 2px;
+}
+
+.markdown-content a:hover { color: var(--accent); }
+
+.markdown-content :not(pre) > code {
+  display: inline-block;
+  padding: 0.08rem 0.35rem;
+  color: var(--accent-strong);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  font-size: 0.88em;
+  line-height: 1.35;
+}
+
+.markdown-content pre {
+  margin: 0 0 1rem;
+  padding: 0.8rem 0.9rem;
+  color: var(--ink);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.markdown-content pre code {
+  font-family: var(--font-mono);
+  word-break: normal;
+}
+
+/* Quiet, theme-aware scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+/* ---------------------------------------------------------------------------
+   Thinking indicator: a gentle crossfade as the live synopsis or an idle
+   musing (quote / tip) swaps in. Keyed remount in JSX replays it each change.
+--------------------------------------------------------------------------- */
+@keyframes theriad-thinking-fade {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.theriad-thinking-line {
+  animation: theriad-thinking-fade 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inline signal for the shared chat/agent thinking state. It deliberately has
+   no fill or backdrop: the active panel remains visible behind the motion. */
+.theriad-thinking-signal {
+  display: block;
+  width: 3rem;
+  height: 2rem;
+  flex: 0 0 3rem;
+  overflow: visible;
+}
+
+.theriad-thinking-signal__track,
+.theriad-thinking-signal__pulse {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theriad-thinking-signal__track {
+  stroke: color-mix(in srgb, var(--ink-faint) 42%, transparent);
+  stroke-width: 1;
+}
+
+.theriad-thinking-signal__pulse {
+  stroke: var(--accent);
+  stroke-width: 1.7;
+  stroke-dasharray: 0.2 0.8;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--accent) 52%, transparent));
+  animation: theriad-thinking-signal-flow 1.8s linear infinite;
+}
+
+.theriad-thinking-signal__node {
+  fill: var(--signal-warm);
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--signal-warm) 62%, transparent));
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: theriad-thinking-signal-node 1.8s ease-in-out infinite;
+}
+
+@keyframes theriad-thinking-signal-flow {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes theriad-thinking-signal-node {
+  0%, 100% { opacity: 0.45; transform: scale(0.72); }
+  50% { opacity: 1; transform: scale(1.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theriad-thinking-line,
+  .theriad-thinking-signal__pulse,
+  .theriad-thinking-signal__node { animation: none; }
+
+  .theriad-thinking-signal__pulse {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Workspace shell — a signal-led control room for the actual product.
+   These classes sit on top of the existing utility layout so the feature
+   screens keep their behavior while the hierarchy becomes easier to scan.
+--------------------------------------------------------------------------- */
+.theriad-app-shell {
+  position: relative;
+  background:
+    radial-gradient(560px 260px at 76% -8%, rgba(125, 157, 255, 0.11), transparent 72%),
+    radial-gradient(440px 260px at 16% 104%, rgba(255, 194, 111, 0.045), transparent 74%),
+    var(--surface);
+}
+
+.theriad-sidebar {
+  width: 16rem;
+  border-right-color: rgba(181, 202, 235, 0.14);
+  background:
+    linear-gradient(180deg, rgba(18, 27, 45, 0.98), rgba(8, 12, 22, 0.98) 58%),
+    var(--surface);
+  box-shadow: 14px 0 38px rgba(3, 6, 13, 0.14);
+}
+
+.theriad-sidebar-brand {
+  min-height: 6.7rem;
+  padding: 1.15rem 1.1rem;
+  background: linear-gradient(135deg, rgba(125, 157, 255, 0.09), transparent 60%);
+}
+
+.theriad-sidebar-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.theriad-sidebar-logo {
+  width: 2.7rem;
+  height: 3.3rem;
+  flex: 0 0 auto;
+}
+
+.theriad-sidebar-brand-copy {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.theriad-sidebar-brand-copy strong {
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.theriad-sidebar-brand-copy span {
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.theriad-new-chat-button {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: calc(100% - 1.8rem);
+  min-height: 2.8rem;
+  margin: 0.9rem 0.9rem 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(255, 194, 111, 0.32);
+  border-radius: 0.7rem;
+  color: #17120d;
+  background: linear-gradient(135deg, #ffc26f, #e8a8ff);
+  box-shadow: 0 8px 20px rgba(197, 136, 255, 0.14);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.theriad-new-chat-button:hover {
+  filter: saturate(1.06) brightness(1.04);
+  box-shadow: 0 10px 24px rgba(197, 136, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.theriad-new-chat-button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.theriad-new-chat-button:focus-visible {
+  outline: 2px solid #f6d089;
+  outline-offset: 3px;
+}
+
+.theriad-new-chat-button svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  stroke-width: 1.8;
+}
+
+.theriad-sidebar-nav {
+  padding: 0.9rem 0.75rem;
+}
+
+.theriad-nav-button {
+  min-height: 2.75rem;
+  border: 1px solid transparent;
+  color: var(--ink-muted);
+  letter-spacing: -0.005em;
+}
+
+.theriad-nav-button:hover {
+  border-color: rgba(181, 202, 235, 0.12);
+  background: rgba(125, 157, 255, 0.07);
+  color: var(--ink);
+}
+
+.theriad-nav-button[aria-current='page'] {
+  border-color: rgba(255, 194, 111, 0.22);
+  background: linear-gradient(90deg, rgba(255, 194, 111, 0.14), rgba(125, 157, 255, 0.08));
+  color: var(--signal-warm-strong);
+  box-shadow: inset 3px 0 0 var(--signal-warm);
+}
+
+.theriad-nav-button[aria-current='page'] svg {
+  color: var(--signal-warm);
+}
+
+.theriad-advanced-toggle {
+  margin-top: 0.7rem;
+  border-top: 1px solid rgba(181, 202, 235, 0.11);
+  border-radius: 0;
+  padding-top: 1rem;
+}
+
+.theriad-account-section {
+  padding: 0.8rem 0.75rem 0.7rem;
+  border-top-color: rgba(181, 202, 235, 0.13);
+}
+
+.theriad-account-card {
+  padding: 0.65rem;
+  border: 1px solid rgba(181, 202, 235, 0.12);
+  border-radius: 0.8rem;
+  background: rgba(125, 157, 255, 0.05);
+}
+
+.theriad-account-avatar {
+  background: rgba(255, 194, 111, 0.14) !important;
+  border-color: rgba(255, 194, 111, 0.35) !important;
+  color: var(--signal-warm) !important;
+}
+
+.theriad-status-panel {
+  border-top-color: rgba(181, 202, 235, 0.13);
+}
+
+.theriad-status-panel > button:hover {
+  background: rgba(125, 157, 255, 0.06);
+}
+
+.theriad-main {
+  min-width: 0;
+  background: linear-gradient(145deg, rgba(13, 21, 36, 0.48), transparent 34%), var(--surface);
+}
+
+/* Leave room for mobile browser chrome when a page is the scroll owner. */
+.theriad-main--scrollable {
+  scroll-padding-bottom: 4rem;
+}
+
+.theriad-page-header {
+  position: relative;
+  padding-bottom: 0.9rem;
+}
+
+.theriad-page-header::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3.5rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--signal-warm), var(--accent));
+  content: '';
+}
+
+.theriad-session-banner {
+  top: 1rem;
+  right: 1.25rem;
+  left: auto;
+  box-sizing: border-box;
+  width: min(22rem, calc(100vw - 2rem));
+  min-width: 0;
+  max-width: min(22rem, calc(100vw - 2rem));
+  overflow: hidden;
+  transform: none;
+  translate: 0;
+  border-color: rgba(255, 194, 111, 0.26);
+  background: rgba(18, 27, 45, 0.92);
+  box-shadow: 0 14px 36px rgba(3, 6, 13, 0.26), inset 0 1px 0 rgba(255, 244, 213, 0.06);
+}
+
+.theriad-session-banner::before {
+  width: 0.42rem;
+  height: 0.42rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--signal-warm);
+  box-shadow: 0 0 0 4px rgba(255, 194, 111, 0.1);
+  content: '';
+}
+
+.theriad-session-banner button {
+  flex: 0 0 auto;
+  color: var(--signal-warm-strong);
+}
+
+.theriad-session-banner > span {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.theriad-session-banner button:hover {
+  color: #fff0c9;
+}
+
+.theriad-mobile-bar {
+  background: rgba(8, 12, 22, 0.92);
+  border-bottom-color: rgba(181, 202, 235, 0.15);
+  box-shadow: 0 8px 24px rgba(3, 6, 13, 0.18);
+  backdrop-filter: blur(16px) saturate(130%);
+}
+
+.theriad-mobile-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.theriad-mobile-mark {
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  border: 1px solid rgba(255, 194, 111, 0.35);
+  border-radius: 0.55rem;
+  color: var(--signal-warm);
+  background: rgba(255, 194, 111, 0.1);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.theriad-mobile-quota {
+  padding: 0.26rem 0.45rem;
+  border: 1px solid rgba(255, 194, 111, 0.22);
+  border-radius: 999px;
+  color: var(--signal-warm-strong);
+  background: rgba(255, 194, 111, 0.07);
+  font-size: 0.62rem;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+.theriad-chat-frame {
+  min-width: 0;
+  border: 1px solid rgba(181, 202, 235, 0.11);
+  border-radius: 1.1rem;
+  background: rgba(8, 12, 22, 0.38);
+  box-shadow: 0 24px 70px rgba(3, 6, 13, 0.18);
+}
+
+.theriad-preview-inspector {
+  display: flex;
+  width: min(34rem, 38%);
+  min-width: 19rem;
+  min-height: 0;
+  flex: 0 1 min(34rem, 38%);
+  flex-direction: column;
+  border-left: 1px solid rgba(181, 202, 235, 0.14);
+  background:
+    linear-gradient(180deg, rgba(18, 27, 45, 0.92), rgba(8, 12, 22, 0.96)),
+    var(--surface);
+}
+
+.theriad-preview-inspector__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.15rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(181, 202, 235, 0.13);
+  background: linear-gradient(90deg, rgba(255, 194, 111, 0.07), transparent 72%);
+}
+
+.theriad-preview-inspector__eyebrow {
+  color: var(--signal-warm);
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.theriad-preview-inspector__title {
+  margin-top: 0.25rem;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.theriad-preview-inspector__close {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(181, 202, 235, 0.16);
+  border-radius: 0.6rem;
+  color: var(--ink-faint);
+  background: rgba(27, 41, 64, 0.52);
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.theriad-preview-inspector__close:hover {
+  border-color: rgba(255, 194, 111, 0.38);
+  color: var(--ink);
+  background: rgba(255, 194, 111, 0.08);
+}
+
+.theriad-preview-inspector__meta,
+.theriad-preview-inspector__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+}
+
+.theriad-preview-inspector__meta {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid rgba(181, 202, 235, 0.09);
+}
+
+.theriad-preview-inspector__meta span:last-child {
+  max-width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theriad-preview-inspector__body {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.theriad-preview-inspector__canvas {
+  min-height: 0;
+  flex: 1 1 auto;
+  margin: 0.85rem;
+  overflow: hidden;
+  border: 1px solid rgba(181, 202, 235, 0.16);
+  border-radius: 0.8rem;
+  background: #fff;
+  box-shadow: 0 16px 32px rgba(3, 6, 13, 0.24);
+}
+
+.theriad-preview-inspector__canvas iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 17rem;
+  border: 0;
+  background: #fff;
+  color-scheme: light;
+}
+
+.theriad-preview-inspector__footer {
+  align-items: flex-start;
+  padding: 0.75rem 1rem 0.9rem;
+  border-top: 1px solid rgba(181, 202, 235, 0.1);
+  line-height: 1.45;
+}
+
+.theriad-preview-inspector__footer p {
+  max-width: 13rem;
+  text-align: right;
+}
+
+.theriad-chat-header {
+  min-height: 3.25rem;
+  border-bottom-color: rgba(181, 202, 235, 0.13);
+  background: linear-gradient(90deg, rgba(18, 27, 45, 0.88), rgba(18, 27, 45, 0.62));
+}
+
+.theriad-chat-title {
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 630;
+}
+
+.theriad-chat-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  font-weight: 720;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.theriad-chat-mode::before {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.09);
+  content: '';
+}
+
+.theriad-chat-messages {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.theriad-empty-state {
+  width: min(100%, 38rem);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+  justify-content: center;
+}
+
+.theriad-empty-icon {
+  display: grid;
+  width: 3.4rem;
+  height: 3.4rem;
+  place-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 194, 111, 0.35);
+  border-radius: 1.1rem;
+  color: var(--signal-warm);
+  background: linear-gradient(135deg, rgba(255, 194, 111, 0.16), rgba(125, 157, 255, 0.12));
+  box-shadow: 0 12px 34px rgba(3, 6, 13, 0.24), inset 0 1px 0 rgba(255, 245, 218, 0.1);
+}
+
+.theriad-empty-eyebrow {
+  color: var(--signal-warm);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.theriad-empty-title {
+  margin-top: 0.6rem;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.theriad-empty-copy {
+  max-width: 34rem;
+  margin-top: 0.65rem;
+  color: var(--ink-muted);
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.theriad-empty-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+}
+
+.theriad-empty-steps span {
+  padding: 0.34rem 0.6rem;
+  border: 1px solid rgba(181, 202, 235, 0.15);
+  border-radius: 999px;
+  color: var(--ink-faint);
+  background: rgba(125, 157, 255, 0.055);
+  font-size: 0.64rem;
+  font-weight: 720;
+}
+
+.theriad-empty-steps span + span::before {
+  margin-right: 0.55rem;
+  color: var(--signal-warm);
+  content: '→';
+}
+
+.theriad-suggestion {
+  min-height: 2.7rem;
+  border-color: rgba(181, 202, 235, 0.19) !important;
+  border-radius: 0.8rem !important;
+  background: rgba(18, 27, 45, 0.68) !important;
+  color: var(--ink-muted) !important;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theriad-suggestion:hover {
+  border-color: rgba(255, 194, 111, 0.38) !important;
+  background: rgba(255, 194, 111, 0.08) !important;
+  color: var(--ink) !important;
+  transform: translateY(-1px);
+}
+
+.theriad-composer {
+  padding: 0.95rem 1rem 1rem;
+  border-top-color: rgba(181, 202, 235, 0.13) !important;
+  background: linear-gradient(180deg, rgba(8, 12, 22, 0.45), rgba(18, 27, 45, 0.26));
+}
+
+.theriad-guest-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  margin-bottom: 0.72rem;
+  padding: 0.62rem 0.74rem;
+  border: 1px solid rgba(255, 194, 111, 0.24);
+  border-radius: 0.82rem;
+  background: rgba(255, 194, 111, 0.065);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 230, 0.035);
+}
+
+.theriad-guest-notice__title {
+  color: var(--signal-warm-strong);
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.theriad-guest-notice__copy {
+  margin-top: 0.16rem;
+  color: var(--ink-muted);
+  font-size: 0.69rem;
+  line-height: 1.4;
+}
+
+.theriad-guest-notice__actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.theriad-guest-notice__action {
+  flex: 0 0 auto;
+  padding: 0.38rem 0.58rem;
+  border: 1px solid rgba(255, 194, 111, 0.3);
+  border-radius: 0.52rem;
+  color: var(--signal-warm-strong);
+  background: rgba(255, 194, 111, 0.08);
+  font-size: 0.64rem;
+  font-weight: 760;
+  white-space: nowrap;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.theriad-guest-notice__action--secondary {
+  border-color: transparent;
+  color: var(--ink-muted);
+  background: transparent;
+}
+
+.theriad-guest-notice__action--secondary:hover {
+  border-color: rgba(181, 202, 235, 0.18);
+  color: var(--ink);
+  background: rgba(181, 202, 235, 0.07);
+}
+
+.theriad-guest-notice__action:hover {
+  border-color: rgba(255, 194, 111, 0.48);
+  color: var(--ink);
+  background: rgba(255, 194, 111, 0.14);
+}
+
+.theriad-task-queue {
+  margin-bottom: 0.72rem;
+  overflow: hidden;
+  border: 1px solid rgba(181, 202, 235, 0.15);
+  border-radius: 0.82rem;
+  background: rgba(18, 27, 45, 0.52);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 230, 0.025);
+}
+
+.theriad-task-queue__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.62rem 0.72rem;
+  border-bottom: 1px solid rgba(181, 202, 235, 0.1);
+}
+
+.theriad-task-queue__mark {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 194, 111, 0.32);
+  border-radius: 0.48rem;
+  color: var(--signal-warm);
+  background: rgba(255, 194, 111, 0.08);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.theriad-task-queue__title {
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.theriad-task-queue__hint {
+  margin-top: 0.12rem;
+  overflow: hidden;
+  color: var(--ink-faint);
+  font-size: 0.61rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theriad-task-queue__clear,
+.theriad-task-queue__remove {
+  flex: 0 0 auto;
+  color: var(--ink-faint);
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.theriad-task-queue__clear {
+  padding: 0.25rem 0.42rem;
+  border: 1px solid rgba(181, 202, 235, 0.13);
+  border-radius: 0.42rem;
+  font-size: 0.58rem;
+}
+
+.theriad-task-queue__clear:hover,
+.theriad-task-queue__remove:hover {
+  color: var(--ink);
+  border-color: rgba(255, 194, 111, 0.35);
+  background: rgba(255, 194, 111, 0.07);
+}
+
+.theriad-task-queue__list {
+  display: grid;
+  max-height: 8.5rem;
+  gap: 0.22rem;
+  overflow-y: auto;
+  padding: 0.42rem 0.55rem 0.5rem;
+}
+
+.theriad-task-queue__item {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.42rem;
+  padding: 0.28rem 0.22rem;
+  border-radius: 0.38rem;
+  font-size: 0.63rem;
+}
+
+.theriad-task-queue__item[data-status='running'],
+.theriad-task-queue__item[data-status='waiting'] {
+  background: rgba(255, 194, 111, 0.055);
+}
+
+.theriad-task-queue__dot {
+  width: 0.38rem;
+  height: 0.38rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.theriad-task-queue__status {
+  width: 3.35rem;
+  flex: 0 0 auto;
+  font-size: 0.57rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.theriad-task-queue__text {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  color: var(--ink-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theriad-task-queue__remove {
+  display: grid;
+  width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.theriad-composer-input,
+.theriad-composer-overlay {
+  border-radius: 0.95rem !important;
+}
+
+.theriad-composer-input {
+  min-height: 5.7rem;
+  border-color: rgba(181, 202, 235, 0.23) !important;
+  background: transparent !important;
+  box-shadow: inset 0 1px 0 rgba(255, 248, 230, 0.035);
+}
+
+.theriad-composer-input:focus {
+  border-color: rgba(255, 194, 111, 0.62) !important;
+  box-shadow: 0 0 0 3px rgba(255, 194, 111, 0.1);
+}
+
+.theriad-composer-overlay {
+  background: rgba(18, 27, 45, 0.48) !important;
+}
+
+.theriad-icon-button,
+.theriad-send-button {
+  width: 2.45rem !important;
+  height: 2.45rem !important;
+  border-radius: 0.75rem !important;
+}
+
+.theriad-icon-button {
+  border-color: rgba(181, 202, 235, 0.18) !important;
+  background: rgba(27, 41, 64, 0.78) !important;
+}
+
+.theriad-icon-button:hover {
+  border-color: rgba(255, 194, 111, 0.38) !important;
+  color: var(--ink) !important;
+}
+
+.theriad-send-button {
+  color: var(--on-accent) !important;
+  background: linear-gradient(135deg, var(--signal-warm), #e89068) !important;
+  box-shadow: 0 8px 20px rgba(255, 194, 111, 0.14);
+}
+
+.theriad-send-button:hover {
+  background: linear-gradient(135deg, var(--signal-warm-strong), #f2a67e) !important;
+}
+
+.theriad-composer-footer {
+  margin-top: 0.6rem;
+}
+
+.theriad-chat-error {
+  border-color: rgba(255, 194, 111, 0.28) !important;
+  background: rgba(255, 194, 111, 0.08) !important;
+  color: var(--signal-warm-strong) !important;
+}
+
+.theriad-sidebar button:focus-visible,
+.theriad-sidebar a:focus-visible,
+.theriad-chat-history button:focus-visible,
+.theriad-mobile-bar button:focus-visible,
+.theriad-session-banner button:focus-visible,
+.theriad-composer button:focus-visible,
+.theriad-composer label:focus-within,
+.theriad-suggestion:focus-visible {
+  outline: 2px solid var(--signal-warm);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1023px) {
+  .theriad-chat-frame {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .theriad-chat-frame > .relative.flex-1.min-w-0 {
+    width: 100%;
+    min-height: 0;
+  }
+
+  .theriad-preview-inspector {
+    width: auto;
+    min-width: 0;
+    flex: 0 0 min(44vh, 26rem);
+    border-top: 1px solid rgba(181, 202, 235, 0.14);
+    border-left: 0;
+  }
+
+  .theriad-preview-inspector__canvas iframe {
+    min-height: 12rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .theriad-sidebar {
+    width: min(18rem, calc(100vw - 2rem));
+    box-shadow: 18px 0 48px rgba(0, 0, 0, 0.34);
+  }
+
+  .theriad-main {
+    margin-left: 0;
+  }
+
+  .theriad-main--scrollable {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom)) !important;
+    scroll-padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+
+  .theriad-session-banner {
+    display: none;
+  }
+
+  .theriad-chat-frame {
+    border-radius: 0.9rem;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .theriad-chat-header {
+    min-height: 3rem;
+  }
+
+  .theriad-composer {
+    padding-right: 0.45rem;
+    padding-left: 0.45rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .theriad-guest-notice {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theriad-guest-notice__actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .theriad-guest-notice__actions .theriad-guest-notice__action {
+    flex: 1 1 0;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theriad-suggestion,
+  .theriad-nav-button,
+  .theriad-composer-input,
+  .theriad-send-button {
+    transition: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Reference workspace surface
+   The approved reference is a quiet, dense chat workspace: navigation is
+   grouped, the conversation is a transcript rather than floating bubbles,
+   and the composer is one deliberate surface with tools on its lower edge.
+--------------------------------------------------------------------------- */
+.theriad-app-shell {
+  background:
+    radial-gradient(680px 420px at 78% -12%, rgba(108, 76, 188, 0.12), transparent 72%),
+    #090b0d;
+}
+
+.theriad-sidebar {
+  width: 18rem;
+  border-right-color: rgba(198, 205, 220, 0.16);
+  background: linear-gradient(180deg, #111722 0%, #080b11 66%, #080b10 100%);
+  box-shadow: 18px 0 44px rgba(0, 0, 0, 0.24);
+}
+
+.theriad-sidebar-brand {
+  min-height: 6rem;
+  padding: 1.2rem 1.25rem;
+  border-bottom-color: rgba(198, 205, 220, 0.12);
+}
+
+.theriad-sidebar-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.theriad-sidebar-logo {
+  width: 2.3rem;
+  height: 2.3rem;
+  flex: 0 0 auto;
+}
+
+.theriad-sidebar-brand-copy strong {
+  display: block;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.theriad-sidebar-brand-copy span {
+  display: block;
+  max-width: 9rem;
+  margin-top: 0.18rem;
+  color: var(--ink-faint);
+  font-size: 0.57rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.theriad-sidebar-nav {
+  padding: 1.25rem 0.9rem 0.75rem;
+}
+
+.theriad-sidebar-group + .theriad-sidebar-group {
+  margin-top: 1.3rem;
+}
+
+.theriad-sidebar-section-label {
+  margin: 0 0 0.45rem 0.7rem;
+  color: #7f8797;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.theriad-nav-button {
+  position: relative;
+  min-height: 2.65rem;
+  padding-right: 0.8rem !important;
+  padding-left: 0.7rem !important;
+  border-radius: 0.62rem !important;
+  color: #aeb7c8 !important;
+  font-size: 0.9rem !important;
+  font-weight: 540 !important;
+}
+
+.theriad-nav-button svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #aeb7c8;
+  stroke-width: 1.7;
+}
+
+.theriad-nav-button.bg-accent\/10,
+.theriad-nav-button[aria-current='page'] {
+  color: #f6d089 !important;
+  background: linear-gradient(90deg, rgba(218, 146, 255, 0.14), rgba(255, 194, 111, 0.04)) !important;
+}
+
+.theriad-nav-button[aria-current='page']::before {
+  position: absolute;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  left: 0;
+  width: 0.18rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background: linear-gradient(180deg, #9d6bf0, #ffc26f);
+  content: '';
+}
+
+.theriad-nav-button[aria-current='page'] svg {
+  color: #f6d089;
+}
+
+.theriad-plan-card {
+  position: relative;
+  margin: 0 0.9rem 0.85rem;
+  padding: 0.8rem 0.85rem 0.85rem 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 194, 111, 0.18);
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(255, 194, 111, 0.08), rgba(103, 74, 173, 0.09));
+}
+
+.theriad-plan-card__accent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.18rem;
+  background: linear-gradient(180deg, #ffc26f, #9d6bf0);
+}
+
+.theriad-plan-card__title {
+  color: #f3d18b;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.theriad-plan-card__copy {
+  max-width: 12rem;
+  margin-top: 0.28rem;
+  color: var(--ink-muted);
+  font-size: 0.71rem;
+  line-height: 1.45;
+}
+
+.theriad-plan-card__action {
+  margin-top: 0.65rem;
+  padding: 0.35rem 0.62rem;
+  border: 1px solid rgba(255, 194, 111, 0.35);
+  border-radius: 0.45rem;
+  color: #f5d18f;
+  background: rgba(255, 194, 111, 0.08);
+  font-size: 0.69rem;
+  font-weight: 700;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.theriad-plan-card__action:hover {
+  border-color: rgba(255, 194, 111, 0.62);
+  background: rgba(255, 194, 111, 0.15);
+}
+
+.theriad-account-section {
+  padding: 0.75rem 0.9rem;
+  border-top: 1px solid rgba(198, 205, 220, 0.1);
+}
+
+.theriad-account-trigger {
+  min-height: 2.9rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.65rem;
+  transition: background 160ms ease;
+}
+
+.theriad-account-trigger:hover {
+  background: rgba(198, 205, 220, 0.07);
+}
+
+.theriad-account-avatar {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 194, 111, 0.34);
+  border-radius: 50%;
+  color: #ffc26f;
+  background: rgba(255, 194, 111, 0.1);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.theriad-account-label,
+.theriad-account-subline {
+  display: block;
+}
+
+.theriad-account-label {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.theriad-account-subline {
+  margin-top: 0.13rem;
+  color: var(--ink-faint);
+  font-size: 0.65rem;
+}
+
+.theriad-account-chevron {
+  width: 1rem;
+  height: 1rem;
+  color: var(--ink-faint);
+  stroke-width: 1.7;
+}
+
+.theriad-account-menu {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.4rem 0.15rem 0;
+  padding: 0.45rem;
+  border: 1px solid rgba(198, 205, 220, 0.13);
+  border-radius: 0.65rem;
+  background: rgba(18, 23, 34, 0.94);
+}
+
+.theriad-account-menu__primary,
+.theriad-account-menu__secondary {
+  width: 100%;
+  padding: 0.42rem 0.55rem;
+  border-radius: 0.42rem;
+  text-align: left;
+  font-size: 0.72rem;
+}
+
+.theriad-account-menu__primary {
+  color: #f5d18f;
+  background: rgba(255, 194, 111, 0.1);
+}
+
+.theriad-account-menu__secondary {
+  color: var(--ink-muted);
+}
+
+.theriad-account-menu__secondary:hover {
+  color: var(--ink);
+  background: rgba(198, 205, 220, 0.07);
+}
+
+.theriad-account-menu__danger:hover {
+  color: var(--danger);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.theriad-status-panel {
+  border-top-color: rgba(198, 205, 220, 0.1) !important;
+}
+
+.theriad-main--chat {
+  padding: 0.65rem !important;
+}
+
+.theriad-chat-frame {
+  border-color: rgba(198, 205, 220, 0.2);
+  border-radius: 1rem;
+  background: #090b0e;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.theriad-chat-history {
+  display: flex;
+  width: 18rem;
+  min-width: 15rem;
+  min-height: 0;
+  flex: 0 0 18rem;
+  flex-direction: column;
+  border-right: 1px solid rgba(198, 205, 220, 0.12);
+  background: linear-gradient(180deg, rgba(17, 23, 34, 0.96), rgba(8, 11, 16, 0.98));
+}
+
+.theriad-chat-history__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 0.95rem 0.8rem;
+  border-bottom: 1px solid rgba(198, 205, 220, 0.1);
+}
+
+.theriad-chat-history__header h2 {
+  margin: 0.25rem 0 0;
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.theriad-chat-history__eyebrow {
+  margin: 0;
+  color: #f3d18b;
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.theriad-chat-history__new {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 194, 111, 0.25);
+  border-radius: 0.55rem;
+  color: #f6d089;
+  background: rgba(255, 194, 111, 0.08);
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.theriad-chat-history__new:hover {
+  border-color: rgba(255, 194, 111, 0.5);
+  color: #ffe0a3;
+  background: rgba(255, 194, 111, 0.15);
+}
+
+.theriad-chat-history__search {
+  display: block;
+  padding: 0.75rem 0.85rem 0.65rem;
+}
+
+.theriad-chat-history__search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.58rem 0.68rem;
+  border: 1px solid rgba(198, 205, 220, 0.13);
+  border-radius: 0.55rem;
+  outline: none;
+  color: var(--ink);
+  background: #0b0e14;
+  font-size: 0.72rem;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.theriad-chat-history__search input::placeholder {
+  color: #737d90;
+}
+
+.theriad-chat-history__search input:focus {
+  border-color: rgba(184, 156, 255, 0.55);
+  background: #0e121a;
+}
+
+.theriad-chat-history__list {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0.1rem 0.55rem 0.75rem;
+}
+
+.theriad-chat-history__item {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.28rem;
+  margin: 0.18rem 0;
+  padding: 0.68rem 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 0.62rem;
+  color: var(--ink-muted);
+  background: transparent;
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.theriad-chat-history__item:hover {
+  border-color: rgba(198, 205, 220, 0.13);
+  color: var(--ink);
+  background: rgba(198, 205, 220, 0.06);
+}
+
+.theriad-chat-history__item.is-active {
+  border-color: rgba(255, 194, 111, 0.2);
+  color: var(--ink);
+  background: linear-gradient(90deg, rgba(218, 146, 255, 0.13), rgba(255, 194, 111, 0.05));
+  box-shadow: inset 2px 0 0 #ffc26f;
+}
+
+.theriad-chat-history__item-title,
+.theriad-chat-history__item-preview,
+.theriad-chat-history__item-meta {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.theriad-chat-history__item-title {
+  color: inherit;
+  font-size: 0.76rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.theriad-chat-history__item-preview {
+  display: -webkit-box;
+  color: #929caf;
+  font-size: 0.68rem;
+  line-height: 1.42;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}
+
+.theriad-chat-history__item-meta {
+  color: #6f798b;
+  font-size: 0.58rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.theriad-chat-history__empty {
+  margin: 0;
+  padding: 1.2rem 0.55rem;
+  color: #7f8797;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.theriad-chat-history__load-more {
+  display: block;
+  width: calc(100% - 0.4rem);
+  margin: 0.35rem 0.2rem 0.5rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(184, 156, 255, 0.28);
+  border-radius: 0.55rem;
+  color: #c7b7ff;
+  background: rgba(184, 156, 255, 0.07);
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-align: center;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.theriad-chat-history__load-more:hover {
+  border-color: rgba(184, 156, 255, 0.55);
+  color: #e1d9ff;
+  background: rgba(184, 156, 255, 0.14);
+}
+
+.theriad-chat-frame > .relative.flex-1.min-w-0 {
+  min-height: 0;
+}
+
+.theriad-chat-header {
+  min-height: 4.55rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid rgba(198, 205, 220, 0.12);
+  background: linear-gradient(180deg, rgba(19, 25, 37, 0.96), rgba(14, 19, 29, 0.88));
+}
+
+.theriad-chat-title {
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 1.45rem;
+  font-weight: 630;
+  letter-spacing: -0.04em;
+}
+
+.theriad-chat-project {
+  margin-top: 0.2rem;
+  color: var(--ink-faint);
+  font-size: 0.66rem;
+}
+
+.theriad-chat-header__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+}
+
+.theriad-model-picker,
+.theriad-cost-pill,
+.theriad-overflow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.45rem;
+  border: 1px solid rgba(198, 205, 220, 0.15);
+  border-radius: 0.68rem;
+  color: var(--ink-muted);
+  background: rgba(8, 11, 16, 0.62);
+  font-size: 0.76rem;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.theriad-model-picker:hover,
+.theriad-cost-pill:hover,
+.theriad-overflow-button:hover {
+  border-color: rgba(184, 156, 255, 0.5);
+  color: var(--ink);
+  background: rgba(184, 156, 255, 0.08);
+}
+
+.theriad-model-picker {
+  max-width: 14rem;
+  gap: 0.36rem;
+  padding: 0.45rem 0.68rem;
+}
+
+.theriad-model-picker > span:first-child {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.theriad-model-picker__separator {
+  color: var(--ink-faint);
+}
+
+.theriad-model-picker svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-left: 0.18rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+}
+
+.theriad-cost-pill {
+  gap: 0.45rem;
+  padding: 0.45rem 0.65rem;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.theriad-info-mark {
+  display: grid;
+  width: 0.95rem;
+  height: 0.95rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--ink-faint);
+  font-family: Georgia, serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.theriad-overflow-button {
+  width: 2.15rem;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.theriad-header-menu {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  z-index: 30;
+  width: min(19rem, calc(100vw - 2rem));
+  padding: 0.8rem;
+  border: 1px solid rgba(198, 205, 220, 0.18);
+  border-radius: 0.72rem;
+  background: #151a24;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+}
+
+.theriad-header-menu--model { right: auto; left: 0; }
+.theriad-header-menu--cost { width: 13rem; }
+
+.theriad-header-menu__eyebrow {
+  color: #f3d18b;
+  font-size: 0.6rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.theriad-header-menu__copy,
+.theriad-header-menu__current {
+  margin-top: 0.35rem;
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.theriad-header-menu__current {
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(198, 205, 220, 0.1);
+  color: var(--ink-faint);
+}
+
+.theriad-header-menu__value {
+  margin-top: 0.4rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.theriad-header-menu--overflow {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.theriad-header-menu--overflow > button {
+  padding: 0.5rem 0.55rem;
+  border-radius: 0.45rem;
+  color: var(--ink-muted);
+  text-align: left;
+  font-size: 0.72rem;
+}
+
+.theriad-header-menu--overflow > button:hover {
+  color: var(--ink);
+  background: rgba(184, 156, 255, 0.08);
+}
+
+.theriad-header-menu__field {
+  display: grid;
+  gap: 0.28rem;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.theriad-header-menu__field select {
+  width: 100%;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid rgba(198, 205, 220, 0.16);
+  border-radius: 0.45rem;
+  color: var(--ink-muted);
+  background: #0b0e14;
+  font-size: 0.72rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.theriad-chat-messages {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  --theriad-chat-dot-spacing: clamp(15px, 1.65vw, 20px);
+  padding: 0 1.25rem;
+  background:
+    radial-gradient(circle at 1px 1px, rgb(var(--accent-rgb) / 0.085) 0.95px, transparent 1.8px),
+    radial-gradient(760px 420px at 12% 12%, rgba(126, 84, 214, 0.09), transparent 68%),
+    radial-gradient(660px 360px at 88% 84%, rgba(168, 101, 232, 0.065), transparent 70%),
+    #090b0e;
+  background-size: var(--theriad-chat-dot-spacing) var(--theriad-chat-dot-spacing), 140% 140%, 150% 150%, auto;
+  background-position: 0 0, 0% 0%, 100% 100%, 0 0;
+  animation: theriad-chat-ambient-shift 36s ease-in-out infinite alternate;
+}
+
+.theriad-chat-messages::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 1px 1px, rgb(var(--accent-rgb) / 0.28) 1.15px, transparent 1.9px);
+  background-size: var(--theriad-chat-dot-spacing) var(--theriad-chat-dot-spacing);
+  background-position: 0 0;
+  -webkit-mask-image: radial-gradient(
+    circle 12rem at var(--theriad-chat-hover-x, 50%) var(--theriad-chat-hover-y, 50%),
+    #000 0%,
+    #000 22%,
+    transparent 74%
+  );
+  mask-image: radial-gradient(
+    circle 12rem at var(--theriad-chat-hover-x, 50%) var(--theriad-chat-hover-y, 50%),
+    #000 0%,
+    #000 22%,
+    transparent 74%
+  );
+  content: '';
+  opacity: 0;
+  transition: opacity 380ms ease;
+}
+
+.theriad-chat-messages > * {
+  position: relative;
+  z-index: 1;
+}
+
+.theriad-chat-messages.is-hovering::after {
+  animation: theriad-chat-hover-shock 2.4s ease-in-out infinite;
+}
+
+@keyframes theriad-chat-ambient-shift {
+  0% {
+    background-position: 0 0, 0% 0%, 100% 100%, 0 0;
+  }
+
+  50% {
+    background-position: 0 0, 12% 8%, 88% 92%, 0 0;
+  }
+
+  100% {
+    background-position: 0 0, 24% 18%, 76% 82%, 0 0;
+  }
+}
+
+@keyframes theriad-chat-hover-shock {
+  0% {
+    opacity: 0.32;
+  }
+
+  50% {
+    opacity: 0.82;
+  }
+
+  100% {
+    opacity: 0.32;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theriad-chat-messages,
+  .theriad-chat-messages.is-hovering::after {
+    animation: none;
+  }
+
+  .theriad-chat-messages.is-hovering::after {
+    opacity: 0.62;
+  }
+}
+
+@media (max-width: 720px) {
+  .theriad-chat-messages {
+    --theriad-chat-dot-spacing: 15px;
+  }
+}
+
+.theriad-message {
+  width: min(100%, 76rem);
+  margin: 0 auto;
+  padding: 1.35rem 0.55rem 1.45rem;
+  border-bottom: 1px solid rgba(198, 205, 220, 0.1);
+}
+
+.theriad-message__header,
+.theriad-message__identity,
+.theriad-message__meta-row,
+.theriad-message__actions {
+  display: flex;
+  align-items: center;
+}
+
+.theriad-message__header {
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.theriad-message__identity {
+  gap: 0.65rem;
+}
+
+.theriad-message__avatar {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.theriad-message__avatar--user {
+  border: 1px solid rgba(255, 194, 111, 0.36);
+  color: #ffe0a3;
+  background: rgba(173, 113, 9, 0.8);
+}
+
+.theriad-message__avatar--assistant {
+  border: 1px solid rgba(157, 107, 240, 0.5);
+  color: #f1ddff;
+  background: linear-gradient(135deg, #6c3cc1, #36206b);
+}
+
+.theriad-model-logo {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--surface-hover);
+  border: 1px solid var(--line);
+  color: var(--ink-faint);
+  font-weight: 750;
+}
+
+.theriad-model-logo--small {
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.46rem;
+}
+
+.theriad-model-logo--avatar {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.68rem;
+}
+
+.theriad-model-logo img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+.theriad-model-logo--avatar img {
+  width: 68%;
+  height: 68%;
+}
+
+.theriad-message__author {
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 680;
+}
+
+.theriad-message__route-note {
+  color: var(--ink-faint);
+  font-size: 0.72rem;
+  font-weight: 520;
+  white-space: nowrap;
+}
+
+.theriad-message__time {
+  color: var(--ink-faint);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.theriad-message__body {
+  margin: 0.8rem 2.65rem 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.68;
+}
+
+.theriad-message--user .theriad-message__body {
+  color: var(--ink);
+}
+
+.theriad-message__meta-row {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.75rem 2.65rem 0;
+}
+
+.theriad-message__actions {
+  gap: 0.25rem;
+}
+
+.theriad-message__actions button {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border-radius: 0.42rem;
+  color: var(--ink-faint);
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.theriad-message__actions button:hover,
+.theriad-message__actions button.is-active {
+  color: var(--ink);
+  background: rgba(184, 156, 255, 0.1);
+}
+
+.theriad-message__actions svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.65;
+}
+
+.theriad-agent-run {
+  margin-bottom: 0;
+}
+
+.theriad-agent-run__header {
+  align-items: flex-start;
+}
+
+.theriad-agent-run__status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  max-width: min(100%, 42rem);
+  margin-top: 0.15rem;
+}
+
+.theriad-agent-run__phase,
+.theriad-agent-run__kind,
+.theriad-agent-run__badge,
+.theriad-agent-run__details-toggle {
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+
+.theriad-agent-run__phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 680;
+}
+
+.theriad-agent-run__phase-dot {
+  width: 0.42rem;
+  height: 0.42rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.theriad-agent-run__kind,
+.theriad-agent-run__badge {
+  padding: 0.18rem 0.38rem;
+  border: 1px solid rgba(198, 205, 220, 0.12);
+  border-radius: 0.35rem;
+  color: var(--ink-muted);
+  background: rgba(198, 205, 220, 0.035);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.theriad-agent-run__badge--ok {
+  border-color: rgba(78, 214, 164, 0.28);
+  color: var(--ok);
+  background: rgba(78, 214, 164, 0.08);
+}
+
+.theriad-agent-run__badge--warn {
+  border-color: rgba(255, 194, 111, 0.28);
+  color: var(--warn);
+  background: rgba(255, 194, 111, 0.08);
+}
+
+.theriad-agent-run__details-toggle {
+  padding: 0;
+  color: var(--ink-muted);
+  transition: color 160ms ease;
+}
+
+.theriad-agent-run__details-toggle:hover {
+  color: var(--ink);
+}
+
+.theriad-agent-run__details {
+  margin-top: 0.75rem;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .theriad-agent-run__header {
+    flex-wrap: wrap;
+  }
+
+  .theriad-agent-run__status {
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 0.1rem;
+  }
+}
+
+.theriad-code-block {
+  margin: 1rem 0;
+  overflow: hidden;
+  border: 1px solid rgba(198, 205, 220, 0.12);
+  border-radius: 0.68rem;
+  background: #07090b;
+}
+
+.theriad-code-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.7rem;
+  border-bottom: 1px solid rgba(198, 205, 220, 0.08);
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: lowercase;
+}
+
+.theriad-code-block__header button {
+  padding: 0.18rem 0.35rem;
+  border-radius: 0.32rem;
+  color: var(--ink-faint);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+}
+
+.theriad-code-block__header button:hover {
+  color: var(--ink);
+  background: rgba(198, 205, 220, 0.08);
+}
+
+.theriad-code-block pre {
+  margin: 0;
+  padding: 0.85rem 0.95rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.theriad-code-block code {
+  color: #e4c7ff;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.theriad-empty-state {
+  width: min(100%, 34rem);
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: var(--ink-muted);
+  justify-content: safe center;
+}
+
+.theriad-empty-icon {
+  display: grid;
+  width: 3.2rem;
+  height: 3.2rem;
+  place-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(157, 107, 240, 0.42);
+  border-radius: 0.9rem;
+  color: #c596ff;
+  background: rgba(113, 65, 190, 0.14);
+}
+
+.theriad-empty-icon svg {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.theriad-empty-title {
+  color: var(--ink);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+
+.theriad-empty-copy {
+  max-width: 23rem;
+  margin-top: 0.45rem;
+  color: var(--ink-faint);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.theriad-suggestion-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.theriad-suggestion {
+  min-height: 2.3rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(198, 205, 220, 0.14) !important;
+  border-radius: 0.62rem !important;
+  color: var(--ink-muted) !important;
+  background: rgba(19, 25, 37, 0.62) !important;
+  font-size: 0.7rem;
+}
+
+.theriad-composer {
+  padding: 0.85rem 1.25rem 0.9rem;
+  border-top-color: rgba(198, 205, 220, 0.12) !important;
+  background: #0b0d11;
+}
+
+.theriad-composer__surface {
+  overflow: visible;
+  border: 1px solid rgba(198, 205, 220, 0.24);
+  border-radius: 0.85rem;
+  background: #12161e;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.theriad-composer-input,
+.theriad-composer-overlay {
+  min-height: 6.6rem;
+  border-radius: 0.85rem 0.85rem 0 0 !important;
+}
+
+.theriad-composer-input {
+  border-color: transparent !important;
+  color: transparent;
+  background: transparent !important;
+}
+
+.theriad-composer-input:focus {
+  box-shadow: none;
+}
+
+.theriad-composer-overlay {
+  background: transparent !important;
+}
+
+.theriad-composer__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.45rem 0.65rem 0.5rem 0.7rem;
+  border-top: 1px solid rgba(198, 205, 220, 0.1);
+}
+
+.theriad-composer__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.theriad-composer-tool {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.42rem;
+  color: var(--ink-muted);
+  font-size: 1.38rem;
+  line-height: 1;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.theriad-composer-tool:hover {
+  color: var(--ink);
+  background: rgba(198, 205, 220, 0.09);
+}
+
+.theriad-composer-tool--code {
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+}
+
+.theriad-composer-tool svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.theriad-composer-menu {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 35;
+  display: grid;
+  width: 11rem;
+  gap: 0.2rem;
+  padding: 0.4rem;
+  border: 1px solid rgba(198, 205, 220, 0.18);
+  border-radius: 0.6rem;
+  background: #171c26;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.32);
+}
+
+.theriad-composer-menu button {
+  padding: 0.5rem 0.55rem;
+  border-radius: 0.4rem;
+  color: var(--ink-muted);
+  text-align: left;
+  font-size: 0.7rem;
+}
+
+.theriad-composer-menu button:hover:not(:disabled) {
+  color: var(--ink);
+  background: rgba(184, 156, 255, 0.1);
+}
+
+.theriad-composer-menu button:disabled {
+  opacity: 0.4;
+}
+
+.theriad-icon-button,
+.theriad-send-button {
+  width: 2.35rem !important;
+  height: 2.35rem !important;
+  border-radius: 0.55rem !important;
+}
+
+.theriad-send-button {
+  color: #fff !important;
+  background: linear-gradient(135deg, #7550c4, #5932a8) !important;
+  box-shadow: 0 8px 18px rgba(99, 55, 182, 0.25);
+}
+
+.theriad-send-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #8b64df, #6841bd) !important;
+}
+
+.theriad-composer-footer {
+  margin-top: 0.55rem;
+  padding: 0 0.15rem;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 1023px) {
+  .theriad-main--chat {
+    padding: 0.45rem !important;
+  }
+
+  .theriad-chat-history {
+    width: auto;
+    min-width: 0;
+    max-height: min(19rem, 38dvh);
+    flex: 0 0 auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(198, 205, 220, 0.12);
+  }
+}
+
+@media (max-width: 1023px) {
+  .theriad-sidebar {
+    width: min(18rem, calc(100vw - 2rem));
+  }
+
+  .theriad-main--chat {
+    padding: 3.75rem 0.35rem 0.35rem !important;
+  }
+
+  .theriad-chat-header {
+    min-height: 3.9rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .theriad-chat-history {
+    max-height: 14rem;
+  }
+
+  .theriad-chat-history__header {
+    padding: 0.8rem 0.75rem 0.65rem;
+  }
+
+  .theriad-chat-history__search {
+    padding: 0.55rem 0.65rem;
+  }
+
+  .theriad-chat-history__list {
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+  }
+
+  .theriad-chat-title {
+    font-size: 1.15rem;
+  }
+
+  .theriad-chat-header__controls {
+    gap: 0.2rem;
+  }
+
+  .theriad-model-picker {
+    max-width: 8.7rem;
+    padding-right: 0.45rem;
+    padding-left: 0.45rem;
+    font-size: 0.66rem;
+  }
+
+  .theriad-cost-pill {
+    padding-right: 0.45rem;
+    padding-left: 0.45rem;
+    font-size: 0.66rem;
+  }
+
+  .theriad-chat-messages {
+    padding: 0 0.7rem;
+  }
+
+  .theriad-message {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+  }
+
+  .theriad-message__body,
+  .theriad-message__meta-row {
+    margin-left: 2.45rem;
+  }
+
+  .theriad-composer {
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Resilience and interaction baseline
+   ------------------------------------------------------------------------- */
+
+button,
+[role='button'] {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button:not(:disabled),
+[role='button']:not([aria-disabled='true']) {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid var(--signal-warm);
+  outline-offset: 3px;
+}
+
+.theriad-loading-screen {
+  display: grid;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  place-content: center;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 5vw, 3rem);
+  color: var(--ink);
+  background:
+    radial-gradient(700px 360px at 70% -12%, rgba(120, 91, 205, 0.18), transparent 72%),
+    var(--surface);
+}
+
+.theriad-loading-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: min(100%, 27rem);
+}
+
+.theriad-loading-mark {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 194, 111, 0.42);
+  border-radius: 0.9rem;
+  color: var(--signal-warm);
+  background: linear-gradient(135deg, rgba(255, 194, 111, 0.16), rgba(125, 157, 255, 0.12));
+  box-shadow: 0 12px 32px rgba(3, 6, 13, 0.28);
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.theriad-loading-brand,
+.theriad-loading-title,
+.theriad-loading-message {
+  margin: 0;
+}
+
+.theriad-loading-brand {
+  color: var(--signal-warm);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.theriad-loading-title {
+  margin-top: 0.25rem;
+  font-family: 'Space Grotesk Variable', var(--font-sans);
+  font-size: clamp(1.08rem, 3vw, 1.35rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.theriad-loading-message {
+  margin-top: 0.3rem;
+  color: var(--ink-muted);
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.theriad-loading-skeleton {
+  display: grid;
+  gap: 0.7rem;
+  width: min(100%, 27rem);
+  padding: 1rem;
+  border: 1px solid rgba(181, 202, 235, 0.14);
+  border-radius: 1rem;
+  background: rgba(18, 27, 45, 0.58);
+  box-shadow: 0 24px 70px rgba(3, 6, 13, 0.2);
+}
+
+.theriad-loading-line,
+.theriad-loading-cards span {
+  display: block;
+  height: 0.68rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(181, 202, 235, 0.09), rgba(255, 194, 111, 0.18), rgba(181, 202, 235, 0.09));
+  background-size: 200% 100%;
+  animation: theriad-loading-shimmer 1.5s ease-in-out infinite;
+}
+
+.theriad-loading-line--wide { width: 76%; }
+.theriad-loading-line--short { width: 43%; }
+
+.theriad-loading-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.2rem;
+}
+
+.theriad-loading-cards span {
+  height: 3.6rem;
+  border: 1px solid rgba(181, 202, 235, 0.08);
+  border-radius: 0.75rem;
+  animation-delay: 100ms;
+}
+
+.theriad-loading-cards span:nth-child(2) { animation-delay: 220ms; }
+.theriad-loading-cards span:nth-child(3) { animation-delay: 340ms; }
+
+@keyframes theriad-loading-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.theriad-loading-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+}
+
+.theriad-loading-signal {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.16rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.theriad-loading-signal span {
+  display: block;
+  width: 0.18rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--signal-warm-strong), var(--signal-cool));
+  transform-origin: bottom;
+  animation: theriad-loading-signal 1s ease-in-out infinite;
+}
+
+.theriad-loading-signal span:nth-child(1) { height: 0.48rem; animation-delay: -180ms; }
+.theriad-loading-signal span:nth-child(2) { height: 0.82rem; animation-delay: -90ms; }
+.theriad-loading-signal span:nth-child(3) { height: 0.62rem; animation-delay: 0ms; }
+
+@keyframes theriad-loading-signal {
+  0%, 100% { opacity: 0.45; transform: scaleY(0.55); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+.theriad-skeleton-block {
+  background:
+    linear-gradient(105deg, rgba(181, 202, 235, 0.08) 28%, rgba(255, 194, 111, 0.18) 50%, rgba(181, 202, 235, 0.08) 72%),
+    var(--surface-hover);
+  background-size: 240% 100%;
+  animation: theriad-skeleton-sweep 1.45s ease-in-out infinite;
+}
+
+@keyframes theriad-skeleton-sweep {
+  0% { background-position: 140% 0; }
+  100% { background-position: -60% 0; }
+}
+
+.theriad-error-screen {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  padding: 1.25rem;
+  background: var(--surface);
+}
+
+.theriad-error-card {
+  width: min(100%, 35rem);
+  overflow: hidden;
+  border: 1px solid rgba(248, 113, 113, 0.24);
+  border-radius: 1.25rem;
+  background: var(--surface-raised);
+  box-shadow: 0 24px 90px rgba(3, 6, 13, 0.34);
+}
+
+.theriad-error-card .theriad-loading-screen {
+  min-height: 0;
+  padding: 1.5rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+.theriad-error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.theriad-error-actions button {
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.theriad-error-primary {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.theriad-error-primary:hover { background: var(--accent-strong); }
+
+.theriad-error-secondary {
+  border: 1px solid var(--line-strong);
+  color: var(--ink-muted);
+  background: var(--surface-sunken);
+}
+
+.theriad-error-secondary:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.theriad-route-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: -0.25rem 0 0.6rem;
+  color: var(--ink-faint);
+  font-size: 0.68rem;
+}
+
+.theriad-route-progress__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--signal-warm);
+  box-shadow: 0 0 0 0 rgba(255, 194, 111, 0.42);
+  animation: theriad-route-pulse 1.2s ease-out infinite;
+}
+
+@keyframes theriad-route-pulse {
+  70% { box-shadow: 0 0 0 0.42rem rgba(255, 194, 111, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 194, 111, 0); }
+}
+
+@media (max-width: 1023px) {
+  .theriad-loading-screen {
+    align-content: center;
+    padding: 1rem;
+  }
+
+  .theriad-loading-cards span { height: 3rem; }
+
+  .theriad-error-actions {
+    flex-direction: column;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .theriad-error-actions button { width: 100%; }
+
+  .theriad-app-shell button {
+    min-height: 2.75rem;
+  }
+
+  /* Preserve small icon geometry while giving touch users a real target. */
+  .theriad-app-shell .theriad-icon-button,
+  .theriad-app-shell .theriad-send-button {
+    width: 2.75rem !important;
+    min-width: 2.75rem;
+    height: 2.75rem !important;
+    min-height: 2.75rem;
+  }
+
+  .theriad-app-shell .theriad-nav-button,
+  .theriad-app-shell .theriad-mobile-bar button,
+  .theriad-app-shell .theriad-suggestion {
+    min-height: 2.75rem;
+  }
+
+  .theriad-app-shell .theriad-mobile-bar button {
+    min-width: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theriad-loading-line,
+  .theriad-loading-cards span,
+  .theriad-loading-signal span,
+  .theriad-skeleton-block,
+  .theriad-route-progress__dot {
+    animation: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Focused workspace navigation
+   Keep navigation available without letting it dominate the chat surface.
+   Chat history is an on-demand drawer instead of a permanent second column.
+   ------------------------------------------------------------------------- */
+
+.theriad-plan-card__action-label-short {
+  display: none;
+}
+
+.theriad-account-compact-label {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .theriad-sidebar {
+    width: 5rem;
+    overflow: visible;
+    transition: width 220ms ease, box-shadow 220ms ease, transform 200ms ease;
+  }
+
+  .theriad-sidebar-brand {
+    min-height: 4.8rem;
+    padding: 0.85rem 0.6rem;
+  }
+
+  .theriad-sidebar-brand-lockup {
+    justify-content: center;
+  }
+
+  .theriad-sidebar-brand-copy,
+  .theriad-sidebar-section-label {
+    display: none;
+  }
+
+  .theriad-sidebar-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .theriad-sidebar-nav {
+    padding: 0.8rem 0.5rem 0.65rem;
+  }
+
+  .theriad-new-chat-button {
+    justify-content: center;
+    width: 3rem;
+    min-height: 2.85rem;
+    margin: 0.8rem auto 0;
+    padding: 0.65rem;
+    border-radius: 0.75rem;
+  }
+
+  .theriad-new-chat-button span {
+    display: none;
+  }
+
+  .theriad-sidebar-group + .theriad-sidebar-group {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(198, 205, 220, 0.08);
+  }
+
+  .theriad-nav-button {
+    justify-content: center;
+    gap: 0;
+    min-height: 2.75rem;
+    padding: 0.6rem !important;
+  }
+
+  .theriad-nav-button > span {
+    display: none;
+  }
+
+  .theriad-nav-button svg {
+    margin: 0;
+  }
+
+  .theriad-plan-card {
+    margin: 0.55rem 0.45rem 0.7rem;
+    padding: 0.55rem 0.35rem;
+    text-align: center;
+  }
+
+  .theriad-plan-card__title,
+  .theriad-plan-card__copy {
+    display: none;
+  }
+
+  .theriad-plan-card__action {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    height: 2.35rem;
+    margin: 0 auto;
+    padding: 0 0.2rem;
+    place-items: center;
+    overflow: hidden;
+    font-size: 0.62rem;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .theriad-plan-card__action::after {
+    display: none;
+  }
+
+  .theriad-plan-card__action-label-full {
+    display: none;
+  }
+
+  .theriad-plan-card__action-label-short {
+    display: inline;
+  }
+
+  .theriad-account-section {
+    position: relative;
+    padding: 0.55rem 0.4rem;
+  }
+
+  .theriad-account-trigger {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.55rem 0.25rem;
+  }
+
+  .theriad-account-compact-label {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    color: var(--ink-faint);
+    font-size: 0.56rem;
+    font-weight: 700;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .theriad-account-trigger > span:nth-child(3),
+  .theriad-account-chevron {
+    display: none;
+  }
+
+  .theriad-account-menu {
+    position: absolute;
+    bottom: 0.45rem;
+    left: calc(100% + 0.5rem);
+    z-index: 60;
+    width: 12rem;
+    margin: 0;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  }
+
+  .theriad-status-panel {
+    position: relative;
+    padding: 0.5rem 0.35rem;
+  }
+
+  .theriad-status-panel > button {
+    justify-content: center;
+    gap: 0;
+    padding: 0.6rem 0.1rem;
+  }
+
+  .theriad-status-panel > button > span:first-child {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .theriad-status-panel > button > span:first-child > span:last-child,
+  .theriad-status-panel > button > span:last-child {
+    display: none;
+  }
+
+  .theriad-status-panel > div {
+    position: absolute;
+    bottom: 0.45rem;
+    left: calc(100% + 0.5rem);
+    z-index: 60;
+    width: 14rem;
+    padding: 0.7rem !important;
+    border: 1px solid rgba(198, 205, 220, 0.13);
+    border-radius: 0.65rem;
+    background: rgba(18, 23, 34, 0.96);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  }
+
+  /* The rail is quiet by default, then reveals its full vocabulary when the
+     pointer or keyboard focus reaches it. The chat surface keeps its stable
+     left inset while the rail overlays it during expansion. */
+  .theriad-sidebar:hover,
+  .theriad-sidebar:focus-within {
+    width: 14rem;
+    box-shadow: 20px 0 46px rgba(0, 0, 0, 0.32);
+  }
+
+  .theriad-sidebar:hover .theriad-sidebar-brand-lockup,
+  .theriad-sidebar:focus-within .theriad-sidebar-brand-lockup {
+    justify-content: flex-start;
+  }
+
+  .theriad-sidebar:hover .theriad-sidebar-brand-copy,
+  .theriad-sidebar:focus-within .theriad-sidebar-brand-copy,
+  .theriad-sidebar:hover .theriad-sidebar-section-label,
+  .theriad-sidebar:focus-within .theriad-sidebar-section-label,
+  .theriad-sidebar:hover .theriad-plan-card__title,
+  .theriad-sidebar:focus-within .theriad-plan-card__title,
+  .theriad-sidebar:hover .theriad-plan-card__copy,
+  .theriad-sidebar:focus-within .theriad-plan-card__copy {
+    display: block;
+  }
+
+  .theriad-sidebar:hover .theriad-nav-button,
+  .theriad-sidebar:focus-within .theriad-nav-button {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding-right: 0.8rem !important;
+    padding-left: 0.7rem !important;
+  }
+
+  .theriad-sidebar:hover .theriad-nav-button > span,
+  .theriad-sidebar:focus-within .theriad-nav-button > span {
+    display: block;
+  }
+
+  .theriad-sidebar:hover .theriad-new-chat-button,
+  .theriad-sidebar:focus-within .theriad-new-chat-button {
+    justify-content: flex-start;
+    width: calc(100% - 1.8rem);
+    margin-right: 0.9rem;
+    margin-left: 0.9rem;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+  }
+
+  .theriad-sidebar:hover .theriad-new-chat-button span,
+  .theriad-sidebar:focus-within .theriad-new-chat-button span {
+    display: block;
+  }
+
+  .theriad-sidebar:hover .theriad-plan-card,
+  .theriad-sidebar:focus-within .theriad-plan-card {
+    margin: 0 0.9rem 0.85rem;
+    padding: 0.8rem 0.85rem 0.85rem 1rem;
+    text-align: left;
+  }
+
+  .theriad-sidebar:hover .theriad-plan-card__action,
+  .theriad-sidebar:focus-within .theriad-plan-card__action {
+    display: inline-grid;
+    width: auto;
+    height: auto;
+    margin: 0.65rem 0 0;
+    padding: 0.35rem 0.62rem;
+    overflow: visible;
+    font-size: 0.69rem;
+    line-height: normal;
+  }
+
+  .theriad-sidebar:hover .theriad-plan-card__action-label-full,
+  .theriad-sidebar:focus-within .theriad-plan-card__action-label-full {
+    display: inline;
+  }
+
+  .theriad-sidebar:hover .theriad-plan-card__action-label-short,
+  .theriad-sidebar:focus-within .theriad-plan-card__action-label-short {
+    display: none;
+  }
+
+  .theriad-sidebar:hover .theriad-account-trigger,
+  .theriad-sidebar:focus-within .theriad-account-trigger {
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .theriad-sidebar:hover .theriad-account-compact-label,
+  .theriad-sidebar:focus-within .theriad-account-compact-label {
+    display: none;
+  }
+
+  .theriad-sidebar:hover .theriad-account-trigger > span:nth-child(3),
+  .theriad-sidebar:focus-within .theriad-account-trigger > span:nth-child(3),
+  .theriad-sidebar:hover .theriad-account-chevron,
+  .theriad-sidebar:focus-within .theriad-account-chevron {
+    display: block;
+  }
+
+  .theriad-sidebar:hover .theriad-account-menu,
+  .theriad-sidebar:focus-within .theriad-account-menu {
+    position: static;
+    width: auto;
+    margin: 0.4rem 0.15rem 0;
+    box-shadow: none;
+  }
+
+  .theriad-sidebar:hover .theriad-status-panel,
+  .theriad-sidebar:focus-within .theriad-status-panel {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .theriad-sidebar:hover .theriad-status-panel > button,
+  .theriad-sidebar:focus-within .theriad-status-panel > button {
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.55rem;
+  }
+
+  .theriad-sidebar:hover .theriad-status-panel > button > span:first-child,
+  .theriad-sidebar:focus-within .theriad-status-panel > button > span:first-child {
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .theriad-sidebar:hover .theriad-status-panel > button > span:first-child > span:last-child,
+  .theriad-sidebar:focus-within .theriad-status-panel > button > span:first-child > span:last-child,
+  .theriad-sidebar:hover .theriad-status-panel > button > span:last-child,
+  .theriad-sidebar:focus-within .theriad-status-panel > button > span:last-child {
+    display: block;
+  }
+
+  .theriad-sidebar:hover .theriad-status-panel > div,
+  .theriad-sidebar:focus-within .theriad-status-panel > div {
+    position: static;
+    width: auto;
+    padding: 0.5rem 0.55rem !important;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.theriad-chat-frame {
+  position: relative;
+}
+
+.theriad-chat-history.is-collapsed {
+  display: none;
+}
+
+.theriad-chat-history.is-open {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 50;
+  width: min(clamp(15.5rem, 30vw, 20rem), calc(100% - 0.75rem));
+  min-width: 0;
+  min-height: 0;
+  max-height: none;
+  flex: 0 0 auto;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(198, 205, 220, 0.16);
+  border-radius: 0 0.85rem 0.85rem 0;
+  background: rgba(12, 16, 24, 0.985);
+  box-shadow: 18px 0 44px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(18px) saturate(125%);
+}
+
+.theriad-chat-history-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 45;
+  border: 0;
+  background: rgba(2, 5, 9, 0.48);
+  cursor: pointer;
+}
+
+.theriad-history-control {
+  position: relative;
+  z-index: 40;
+  flex: 0 0 auto;
+}
+
+.theriad-chat-heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.55rem, 1vw, 0.9rem);
+  flex: 1 1 auto;
+}
+
+.theriad-chat-heading__copy {
+  flex: 1 1 auto;
+}
+
+.theriad-chat-history.is-open .theriad-chat-history__header {
+  align-items: center;
+  padding: 0.7rem 0.75rem;
+}
+
+.theriad-chat-history.is-open .theriad-chat-history__header h2 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.theriad-chat-history.is-open .theriad-chat-history__search {
+  padding: 0.5rem 0.6rem;
+}
+
+.theriad-chat-history.is-open .theriad-chat-history__list {
+  padding: 0.1rem 0.45rem 0.55rem;
+}
+
+.theriad-chat-history__group + .theriad-chat-history__group {
+  margin-top: 0.35rem;
+  padding-top: 0.3rem;
+  border-top: 1px solid rgba(198, 205, 220, 0.09);
+}
+
+.theriad-chat-history__group-title {
+  margin: 0;
+  padding: 0.48rem 0.6rem 0.28rem;
+  color: var(--ink-faint);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.theriad-chat-history.is-open .theriad-chat-history__item {
+  min-height: 2.55rem;
+  justify-content: center;
+  gap: 0;
+  margin: 0.08rem 0;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.55rem;
+}
+
+.theriad-chat-history.is-open .theriad-chat-history__item-title {
+  font-size: 0.78rem;
+}
+
+.theriad-chat-history__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.theriad-chat-history__close {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(198, 205, 220, 0.13);
+  border-radius: 0.55rem;
+  color: var(--ink-muted);
+  background: rgba(198, 205, 220, 0.04);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.theriad-chat-history__close:hover {
+  border-color: rgba(255, 194, 111, 0.42);
+  color: var(--ink);
+  background: rgba(255, 194, 111, 0.09);
+}
+
+.theriad-history-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.45rem;
+  gap: 0.4rem;
+  padding: 0.45rem 0.68rem;
+  border: 1px solid rgba(198, 205, 220, 0.15);
+  border-radius: 0.68rem;
+  color: var(--ink-muted);
+  background: rgba(8, 11, 16, 0.62);
+  font-size: 0.76rem;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.theriad-history-toggle:hover,
+.theriad-history-toggle[aria-expanded='true'] {
+  border-color: rgba(255, 194, 111, 0.48);
+  color: #f6d089;
+  background: rgba(255, 194, 111, 0.08);
+}
+
+.theriad-history-toggle svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.theriad-web-sources {
+  padding-top: 0.1rem;
+}
+
+.theriad-web-source {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid rgba(198, 205, 220, 0.08);
+  border-radius: 0.5rem;
+  color: var(--ink-muted);
+  background: rgba(198, 205, 220, 0.025);
+}
+
+.theriad-web-source:hover {
+  border-color: rgba(255, 194, 111, 0.28);
+  color: var(--ink);
+  background: rgba(255, 194, 111, 0.05);
+}
+
+.theriad-web-source__index {
+  display: grid;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 194, 111, 0.22);
+  border-radius: 50%;
+  color: #f6d089;
+  font-size: 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.theriad-web-source__title,
+.theriad-web-source__excerpt {
+  display: block;
+}
+
+.theriad-web-source__title {
+  color: inherit;
+  font-size: 0.7rem;
+  overflow-wrap: anywhere;
+}
+
+.theriad-web-source__excerpt {
+  margin-top: 0.15rem;
+  color: var(--ink-faint);
+  font-size: 0.63rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+/* -------------------------------------------------------------------------
+   Responsive content rhythm
+   The shell owns the 1024px rail breakpoint; page content stays fluid inside
+   it and only introduces columns when there is room for readable text.
+   ------------------------------------------------------------------------- */
+
+.theriad-main--scrollable {
+  padding-right: clamp(1rem, 3vw, 2rem) !important;
+  padding-left: clamp(1rem, 3vw, 2rem) !important;
+}
+
+.theriad-settings-page {
+  width: 100%;
+  max-width: 72rem;
+  min-width: 0;
+}
+
+.theriad-settings-card,
+.theriad-project-detail {
+  min-width: 0;
+}
+
+.theriad-settings-sections > :not(:first-child) {
+  margin-top: clamp(1.35rem, 3vw, 2rem) !important;
+}
+
+.theriad-setting-row > div:first-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.theriad-setting-row > button,
+.theriad-setting-row > select {
+  flex: 0 0 auto;
+}
+
+.theriad-project-tabs {
+  scrollbar-width: none;
+}
+
+.theriad-project-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .theriad-settings-card {
+    padding: 1rem !important;
+  }
+
+  .theriad-setting-row {
+    align-items: flex-start !important;
+    flex-direction: column;
+  }
+
+  .theriad-setting-row > button,
+  .theriad-setting-row > select {
+    align-self: flex-start;
+  }
+
+  .theriad-settings-page .theriad-settings-card h2 {
+    font-size: 1rem;
+  }
+
+  .theriad-project-tabs button {
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+  }
+}
+
+/* Fluid workspace sizing: let spacing and type move with the viewport while
+   keeping readable minimums and comfortable touch targets. */
+html {
+  font-size: clamp(0.9375rem, calc(0.875rem + 0.185vw), 1rem);
+}
+
+.theriad-app-shell {
+  --theriad-workspace-inset: clamp(0.3rem, 0.45vw, 0.65rem);
+  --theriad-chat-inline-space: clamp(0.7rem, 2.8vw, 2.5rem);
+  --theriad-control-gap: clamp(0.2rem, 0.42vw, 0.55rem);
+}
+
+.theriad-main--chat {
+  padding: var(--theriad-workspace-inset) !important;
+}
+
+.theriad-chat-frame {
+  border-radius: clamp(0.65rem, calc(0.55rem + 0.45vw), 1rem);
+}
+
+.theriad-chat-header {
+  min-height: clamp(3.8rem, calc(3.45rem + 0.9vw), 4.55rem);
+  gap: clamp(0.45rem, 0.8vw, 0.85rem);
+  padding-block: clamp(0.55rem, 0.85vw, 0.9rem);
+  padding-inline: clamp(0.65rem, 1.25vw, 1.25rem);
+}
+
+.theriad-chat-title {
+  font-size: clamp(1.02rem, calc(0.88rem + 0.8vw), 1.45rem);
+}
+
+.theriad-chat-header__controls {
+  gap: var(--theriad-control-gap);
+}
+
+.theriad-history-toggle {
+  width: auto;
+  min-width: 2.45rem;
+  padding-inline: clamp(0.55rem, 0.75vw, 0.72rem);
+  border-color: rgba(255, 194, 111, 0.25);
+  color: var(--signal-warm-strong);
+  background: rgba(255, 194, 111, 0.065);
+  white-space: nowrap;
+}
+
+.theriad-chat-messages {
+  padding-inline: var(--theriad-chat-inline-space);
+}
+
+.theriad-composer {
+  padding: clamp(0.65rem, 0.75vw, 0.95rem)
+    clamp(0.65rem, 1.3vw, 1rem)
+    clamp(0.7rem, 1.4vw, 1rem);
+}
+
+@media (max-width: 1023px) {
+  .theriad-main--chat {
+    padding: 3.75rem var(--theriad-workspace-inset) var(--theriad-workspace-inset) !important;
+  }
+
+  .theriad-history-toggle {
+    width: auto;
+    padding-inline: 0.62rem;
+  }
+
+  .theriad-history-toggle span {
+    display: inline;
+  }
+}
+
+@media (max-width: 520px) {
+  .theriad-chat-header {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .theriad-chat-header > div:first-child {
+    flex: 1 1 100%;
+  }
+
+  .theriad-chat-header__controls {
+    width: 100%;
+    flex: 1 1 100%;
+    justify-content: flex-end;
+  }
+
+  .theriad-model-picker {
+    max-width: min(8.7rem, 35vw);
+  }
+
+  .theriad-chat-messages {
+    padding-inline: clamp(0.55rem, 3vw, 0.8rem);
+  }
+}

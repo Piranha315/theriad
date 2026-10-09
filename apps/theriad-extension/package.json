@@ -1,0 +1,36 @@
+{
+  "name": "theriad-browser-extension",
+  "version": "1.0.0",
+  "description": "Theriad Browser extension with sidebar chat using AI SDK",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:electron": "npm --prefix electron-browser run build",
+    "electron": "npm --prefix electron-browser run start",
+    "electron:dev": "npm --prefix electron-browser run dev",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.0",
+    "@ai-sdk/google": "^3.0.0",
+    "@ai-sdk/mcp": "^1.0.21",
+    "@ai-sdk/openai": "^3.0.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "ai": "^6.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.275",
+    "@types/node": "^24.9.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.0.3",
+    "typescript": "^5.6.3",
+    "vite": "^8.1.4"
+  }
+}

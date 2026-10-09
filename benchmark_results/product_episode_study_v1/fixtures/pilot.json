@@ -1,0 +1,213 @@
+[
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.unit_conversion.trial-1",
+    "family": "chat",
+    "fixture": {},
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": 90000,
+      "kind": "numeric"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.unit_conversion",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "A pump supplies 0.75 liters per minute for 2 hours. Return only the total number of milliliters.",
+    "source": "newly_authored",
+    "split": "pilot",
+    "tags": [
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.unit_conversion"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.stable_unique.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "stable_unique",
+      "tests": "a=[3,1,3,2,1]; assert stable_unique(a)==[3,1,2]; assert a==[3,1,3,2,1]\nassert stable_unique([])==[]\nassert stable_unique([-1,0,-1])==[-1,0]"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.stable_unique",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining stable_unique(values). Accept a list of integers and return unique values in order of first appearance without changing the input list. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "pilot",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.stable_unique"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.csv_row_filter.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "inventory.csv": "item,qty\npen,0\nbook,3\nclip,-1\ntape,2\n"
+      },
+      "expected_json": {
+        "available.json": [
+          "book",
+          "tape"
+        ]
+      },
+      "files": {
+        "inventory.csv": "item,qty\npen,0\nbook,3\nclip,-1\ntape,2\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.csv_row_filter",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read inventory.csv and write available.json as a JSON array of item names with qty greater than zero, preserving CSV order.",
+    "source": "newly_authored",
+    "split": "pilot",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.csv_row_filter"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.python_dict_order.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "Insertion order is guaranteed in Python 3.7 and later. Updating an existing key does not change its position. Deleting and reinserting a key puts it at the end.",
+          "title": "Python dictionary reference",
+          "url": "https://docs.python.org/3/library/stdtypes.html#dict"
+        },
+        {
+          "text": "A set is an unordered collection of distinct hashable objects.",
+          "title": "Set ordering distractor",
+          "url": "https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://docs.python.org/3/library/stdtypes.html#dict"
+        ],
+        "preserves_insertion_order": true,
+        "reinserting_moves_to_end": true,
+        "updating_moves_key": false
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.python_dict_order",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "In Python 3.7+, what iteration order does a dict preserve, and does replacing an existing value move its key? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"preserves_insertion_order\": \"boolean\", \"reinserting_moves_to_end\": \"boolean\", \"updating_moves_key\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "pilot",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.python_dict_order"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.inventory_replenishment_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "data/stock.csv": "sku,stock,active\nA,3,true\nB,12,true\nC,0,false\nD,1,true\n",
+        "policy.json": "{\n  \"target\": 8\n}\n",
+        "reports/summary.txt": "units: 12\n"
+      },
+      "expected_json": {
+        "reports/orders.json": [
+          {
+            "sku": "A",
+            "units": 5
+          },
+          {
+            "sku": "D",
+            "units": 7
+          }
+        ]
+      },
+      "files": {
+        "data/stock.csv": "sku,stock,active\nA,3,true\nB,12,true\nC,0,false\nD,1,true\n",
+        "policy.json": "{\n  \"target\": 8\n}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.inventory_replenishment_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Complete the inventory project: read data/stock.csv and policy.json; calculate max(0,target-stock) for active items only, omit zero orders, and write reports/orders.json sorted by sku. Also write reports/summary.txt exactly as 'units: N\n' using the total units ordered.",
+    "source": "newly_authored",
+    "split": "pilot",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.inventory_replenishment_project"
+  }
+]

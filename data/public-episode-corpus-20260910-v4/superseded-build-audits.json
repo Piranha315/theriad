@@ -1,0 +1,426 @@
+[
+  {
+    "version": 1,
+    "reason": "Unicode line-separator serialization failed runner parsing",
+    "acquisition_report": {
+      "code_reference_execution": "not_run_real_sandbox_unavailable",
+      "combined_manifest": {
+        "corpus_hash": "650bb42e6ca30e09b6f8a41216895756bd6e3d85feb215f71884e429ea5753b0",
+        "counts": {
+          "calibration": {
+            "agents": 2,
+            "chat": 86,
+            "coding": 25,
+            "search": 82,
+            "tools": 2
+          },
+          "pilot": {
+            "agents": 1,
+            "chat": 16,
+            "coding": 6,
+            "search": 17,
+            "tools": 1
+          },
+          "smoke": {
+            "agents": 1,
+            "chat": 10,
+            "coding": 4,
+            "search": 11,
+            "tools": 1
+          },
+          "test": {
+            "agents": 1,
+            "chat": 103,
+            "coding": 31,
+            "search": 93,
+            "tools": 1
+          },
+          "threshold_selection": {
+            "agents": 2,
+            "chat": 75,
+            "coding": 34,
+            "search": 66,
+            "tools": 2
+          },
+          "train": {
+            "agents": 3,
+            "chat": 220,
+            "coding": 73,
+            "search": 241,
+            "tools": 3
+          }
+        },
+        "episodes": 1213,
+        "independent_groups": 1213,
+        "version": "product-episodes-v1"
+      },
+      "combined_sha256": "5561d1850b9a6d707f476a6481bb7c0aea63c5bb452d9930676bafd3f04e4ba0",
+      "independence_certified": false,
+      "limitations": [
+        "Candidate groups pass mechanical screens; semantic independence requires review.",
+        "Public benchmarks may already appear in model pretraining or old evaluations outside the available local corpus.",
+        "Math is a narrow chat proxy; four-paragraph QA is frozen evidence synthesis, not live search.",
+        "No new runnable tools/agents tasks; tau2 raw counts do not increase sample size.",
+        "Code syntax checked only; real grader and reference correctness remain unverified.",
+        "No empirical quality, price, achieved power, or production weighting is inferred."
+      ],
+      "model_outcomes_collected": 0,
+      "new_by_family_split": {
+        "agents": {},
+        "chat": {
+          "calibration": 84,
+          "pilot": 15,
+          "smoke": 9,
+          "test": 102,
+          "threshold_selection": 73,
+          "train": 217
+        },
+        "coding": {
+          "calibration": 23,
+          "pilot": 5,
+          "smoke": 3,
+          "test": 30,
+          "threshold_selection": 32,
+          "train": 70
+        },
+        "search": {
+          "calibration": 80,
+          "pilot": 16,
+          "smoke": 10,
+          "test": 92,
+          "threshold_selection": 64,
+          "train": 238
+        },
+        "tools": {}
+      },
+      "new_by_source": {
+        "gsm8k": 500,
+        "hotpotqa": 500,
+        "humaneval": 163
+      },
+      "new_episode_rows": 1163,
+      "overlap_checks": {
+        "code_ast_renaming_and_constants": true,
+        "gsm_arithmetic_trace_templates": true,
+        "hotpot_all_original_context_titles_disjoint": true,
+        "near_duplicate_wording": true,
+        "normalized_prompts": true
+      },
+      "paid_calls": 0,
+      "paid_collection_ready": false,
+      "previous_arithmetic_templates_excluded": 0,
+      "previous_local_rows_screened": 200,
+      "prior_corpora": [
+        {
+          "path": "/Users/puranvs/Cost-Optimization/eval_corpus.jsonl",
+          "sha256": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f"
+        }
+      ],
+      "production_enabled": false,
+      "raw_counts": {
+        "gsm8k": 8792,
+        "hotpotqa": 7405,
+        "humaneval": 164,
+        "tau2_airline": 50,
+        "tau2_retail": 114,
+        "tau2_telecom": 2285
+      },
+      "rejections_by_reason": {
+        "bounded_sample_limit": 14568,
+        "missing_arithmetic_trace": 113,
+        "near_duplicate_wording": 13,
+        "previous_local_prompt_overlap": 7,
+        "same_structural_template": 466,
+        "shared_context_document": 30,
+        "support_exceeds_frozen_evidence_adapter": 1
+      },
+      "schema_valid": true,
+      "screened_candidate_groups": 1163,
+      "version": "public-episode-acquisition-20260910-v1"
+    },
+    "combined_sha256": "5561d1850b9a6d707f476a6481bb7c0aea63c5bb452d9930676bafd3f04e4ba0"
+  },
+  {
+    "version": 2,
+    "reason": "Legacy prompt wrappers obscured the prior arithmetic-template screen",
+    "acquisition_report": {
+      "code_reference_execution": "not_run_real_sandbox_unavailable",
+      "combined_manifest": {
+        "corpus_hash": "f4d0ff956617a247a595a953e683268a2a00ab8d3847558570df9faafbf0e72f",
+        "counts": {
+          "calibration": {
+            "agents": 2,
+            "chat": 86,
+            "coding": 25,
+            "search": 82,
+            "tools": 2
+          },
+          "pilot": {
+            "agents": 1,
+            "chat": 16,
+            "coding": 6,
+            "search": 17,
+            "tools": 1
+          },
+          "smoke": {
+            "agents": 1,
+            "chat": 10,
+            "coding": 4,
+            "search": 11,
+            "tools": 1
+          },
+          "test": {
+            "agents": 1,
+            "chat": 103,
+            "coding": 31,
+            "search": 93,
+            "tools": 1
+          },
+          "threshold_selection": {
+            "agents": 2,
+            "chat": 75,
+            "coding": 34,
+            "search": 66,
+            "tools": 2
+          },
+          "train": {
+            "agents": 3,
+            "chat": 220,
+            "coding": 73,
+            "search": 241,
+            "tools": 3
+          }
+        },
+        "episodes": 1213,
+        "independent_groups": 1213,
+        "version": "product-episodes-v1"
+      },
+      "combined_sha256": "c47bcae9cdfc1f42c488860397800ae6d664facb240e46c207e0639a9856e9e1",
+      "independence_certified": false,
+      "limitations": [
+        "Candidate groups pass mechanical screens; semantic independence requires review.",
+        "Public benchmarks may already appear in model pretraining or old evaluations outside the available local corpus.",
+        "Math is a narrow chat proxy; four-paragraph QA is frozen evidence synthesis, not live search.",
+        "No new runnable tools/agents tasks; tau2 raw counts do not increase sample size.",
+        "Code syntax checked only; real grader and reference correctness remain unverified.",
+        "No empirical quality, price, achieved power, or production weighting is inferred."
+      ],
+      "model_outcomes_collected": 0,
+      "new_by_family_split": {
+        "agents": {},
+        "chat": {
+          "calibration": 84,
+          "pilot": 15,
+          "smoke": 9,
+          "test": 102,
+          "threshold_selection": 73,
+          "train": 217
+        },
+        "coding": {
+          "calibration": 23,
+          "pilot": 5,
+          "smoke": 3,
+          "test": 30,
+          "threshold_selection": 32,
+          "train": 70
+        },
+        "search": {
+          "calibration": 80,
+          "pilot": 16,
+          "smoke": 10,
+          "test": 92,
+          "threshold_selection": 64,
+          "train": 238
+        },
+        "tools": {}
+      },
+      "new_by_source": {
+        "gsm8k": 500,
+        "hotpotqa": 500,
+        "humaneval": 163
+      },
+      "new_episode_rows": 1163,
+      "overlap_checks": {
+        "code_ast_renaming_and_constants": true,
+        "gsm_arithmetic_trace_templates": true,
+        "hotpot_all_original_context_titles_disjoint": true,
+        "near_duplicate_wording": true,
+        "normalized_prompts": true
+      },
+      "paid_calls": 0,
+      "paid_collection_ready": false,
+      "previous_arithmetic_templates_excluded": 0,
+      "previous_local_rows_screened": 200,
+      "prior_corpora": [
+        {
+          "path": "/Users/puranvs/Cost-Optimization/eval_corpus.jsonl",
+          "sha256": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f"
+        }
+      ],
+      "production_enabled": false,
+      "raw_counts": {
+        "gsm8k": 8792,
+        "hotpotqa": 7405,
+        "humaneval": 164,
+        "tau2_airline": 50,
+        "tau2_retail": 114,
+        "tau2_telecom": 2285
+      },
+      "rejections_by_reason": {
+        "bounded_sample_limit": 14568,
+        "missing_arithmetic_trace": 113,
+        "near_duplicate_wording": 13,
+        "previous_local_prompt_overlap": 7,
+        "same_structural_template": 466,
+        "shared_context_document": 30,
+        "support_exceeds_frozen_evidence_adapter": 1
+      },
+      "schema_valid": true,
+      "screened_candidate_groups": 1163,
+      "version": "public-episode-acquisition-20260910-v2"
+    },
+    "combined_sha256": "c47bcae9cdfc1f42c488860397800ae6d664facb240e46c207e0639a9856e9e1"
+  },
+  {
+    "version": 3,
+    "reason": "Final audit extended overlap checks to the existing 50-task episode seed",
+    "acquisition_report": {
+      "code_reference_execution": "not_run_real_sandbox_unavailable",
+      "combined_manifest": {
+        "corpus_hash": "53445d4093a5cf713b6a95864f24a864583ba310814588ee20d553616946d7f5",
+        "counts": {
+          "calibration": {
+            "agents": 2,
+            "chat": 86,
+            "coding": 25,
+            "search": 82,
+            "tools": 2
+          },
+          "pilot": {
+            "agents": 1,
+            "chat": 17,
+            "coding": 6,
+            "search": 17,
+            "tools": 1
+          },
+          "smoke": {
+            "agents": 1,
+            "chat": 11,
+            "coding": 4,
+            "search": 11,
+            "tools": 1
+          },
+          "test": {
+            "agents": 1,
+            "chat": 99,
+            "coding": 31,
+            "search": 93,
+            "tools": 1
+          },
+          "threshold_selection": {
+            "agents": 2,
+            "chat": 75,
+            "coding": 34,
+            "search": 66,
+            "tools": 2
+          },
+          "train": {
+            "agents": 3,
+            "chat": 222,
+            "coding": 73,
+            "search": 241,
+            "tools": 3
+          }
+        },
+        "episodes": 1213,
+        "independent_groups": 1213,
+        "version": "product-episodes-v1"
+      },
+      "combined_sha256": "f9b9f947253e40d2313502ccfc9b704c45ae0ad0c3015d8dcaf57ff14cb18bdd",
+      "independence_certified": false,
+      "limitations": [
+        "Candidate groups pass mechanical screens; semantic independence requires review.",
+        "Public benchmarks may already appear in model pretraining or old evaluations outside the available local corpus.",
+        "Math is a narrow chat proxy; four-paragraph QA is frozen evidence synthesis, not live search.",
+        "No new runnable tools/agents tasks; tau2 raw counts do not increase sample size.",
+        "Code syntax checked only; real grader and reference correctness remain unverified.",
+        "No empirical quality, price, achieved power, or production weighting is inferred."
+      ],
+      "model_outcomes_collected": 0,
+      "new_by_family_split": {
+        "agents": {},
+        "chat": {
+          "calibration": 84,
+          "pilot": 16,
+          "smoke": 10,
+          "test": 98,
+          "threshold_selection": 73,
+          "train": 219
+        },
+        "coding": {
+          "calibration": 23,
+          "pilot": 5,
+          "smoke": 3,
+          "test": 30,
+          "threshold_selection": 32,
+          "train": 70
+        },
+        "search": {
+          "calibration": 80,
+          "pilot": 16,
+          "smoke": 10,
+          "test": 92,
+          "threshold_selection": 64,
+          "train": 238
+        },
+        "tools": {}
+      },
+      "new_by_source": {
+        "gsm8k": 500,
+        "hotpotqa": 500,
+        "humaneval": 163
+      },
+      "new_episode_rows": 1163,
+      "overlap_checks": {
+        "code_ast_renaming_and_constants": true,
+        "gsm_arithmetic_trace_templates": true,
+        "hotpot_all_original_context_titles_disjoint": true,
+        "near_duplicate_wording": true,
+        "normalized_prompts": true
+      },
+      "paid_calls": 0,
+      "paid_collection_ready": false,
+      "previous_arithmetic_templates_excluded": 48,
+      "previous_local_rows_screened": 200,
+      "prior_corpora": [
+        {
+          "path": "/Users/puranvs/Cost-Optimization/eval_corpus.jsonl",
+          "sha256": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f"
+        }
+      ],
+      "production_enabled": false,
+      "raw_counts": {
+        "gsm8k": 8792,
+        "hotpotqa": 7405,
+        "humaneval": 164,
+        "tau2_airline": 50,
+        "tau2_retail": 114,
+        "tau2_telecom": 2285
+      },
+      "rejections_by_reason": {
+        "bounded_sample_limit": 13080,
+        "missing_arithmetic_trace": 113,
+        "near_duplicate_wording": 13,
+        "previous_local_prompt_overlap": 1,
+        "same_structural_template": 352,
+        "shared_context_document": 30,
+        "structural_template_in_previous_local_grid": 1608,
+        "support_exceeds_frozen_evidence_adapter": 1
+      },
+      "schema_valid": true,
+      "screened_candidate_groups": 1163,
+      "version": "public-episode-acquisition-20260910-v3"
+    },
+    "combined_sha256": "f9b9f947253e40d2313502ccfc9b704c45ae0ad0c3015d8dcaf57ff14cb18bdd"
+  }
+]

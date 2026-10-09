@@ -1,0 +1,148 @@
+{
+  "deepseek/deepseek-v4-flash-0731": {
+    "capabilities": [
+      "text",
+      "search",
+      "tools"
+    ],
+    "context_window": 1310720,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.14,
+    "output_per_1m": 0.28,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0.00000028",
+      "input_cache_read": "0.000000028",
+      "prompt": "0.00000014"
+    },
+    "request_cost_usd": 0.0
+  },
+  "nvidia/nemotron-3-super-120b-a12b:free": {
+    "capabilities": [
+      "text",
+      "search",
+      "tools"
+    ],
+    "context_window": 262144,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.0,
+    "output_per_1m": 0.0,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0",
+      "prompt": "0"
+    },
+    "request_cost_usd": 0.0
+  },
+  "openai/gpt-5.6-luna": {
+    "capabilities": [
+      "text",
+      "search",
+      "vision",
+      "tools"
+    ],
+    "context_window": 1050000,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.19999999999999998,
+    "output_per_1m": 1.2,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0.0000012",
+      "input_cache_read": "0.00000002",
+      "input_cache_write": "0.00000025",
+      "overrides": [
+        {
+          "completion": "0.0000018",
+          "input_cache_read": "0.00000004",
+          "input_cache_write": "0.0000005",
+          "min_prompt_tokens": 272000,
+          "prompt": "0.0000004"
+        }
+      ],
+      "prompt": "0.0000002",
+      "web_search": "0.01"
+    },
+    "request_cost_usd": 0.0
+  },
+  "openai/gpt-oss-20b": {
+    "capabilities": [
+      "text",
+      "search",
+      "tools"
+    ],
+    "context_window": 131072,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.03,
+    "output_per_1m": 0.13,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0.00000013",
+      "input_cache_read": "0.00000003",
+      "prompt": "0.00000003"
+    },
+    "request_cost_usd": 0.0
+  },
+  "poolside/laguna-xs-2.1:free": {
+    "capabilities": [
+      "text",
+      "search",
+      "tools"
+    ],
+    "context_window": 262144,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.0,
+    "output_per_1m": 0.0,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0",
+      "prompt": "0"
+    },
+    "request_cost_usd": 0.0
+  },
+  "qwen/qwen3.6-plus": {
+    "capabilities": [
+      "text",
+      "search",
+      "vision",
+      "tools"
+    ],
+    "context_window": 1000000,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.325,
+    "output_per_1m": 1.95,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0.00000195",
+      "input_cache_write": "0.00000040625",
+      "overrides": [
+        {
+          "completion": "0.0000039",
+          "input_cache_write": "0.000001625",
+          "min_prompt_tokens": 256000,
+          "prompt": "0.0000013"
+        }
+      ],
+      "prompt": "0.000000325"
+    },
+    "request_cost_usd": 0.0
+  },
+  "xiaomi/mimo-v2.5": {
+    "capabilities": [
+      "text",
+      "search",
+      "vision",
+      "tools"
+    ],
+    "context_window": 1050000,
+    "image_cost_usd": 0.0,
+    "input_per_1m": 0.14,
+    "output_per_1m": 0.28,
+    "provider": "openrouter",
+    "provider_pricing": {
+      "completion": "0.00000028",
+      "input_cache_read": "0.0000000028",
+      "prompt": "0.00000014"
+    },
+    "request_cost_usd": 0.0
+  }
+}

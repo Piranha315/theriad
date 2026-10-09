@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "theriad-inference-gateway"
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "Standalone Theriad inference gateway and automatic release worker"
+readme = "README.md"
+dependencies = [
+  "httpx==0.28.1", "pydantic==2.13.4", "numpy==2.5.2",
+  "fastapi==0.141.1", "uvicorn==0.53.0", "cryptography==50.0.1",
+  "python-dotenv>=1.0,<2", "pyyaml>=6,<7", "tiktoken>=0.7,<1",
+  "langdetect==1.0.9", "google-auth==2.59.0",
+  "google-cloud-firestore==2.33.0", "google-cloud-storage==3.15.1",
+  "onnxruntime==1.30.0", "tokenizers==0.23.2"
+]
+
+[project.scripts]
+theriad-gateway = "theriad.gateway.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["theriad*"]
+
+[tool.setuptools.package-data]
+"theriad.routing" = ["*.json"]
+"theriad.models" = ["*.json"]
+"theriad.accounting" = ["*.json"]

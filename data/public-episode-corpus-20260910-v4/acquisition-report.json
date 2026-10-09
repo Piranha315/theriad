@@ -1,0 +1,139 @@
+{
+  "code_reference_execution": "not_run_real_sandbox_unavailable",
+  "combined_manifest": {
+    "corpus_hash": "a0c94577a9623bf958cf2e27428a19322d84b3879dd8198d8e0a4186ca8d12af",
+    "counts": {
+      "calibration": {
+        "agents": 2,
+        "chat": 86,
+        "coding": 25,
+        "search": 82,
+        "tools": 2
+      },
+      "pilot": {
+        "agents": 1,
+        "chat": 17,
+        "coding": 6,
+        "search": 17,
+        "tools": 1
+      },
+      "smoke": {
+        "agents": 1,
+        "chat": 11,
+        "coding": 4,
+        "search": 11,
+        "tools": 1
+      },
+      "test": {
+        "agents": 1,
+        "chat": 99,
+        "coding": 31,
+        "search": 93,
+        "tools": 1
+      },
+      "threshold_selection": {
+        "agents": 2,
+        "chat": 75,
+        "coding": 34,
+        "search": 66,
+        "tools": 2
+      },
+      "train": {
+        "agents": 3,
+        "chat": 222,
+        "coding": 73,
+        "search": 241,
+        "tools": 3
+      }
+    },
+    "episodes": 1213,
+    "independent_groups": 1213,
+    "version": "product-episodes-v1"
+  },
+  "combined_sha256": "c838edd20fa65baa7a8209ca672ce59ee72b7becb8c31d8192f9100bf34d32c3",
+  "independence_certified": false,
+  "limitations": [
+    "Candidate groups pass mechanical screens; semantic independence requires review.",
+    "Public benchmarks may already appear in model pretraining or old evaluations outside the available local corpus.",
+    "Math is a narrow chat proxy; four-paragraph QA is frozen evidence synthesis, not live search.",
+    "No new runnable tools/agents tasks; tau2 raw counts do not increase sample size.",
+    "Code syntax checked only; real grader and reference correctness remain unverified.",
+    "No empirical quality, price, achieved power, or production weighting is inferred."
+  ],
+  "model_outcomes_collected": 0,
+  "new_by_family_split": {
+    "agents": {},
+    "chat": {
+      "calibration": 84,
+      "pilot": 16,
+      "smoke": 10,
+      "test": 98,
+      "threshold_selection": 73,
+      "train": 219
+    },
+    "coding": {
+      "calibration": 23,
+      "pilot": 5,
+      "smoke": 3,
+      "test": 30,
+      "threshold_selection": 32,
+      "train": 70
+    },
+    "search": {
+      "calibration": 80,
+      "pilot": 16,
+      "smoke": 10,
+      "test": 92,
+      "threshold_selection": 64,
+      "train": 238
+    },
+    "tools": {}
+  },
+  "new_by_source": {
+    "gsm8k": 500,
+    "hotpotqa": 500,
+    "humaneval": 163
+  },
+  "new_episode_rows": 1163,
+  "overlap_checks": {
+    "code_ast_renaming_and_constants": true,
+    "gsm_arithmetic_trace_templates": true,
+    "hotpot_all_original_context_titles_disjoint": true,
+    "near_duplicate_wording": true,
+    "normalized_prompts": true
+  },
+  "paid_calls": 0,
+  "paid_collection_ready": false,
+  "previous_arithmetic_templates_excluded": 48,
+  "previous_builtin_seed_hash": "f1d469d55244419f48ba003ec23c2dbab07dc0389b5f6682b2612f769ef798e4",
+  "previous_builtin_seed_rows_screened": 50,
+  "previous_local_rows_screened": 250,
+  "prior_corpora": [
+    {
+      "path": "/Users/puranvs/Cost-Optimization/eval_corpus.jsonl",
+      "sha256": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f"
+    }
+  ],
+  "production_enabled": false,
+  "raw_counts": {
+    "gsm8k": 8792,
+    "hotpotqa": 7405,
+    "humaneval": 164,
+    "tau2_airline": 50,
+    "tau2_retail": 114,
+    "tau2_telecom": 2285
+  },
+  "rejections_by_reason": {
+    "bounded_sample_limit": 13080,
+    "missing_arithmetic_trace": 113,
+    "near_duplicate_wording": 13,
+    "previous_local_prompt_overlap": 1,
+    "same_structural_template": 352,
+    "shared_context_document": 30,
+    "structural_template_in_previous_local_grid": 1608,
+    "support_exceeds_frozen_evidence_adapter": 1
+  },
+  "schema_valid": true,
+  "screened_candidate_groups": 1163,
+  "version": "public-episode-acquisition-20260910-v4"
+}

@@ -1,0 +1,22 @@
+{
+  "project_id": "REPLACE_WITH_ACTUAL_PROJECT",
+  "billing_account": "REPLACE_WITH_ACTUAL_BILLING_ACCOUNT",
+  "image": "us-central1-docker.pkg.dev/PROJECT/REPOSITORY/gateway@sha256:REPLACE_WITH_64_HEX_DIGEST",
+  "bucket_name": "REPLACE_WITH_UNIQUE_PRIVATE_BUCKET",
+  "release_signing_secret": "theriad-release-signing",
+  "gateway_tokens_secret": "theriad-gateway-tokens",
+  "openrouter_secret": "theriad-openrouter",
+  "artificial_analysis_secret": "theriad-artificial-analysis",
+  "suite_object": "configuration/approved-suite.json",
+  "identities_object": "configuration/approved-identities.json",
+  "suite_sha256": "REPLACE_WITH_APPROVED_SUITE_SHA256",
+  "identities_sha256": "REPLACE_WITH_APPROVED_IDENTITIES_SHA256",
+  "authorized_invokers": ["user:REPLACE_WITH_AUTHORIZED_EMAIL"],
+  "scheduler_paused": true,
+  "region": "us-central1",
+  "pilot_alert_usd": 25,
+  "network": null,
+  "subnetwork": null,
+  "ingress": "INGRESS_TRAFFIC_ALL",
+  "vpc_egress": "ALL_TRAFFIC"
+}

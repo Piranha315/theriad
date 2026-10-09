@@ -1,0 +1,488 @@
+{
+  "version": "authored-extension-review-20260911-v1",
+  "reviewer": "Codex same author, direct qualitative review; no independent second reviewer",
+  "input_hashes": {
+    "foundation": "a28e5c6ff9099dae1e87e238da5d8144e37c07b82e1a88ce47de4a18bc97dc8f",
+    "original": "c838edd20fa65baa7a8209ca672ce59ee72b7becb8c31d8192f9100bf34d32c3",
+    "candidates": "4380e5896abe08854f614fcf6ea96d738470c9379cc083db150afbc106b264df",
+    "legacy": "1985ed777745ff5bf78573df96017cc9ac08e533d95e0b9fdbcc150d3141713f",
+    "foundation_policy": "55ace3341bf33164f605df689a4304b378e518607d0cabc61a61f4817c8488ca",
+    "foundation_ledger": "987d5c2de1d371040e1dc3b5d9f96952290ec0c25744aa36c490a39026ce191f"
+  },
+  "additional_edges": [
+    {
+      "members": [
+        "authored-20260911:utf8_validation",
+        "authored-20260911:quoted_bytes",
+        "authored-20260911:armored_records"
+      ],
+      "rationale": "Strict UTF-8 decoding is a shared required subroutine across coding/tools.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:path_segments",
+        "authored-20260911:symbolic_links",
+        "agents.documentation_link_audit.trial-1"
+      ],
+      "rationale": "Path resolution and normalization are shared required subroutines.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:calendar_slots",
+        "tools.csv_row_filter.trial-1"
+      ],
+      "rationale": "Conservative predicate-filter solution pool.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:transport_text",
+        "tools.atomic_text_substitution.trial-1"
+      ],
+      "rationale": "Literal substitution core reused with transport wrapper.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:range_tombstones",
+        "authored-20260911:fenced_writes",
+        "tools.timestamp_latest_record.trial-1"
+      ],
+      "rationale": "Latest version/generation acceptance core reused.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:seat_apportionment",
+        "gsm8k:train/4380"
+      ],
+      "rationale": "Proportional quota allocation is a required subroutine.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:coin_optimum",
+        "authored-20260911:quota_reclamation",
+        "authored-20260911:test_set_cover"
+      ],
+      "rationale": "Conservative minimum-cost integer covering pool across families.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:style_runs",
+        "coding.run_length_codec.trial-1"
+      ],
+      "rationale": "Consecutive equal-state run segmentation reused.",
+      "kind": "authored_extension_manual_dependence"
+    },
+    {
+      "members": [
+        "authored-20260911:wire_labels",
+        "authored-20260911:chunked_payload"
+      ],
+      "rationale": "Length-prefixed cursor framing and termination; count once.",
+      "kind": "authored_extension_manual_dependence"
+    }
+  ],
+  "exclusions": [
+    {
+      "episode_id": "authored-20260911:utf8_validation",
+      "reason": "EXCLUDE with quoted_bytes and armored_records: strict UTF-8 decode is an explicit shared required subroutine across coding and tools."
+    },
+    {
+      "episode_id": "authored-20260911:quoted_bytes",
+      "reason": "EXCLUDE in UTF-8 component; escaping wrapper does not remove required strict UTF-8 decoder overlap."
+    },
+    {
+      "episode_id": "authored-20260911:armored_records",
+      "reason": "EXCLUDE in UTF-8 component; armor/base64 wrapper does not remove shared strict UTF-8 decoder. Fenced-block parsing also resembles old heading extraction."
+    },
+    {
+      "episode_id": "authored-20260911:path_segments",
+      "reason": "EXCLUDE with symbolic_links and old documentation-link audit: relative path interpretation and dot-segment normalization are shared required path resolution operations."
+    },
+    {
+      "episode_id": "authored-20260911:symbolic_links",
+      "reason": "EXCLUDE in path component; link recursion adds work but explicitly reuses the path normalization contract."
+    },
+    {
+      "episode_id": "authored-20260911:calendar_slots",
+      "reason": "EXCLUDE with old predicate-filter component: emitting entries satisfying component/range predicates is the same filtering template."
+    },
+    {
+      "episode_id": "authored-20260911:transport_text",
+      "reason": "EXCLUDE against atomic text substitution: ordered literal replacements are required core logic despite added initial-BOM condition."
+    },
+    {
+      "episode_id": "authored-20260911:range_tombstones",
+      "reason": "EXCLUDE against latest-per-key storage selection: visibility wrapper still selects highest sequence surviving values."
+    },
+    {
+      "episode_id": "authored-20260911:fenced_writes",
+      "reason": "EXCLUDE against latest-per-key and range_tombstones: monotonically accepted generation/value updates reuse the maximum-version selection core."
+    },
+    {
+      "episode_id": "authored-20260911:seat_apportionment",
+      "reason": "EXCLUDE against ratio allocation: proportional quota calculation is a required subroutine; remainder awards do not erase cross-family overlap."
+    },
+    {
+      "episode_id": "authored-20260911:coin_optimum",
+      "reason": "EXCLUDE with quota_reclamation and test_set_cover: conservatively connect minimum-cost integer covering variants across coding and agents rather than count objective/constraint variations independently."
+    },
+    {
+      "episode_id": "authored-20260911:quota_reclamation",
+      "reason": "EXCLUDE in integer covering component; bounded loss-minimizing subset selection is related to minimum-coin and weighted set-cover optimization."
+    },
+    {
+      "episode_id": "authored-20260911:test_set_cover",
+      "reason": "EXCLUDE in integer covering component; changed coverage constraints do not justify independent cross-family counts here."
+    },
+    {
+      "episode_id": "authored-20260911:style_runs",
+      "reason": "EXCLUDE against old run-length codec: maximal adjacent equal-attribute runs reuse consecutive-run segmentation despite rendering context."
+    }
+  ],
+  "row_reviews": [
+    {
+      "episode_id": "authored-20260911:cache_lru",
+      "rationale": "Compare prior stable uniqueness and sliding windows: recency-changing hits and eviction order require cache state absent from those set/average templates.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:graph_scc",
+      "rationale": "Compare topological layers and new shortest paths: mutual reachability partitions cycles rather than rejecting cycles or optimizing a distance.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:weighted_routes",
+      "rationale": "Compare old lexicographic grid walk and topological layers: weighted path relaxation has a distinct objective and state from either.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:capacity_flow",
+      "rationale": "Compare shortest paths and new stable matching: residual capacities and conservation optimize throughput; preference stability and shortest distance are different solution structures.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:edit_distance",
+      "rationale": "Compare palindrome edit count and wildcard match: global minimum alignment allows insertions and deletions; mirrored mismatch counting and Boolean wildcard acceptance cannot be reused as its solver.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:convex_hull",
+      "rationale": "Compare triangle area, matrix coordinate sort and new perspective division: ordered geometric envelope via orientation is distinct from a scalar area or projecting each point independently.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:lzw_dictionary",
+      "rationale": "Compare old run-length codec: adaptive phrase dictionary emits across nonconsecutive repeats; run segmentation and counts cannot implement LZW.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:wildcard_match",
+      "rationale": "Compare escaped delimiters, prefix filtering and new edit distance: variable-width wildcard acceptance over the full input is distinct from token splitting and minimum-cost edit alignment.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:instruction_machine",
+      "rationale": "Compare old expression evaluation and new breaker recovery: branch targets, mutable registers and fuel produce general instruction control flow; neither arithmetic expression evaluation nor a fixed breaker transition table is its solution.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:stable_matching",
+      "rationale": "Compare max flow and scheduling: preference-ranked deferred acceptance with rejection chains differs from capacity or prerequisite feasibility.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:continued_config",
+      "rationale": "Compare old recursive overlay, validation and multipart envelopes: continued physical lines reconstruct a logical value; no recursive merge, schema partition or multipart body framing is required.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:permission_bits",
+      "rationale": "Compare binary string XOR, radix rendering, network blocks and endian decode: per-position permission-bit projection is not XOR between strings, prefix range calculation or signed integer decoding.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:wire_labels",
+      "rationale": "POOL with chunked_payload: length-prefixed cursor advancement, payload extraction, termination and truncation rejection are shared despite different length encodings and delimiters.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:chunked_payload",
+      "rationale": "POOL with wire_labels; count this component once, at its original test stage.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:utf8_validation",
+      "rationale": "EXCLUDE with quoted_bytes and armored_records: strict UTF-8 decode is an explicit shared required subroutine across coding and tools.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:quoted_bytes",
+      "rationale": "EXCLUDE in UTF-8 component; escaping wrapper does not remove required strict UTF-8 decoder overlap.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:armored_records",
+      "rationale": "EXCLUDE in UTF-8 component; armor/base64 wrapper does not remove shared strict UTF-8 decoder. Fenced-block parsing also resembles old heading extraction.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:path_segments",
+      "rationale": "EXCLUDE with symbolic_links and old documentation-link audit: relative path interpretation and dot-segment normalization are shared required path resolution operations.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:symbolic_links",
+      "rationale": "EXCLUDE in path component; link recursion adds work but explicitly reuses the path normalization contract.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:calendar_slots",
+      "rationale": "EXCLUDE with old predicate-filter component: emitting entries satisfying component/range predicates is the same filtering template.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:transport_text",
+      "rationale": "EXCLUDE against atomic text substitution: ordered literal replacements are required core logic despite added initial-BOM condition.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:range_tombstones",
+      "rationale": "EXCLUDE against latest-per-key storage selection: visibility wrapper still selects highest sequence surviving values.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:fenced_writes",
+      "rationale": "EXCLUDE against latest-per-key and range_tombstones: monotonically accepted generation/value updates reuse the maximum-version selection core.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:seat_apportionment",
+      "rationale": "EXCLUDE against ratio allocation: proportional quota calculation is a required subroutine; remainder awards do not erase cross-family overlap.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:coin_optimum",
+      "rationale": "EXCLUDE with quota_reclamation and test_set_cover: conservatively connect minimum-cost integer covering variants across coding and agents rather than count objective/constraint variations independently.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:quota_reclamation",
+      "rationale": "EXCLUDE in integer covering component; bounded loss-minimizing subset selection is related to minimum-coin and weighted set-cover optimization.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:test_set_cover",
+      "rationale": "EXCLUDE in integer covering component; changed coverage constraints do not justify independent cross-family counts here.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:style_runs",
+      "rationale": "EXCLUDE against old run-length codec: maximal adjacent equal-attribute runs reuse consecutive-run segmentation despite rendering context.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:terminal_overwrite",
+      "rationale": "Compare old literal substitution, style runs and pen plotter: cursor overwrite with nondeleting CR/BS differs from substring replacement, adjacent-run segmentation and planar movement.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:context_patch",
+      "rationale": "Compare old nested JSON patch and literal substitution: positional hunks verified against immutable original coordinates with all-or-nothing context acceptance require a different edit protocol.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:table_transpose",
+      "rationale": "Compare old CSV join/filter and matrix coordinate sorting: fixed axis exchange preserves every cell without relational matching, filtering or coordinate selection.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:multipart_envelopes",
+      "rationale": "Compare fenced-heading extraction and continued config: header/body sections and boundary termination are a distinct grammar; heading extraction only tracks fenced visibility. No assertion that all parsers have independent errors.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:sheet_literal_cells",
+      "rationale": "Compare escaped delimiters and literal substitution: formula-risk prefix guarding preserves the original whole cell; it does not tokenize escaped separators or replace matched substrings.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:network_blocks",
+      "rationale": "Compare permission bits and radix conversion: address-prefix mask plus complement determine network extrema; per-octal-digit flags and numeral rendering do not solve this contract.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:canonical_unicode",
+      "rationale": "Compare alphabet transforms, UTF-8 and transport text: NFC canonical composition differs from encoded-byte validity, fixed substitutions or ASCII case transforms. Familiar Unicode examples remain a pretraining risk.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:clock_fold",
+      "rationale": "Compare elapsed-clock and piecewise-rate arithmetic: enumerate multiple inverse mappings of a discontinuous clock, including missing/ambiguous local times; no single duration/rate answer suffices.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:three_value_logic",
+      "rationale": "Compare predicate filtering and universal thresholds: explicit Kleene truth tables preserve unknown rather than Boolean inclusion decisions. Primitive Boolean operations alone are not a dependence edge.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:serial_numbers",
+      "rationale": "Compare modular arithmetic and maximum selection: half-range cyclic order has ambiguity and wraparound, unlike ordinary order or modular exponentiation/product.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:pen_plotter",
+      "rationale": "Compare old route-distance sums and terminal cursor: evolving heading determines signed 2D position and extents; a scalar distance sum or one-line overwrite cannot solve it.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:committed_journal",
+      "rationale": "Compare chronological override, inventory and new OR-set: transaction buffering and atomic commit/abort visibility are distinct from last-message overwrite and tag tombstones.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:deficit_scheduler",
+      "rationale": "Compare logical/topological scheduling and token bucket: queue-local credits, head-of-line service and round progression differ from precedence constraints and time-based admission.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:replicated_commit",
+      "rationale": "Compare latest-per-key and quorum witness: term-qualified majority replication establishes an index; selecting a latest record or showing quorum-set intersection does not implement majority acknowledgement by log prefix.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:causal_versions",
+      "rationale": "Compare latest timestamps and predicate filtering: componentwise vector-clock partial order must distinguish concurrency from equality and before; scalar recency cannot do so.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:quorum_witness",
+      "rationale": "Compare replicated commit and old combinatorial/group-algebra rows: disjoint-set witness for arbitrary read/write subsets establishes intersection guarantee, distinct from a concrete replicated-prefix count.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:observed_remove",
+      "rationale": "Compare old set uniqueness and journal: persistent observed-tag tombstones with out-of-order adds and concurrent surviving tags are material new state, not simple duplicate removal.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:automaton_minimize",
+      "rationale": "Compare new SCC and finite-state simulations: language-equivalence partition refinement is different from reachability, graph cycles and executing one event trace.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:archive_inverse",
+      "rationale": "Compare LZW/run-length/block-cyclic decode: global sorted-rotation reconstruction of BWT differs from dictionary compression, run expansion or fixed-position character cycling.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:prefix_archive",
+      "rationale": "Compare old stable argmin and LZW: weighted prefix-tree construction and code assignment are distinct from single argmin selection and adaptive phrase dictionaries. Generic sorting is not treated as a template edge.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:optimal_wrap",
+      "rationale": "Compare word sorting and integer covering: ordered contiguous line segmentation with last-line exception and slack-squared objective differs from choosing unordered subsets/coin counts.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:avl_insertion",
+      "rationale": "Compare bounded binary search, topological layers and SCC: insertion changes a tree through balance-driven rotations; lookup in a static sorted array and graph partitioning have no shared required solver.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:escrow_reservations",
+      "rationale": "Compare inventory replenishment/bounded transfer and journal: ID-specific reserve/commit/cancel transitions with replay rejection are the core, not a reorder quantity or transaction write visibility.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:record_layout",
+      "rationale": "Compare batch ceiling and matrix-index arithmetic: sequential alignment at field-specific moduli plus final structure alignment differs from a single homogeneous capacity ceiling. Rounding primitives alone are not a dependence edge.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:token_admission",
+      "rationale": "Compare bounded inventory transfer and deficit scheduler: refill at elapsed time capped at capacity plus reject-without-consumption differs from static transfer totals and queue-round service.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:breaker_recovery",
+      "rationale": "Compare token admission and instruction machine: consecutive-failure trip, cooldown, half-open probe and recovery depend on outcomes; token accounting and general interpreted branches are different contracts.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:dependency_resolution",
+      "rationale": "Compare old deployment readiness and semantic version reference: root/transitive finite range constraints require global assignment, not checking existing flags or recalling compatible version rules. Versions are explicit integer ranges.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:endian_registers",
+      "rationale": "Compare radix rendering, binary XOR and permission bits: byte-order interpretation with signed two-complement adjustment is a different representation contract.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:delta_varints",
+      "rationale": "Compare length framing, radix conversion and UTF-8: continuation bits accumulate a variable-length integer followed by zigzag/delta reconstruction; payload-length cursor slicing and scalar-character decoding are distinct.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:column_type_inference",
+      "rationale": "Compare record validation/migration: type-lattice joins across a column with bool/int distinction differ from rejecting rows or applying a known field schema.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:hardlink_lifecycle",
+      "rationale": "Compare file manifest, contact deduplication and reservations: many names alias persistent inode identity, and reclamation occurs on last unlink; content deduplication and reserved quantities cannot substitute.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:web_origin_comparison",
+      "rationale": "Compare record filtering/URL path audit: tuple equivalence after scheme/host/default-port normalization is a different specific predicate from prior column or substring filters; produces comparison booleans rather than filtered records.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:perspective_projection",
+      "rationale": "Compare convex hull and area tasks: camera-space depth division and axis inversion are pointwise projection, not an orientation/envelope or polygon-area calculation.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:banker_safety",
+      "rationale": "Compare topological layers and replenishment: changing multi-resource availability after hypothetical process completion determines safety; static dependency edges and reorder targets do not solve it.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:term_unification",
+      "rationale": "Compare nested lookup/overlay and package constraints: substitution propagation with occurs-check on recursive symbolic terms differs from fetching or merging keys and finite version assignment.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:cellular_step",
+      "rationale": "Compare matrix transposition and scalar recurrences: simultaneous local neighbor transition across a 2D lattice differs from axis permutation and a one-dimensional scalar recurrence. Public Game-of-Life familiarity remains a limitation.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:residual_quantizer",
+      "rationale": "Compare decimal money rounding and prefix sums: error feedback makes each later quantization depend on previous residual; independent decimal rounding and accumulated totals do not implement the recurrence.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    },
+    {
+      "episode_id": "authored-20260911:disk_look_schedule",
+      "rationale": "Compare logical scheduling and alternating extrema sorting: directional nearest service pivots around current head and reverses only after exhausting a side; no prerequisite relation or alternating extrema rule is shared.",
+      "scope": "Task prompt, delivered files, answer and grading contract; comparison against complete prior mechanism census and candidate mechanisms, supplemented by lexical retrieval. No model outcomes."
+    }
+  ],
+  "principle": "Preserve prior broader pools and all existing rows. New components touching any original/legacy row are not independently added. Cross-family additions excluded. New-only components grouped at earliest preassigned stage. Generic primitives (loops, arithmetic, sorting, file IO) alone do not imply same solution template; explicit shared required solver operations do. No lexical threshold clears rows.",
+  "limitations": [
+    "Same author/reviewer; no external independence certification.",
+    "Bounded authored microprojects with deterministic state graders, not representative samples of production agents.",
+    "Known algorithm concepts and some canonical examples may be in pretraining; no benchmark prompt was used as a generation template.",
+    "No observed error correlations or model outcomes; remaining unrecognized dependence is possible.",
+    "Complete study readiness and joint power are separate gates."
+  ]
+}

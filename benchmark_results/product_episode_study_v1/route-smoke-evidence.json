@@ -1,0 +1,1404 @@
+{
+  "browser_verified": false,
+  "execution_layer": "real_product_core_with_resettable_fixtures",
+  "live_user_http_route_verified": false,
+  "outcomes": [
+    {
+      "attempts": 1,
+      "cost_usd": 0.0,
+      "episode_id": "chat.long_context_missing_fact.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 2,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.0,
+          "pending_ids": [],
+          "total_cost_usd": 0.0
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "shared_chat_core_with_fixture_context",
+          "assistant_provider": "theriad",
+          "chain": [
+            [
+              "openrouter",
+              "nvidia/nemotron-3-super-120b-a12b:free"
+            ],
+            [
+              "openrouter",
+              "openai/gpt-oss-20b"
+            ],
+            [
+              "openrouter",
+              "xiaomi/mimo-v2.5"
+            ],
+            [
+              "openrouter",
+              "deepseek/deepseek-v4-flash-0731"
+            ]
+          ],
+          "context_prefix": "",
+          "context_truncated": false,
+          "history_summarized": false,
+          "isolated_user_features": [
+            "account_and_entitlement_http_gates",
+            "persistent_memory",
+            "enabled_personal_skills",
+            "conversation_continuity",
+            "live_circuit_state"
+          ],
+          "kind": "current",
+          "max_output_tokens": 1200,
+          "objective_verification": true,
+          "preferences": {
+            "quality": 50,
+            "speed": 50
+          },
+          "request_extras": {
+            "deepseek/deepseek-v4-flash-0731": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "openai/gpt-oss-20b": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "xiaomi/mimo-v2.5": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            }
+          },
+          "system_prompt": "You are Theriad, an AI assistant powered by the Theriad cost-optimization engine. When Theriad routing is selected, Theriad routes each query to the cheapest capable LLM using a multi-layer classification pipeline. When OpenAI or Anthropic direct mode is selected, stay within that provider and choose a model tier appropriate to the task. Live web access is provided only by Theriad's server-side web-research harness; never claim to have browsed or cite current information unless retrieved web evidence is present in the prompt. Answer the user's question directly and helpfully. If the user asks what you are or how you work, explain that you are Theriad and clearly distinguish routed and direct-provider modes.",
+          "tier": "cheap_bulk",
+          "timeout_seconds": 20.0
+        },
+        "bounded_calls": 8,
+        "browser_exercised": false,
+        "grader": "strict_exact",
+        "input_tokens": 2914,
+        "isolated_user_features": [
+          "account_and_entitlement_http_gates",
+          "persistent_memory",
+          "enabled_personal_skills",
+          "conversation_continuity",
+          "live_circuit_state"
+        ],
+        "live_user_route": false,
+        "objective_verification": null,
+        "output": "UNKNOWN",
+        "output_tokens": 86,
+        "predicted_metrics": null,
+        "router_latency_ms": 0.007707974873483181,
+        "selected_configuration": [
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "openai/gpt-oss-20b",
+          "xiaomi/mimo-v2.5",
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "tool_surface": null
+      },
+      "family": "chat",
+      "fixture_hash": "15e8e5e7b1ee0be0f937c563c840d682b54f91a42b5a124f74e7fe818f730cd7",
+      "group_id": "chat.long_context_missing_fact",
+      "latency_ms": 2739.259750000201,
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "policy_hash": "",
+      "policy_id": "baseline",
+      "status": "completed",
+      "success": true
+    },
+    {
+      "attempts": 1,
+      "cost_usd": 0.0,
+      "episode_id": "chat.long_context_missing_fact.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 2,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.0,
+          "pending_ids": [],
+          "total_cost_usd": 0.0
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "shared_chat_core_with_fixture_context",
+          "assistant_provider": "theriad",
+          "chain": [
+            [
+              "openrouter",
+              "nvidia/nemotron-3-super-120b-a12b:free"
+            ],
+            [
+              "openrouter",
+              "openai/gpt-oss-20b"
+            ],
+            [
+              "openrouter",
+              "xiaomi/mimo-v2.5"
+            ],
+            [
+              "openrouter",
+              "deepseek/deepseek-v4-flash-0731"
+            ]
+          ],
+          "context_prefix": "",
+          "context_truncated": false,
+          "history_summarized": false,
+          "isolated_user_features": [
+            "account_and_entitlement_http_gates",
+            "persistent_memory",
+            "enabled_personal_skills",
+            "conversation_continuity",
+            "live_circuit_state"
+          ],
+          "kind": "current",
+          "max_output_tokens": 1200,
+          "objective_verification": true,
+          "preferences": {
+            "quality": 50,
+            "speed": 50
+          },
+          "request_extras": {
+            "deepseek/deepseek-v4-flash-0731": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "openai/gpt-oss-20b": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "xiaomi/mimo-v2.5": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            }
+          },
+          "system_prompt": "You are Theriad, an AI assistant powered by the Theriad cost-optimization engine. When Theriad routing is selected, Theriad routes each query to the cheapest capable LLM using a multi-layer classification pipeline. When OpenAI or Anthropic direct mode is selected, stay within that provider and choose a model tier appropriate to the task. Live web access is provided only by Theriad's server-side web-research harness; never claim to have browsed or cite current information unless retrieved web evidence is present in the prompt. Answer the user's question directly and helpfully. If the user asks what you are or how you work, explain that you are Theriad and clearly distinguish routed and direct-provider modes.",
+          "tier": "cheap_bulk",
+          "timeout_seconds": 20.0
+        },
+        "bounded_calls": 8,
+        "browser_exercised": false,
+        "grader": "strict_exact",
+        "input_tokens": 2914,
+        "isolated_user_features": [
+          "account_and_entitlement_http_gates",
+          "persistent_memory",
+          "enabled_personal_skills",
+          "conversation_continuity",
+          "live_circuit_state"
+        ],
+        "live_user_route": false,
+        "objective_verification": null,
+        "output": "UNKNOWN",
+        "output_tokens": 51,
+        "predicted_metrics": null,
+        "router_latency_ms": 0.007707974873483181,
+        "selected_configuration": [
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "openai/gpt-oss-20b",
+          "xiaomi/mimo-v2.5",
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "tool_surface": null
+      },
+      "family": "chat",
+      "fixture_hash": "15e8e5e7b1ee0be0f937c563c840d682b54f91a42b5a124f74e7fe818f730cd7",
+      "group_id": "chat.long_context_missing_fact",
+      "latency_ms": 2589.8787909536622,
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "policy_hash": "",
+      "policy_id": "challenger",
+      "status": "completed",
+      "success": true
+    },
+    {
+      "attempts": 1,
+      "cost_usd": 0.0,
+      "episode_id": "coding.bounded_binary_search.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 2,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.0,
+          "pending_ids": [],
+          "total_cost_usd": 0.0
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "shared_chat_core_with_fixture_context",
+          "assistant_provider": "theriad",
+          "chain": [
+            [
+              "openrouter",
+              "nvidia/nemotron-3-super-120b-a12b:free"
+            ],
+            [
+              "openrouter",
+              "openai/gpt-oss-20b"
+            ],
+            [
+              "openrouter",
+              "poolside/laguna-xs-2.1:free"
+            ],
+            [
+              "openrouter",
+              "xiaomi/mimo-v2.5"
+            ],
+            [
+              "openrouter",
+              "qwen/qwen3.6-plus"
+            ]
+          ],
+          "context_prefix": "",
+          "context_truncated": false,
+          "history_summarized": false,
+          "isolated_user_features": [
+            "account_and_entitlement_http_gates",
+            "persistent_memory",
+            "enabled_personal_skills",
+            "conversation_continuity",
+            "live_circuit_state"
+          ],
+          "kind": "current",
+          "max_output_tokens": 3500,
+          "objective_verification": true,
+          "preferences": {
+            "quality": 50,
+            "speed": 50
+          },
+          "request_extras": {
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "openai/gpt-oss-20b": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "poolside/laguna-xs-2.1:free": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "qwen/qwen3.6-plus": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "xiaomi/mimo-v2.5": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            }
+          },
+          "system_prompt": "You are Theriad, an AI assistant powered by the Theriad cost-optimization engine. When Theriad routing is selected, Theriad routes each query to the cheapest capable LLM using a multi-layer classification pipeline. When OpenAI or Anthropic direct mode is selected, stay within that provider and choose a model tier appropriate to the task. Live web access is provided only by Theriad's server-side web-research harness; never claim to have browsed or cite current information unless retrieved web evidence is present in the prompt. Answer the user's question directly and helpfully. If the user asks what you are or how you work, explain that you are Theriad and clearly distinguish routed and direct-provider modes.",
+          "tier": "cheap_code",
+          "timeout_seconds": 45.0
+        },
+        "bounded_calls": 8,
+        "browser_exercised": false,
+        "input_tokens": 233,
+        "isolated_user_features": [
+          "account_and_entitlement_http_gates",
+          "persistent_memory",
+          "enabled_personal_skills",
+          "conversation_continuity",
+          "live_circuit_state"
+        ],
+        "live_user_route": false,
+        "objective_verification": null,
+        "output": "def lower_bound(values, target):\n    lo, hi = 0, len(values)\n    while lo < hi:\n        mid = (lo + hi) // 2\n        if values[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid\n    return lo",
+        "output_tokens": 211,
+        "predicted_metrics": null,
+        "router_latency_ms": 0.007375027053058147,
+        "sandbox": {
+          "duration_ms": 159.1838329914026,
+          "executor_id": "router-v2.macos.sandbox-exec",
+          "policy_version": "router-v2-code-sandbox-v2-default-deny",
+          "returncode": 0,
+          "status": "passed",
+          "stderr": "----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n",
+          "stdout": "",
+          "timed_out": false
+        },
+        "selected_configuration": [
+          "nvidia/nemotron-3-super-120b-a12b:free",
+          "openai/gpt-oss-20b",
+          "poolside/laguna-xs-2.1:free",
+          "xiaomi/mimo-v2.5",
+          "qwen/qwen3.6-plus"
+        ],
+        "tool_surface": null
+      },
+      "family": "coding",
+      "fixture_hash": "a16eb672dd976909c1a73e312c4d2292610a050eac393149fac1c6a72a8812ad",
+      "group_id": "coding.bounded_binary_search",
+      "latency_ms": 3801.2395830010064,
+      "model": "nvidia/nemotron-3-super-120b-a12b:free",
+      "policy_hash": "",
+      "policy_id": "baseline",
+      "status": "completed",
+      "success": true
+    },
+    {
+      "attempts": 1,
+      "cost_usd": 6.8595e-05,
+      "episode_id": "coding.bounded_binary_search.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 2,
+          "failed_count": 0,
+          "known_total_cost_usd": 6.8595e-05,
+          "pending_ids": [],
+          "total_cost_usd": 6.8595e-05
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "shared_chat_core_with_fixture_context",
+          "assistant_provider": "theriad",
+          "chain": [
+            [
+              "openrouter",
+              "nvidia/nemotron-3-super-120b-a12b:free"
+            ],
+            [
+              "openrouter",
+              "openai/gpt-oss-20b"
+            ],
+            [
+              "openrouter",
+              "poolside/laguna-xs-2.1:free"
+            ],
+            [
+              "openrouter",
+              "xiaomi/mimo-v2.5"
+            ],
+            [
+              "openrouter",
+              "qwen/qwen3.6-plus"
+            ]
+          ],
+          "context_prefix": "",
+          "context_truncated": false,
+          "history_summarized": false,
+          "isolated_user_features": [
+            "account_and_entitlement_http_gates",
+            "persistent_memory",
+            "enabled_personal_skills",
+            "conversation_continuity",
+            "live_circuit_state"
+          ],
+          "kind": "current",
+          "max_output_tokens": 3500,
+          "objective_verification": true,
+          "preferences": {
+            "quality": 50,
+            "speed": 50
+          },
+          "request_extras": {
+            "nvidia/nemotron-3-super-120b-a12b:free": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "openai/gpt-oss-20b": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "poolside/laguna-xs-2.1:free": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "qwen/qwen3.6-plus": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            },
+            "xiaomi/mimo-v2.5": {
+              "cache_control": {
+                "type": "ephemeral"
+              },
+              "provider": {
+                "allow_fallbacks": true,
+                "preferred_min_throughput": 60,
+                "require_parameters": true,
+                "sort": "price"
+              }
+            }
+          },
+          "system_prompt": "You are Theriad, an AI assistant powered by the Theriad cost-optimization engine. When Theriad routing is selected, Theriad routes each query to the cheapest capable LLM using a multi-layer classification pipeline. When OpenAI or Anthropic direct mode is selected, stay within that provider and choose a model tier appropriate to the task. Live web access is provided only by Theriad's server-side web-research harness; never claim to have browsed or cite current information unless retrieved web evidence is present in the prompt. Answer the user's question directly and helpfully. If the user asks what you are or how you work, explain that you are Theriad and clearly distinguish routed and direct-provider modes.",
+          "tier": "cheap_code",
+          "timeout_seconds": 45.0
+        },
+        "bounded_calls": 8,
+        "browser_exercised": false,
+        "input_tokens": 291,
+        "isolated_user_features": [
+          "account_and_entitlement_http_gates",
+          "persistent_memory",
+          "enabled_personal_skills",
+          "conversation_continuity",
+          "live_circuit_state"
+        ],
+        "live_user_route": false,
+        "objective_verification": null,
+        "output": "def lower_bound(values, target):\n    lo, hi = 0, len(values)\n    while lo < hi:\n        mid = (lo + hi) // 2\n        if values[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid\n    return lo",
+        "output_tokens": 276,
+        "predicted_metrics": null,
+        "router_latency_ms": 0.0031249946914613247,
+        "sandbox": {
+          "duration_ms": 147.85779203521088,
+          "executor_id": "router-v2.macos.sandbox-exec",
+          "policy_version": "router-v2-code-sandbox-v2-default-deny",
+          "returncode": 0,
+          "status": "passed",
+          "stderr": "----------------------------------------------------------------------\nRan 0 tests in 0.000s\n\nNO TESTS RAN\n",
+          "stdout": "",
+          "timed_out": false
+        },
+        "selected_configuration": [
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "tool_surface": null
+      },
+      "family": "coding",
+      "fixture_hash": "a16eb672dd976909c1a73e312c4d2292610a050eac393149fac1c6a72a8812ad",
+      "group_id": "coding.bounded_binary_search",
+      "latency_ms": 4785.175375000108,
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "policy_hash": "",
+      "policy_id": "challenger",
+      "status": "completed",
+      "success": true
+    },
+    {
+      "attempts": 6,
+      "cost_usd": 0.000411144,
+      "episode_id": "tools.json_validation_partition.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 12,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.000411144,
+          "pending_ids": [],
+          "total_cost_usd": 0.000411144
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "task_engine_project_fixture",
+          "assistant_provider": "theriad",
+          "capabilities": [
+            "project"
+          ],
+          "kind": "current",
+          "models": {
+            "agent_planner": "deepseek/deepseek-v4-flash-0731"
+          },
+          "permission_profile": "autonomous"
+        },
+        "bounded_calls": 6,
+        "browser_exercised": false,
+        "final_state": {
+          "input.json": "[\n  {\n    \"email\": \"a@b\",\n    \"id\": 1\n  },\n  {\n    \"email\": \"x@y\",\n    \"id\": true\n  },\n  {\n    \"email\": \"@b\",\n    \"id\": 2\n  },\n  {\n    \"email\": \"c@d\",\n    \"id\": 3\n  }\n]\n",
+          "validation.json": {
+            "invalid_indices": [
+              1,
+              2
+            ],
+            "valid_ids": [
+              0,
+              3
+            ]
+          }
+        },
+        "input_tokens": 3956,
+        "isolated_user_features": [],
+        "live_user_route": false,
+        "output": "Validated input.json: valid_ids [0,3], invalid_indices [1,2]. Wrote validation.json.",
+        "output_tokens": 1511,
+        "predicted_metrics": null,
+        "preserved_inputs": {},
+        "router_latency_ms": 0.00933295814320445,
+        "selected_configuration": [
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "task_status": "completed",
+        "tool_events": 13,
+        "tool_surface": "project_files",
+        "trajectory": [
+          {
+            "kind": "task.created",
+            "payload": {
+              "allowed_applications": [],
+              "allowed_domains": [],
+              "budgets": {
+                "max_runtime_seconds": 300,
+                "max_tool_calls": 6
+              },
+              "checkpoint_count": 0,
+              "created_at": 1788841865.615065,
+              "event_count": 0,
+              "final_answer": null,
+              "goal": "Read input.json. Records are valid only if id is a positive integer (not boolean) and email is a string containing exactly one @ with nonempty sides. Write validation.json with valid_ids and invalid_indices in original order; indices are zero-based.",
+              "metadata": {},
+              "pending_approval": null,
+              "permission_profile": "autonomous",
+              "requested_capabilities": [
+                "project"
+              ],
+              "status": "ready",
+              "task_id": "43950d53-83ab-4557-8094-91e6fb8a9731",
+              "updated_at": 1788841865.615065,
+              "workspace_root": "/private/var/folders/p6/my5jjnvn0_53ymt5sd27xnk80000gn/T/theriad-study-task-qu6yml06/workspace"
+            },
+            "sequence": 1
+          },
+          {
+            "kind": "task.run_started",
+            "payload": {
+              "max_runtime_seconds": 300,
+              "max_tool_calls": 6
+            },
+            "sequence": 2
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "0b61303e-936c-4df6-9f2d-01d2795134ce",
+              "tool": "project.read"
+            },
+            "sequence": 3
+          },
+          {
+            "kind": "tool.failed",
+            "payload": {
+              "call_id": "0b61303e-936c-4df6-9f2d-01d2795134ce",
+              "error": "'path'",
+              "tool": "project.read"
+            },
+            "sequence": 4
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "fd6a575a-a805-4980-be1b-eacc0dd635f2",
+              "tool": "project.read"
+            },
+            "sequence": 5
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "fd6a575a-a805-4980-be1b-eacc0dd635f2",
+              "output_type": "dict",
+              "tool": "project.read"
+            },
+            "sequence": 6
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "e22af442-8136-4c37-a870-3a7c0eca8979",
+              "tool": "project.write"
+            },
+            "sequence": 7
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "e22af442-8136-4c37-a870-3a7c0eca8979",
+              "output_type": "dict",
+              "tool": "project.write"
+            },
+            "sequence": 8
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "c25c156b-2979-4da7-9e7f-9054e13732a2",
+              "tool": "project.read"
+            },
+            "sequence": 9
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "c25c156b-2979-4da7-9e7f-9054e13732a2",
+              "output_type": "dict",
+              "tool": "project.read"
+            },
+            "sequence": 10
+          },
+          {
+            "kind": "planner.retry",
+            "payload": {
+              "attempt": 1,
+              "error": "Planner selected unavailable tool: "
+            },
+            "sequence": 11
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "1de1dcc1-78fb-40a9-8f74-d05501ecde46",
+              "tool": "task.complete"
+            },
+            "sequence": 12
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "1de1dcc1-78fb-40a9-8f74-d05501ecde46",
+              "output_type": "dict",
+              "tool": "task.complete"
+            },
+            "sequence": 13
+          }
+        ]
+      },
+      "family": "tools",
+      "fixture_hash": "ea1b81cb2981b0752b3c831e7fd18fe861e1d1d4f39d09c6470b0af5b50f9072",
+      "group_id": "tools.json_validation_partition",
+      "latency_ms": 77771.4829169563,
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "policy_hash": "",
+      "policy_id": "baseline",
+      "status": "completed",
+      "success": false
+    },
+    {
+      "attempts": 5,
+      "cost_usd": 0.000393388,
+      "episode_id": "tools.json_validation_partition.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 10,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.000393388,
+          "pending_ids": [],
+          "total_cost_usd": 0.000393388
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "task_engine_project_fixture",
+          "assistant_provider": "theriad",
+          "capabilities": [
+            "project"
+          ],
+          "kind": "current",
+          "models": {
+            "agent_planner": "deepseek/deepseek-v4-flash-0731"
+          },
+          "permission_profile": "autonomous"
+        },
+        "bounded_calls": 6,
+        "browser_exercised": false,
+        "final_state": {
+          "input.json": "[\n  {\n    \"email\": \"a@b\",\n    \"id\": 1\n  },\n  {\n    \"email\": \"x@y\",\n    \"id\": true\n  },\n  {\n    \"email\": \"@b\",\n    \"id\": 2\n  },\n  {\n    \"email\": \"c@d\",\n    \"id\": 3\n  }\n]\n",
+          "validation.json": {
+            "invalid_indices": [
+              1,
+              2
+            ],
+            "valid_ids": [
+              0,
+              3
+            ]
+          }
+        },
+        "input_tokens": 3142,
+        "isolated_user_features": [],
+        "live_user_route": false,
+        "output": "validation.json written with valid_ids [0,3] and invalid_indices [1,2]",
+        "output_tokens": 1684,
+        "predicted_metrics": null,
+        "preserved_inputs": {},
+        "router_latency_ms": 0.0034170225262641907,
+        "selected_configuration": [
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "task_status": "completed",
+        "tool_events": 11,
+        "tool_surface": "project_files",
+        "trajectory": [
+          {
+            "kind": "task.created",
+            "payload": {
+              "allowed_applications": [],
+              "allowed_domains": [],
+              "budgets": {
+                "max_runtime_seconds": 300,
+                "max_tool_calls": 6
+              },
+              "checkpoint_count": 0,
+              "created_at": 1788841943.387155,
+              "event_count": 0,
+              "final_answer": null,
+              "goal": "Read input.json. Records are valid only if id is a positive integer (not boolean) and email is a string containing exactly one @ with nonempty sides. Write validation.json with valid_ids and invalid_indices in original order; indices are zero-based.",
+              "metadata": {},
+              "pending_approval": null,
+              "permission_profile": "autonomous",
+              "requested_capabilities": [
+                "project"
+              ],
+              "status": "ready",
+              "task_id": "ffa28c4f-4a89-4599-826f-28bec59480f2",
+              "updated_at": 1788841943.387155,
+              "workspace_root": "/private/var/folders/p6/my5jjnvn0_53ymt5sd27xnk80000gn/T/theriad-study-task-h1wkpm48/workspace"
+            },
+            "sequence": 1
+          },
+          {
+            "kind": "task.run_started",
+            "payload": {
+              "max_runtime_seconds": 300,
+              "max_tool_calls": 6
+            },
+            "sequence": 2
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "4052a944-dd63-4300-86a2-775c2a490b94",
+              "tool": "project.read"
+            },
+            "sequence": 3
+          },
+          {
+            "kind": "tool.failed",
+            "payload": {
+              "call_id": "4052a944-dd63-4300-86a2-775c2a490b94",
+              "error": "'path'",
+              "tool": "project.read"
+            },
+            "sequence": 4
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "83cf531f-efb9-45d4-a837-20a5d1427eb0",
+              "tool": "project.read"
+            },
+            "sequence": 5
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "83cf531f-efb9-45d4-a837-20a5d1427eb0",
+              "output_type": "dict",
+              "tool": "project.read"
+            },
+            "sequence": 6
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "8776e5f9-3c20-468d-8094-21730af862c7",
+              "tool": "project.write"
+            },
+            "sequence": 7
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "8776e5f9-3c20-468d-8094-21730af862c7",
+              "output_type": "dict",
+              "tool": "project.write"
+            },
+            "sequence": 8
+          },
+          {
+            "kind": "planner.retry",
+            "payload": {
+              "attempt": 1,
+              "error": "Planner returned invalid JSON"
+            },
+            "sequence": 9
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "a2bad7c7-b150-499d-9eda-d44741256d79",
+              "tool": "task.complete"
+            },
+            "sequence": 10
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "a2bad7c7-b150-499d-9eda-d44741256d79",
+              "output_type": "dict",
+              "tool": "task.complete"
+            },
+            "sequence": 11
+          }
+        ]
+      },
+      "family": "tools",
+      "fixture_hash": "ea1b81cb2981b0752b3c831e7fd18fe861e1d1d4f39d09c6470b0af5b50f9072",
+      "group_id": "tools.json_validation_partition",
+      "latency_ms": 65314.66066703433,
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "policy_hash": "",
+      "policy_id": "challenger",
+      "status": "completed",
+      "success": false
+    },
+    {
+      "attempts": 2,
+      "cost_usd": 8.756000000000001e-05,
+      "episode_id": "search.semantic_version_compatibility.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 5,
+          "failed_count": 0,
+          "known_total_cost_usd": 8.756000000000001e-05,
+          "pending_ids": [],
+          "total_cost_usd": 8.756000000000001e-05
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "search_synthesis_frozen_evidence",
+          "assistant_provider": "theriad",
+          "kind": "current",
+          "models": {
+            "search_query": "xiaomi/mimo-v2.5",
+            "search_synthesis": "xiaomi/mimo-v2.5"
+          },
+          "synthesis_enabled": true
+        },
+        "bounded_calls": 2,
+        "browser_exercised": false,
+        "grader": "strict_json_value_and_type_equality",
+        "input_tokens": 932,
+        "isolated_user_features": [],
+        "live_user_route": false,
+        "output": "{\"citations\":[\"https://semver.org/spec/v2.0.0.html\"],\"stable_incompatible_change_component\":\"major\",\"zero_major_api_stable\":false}",
+        "output_tokens": 256,
+        "predicted_metrics": null,
+        "queries": [
+          "Under SemVer 2.0.0 for stable releases, which version component changes for a backward-incompatible public API change, and what special caveat applies to 0.y.z? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"stable_incompatible_change_component\": \"string\", \"zero_major_api_stable\": \"boolean\"}."
+        ],
+        "router_latency_ms": 0.003292050678282976,
+        "selected_configuration": [
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "tool_surface": null
+      },
+      "family": "search",
+      "fixture_hash": "be3e98348df893486f8e7748faa41f2862541d6dd5b61dae252acb699c5c94db",
+      "group_id": "search.semantic_version_compatibility",
+      "latency_ms": 14802.829000051133,
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "policy_hash": "",
+      "policy_id": "challenger",
+      "status": "completed",
+      "success": true
+    },
+    {
+      "attempts": 2,
+      "cost_usd": 0.00079261,
+      "episode_id": "search.semantic_version_compatibility.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 5,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.00079261,
+          "pending_ids": [],
+          "total_cost_usd": 0.00079261
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "search_synthesis_frozen_evidence",
+          "assistant_provider": "theriad",
+          "kind": "current",
+          "models": {
+            "search_query": "xiaomi/mimo-v2.5",
+            "search_synthesis": "xiaomi/mimo-v2.5"
+          },
+          "synthesis_enabled": true
+        },
+        "bounded_calls": 2,
+        "browser_exercised": false,
+        "grader": "strict_json_value_and_type_equality",
+        "input_tokens": 777,
+        "isolated_user_features": [],
+        "live_user_route": false,
+        "output": "{\n  \"citations\": [\"https://semver.org/spec/v2.0.0.html\"],\n  \"stable_incompatible_change_component\": \"major\",\n  \"zero_major_api_stable\": false\n}",
+        "output_tokens": 1064,
+        "predicted_metrics": null,
+        "queries": [
+          "Under SemVer 2.0.0 for stable releases, which version component changes for a backward-incompatible public API change, and what special caveat applies to 0.y.z? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"stable_incompatible_change_component\": \"string\", \"zero_major_api_stable\": \"boolean\"}."
+        ],
+        "router_latency_ms": 0.005082983989268541,
+        "selected_configuration": [
+          "xiaomi/mimo-v2.5"
+        ],
+        "tool_surface": null
+      },
+      "family": "search",
+      "fixture_hash": "be3e98348df893486f8e7748faa41f2862541d6dd5b61dae252acb699c5c94db",
+      "group_id": "search.semantic_version_compatibility",
+      "latency_ms": 21168.46741596237,
+      "model": "xiaomi/mimo-v2.5",
+      "policy_hash": "",
+      "policy_id": "baseline",
+      "status": "completed",
+      "success": true
+    },
+    {
+      "attempts": 3,
+      "cost_usd": 0.000283368,
+      "episode_id": "agents.configuration_overlay_project.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 5,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.000283368,
+          "pending_ids": [],
+          "total_cost_usd": 0.000283368
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "task_engine_project_fixture",
+          "assistant_provider": "theriad",
+          "capabilities": [
+            "project"
+          ],
+          "kind": "current",
+          "models": {
+            "agent_planner": "deepseek/deepseek-v4-flash-0731"
+          },
+          "permission_profile": "autonomous"
+        },
+        "bounded_calls": 12,
+        "browser_exercised": false,
+        "final_state": {
+          "build/config.json": null,
+          "build/keys.txt": null,
+          "config/base.json": "{\n  \"cache\": true,\n  \"flags\": [\n    \"debug\"\n  ],\n  \"server\": {\n    \"host\": \"localhost\",\n    \"port\": 80\n  }\n}\n",
+          "config/prod.json": "{\n  \"cache\": null,\n  \"flags\": [],\n  \"region\": \"east\",\n  \"server\": {\n    \"port\": 443\n  }\n}\n"
+        },
+        "input_tokens": 1636,
+        "isolated_user_features": [],
+        "live_user_route": false,
+        "output": "",
+        "output_tokens": 1467,
+        "predicted_metrics": null,
+        "preserved_inputs": {},
+        "router_latency_ms": 0.0032500247471034527,
+        "selected_configuration": [
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "task_status": "failed",
+        "tool_events": 7,
+        "tool_surface": "project_files",
+        "trajectory": [
+          {
+            "kind": "task.created",
+            "payload": {
+              "allowed_applications": [],
+              "allowed_domains": [],
+              "budgets": {
+                "max_runtime_seconds": 300,
+                "max_tool_calls": 12
+              },
+              "checkpoint_count": 0,
+              "created_at": 1788842044.7941608,
+              "event_count": 0,
+              "final_answer": null,
+              "goal": "Combine config/base.json with config/prod.json using recursive dictionary merging: overlay scalar/list values replace base values; explicit null also replaces. Write build/config.json. Write build/keys.txt listing final top-level keys alphabetically, one per line. Preserve both input files.",
+              "metadata": {},
+              "pending_approval": null,
+              "permission_profile": "autonomous",
+              "requested_capabilities": [
+                "project"
+              ],
+              "status": "ready",
+              "task_id": "1a4ba895-465c-48b5-9e3c-d3fe46e00b5d",
+              "updated_at": 1788842044.794162,
+              "workspace_root": "/private/var/folders/p6/my5jjnvn0_53ymt5sd27xnk80000gn/T/theriad-study-task-qme_2e2r/workspace"
+            },
+            "sequence": 1
+          },
+          {
+            "kind": "task.run_started",
+            "payload": {
+              "max_runtime_seconds": 300,
+              "max_tool_calls": 12
+            },
+            "sequence": 2
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "99e3d84f-ab7d-4fba-8fe7-0b8cd7cc4820",
+              "tool": "project.read"
+            },
+            "sequence": 3
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "99e3d84f-ab7d-4fba-8fe7-0b8cd7cc4820",
+              "output_type": "dict",
+              "tool": "project.read"
+            },
+            "sequence": 4
+          },
+          {
+            "kind": "planner.retry",
+            "payload": {
+              "attempt": 1,
+              "error": "Planner returned invalid JSON"
+            },
+            "sequence": 5
+          },
+          {
+            "kind": "planner.retry",
+            "payload": {
+              "attempt": 2,
+              "error": "Planner returned invalid JSON"
+            },
+            "sequence": 6
+          },
+          {
+            "kind": "task.failed",
+            "payload": {
+              "error": "TaskEngineError: Planner returned invalid JSON"
+            },
+            "sequence": 7
+          }
+        ]
+      },
+      "family": "agents",
+      "fixture_hash": "bab43e8c6341efce8ff603632ba9b4d479c167a023026a33a432a557240c7631",
+      "group_id": "agents.configuration_overlay_project",
+      "latency_ms": 60468.350416980684,
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "policy_hash": "",
+      "policy_id": "challenger",
+      "status": "task_failed",
+      "success": false
+    },
+    {
+      "attempts": 6,
+      "cost_usd": 0.000624048,
+      "episode_id": "agents.configuration_overlay_project.trial-1",
+      "evidence": {
+        "accounting": {
+          "all_costs_known": true,
+          "attempt_count": 11,
+          "failed_count": 0,
+          "known_total_cost_usd": 0.000624048,
+          "pending_ids": [],
+          "total_cost_usd": 0.000624048
+        },
+        "adapter_kind": "real_product_fixture",
+        "baseline_plan": {
+          "adapter": "task_engine_project_fixture",
+          "assistant_provider": "theriad",
+          "capabilities": [
+            "project"
+          ],
+          "kind": "current",
+          "models": {
+            "agent_planner": "deepseek/deepseek-v4-flash-0731"
+          },
+          "permission_profile": "autonomous"
+        },
+        "bounded_calls": 12,
+        "browser_exercised": false,
+        "final_state": {
+          "build/config.json": null,
+          "build/keys.txt": null,
+          "config/base.json": "{\n  \"cache\": true,\n  \"flags\": [\n    \"debug\"\n  ],\n  \"server\": {\n    \"host\": \"localhost\",\n    \"port\": 80\n  }\n}\n",
+          "config/prod.json": "{\n  \"cache\": null,\n  \"flags\": [],\n  \"region\": \"east\",\n  \"server\": {\n    \"port\": 443\n  }\n}\n"
+        },
+        "input_tokens": 4424,
+        "isolated_user_features": [],
+        "live_user_route": false,
+        "output": "",
+        "output_tokens": 2873,
+        "predicted_metrics": null,
+        "preserved_inputs": {},
+        "router_latency_ms": 0.00558304600417614,
+        "selected_configuration": [
+          "deepseek/deepseek-v4-flash-0731"
+        ],
+        "task_status": "failed",
+        "tool_events": 13,
+        "tool_surface": "project_files",
+        "trajectory": [
+          {
+            "kind": "task.created",
+            "payload": {
+              "allowed_applications": [],
+              "allowed_domains": [],
+              "budgets": {
+                "max_runtime_seconds": 300,
+                "max_tool_calls": 12
+              },
+              "checkpoint_count": 0,
+              "created_at": 1788842105.2616,
+              "event_count": 0,
+              "final_answer": null,
+              "goal": "Combine config/base.json with config/prod.json using recursive dictionary merging: overlay scalar/list values replace base values; explicit null also replaces. Write build/config.json. Write build/keys.txt listing final top-level keys alphabetically, one per line. Preserve both input files.",
+              "metadata": {},
+              "pending_approval": null,
+              "permission_profile": "autonomous",
+              "requested_capabilities": [
+                "project"
+              ],
+              "status": "ready",
+              "task_id": "7014d575-3b65-4e93-97df-b66b6d655854",
+              "updated_at": 1788842105.2616,
+              "workspace_root": "/private/var/folders/p6/my5jjnvn0_53ymt5sd27xnk80000gn/T/theriad-study-task-4kbh5cop/workspace"
+            },
+            "sequence": 1
+          },
+          {
+            "kind": "task.run_started",
+            "payload": {
+              "max_runtime_seconds": 300,
+              "max_tool_calls": 12
+            },
+            "sequence": 2
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "c00107fa-c599-47d2-9959-49fb54468626",
+              "tool": "project.read"
+            },
+            "sequence": 3
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "c00107fa-c599-47d2-9959-49fb54468626",
+              "output_type": "dict",
+              "tool": "project.read"
+            },
+            "sequence": 4
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "8f533504-c7e3-4ce6-8cf5-1f7b0068e54e",
+              "tool": "git.status"
+            },
+            "sequence": 5
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "8f533504-c7e3-4ce6-8cf5-1f7b0068e54e",
+              "output_type": "dict",
+              "tool": "git.status"
+            },
+            "sequence": 6
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "fb7254b8-4079-4d5e-9eb9-29d85e62a4d7",
+              "tool": "project.search"
+            },
+            "sequence": 7
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "fb7254b8-4079-4d5e-9eb9-29d85e62a4d7",
+              "output_type": "dict",
+              "tool": "project.search"
+            },
+            "sequence": 8
+          },
+          {
+            "kind": "tool.started",
+            "payload": {
+              "call_id": "04e3ded8-6893-4367-9675-3c6a5c0f89ff",
+              "tool": "git.status"
+            },
+            "sequence": 9
+          },
+          {
+            "kind": "tool.completed",
+            "payload": {
+              "call_id": "04e3ded8-6893-4367-9675-3c6a5c0f89ff",
+              "output_type": "dict",
+              "tool": "git.status"
+            },
+            "sequence": 10
+          },
+          {
+            "kind": "planner.retry",
+            "payload": {
+              "attempt": 1,
+              "error": "Planner returned invalid JSON"
+            },
+            "sequence": 11
+          },
+          {
+            "kind": "planner.retry",
+            "payload": {
+              "attempt": 2,
+              "error": "Planner returned invalid JSON"
+            },
+            "sequence": 12
+          },
+          {
+            "kind": "task.failed",
+            "payload": {
+              "error": "TaskEngineError: Planner returned invalid JSON"
+            },
+            "sequence": 13
+          }
+        ]
+      },
+      "family": "agents",
+      "fixture_hash": "bab43e8c6341efce8ff603632ba9b4d479c167a023026a33a432a557240c7631",
+      "group_id": "agents.configuration_overlay_project",
+      "latency_ms": 130221.43479203805,
+      "model": "deepseek/deepseek-v4-flash-0731",
+      "policy_hash": "",
+      "policy_id": "baseline",
+      "status": "task_failed",
+      "success": false
+    }
+  ],
+  "status": "recorded"
+}

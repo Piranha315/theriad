@@ -1,0 +1,445 @@
+[
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.conversation_negation.trial-1",
+    "family": "chat",
+    "fixture": {
+      "messages": [
+        {
+          "content": "Allow CSV and JSON exports. Forbid XML.",
+          "role": "user"
+        },
+        {
+          "content": "CSV and JSON are allowed; XML is forbidden.",
+          "role": "assistant"
+        },
+        {
+          "content": "Correction: forbid CSV, allow XML, and keep JSON allowed.",
+          "role": "user"
+        }
+      ]
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "allowed": [
+          "JSON",
+          "XML"
+        ],
+        "forbidden": [
+          "CSV"
+        ]
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.conversation_negation",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Using the conversation, return a JSON object with \"allowed\" and \"forbidden\" arrays sorted alphabetically.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "multiturn",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.conversation_negation"
+  },
+  {
+    "capabilities": [
+      "text",
+      "vision"
+    ],
+    "episode_id": "chat.schedule_visual_duration.trial-1",
+    "family": "chat",
+    "fixture": {
+      "image": {
+        "fixture_origin": "authored_schedule",
+        "text": "SHUTTLE SCHEDULE\nRoute  Departure  Arrival\nA      07:00      07:45\nB      07:35      09:10\nC      08:20      09:00"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": 95,
+      "kind": "numeric"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.schedule_visual_duration",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Use the attached schedule to find the elapsed duration of route B, in minutes. Departure and arrival are on the same day. Return only an integer.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "vision",
+      "table_reasoning",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.schedule_visual_duration"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.topological_layers.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "topological_layers",
+      "tests": "assert topological_layers({'build':['lint','test'],'test':['setup'],'lint':['setup']})==[['setup'],['lint','test'],['build']]\nassert topological_layers({})==[]\ntry: topological_layers({'a':['b'],'b':['a']})\nexcept ValueError: pass\nelse: raise AssertionError('cycle accepted')"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.topological_layers",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining topological_layers(dependencies). Accept a dict mapping each node to its prerequisite node names. Include prerequisite-only nodes. Return alphabetically sorted layers of nodes that can run together, consuming all nodes with no unmet prerequisite each round. Raise ValueError for a cycle. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.topological_layers"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.decimal_money.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "total_money",
+      "tests": "assert total_money(['0.10','0.20'])=='0.30'\nassert total_money(['1.005'])=='1.01'\nassert total_money(['-1.005'])=='-1.01'\nassert total_money([])=='0.00'\nassert total_money(['0.004','0.004'])=='0.01'"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.decimal_money",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining total_money(amounts). Accept a sequence of decimal currency strings, sum using decimal arithmetic, round the final sum to two places using ROUND_HALF_UP, and return a string with exactly two decimal places. An empty sequence returns '0.00'. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.decimal_money"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.csv_join.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "customers.csv": "customer_id,name\na,Ada\nb,Bo\n",
+        "orders.csv": "order_id,customer_id\n3,z\n1,b\n2,a\n"
+      },
+      "expected_json": {
+        "joined.json": [
+          {
+            "customer_name": "Bo",
+            "order_id": 1
+          },
+          {
+            "customer_name": "Ada",
+            "order_id": 2
+          },
+          {
+            "customer_name": null,
+            "order_id": 3
+          }
+        ]
+      },
+      "files": {
+        "customers.csv": "customer_id,name\na,Ada\nb,Bo\n",
+        "orders.csv": "order_id,customer_id\n3,z\n1,b\n2,a\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.csv_join",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Join orders.csv to customers.csv by customer_id. Write joined.json as order-id-sorted objects containing order_id and customer_name. Use null for unknown customers.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.csv_join"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.atomic_text_substitution.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "rendered.txt": "Hello Mira. $NAME ${OTHER} Mira\n",
+        "template.txt": "Hello ${NAME}. $NAME ${OTHER} ${NAME}\n"
+      },
+      "files": {
+        "template.txt": "Hello ${NAME}. $NAME ${OTHER} ${NAME}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.atomic_text_substitution",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read template.txt and replace every literal ${NAME} with Mira. Leave $NAME and ${OTHER} untouched. Write rendered.txt.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.atomic_text_substitution"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.csv_embedded_quote.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "Fields containing commas, line breaks, or double quotes should be enclosed in double quotes. Each double quote within an enclosed field must be escaped by a second double quote.",
+          "title": "CSV field escaping",
+          "url": "https://www.rfc-editor.org/rfc/rfc4180.html#section-2"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://www.rfc-editor.org/rfc/rfc4180.html#section-2"
+        ],
+        "encoded_field": "\"Ada said \"\"hi\"\", today\""
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.csv_embedded_quote",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "According to RFC 4180, how should a field containing both a comma and a double quote be escaped? Give the encoding of: Ada said \"hi\", today Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"encoded_field\": \"string\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "test",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.csv_embedded_quote"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.robots_rule_precedence.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "The most specific matching rule is the rule with the most octets. If an Allow rule and a Disallow rule are equivalent, the Allow rule SHOULD be used. Path matching is case-sensitive.",
+          "title": "Robots matching rules",
+          "url": "https://www.rfc-editor.org/rfc/rfc9309.html#section-2.2.2"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "allow_wins_equal_length": true,
+        "citations": [
+          "https://www.rfc-editor.org/rfc/rfc9309.html#section-2.2.2"
+        ],
+        "longest_matching_rule_wins": true,
+        "path_case_sensitive": true
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.robots_rule_precedence",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "For a robots.txt path that matches both Allow and Disallow rules, which matching rule wins, and what happens if their matched lengths are equivalent? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"allow_wins_equal_length\": \"boolean\", \"citations\": \"array of supporting source URL strings\", \"longest_matching_rule_wins\": \"boolean\", \"path_case_sensitive\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "test",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.robots_rule_precedence"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.deployment_readiness_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "release.json": "{\n  \"version\": \"3.2\"\n}\n",
+        "reports/blocked.txt": "cache\nworker\n",
+        "services.json": "[\n  {\n    \"healthy_replicas\": 2,\n    \"minimum_replicas\": 2,\n    \"name\": \"api\",\n    \"version\": \"3.2\"\n  },\n  {\n    \"healthy_replicas\": 4,\n    \"minimum_replicas\": 2,\n    \"name\": \"worker\",\n    \"version\": \"3.1\"\n  },\n  {\n    \"healthy_replicas\": 0,\n    \"minimum_replicas\": 1,\n    \"name\": \"cache\",\n    \"version\": \"3.2\"\n  }\n]\n"
+      },
+      "expected_json": {
+        "reports/readiness.json": {
+          "api": true,
+          "cache": false,
+          "worker": false
+        }
+      },
+      "files": {
+        "release.json": "{\n  \"version\": \"3.2\"\n}\n",
+        "services.json": "[\n  {\n    \"healthy_replicas\": 2,\n    \"minimum_replicas\": 2,\n    \"name\": \"api\",\n    \"version\": \"3.2\"\n  },\n  {\n    \"healthy_replicas\": 4,\n    \"minimum_replicas\": 2,\n    \"name\": \"worker\",\n    \"version\": \"3.1\"\n  },\n  {\n    \"healthy_replicas\": 0,\n    \"minimum_replicas\": 1,\n    \"name\": \"cache\",\n    \"version\": \"3.2\"\n  }\n]\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.deployment_readiness_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Check services.json against release.json. A service is ready only when its version equals the required release version and healthy_replicas is at least its minimum_replicas. Write reports/readiness.json mapping each service name to a boolean. Write reports/blocked.txt listing the names of unready services alphabetically, one per line. Preserve inputs.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.deployment_readiness_project"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.multi_currency_sales_report.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "data/sales.csv": "customer,cents,currency,refunded\nAda,200,EUR,false\nBo,300,USD,false\nAda,100,USD,true\nCy,150,EUR,false\n",
+        "rates.json": "{\n  \"EUR\": 2,\n  \"USD\": 1\n}\n"
+      },
+      "expected_json": {
+        "reports/ranking.json": [
+          "Ada",
+          "Bo",
+          "Cy"
+        ],
+        "reports/totals.json": {
+          "Ada": 400,
+          "Bo": 300,
+          "Cy": 300
+        }
+      },
+      "files": {
+        "data/sales.csv": "customer,cents,currency,refunded\nAda,200,EUR,false\nBo,300,USD,false\nAda,100,USD,true\nCy,150,EUR,false\n",
+        "rates.json": "{\n  \"EUR\": 2,\n  \"USD\": 1\n}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.multi_currency_sales_report",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read data/sales.csv and rates.json. Convert each sale to USD cents by multiplying its integer cents by that currency's integer rate; exclude refunded rows. Write reports/totals.json mapping customer to total USD cents, and reports/ranking.json as customer names sorted by descending total, then name for ties.",
+    "source": "newly_authored",
+    "split": "test",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.multi_currency_sales_report"
+  }
+]

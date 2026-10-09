@@ -1,0 +1,225 @@
+{
+  "collection_ready": false,
+  "confirmatory_test_lock": false,
+  "corpus_sha256": "00d7731121beb103980af0f1efbf239899e62b4ada05468f5b32422ef30bf60d",
+  "files": {
+    "../../benchmark_results/router_corpus_extension_20260911/REVIEW.md": {
+      "sha256": "5edec6629f6283858f04f943f7f35db952f7521861ebdd03ca6556659f2e8d5e",
+      "size_bytes": 12610
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/extension-verification-accepted.json": {
+      "sha256": "aa374955454599e88fd6fd898a830b7843e7d75b99ea6f65a300b43cdc3d70ed",
+      "size_bytes": 41146
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/full-census-retrieval-v2.json": {
+      "sha256": "f210dd37bcad0db85a51277e75e7ed9d58d8af847f15a6894df03eb534a17a64",
+      "size_bytes": 1071460
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/offline-infrastructure-rehearsal-v2/execution-protocol.json": {
+      "sha256": "c39459aed6b1792d22d07e4a62d34996bbbfe299dde76fb0ff28766e624faef5",
+      "size_bytes": 42637
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/offline-infrastructure-rehearsal-v2/rehearsal.json": {
+      "sha256": "c215c5b38fa0368e007c85996ee781b0ea8fc3eb233a5647b9acb37a40cb1b39",
+      "size_bytes": 239
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/offline-infrastructure-rehearsal-v2/report.json": {
+      "sha256": "6ab961f6c0a4e446ab4c40bcd388ac1fbf275a9a97f2e4c7812549eca10772b2",
+      "size_bytes": 24964
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/power-readiness.json": {
+      "sha256": "f621ea17a83399ef96616a295e4f1c5b4651aca37d4dcd043a63324aab712faa",
+      "size_bytes": 31583
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/regression-tests-final.txt": {
+      "sha256": "0dffd4560ff1112ca41139d72acd604ababf3925cde6bd90c42ed270c7273c17",
+      "size_bytes": 1063
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/rehearsal-command-v2.txt": {
+      "sha256": "4ad2f97b0d4dba4d5322bc15ce404d78dfb28366bb30aaae9096fc6cfed1ef74",
+      "size_bytes": 864
+    },
+    "../../benchmark_results/router_corpus_extension_20260911/workload-characteristics.json": {
+      "sha256": "350c0ecdc7fffbe2c179176eb970065acc41aa574f2a0c8dc483050d886872cd",
+      "size_bytes": 1532
+    },
+    "../../scripts/assess_episode_corpus_readiness.py": {
+      "sha256": "ff0bb41ad6c2165762a70fb73f1af33487ca634e33a5af6c75aab35ea165a956",
+      "size_bytes": 3485
+    },
+    "../../scripts/build_authored_episode_extension.py": {
+      "sha256": "a54d790755419dd6af56fb8f6f8e203298992f37df8cf6eac4c3757587def124",
+      "size_bytes": 5275
+    },
+    "../../scripts/extend_reviewed_episode_corpus.py": {
+      "sha256": "06517e1099a6acc6004a35d26b4a1cf4faea7414963cfe57fac34bd28ddceb8e",
+      "size_bytes": 9220
+    },
+    "../../scripts/finalize_public_episode_semantic_census.py": {
+      "sha256": "e6a6e4e1396cde82703ffe13f6a2cb90e28cdcd73ae02105feec5e0dae9cc638",
+      "size_bytes": 13792
+    },
+    "../../scripts/retrieve_semantic_census_evidence.py": {
+      "sha256": "602be40e43743097336904ed95ef7f69eaf02a81f0829812073d3987baaa9438",
+      "size_bytes": 5852
+    },
+    "../../scripts/verify_reviewed_episode_extension.py": {
+      "sha256": "c027772c9beb878fef7ecda914364f2cc4727265208b7604009d8cfb1b2ed593",
+      "size_bytes": 6490
+    },
+    "../../tests/unit/routing/test_authored_episode_extension.py": {
+      "sha256": "387725f90102bbbedfc7ffa34c35d4269c74acc4156e371d2ede182e2b69f489",
+      "size_bytes": 6627
+    },
+    "../public-episode-corpus-20260910-v4/sources/gsm8k/LICENSE": {
+      "sha256": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b",
+      "size_bytes": 1062
+    },
+    "../public-episode-corpus-20260910-v4/sources/gsm8k/README.md": {
+      "sha256": "27e1676d572f2289210170ff6dbb8c2ef7d9f6950c0f08c978ea8ee6b39dca29",
+      "size_bytes": 6112
+    },
+    "../public-episode-corpus-20260910-v4/sources/gsm8k/grade_school_math/data/test.jsonl": {
+      "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "size_bytes": 749738
+    },
+    "../public-episode-corpus-20260910-v4/sources/gsm8k/grade_school_math/data/train.jsonl": {
+      "sha256": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465",
+      "size_bytes": 4166206
+    },
+    "../public-episode-corpus-20260910-v4/sources/hotpotqa/README.md": {
+      "sha256": "3cfab003a856275d3198b031c6b2ac46c63178fb462a4123705f652b71b22813",
+      "size_bytes": 9522
+    },
+    "../public-episode-corpus-20260910-v4/sources/hotpotqa/distractor/validation-00000-of-00001.parquet": {
+      "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+      "size_bytes": 27452575
+    },
+    "../public-episode-corpus-20260910-v4/sources/hotpotqa/distractor/validation.jsonl": {
+      "sha256": "c301b4d689fabff61df514e4511a4688e8e10a16ed2cee28484bc85ed8dc72e4",
+      "size_bytes": 46608428
+    },
+    "../public-episode-corpus-20260910-v4/sources/hotpotqa/source-homepage.html": {
+      "sha256": "1aa51a46cd7080b941a788c61ae3cebaea8df88cd2f4d22e1d98fff39d0e79c7",
+      "size_bytes": 144422
+    },
+    "../public-episode-corpus-20260910-v4/sources/humaneval/LICENSE": {
+      "sha256": "bcba3de214851cce46ed5af42d6698044616eeace887c3231bc7a20474ab639e",
+      "size_bytes": 1083
+    },
+    "../public-episode-corpus-20260910-v4/sources/humaneval/README.md": {
+      "sha256": "2649c7f6b03c8aecdc480e4f25333b113e4d89bf819ba911e4a7983adabd12ce",
+      "size_bytes": 4848
+    },
+    "../public-episode-corpus-20260910-v4/sources/humaneval/data/HumanEval.jsonl.gz": {
+      "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+      "size_bytes": 44877
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/LICENSE": {
+      "sha256": "e67c5aa0074dfcaefd3c3a1aedb94cb539234aecd15d5a972574e3200e6252fe",
+      "size_bytes": 1072
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/README.md": {
+      "sha256": "ed39688aa5d40bd73007355df65f4e41a6c250960642e56764c3ad44da1df8d2",
+      "size_bytes": 10443
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/airline/policy.md": {
+      "sha256": "10dc0525421521208be39cee235bba84a16e2bcba9899eb93d92cd81d2f62fc4",
+      "size_bytes": 7676
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/airline/tasks.json": {
+      "sha256": "ccd8ba737b4cc371415af70151187788f728d6108d0916e73bb4317b40542052",
+      "size_bytes": 155528
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/retail/policy.md": {
+      "sha256": "2c9652afbce57d6e087768d37cda64d31c53d50b3e3225cfdb791bac66466467",
+      "size_bytes": 6699
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/retail/tasks.json": {
+      "sha256": "8e03ebce7901bd6218e7a7dc3105faa9324091a68058f7fe61c65262868812e8",
+      "size_bytes": 345982
+    },
+    "../public-episode-corpus-20260910-v4/sources/tau2/data/tau2/domains/telecom/tasks.json": {
+      "sha256": "37e562e1ae3242577407e1303b1548bc64e7ea68e37d36173e6747990ceaf8a4",
+      "size_bytes": 13977063
+    },
+    "../router-v2-authored-20260911/specs-v4/coding_tasks.py": {
+      "sha256": "f2fe7b9d3091ee0a8662465873308c054b75bc569f13f225359e0cf9072d8345",
+      "size_bytes": 11782
+    },
+    "../router-v2-authored-20260911/specs-v4/workspace_tasks.py": {
+      "sha256": "8b0a1da5b490b1f8c6a48f59f9c8e4477dbe36d52755811d5ae071ace68ad982",
+      "size_bytes": 30824
+    },
+    "../router-v2-authored-20260911/workspace_oracles.py": {
+      "sha256": "d0e9f6882baa4d91fcaf9ca16cb72b879a9c94eb250c075fd565aa0bb02b70f4",
+      "size_bytes": 17704
+    },
+    "README.md": {
+      "sha256": "9b60e3df5db2117385a0b614af9440845342aea088f97495baec213616d774c3",
+      "size_bytes": 2093
+    },
+    "added-episodes.jsonl": {
+      "sha256": "fc810b50f3110c1c092898816bde0c8deaeb252ea5f6647d0160930991c860dc",
+      "size_bytes": 155035
+    },
+    "addition-decisions.jsonl": {
+      "sha256": "cce83422523509d2279755ad17fe6e17b2e5df797578c245f9277f725840a035",
+      "size_bytes": 65976
+    },
+    "classification-ledger.jsonl": {
+      "sha256": "9ad1d3c9ec3eca62bb7f729b78c2ec0260513ba374d626e9581140e8beefe91f",
+      "size_bytes": 548894
+    },
+    "combined-episodes.jsonl": {
+      "sha256": "00d7731121beb103980af0f1efbf239899e62b4ada05468f5b32422ef30bf60d",
+      "size_bytes": 4405992
+    },
+    "comparison-corpus.jsonl": {
+      "sha256": "11e3d6c1dabbdf85e1a9c4252171f933b417c76f015fb00a4d91bb0aeb142ffb",
+      "size_bytes": 3684770
+    },
+    "comparison-decisions.jsonl": {
+      "sha256": "7923f8c2c8d35764494010c02fea26c55c9b2f4d8e0fa0cea09aaa062b7cf8ea",
+      "size_bytes": 1112922
+    },
+    "comparison-policy.json": {
+      "sha256": "53c271ce2d4360136ada6ea4cf1d9664e98fa246d089b19741deacbfaf7aa375",
+      "size_bytes": 51655
+    },
+    "dependence-comparison-graph.json": {
+      "sha256": "9284b090e5c5979a9b086756b22418983fee8def1f06ed84636bb5be13b4583f",
+      "size_bytes": 275283
+    },
+    "excluded-additions.jsonl": {
+      "sha256": "4c452523ff69d72a317e94f45ea138606ab30fae784aab40e7b3c71a951a5d32",
+      "size_bytes": 44315
+    },
+    "extension-review.json": {
+      "sha256": "ac8199a95586190578d46e65e47e78f3e9da35ed7ee7f828e51f45d8d6b1e18f",
+      "size_bytes": 39668
+    },
+    "new-episodes.jsonl": {
+      "sha256": "a61a95fc2661b9c13f45e939547a95bf3fdde26d9a5570a1294c23b6782207bc",
+      "size_bytes": 4306559
+    },
+    "reference-answers.jsonl": {
+      "sha256": "e7a20cebc38fb4645812206d38e5b6c4e28e8b6fdd2ac6826306ca87e9807ad2",
+      "size_bytes": 372946
+    },
+    "review-report.json": {
+      "sha256": "7990029afe2b66115922c1bff9b2d19b11a78b9b822df5d54aa78a8c99581e62",
+      "size_bytes": 3432
+    },
+    "source-manifest.json": {
+      "sha256": "88690c865c1c148f95cd2f59d4c19f2b5e032944b9fe75db72f5133dac711b85",
+      "size_bytes": 8924
+    }
+  },
+  "protocol_manifest_hash": "4f18e89fa764ec930a1091ba9e4a5fab8ccc347ead2b40433ebfe51e669486ed",
+  "protocol_scope": "Passing synthetic infrastructure rehearsal source/environment snapshot; no v9 provider-study lock.",
+  "real_study_provider_calls": 0,
+  "real_study_provider_spend_usd": 0,
+  "status": "quarantined_research_only",
+  "version": "router-v2-research-snapshot-20260911-v9"
+}

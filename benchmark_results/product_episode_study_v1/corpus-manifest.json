@@ -1,0 +1,58 @@
+{
+  "browser_environment_coverage": "not_covered_project_agent_fixtures_only",
+  "corpus_hash": "0bafd89dce43f3128101e656fe23129105e0cfe9f6fb191b68f40abede173a28",
+  "counts": {
+    "pilot": {
+      "agents": 1,
+      "chat": 1,
+      "coding": 1,
+      "search": 1,
+      "tools": 1
+    },
+    "smoke": {
+      "agents": 1,
+      "chat": 1,
+      "coding": 1,
+      "search": 1,
+      "tools": 1
+    },
+    "test": {
+      "agents": 2,
+      "chat": 2,
+      "coding": 2,
+      "search": 2,
+      "tools": 2
+    },
+    "train": {
+      "agents": 4,
+      "chat": 4,
+      "coding": 4,
+      "search": 4,
+      "tools": 4
+    },
+    "validation": {
+      "agents": 2,
+      "chat": 2,
+      "coding": 2,
+      "search": 2,
+      "tools": 2
+    }
+  },
+  "episodes": 50,
+  "fixture_version": "balanced-product-seed-v1",
+  "grading_scope": "objective_structured_tasks_not_open_ended_quality",
+  "imported_public_benchmark_items": 0,
+  "independent_groups": 50,
+  "independent_groups_by_family": {
+    "agents": 10,
+    "chat": 10,
+    "coding": 10,
+    "search": 10,
+    "tools": 10
+  },
+  "live_route_evidence": false,
+  "powered_for_five_point_lift": false,
+  "public_content": "frozen_authored_summaries_of_public_references_with_source_urls",
+  "purpose": "underpowered_reproducible_seed_requires_expansion_for_power",
+  "version": "product-episodes-v1"
+}

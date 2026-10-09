@@ -1,0 +1,315 @@
+{
+  "acceptance": {
+    "cost_upper_one_sided_95_lte": 0,
+    "minimum_independent_groups_per_family": 20,
+    "nondegenerate_cost_bootstrap_required": true,
+    "quality_lower_one_sided_95_gt": 0
+  },
+  "baseline": {
+    "kind": "current"
+  },
+  "challenger": {
+    "contract_hash": "1085bd126d6dcd5446e4fdd98834d9c4a906f99d2c9d1129f3bf1ee63521afb1",
+    "kind": "by_family",
+    "policies": {
+      "agents": {
+        "kind": "model",
+        "model": "deepseek/deepseek-v4-flash-0731"
+      },
+      "chat": {
+        "kind": "current"
+      },
+      "coding": {
+        "kind": "model",
+        "model": "deepseek/deepseek-v4-flash-0731"
+      },
+      "search": {
+        "kind": "model",
+        "model": "deepseek/deepseek-v4-flash-0731"
+      },
+      "tools": {
+        "kind": "model",
+        "model": "deepseek/deepseek-v4-flash-0731"
+      }
+    },
+    "production_enabled": false,
+    "research_only": true,
+    "validation": {
+      "complexity": 2,
+      "cost_usd": 0.00016571678360000002,
+      "family": "task_fixed",
+      "success": 0.8
+    },
+    "version": "product-episodes-v1"
+  },
+  "family_weights": {
+    "agents": 0.2,
+    "chat": 0.2,
+    "coding": 0.2,
+    "search": 0.2,
+    "tools": 0.2
+  },
+  "lock_hash": "57d8103055ff05fbbba35682d3e2c4468fb09c5abc474c01ba2fab1a3269be7a",
+  "policy_hashes": {
+    "baseline": "12b5a32afe0d84b2c0133a9de34fe8f2c3ddb07ffad23fa7d02dcf0045e0f42b",
+    "challenger": "f78ca0e518ee7d967595968c90b9078af0bb30f6b8f43397dde8db9391b1871f"
+  },
+  "power": {
+    "affordable_independent_groups": 49385,
+    "affordable_pairs": 49385,
+    "approximate_detectable_effect_at_affordable_n": 0.00827774975622024,
+    "available_independent_test_groups": 10,
+    "budget_supports_target": true,
+    "caveat": "Independent task availability can constrain the sample below budget capacity. Pilot and final policies may differ; this is not achieved power or improvement evidence.",
+    "cluster_inflation": 1,
+    "conservative_pair_cost_usd": 0.001012352,
+    "frozen_sample_reason": "all independent groups in the versioned seed corpus",
+    "incomplete_pilot_pairs": 0,
+    "method": "conservative_paired_group_normal_approximation",
+    "missing_pilot_families": [],
+    "one_sided_alpha": 0.05,
+    "pilot_complete": true,
+    "pilot_groups": 5,
+    "pilot_pairs": 5,
+    "repeated_templates_increase_independent_n": false,
+    "required_independent_groups": 1355,
+    "required_pairs": 1355,
+    "target_absolute_lift": 0.05,
+    "target_power": 0.8,
+    "used_variance": 0.5473328305111974,
+    "variance_floor": 0.25,
+    "variance_method": "bounded_second_moment_with_95_percent_Hoeffding_cushion"
+  },
+  "pricing": {
+    "deepseek/deepseek-v4-flash-0731": {
+      "capabilities": [
+        "text",
+        "search",
+        "tools"
+      ],
+      "context_window": 1310720,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.14,
+      "output_per_1m": 0.28,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0.00000028",
+        "input_cache_read": "0.000000028",
+        "prompt": "0.00000014"
+      },
+      "request_cost_usd": 0.0
+    },
+    "nvidia/nemotron-3-super-120b-a12b:free": {
+      "capabilities": [
+        "text",
+        "search",
+        "tools"
+      ],
+      "context_window": 262144,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0",
+        "prompt": "0"
+      },
+      "request_cost_usd": 0.0
+    },
+    "openai/gpt-5.6-luna": {
+      "capabilities": [
+        "text",
+        "search",
+        "vision",
+        "tools"
+      ],
+      "context_window": 1050000,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.19999999999999998,
+      "output_per_1m": 1.2,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0.0000012",
+        "input_cache_read": "0.00000002",
+        "input_cache_write": "0.00000025",
+        "overrides": [
+          {
+            "completion": "0.0000018",
+            "input_cache_read": "0.00000004",
+            "input_cache_write": "0.0000005",
+            "min_prompt_tokens": 272000,
+            "prompt": "0.0000004"
+          }
+        ],
+        "prompt": "0.0000002",
+        "web_search": "0.01"
+      },
+      "request_cost_usd": 0.0
+    },
+    "openai/gpt-oss-20b": {
+      "capabilities": [
+        "text",
+        "search",
+        "tools"
+      ],
+      "context_window": 131072,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.03,
+      "output_per_1m": 0.13,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0.00000013",
+        "input_cache_read": "0.00000003",
+        "prompt": "0.00000003"
+      },
+      "request_cost_usd": 0.0
+    },
+    "poolside/laguna-xs-2.1:free": {
+      "capabilities": [
+        "text",
+        "search",
+        "tools"
+      ],
+      "context_window": 262144,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.0,
+      "output_per_1m": 0.0,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0",
+        "prompt": "0"
+      },
+      "request_cost_usd": 0.0
+    },
+    "qwen/qwen3.6-plus": {
+      "capabilities": [
+        "text",
+        "search",
+        "vision",
+        "tools"
+      ],
+      "context_window": 1000000,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.325,
+      "output_per_1m": 1.95,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0.00000195",
+        "input_cache_write": "0.00000040625",
+        "overrides": [
+          {
+            "completion": "0.0000039",
+            "input_cache_write": "0.000001625",
+            "min_prompt_tokens": 256000,
+            "prompt": "0.0000013"
+          }
+        ],
+        "prompt": "0.000000325"
+      },
+      "request_cost_usd": 0.0
+    },
+    "xiaomi/mimo-v2.5": {
+      "capabilities": [
+        "text",
+        "search",
+        "vision",
+        "tools"
+      ],
+      "context_window": 1050000,
+      "image_cost_usd": 0.0,
+      "input_per_1m": 0.14,
+      "output_per_1m": 0.28,
+      "provider": "openrouter",
+      "provider_pricing": {
+        "completion": "0.00000028",
+        "input_cache_read": "0.0000000028",
+        "prompt": "0.00000014"
+      },
+      "request_cost_usd": 0.0
+    }
+  },
+  "schedule": [
+    {
+      "episode_id": "tools.csv_join.trial-1",
+      "fixture_hash": "5b68b55cff8187f7533503465ea08f980af42fc51e76498477e75fc1f4177a9e",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    },
+    {
+      "episode_id": "search.robots_rule_precedence.trial-1",
+      "fixture_hash": "536d899e69bcbe1b379f85bf0cf90c7ef2e5dc7fd1cd0e92b49855dff1424d71",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    },
+    {
+      "episode_id": "coding.topological_layers.trial-1",
+      "fixture_hash": "d455858adaae225addf71472bae997f0f4bcb3590597c583605d0995b21b43b6",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    },
+    {
+      "episode_id": "search.csv_embedded_quote.trial-1",
+      "fixture_hash": "2ce09acb091911ef79e721abc52925f94c86ed2c3af693489709f09557d3276d",
+      "policy_order": [
+        "challenger",
+        "baseline"
+      ]
+    },
+    {
+      "episode_id": "tools.atomic_text_substitution.trial-1",
+      "fixture_hash": "f82ed1da9579c542119fda393718954f081310160d17db0af9770bec6c3f854e",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    },
+    {
+      "episode_id": "coding.decimal_money.trial-1",
+      "fixture_hash": "083bbe410274ded323601d83ee8a7351ce277779555cdfb0ed8d16c0f38b6273",
+      "policy_order": [
+        "challenger",
+        "baseline"
+      ]
+    },
+    {
+      "episode_id": "chat.conversation_negation.trial-1",
+      "fixture_hash": "ee8d3d4d9c957ea58e6d895b0e6a2199a689c92813a23d6ba3c021b448310b1b",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    },
+    {
+      "episode_id": "agents.multi_currency_sales_report.trial-1",
+      "fixture_hash": "6c292ced3d3ab9104245fcd1b6fa9edad0d18c414d5533500bd0f7c2b4632c18",
+      "policy_order": [
+        "challenger",
+        "baseline"
+      ]
+    },
+    {
+      "episode_id": "agents.deployment_readiness_project.trial-1",
+      "fixture_hash": "47e7c2f0232e31ea5f4b4961e2043a7e9231bd47d786bce2a9761acc356b8f50",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    },
+    {
+      "episode_id": "chat.schedule_visual_duration.trial-1",
+      "fixture_hash": "3dcf7d510821360146e8b194b53f128baf136220d32f4ab6d24ff25b21f01324",
+      "policy_order": [
+        "baseline",
+        "challenger"
+      ]
+    }
+  ],
+  "seed": 731,
+  "version": "product-episodes-v1"
+}

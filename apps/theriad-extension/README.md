@@ -1,0 +1,133 @@
+<div align="center">
+
+![Banner](./assets/banner.png)
+
+# Theriad Browser
+
+Theriad Browser is the project's browser extension and desktop browser surface.
+
+![Theriad Browser Demo](./theriad.gif)
+
+<a href="https://github.com/composiohq/open-chatgpt-atlas"><img alt="Star" src="https://img.shields.io/badge/⭐%20Star%20Us-GitHub-yellow?style=for-the-badge"></a>
+
+
+</div>
+
+## Features
+
+- **🔧 Tool Router Mode**: Composio's intelligent tool routing for accessing Gmail, Slack, GitHub, and 500+ integrations
+- **◉ Browser Tools Mode**: Gemini 2.5 Computer Use for visual browser automation with screenshots, clicks, typing, scrolling, and navigation
+- **Sidebar Chat Interface**: Clean, modern React-based chat UI accessible from any tab
+- **Direct Browser Automation**: No backend required - all API calls made directly from extension
+- **Visual Feedback**: Blue click indicators and element highlighting during automation
+- **Safety Features**: Confirmation dialogs for sensitive actions (checkout, payment, etc.)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Chrome or Edge browser (Manifest V3 support)
+- Google API key for Gemini (required)
+- Composio API key (optional, for Tool Router mode)
+
+### Installation
+
+1. Clone this repository
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Build the extension:
+```bash
+npm run build
+```
+
+4. Load the extension in Chrome:
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked"
+   - Select the `dist` folder
+   - Open Settings (⚙️ icon) to configure your API keys
+
+### Running the Electron Browser
+
+The project includes a standalone Electron-based browser application with built-in Theriad Browser capabilities.
+
+1. Build the Electron app:
+```bash
+npm run build:electron
+```
+
+2. Start the Electron browser:
+```bash
+npm run electron
+```
+
+3. Or, run in development mode with hot reload:
+```bash
+npm run electron:dev
+```
+
+The Electron browser will launch with the full Theriad Browser functionality integrated, allowing you to use browser tools and tool routing directly from the desktop application.
+
+### Configuration
+
+#### Required Setup
+
+1. **Google API Key** (Required)
+   - Get your key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+   - Add it in Settings under "Google API Key"
+   - Supports: Gemini 2.5 Pro, Flash, and Flash Lite
+
+2. **Composio API Key** (Optional - for Tool Router mode)
+   - Get your key from [Composio Dashboard](https://app.composio.dev/settings)
+   - Add it in Settings under "Composio API Key"
+   - Enables access to 500+ app integrations
+
+#### Using Browser Tools (◉ Button)
+
+1. Enable Browser Tools by clicking the ◉ button in the chat header
+2. The extension automatically uses Gemini 2.5 Computer Use Preview
+3. Provide natural language instructions to control the browser
+
+**Example prompts:**
+- "Navigate to reddit.com and scroll down"
+- "Click on the search box and type 'puppies'"
+- "Take a screenshot of this page"
+- "Click the first image on the page"
+
+#### Using Tool Router Mode
+
+1. Add your Composio API key in Settings
+2. Click ◉ to disable Browser Tools (or keep it off)
+3. Chat normally - the AI will automatically use Composio tools when needed
+
+**Example prompts:**
+- "Check my Gmail for unread messages"
+- "Create a GitHub issue titled 'Bug in login flow'"
+- "Send a Slack message to #general with 'Hello team!'"
+
+### Development
+
+Run with hot reload:
+```bash
+npm run dev
+```
+
+Then reload the extension in Chrome after each change.
+
+## Documentation
+
+- **[FAQ](./FAQ.md)** - Frequently asked questions and quick troubleshooting
+- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Detailed troubleshooting guide for common issues
+
+## References
+
+- [Composio Platform](https://composio.dev/?utm_source=Github&utm_medium=Youtube&utm_campaign=2025-11&utm_content=Theriad%20Browser) - Intelligent tool routing for AI agents
+- [Composio Tool Router Documentation](https://docs.composio.dev/docs/tool-router/quick-start) - Learn how to use Tool Router to route tool calls across 500+ integrations
+- [Composio GitHub](https://github.com/composiohq) - Python and TS SDK
+- [OpenAI browser automation reference](https://openai.com/index/introducing-chatgpt-atlas/) - External browser automation reference
+- [Gemini Computer Use Model](https://blog.google/technology/google-deepmind/gemini-computer-use-model/) - Google's AI model for browser automation
+- [Gemini API Documentation](https://ai.google.dev/gemini-api/docs/computer-use) - Official documentation for Gemini Computer Use

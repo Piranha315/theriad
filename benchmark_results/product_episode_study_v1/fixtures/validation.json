@@ -1,0 +1,425 @@
+[
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.long_context_override.trial-1",
+    "family": "chat",
+    "fixture": {},
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "asset-041": "Archives",
+        "asset-109": "Team-8"
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.long_context_override",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "The following inventory is chronological. Later notices override earlier entries.\nasset-000: custodian=Team-0; state=active\nasset-001: custodian=Team-1; state=active\nasset-002: custodian=Team-2; state=active\nasset-003: custodian=Team-3; state=active\nasset-004: custodian=Team-4; state=active\nasset-005: custodian=Team-5; state=active\nasset-006: custodian=Team-6; state=active\nasset-007: custodian=Team-0; state=active\nasset-008: custodian=Team-1; state=active\nasset-009: custodian=Team-2; state=active\nasset-010: custodian=Team-3; state=active\nasset-011: custodian=Team-4; state=active\nasset-012: custodian=Team-5; state=active\nasset-013: custodian=Team-6; state=active\nasset-014: custodian=Team-0; state=active\nasset-015: custodian=Team-1; state=active\nasset-016: custodian=Team-2; state=active\nasset-017: custodian=Team-3; state=active\nasset-018: custodian=Team-4; state=active\nasset-019: custodian=Team-5; state=active\nasset-020: custodian=Team-6; state=active\nasset-021: custodian=Team-0; state=active\nasset-022: custodian=Team-1; state=active\nasset-023: custodian=Team-2; state=active\nasset-024: custodian=Team-3; state=active\nasset-025: custodian=Team-4; state=active\nasset-026: custodian=Team-5; state=active\nasset-027: custodian=Team-6; state=active\nasset-028: custodian=Team-0; state=active\nasset-029: custodian=Team-1; state=active\nasset-030: custodian=Team-2; state=active\nasset-031: custodian=Team-3; state=active\nasset-032: custodian=Team-4; state=active\nasset-033: custodian=Team-5; state=active\nasset-034: custodian=Team-6; state=active\nasset-035: custodian=Team-0; state=active\nasset-036: custodian=Team-1; state=active\nasset-037: custodian=Team-2; state=active\nasset-038: custodian=Team-3; state=active\nasset-039: custodian=Team-4; state=active\nasset-040: custodian=Team-5; state=active\nasset-041: custodian=Team-6; state=active\nasset-042: custodian=Team-0; state=active\nasset-043: custodian=Team-1; state=active\nasset-044: custodian=Team-2; state=active\nasset-045: custodian=Team-3; state=active\nasset-046: custodian=Team-4; state=active\nasset-047: custodian=Team-5; state=active\nasset-048: custodian=Team-6; state=active\nasset-049: custodian=Team-0; state=active\nasset-050: custodian=Team-1; state=active\nasset-051: custodian=Team-2; state=active\nasset-052: custodian=Team-3; state=active\nasset-053: custodian=Team-4; state=active\nasset-054: custodian=Team-5; state=active\nasset-055: custodian=Team-6; state=active\nasset-056: custodian=Team-0; state=active\nasset-057: custodian=Team-1; state=active\nasset-058: custodian=Team-2; state=active\nasset-059: custodian=Team-3; state=active\nasset-060: custodian=Team-4; state=active\nasset-061: custodian=Team-5; state=active\nasset-062: custodian=Team-6; state=active\nasset-063: custodian=Team-0; state=active\nasset-064: custodian=Team-1; state=active\nasset-065: custodian=Team-2; state=active\nasset-066: custodian=Team-3; state=active\nasset-067: custodian=Team-4; state=active\nasset-068: custodian=Team-5; state=active\nasset-069: custodian=Team-6; state=active\nasset-070: custodian=Team-0; state=active\nasset-071: custodian=Team-1; state=active\nasset-072: custodian=Team-2; state=active\nasset-073: custodian=Team-3; state=active\nasset-074: custodian=Team-4; state=active\nasset-075: custodian=Team-5; state=active\nasset-076: custodian=Team-6; state=active\nasset-077: custodian=Team-0; state=active\nasset-078: custodian=Team-1; state=active\nasset-079: custodian=Team-2; state=active\nasset-080: custodian=Team-3; state=active\nasset-081: custodian=Team-4; state=active\nasset-082: custodian=Team-5; state=active\nasset-083: custodian=Team-6; state=active\nasset-084: custodian=Team-0; state=active\nasset-085: custodian=Team-1; state=active\nasset-086: custodian=Team-2; state=active\nasset-087: custodian=Team-3; state=active\nasset-088: custodian=Team-4; state=active\nasset-089: custodian=Team-5; state=active\nasset-090: custodian=Team-6; state=active\nasset-091: custodian=Team-0; state=active\nasset-092: custodian=Team-1; state=active\nasset-093: custodian=Team-2; state=active\nasset-094: custodian=Team-3; state=active\nasset-095: custodian=Team-4; state=active\nasset-096: custodian=Team-5; state=active\nasset-097: custodian=Team-6; state=active\nasset-098: custodian=Team-0; state=active\nasset-099: custodian=Team-1; state=active\nasset-100: custodian=Team-2; state=active\nasset-101: custodian=Team-3; state=active\nasset-102: custodian=Team-4; state=active\nasset-103: custodian=Team-5; state=active\nasset-104: custodian=Team-6; state=active\nasset-105: custodian=Team-0; state=active\nasset-106: custodian=Team-1; state=active\nasset-107: custodian=Team-2; state=active\nasset-108: custodian=Team-3; state=active\nasset-109: custodian=Team-4; state=active\nasset-110: custodian=Team-5; state=active\nasset-111: custodian=Team-6; state=active\nasset-112: custodian=Team-0; state=active\nasset-113: custodian=Team-1; state=active\nasset-114: custodian=Team-2; state=active\nasset-115: custodian=Team-3; state=active\nasset-116: custodian=Team-4; state=active\nasset-117: custodian=Team-5; state=active\nasset-118: custodian=Team-6; state=active\nasset-119: custodian=Team-0; state=active\nasset-120: custodian=Team-1; state=active\nasset-121: custodian=Team-2; state=active\nasset-122: custodian=Team-3; state=active\nasset-123: custodian=Team-4; state=active\nasset-124: custodian=Team-5; state=active\nasset-125: custodian=Team-6; state=active\nasset-126: custodian=Team-0; state=active\nasset-127: custodian=Team-1; state=active\nasset-128: custodian=Team-2; state=active\nasset-129: custodian=Team-3; state=active\nasset-130: custodian=Team-4; state=active\nasset-131: custodian=Team-5; state=active\nasset-132: custodian=Team-6; state=active\nasset-133: custodian=Team-0; state=active\nasset-134: custodian=Team-1; state=active\nasset-135: custodian=Team-2; state=active\nasset-136: custodian=Team-3; state=active\nasset-137: custodian=Team-4; state=active\nasset-138: custodian=Team-5; state=active\nasset-139: custodian=Team-6; state=active\nasset-140: custodian=Team-0; state=active\nasset-141: custodian=Team-1; state=active\nasset-142: custodian=Team-2; state=active\nasset-143: custodian=Team-3; state=active\nasset-144: custodian=Team-4; state=active\nasset-145: custodian=Team-5; state=active\nasset-146: custodian=Team-6; state=active\nasset-147: custodian=Team-0; state=active\nasset-148: custodian=Team-1; state=active\nasset-149: custodian=Team-2; state=active\nasset-150: custodian=Team-3; state=active\nasset-151: custodian=Team-4; state=active\nasset-152: custodian=Team-5; state=active\nasset-153: custodian=Team-6; state=active\nasset-154: custodian=Team-0; state=active\nasset-155: custodian=Team-1; state=active\nasset-156: custodian=Team-2; state=active\nasset-157: custodian=Team-3; state=active\nasset-158: custodian=Team-4; state=active\nasset-159: custodian=Team-5; state=active\nasset-160: custodian=Team-6; state=active\nasset-161: custodian=Team-0; state=active\nasset-162: custodian=Team-1; state=active\nasset-163: custodian=Team-2; state=active\nasset-164: custodian=Team-3; state=active\nasset-165: custodian=Team-4; state=active\nasset-166: custodian=Team-5; state=active\nasset-167: custodian=Team-6; state=active\nasset-168: custodian=Team-0; state=active\nasset-169: custodian=Team-1; state=active\nasset-170: custodian=Team-2; state=active\nasset-171: custodian=Team-3; state=active\nasset-172: custodian=Team-4; state=active\nasset-173: custodian=Team-5; state=active\nasset-174: custodian=Team-6; state=active\nasset-175: custodian=Team-0; state=active\nasset-176: custodian=Team-1; state=active\nasset-177: custodian=Team-2; state=active\nasset-178: custodian=Team-3; state=active\nasset-179: custodian=Team-4; state=active\nNOTICE: asset-041 is retired and its custodian is Archives.\nNOTICE: asset-109 is transferred to Team-8 but remains active.\nReturn a JSON object mapping asset-041 and asset-109 to their final custodian strings.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "long_context",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.long_context_override"
+  },
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.logical_scheduling.trial-1",
+    "family": "chat",
+    "fixture": {},
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.logical_scheduling",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Three talks A, B, C occupy slots 1, 2, 3 exactly once. A is before C. B is not first. C is not second. Return the talk order as a JSON array of letters.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.logical_scheduling"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.rolling_average.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "rolling_average",
+      "tests": "assert rolling_average([1,2,3,4],2)==[1.5,2.5,3.5]\nassert rolling_average([],2)==[]\nassert rolling_average([2],1)==[2.0]\nfor k in (0,-1,1.5,True):\n    try: rolling_average([1,2],k)\n    except ValueError: pass\n    else: raise AssertionError(k)"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.rolling_average",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining rolling_average(values, k). Return the arithmetic mean of each full consecutive window of size k. Raise ValueError when k is not a positive integer (booleans are invalid). Return [] if k exceeds input length; do not mutate the input. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.rolling_average"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.escaped_delimiter.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "split_escaped",
+      "tests": "assert split_escaped('a,b,,c')==['a','b','','c']\nassert split_escaped(r'a\\,b,c')==['a,b','c']\nassert split_escaped('')==['']\nassert split_escaped('abc'+chr(92))==['abc'+chr(92)]"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.escaped_delimiter",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining split_escaped(text). Split text on commas unless a comma is escaped by a backslash. Backslash escapes the next character of any kind and is removed. Preserve a final unmatched backslash literally. Keep empty fields. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.escaped_delimiter"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.markdown_heading_index.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "README.md": "# Guide\n## Setup\nText\n```md\n## Not a heading\n```\n### Detail\n## Usage\n"
+      },
+      "expected_json": {
+        "headings.json": [
+          "Setup",
+          "Usage"
+        ]
+      },
+      "files": {
+        "README.md": "# Guide\n## Setup\nText\n```md\n## Not a heading\n```\n### Detail\n## Usage\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.markdown_heading_index",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read README.md and write headings.json with a JSON array containing the text of only level-two headings (exactly two # followed by a space), in document order. Ignore headings inside fenced code blocks.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.markdown_heading_index"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.timestamp_latest_record.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "events.json": "[\n  {\n    \"device\": \"a\",\n    \"timestamp\": 2,\n    \"value\": \"old\"\n  },\n  {\n    \"device\": \"b\",\n    \"timestamp\": 4,\n    \"value\": \"ok\"\n  },\n  {\n    \"device\": \"a\",\n    \"timestamp\": 3,\n    \"value\": \"new\"\n  },\n  {\n    \"device\": \"b\",\n    \"timestamp\": 4,\n    \"value\": \"updated\"\n  }\n]\n"
+      },
+      "expected_json": {
+        "latest.json": {
+          "a": "new",
+          "b": "updated"
+        }
+      },
+      "files": {
+        "events.json": "[\n  {\n    \"device\": \"a\",\n    \"timestamp\": 2,\n    \"value\": \"old\"\n  },\n  {\n    \"device\": \"b\",\n    \"timestamp\": 4,\n    \"value\": \"ok\"\n  },\n  {\n    \"device\": \"a\",\n    \"timestamp\": 3,\n    \"value\": \"new\"\n  },\n  {\n    \"device\": \"b\",\n    \"timestamp\": 4,\n    \"value\": \"updated\"\n  }\n]\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.timestamp_latest_record",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read events.json. For each device, select the record with greatest integer timestamp. Write latest.json mapping device to its selected value; break equal timestamps by taking the later input record.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.timestamp_latest_record"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.gitignore_tracked_files.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "Ignore patterns apply to intentionally untracked files. Files already tracked by Git are unaffected. To stop tracking a file while retaining the working-tree copy, use git rm --cached.",
+          "title": "Git ignore patterns",
+          "url": "https://git-scm.com/docs/gitignore"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://git-scm.com/docs/gitignore"
+        ],
+        "ignore_pattern_stops_tracking": false,
+        "index_only_removal_command": "git rm --cached"
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.gitignore_tracked_files",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Will adding a tracked file's name to .gitignore make Git stop tracking it, and what command removes only its index entry? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"ignore_pattern_stops_tracking\": \"boolean\", \"index_only_removal_command\": \"string\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "validation",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.gitignore_tracked_files"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.css_border_box.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "With border-box, specified width sizes the border box. Content size subtracts padding and borders; margins remain outside. The content box cannot have negative size.",
+          "title": "CSS box sizing",
+          "url": "https://www.w3.org/TR/css-sizing-3/#box-sizing"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://www.w3.org/TR/css-sizing-3/#box-sizing"
+        ],
+        "content_width_px": 76,
+        "margin_included_in_width": false
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.css_border_box",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "If a CSS box has width 100px, padding 10px on each side, border 2px on each side, and box-sizing:border-box, what is its content width? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"content_width_px\": \"number\", \"margin_included_in_width\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "validation",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.css_border_box"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.release_manifest_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "CHANGELOG.md": "# Changes\n## 2.1.0\n- Fix Unicode export\n- Add retry limit\n## 2.0.0\n- Old change\n",
+        "VERSION": "2.1.0\n",
+        "project.toml": "[project]\nname = \"lantern\"\nversion = \"2.1.0\"\n"
+      },
+      "expected_json": {
+        "dist/release.json": {
+          "name": "lantern",
+          "notes": [
+            "Fix Unicode export",
+            "Add retry limit"
+          ],
+          "version": "2.1.0"
+        }
+      },
+      "files": {
+        "CHANGELOG.md": "# Changes\n## 2.1.0\n- Fix Unicode export\n- Add retry limit\n## 2.0.0\n- Old change\n",
+        "project.toml": "[project]\nname = \"lantern\"\nversion = \"2.1.0\"\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.release_manifest_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Prepare release metadata from project.toml and CHANGELOG.md. Write dist/release.json with name and version from TOML plus notes: the bullet texts only under the changelog heading matching that version, without '- '. Write VERSION with the version and newline. Do not include older release notes.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.release_manifest_project"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.contact_deduplication_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "incoming/a.json": "[\n  {\n    \"email\": \" A@EXAMPLE.ORG \",\n    \"name\": \"Ada\"\n  },\n  {\n    \"email\": \"b@example.org\",\n    \"name\": \"Bo\"\n  }\n]\n",
+        "incoming/b.json": "[\n  {\n    \"email\": \"a@example.org\",\n    \"name\": \"Ada L\"\n  },\n  {\n    \"email\": \"b@example.org\",\n    \"name\": \"\"\n  },\n  {\n    \"email\": \"c@example.org\",\n    \"name\": \"Cy\"\n  }\n]\n"
+      },
+      "expected_json": {
+        "clean/contacts.json": [
+          {
+            "email": "a@example.org",
+            "name": "Ada L"
+          },
+          {
+            "email": "b@example.org",
+            "name": "Bo"
+          },
+          {
+            "email": "c@example.org",
+            "name": "Cy"
+          }
+        ],
+        "clean/stats.json": {
+          "input_count": 5,
+          "unique_count": 3
+        }
+      },
+      "files": {
+        "incoming/a.json": "[\n  {\n    \"email\": \" A@EXAMPLE.ORG \",\n    \"name\": \"Ada\"\n  },\n  {\n    \"email\": \"b@example.org\",\n    \"name\": \"Bo\"\n  }\n]\n",
+        "incoming/b.json": "[\n  {\n    \"email\": \"a@example.org\",\n    \"name\": \"Ada L\"\n  },\n  {\n    \"email\": \"b@example.org\",\n    \"name\": \"\"\n  },\n  {\n    \"email\": \"c@example.org\",\n    \"name\": \"Cy\"\n  }\n]\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.contact_deduplication_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Merge contacts from incoming/a.json and incoming/b.json by trimmed lowercase email. Process a then b; later nonempty names replace earlier names, empty names do not. Write clean/contacts.json sorted by email with name and email only. Write clean/stats.json with input_count and unique_count.",
+    "source": "newly_authored",
+    "split": "validation",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.contact_deduplication_project"
+  }
+]

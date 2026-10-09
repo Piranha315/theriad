@@ -1,0 +1,17 @@
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "Theriad Search"
+
+search:
+  # Theriad consumes the JSON API. Keep HTML enabled for local inspection.
+  formats:
+    - html
+    - json
+
+server:
+  # This instance is bound to loopback by docker-compose, so no public
+  # limiter or image proxy is needed for local development.
+  limiter: false
+  image_proxy: false

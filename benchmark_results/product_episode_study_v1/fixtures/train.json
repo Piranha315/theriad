@@ -1,0 +1,868 @@
+[
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.conversation_revision.trial-1",
+    "family": "chat",
+    "fixture": {
+      "messages": [
+        {
+          "content": "The release is on Thursday. Mira owns tests; Joel owns docs.",
+          "role": "user"
+        },
+        {
+          "content": "I have the release assignments.",
+          "role": "assistant"
+        },
+        {
+          "content": "Move the release to Friday and swap the owners. Keep the rest.",
+          "role": "user"
+        }
+      ]
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "docs_owner": "Mira",
+        "release_day": "Friday",
+        "tests_owner": "Joel"
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.conversation_revision",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Use the conversation to return exactly a JSON object with keys \"release_day\", \"tests_owner\", and \"docs_owner\".",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "multiturn",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.conversation_revision"
+  },
+  {
+    "capabilities": [
+      "text",
+      "vision"
+    ],
+    "episode_id": "chat.receipt_visual_total.trial-1",
+    "family": "chat",
+    "fixture": {
+      "image": {
+        "fixture_origin": "authored_receipt",
+        "text": "HARBOR CAFE\nTea          3.25\nSandwich     7.50\nTax          0.86\nTOTAL       11.61\nCash        20.00\nChange       8.39"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": 11.61,
+      "kind": "numeric"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.receipt_visual_total",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Read the attached receipt. Return only its TOTAL amount as a decimal number, excluding any currency symbol.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "vision",
+      "receipt",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.receipt_visual_total"
+  },
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.structured_extraction.trial-1",
+    "family": "chat",
+    "fixture": {},
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "contact": "Sana",
+        "due": null,
+        "priority": "high"
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.structured_extraction",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Convert this note to JSON using only keys \"contact\", \"due\", \"priority\". Use null for missing fields. Note: \"Contact Sana. Priority is high. No due date has been set.\"",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.structured_extraction"
+  },
+  {
+    "capabilities": [
+      "text"
+    ],
+    "episode_id": "chat.constraint_filtering.trial-1",
+    "family": "chat",
+    "fixture": {},
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": [
+        "C",
+        "E"
+      ],
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "chat.constraint_filtering",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Return a JSON array of product codes whose stock is positive, price is under 20, and color is blue, sorted by code. Rows: C, stock 4, price 19, blue; A, stock 0, price 8, blue; B, stock 2, price 12, red; D, stock 1, price 20, blue; E, stock 3, price 9, blue.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "chat.constraint_filtering"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.merge_intervals.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "merge_intervals",
+      "tests": "a=[[5,7],[1,3],[3,5],[10,10]]; assert merge_intervals(a)==[[1,7],[10,10]]; assert a==[[5,7],[1,3],[3,5],[10,10]]\nassert merge_intervals([])==[]\nassert merge_intervals([[1,2],[3,4]])==[[1,2],[3,4]]"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.merge_intervals",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining merge_intervals(intervals). Accept unsorted closed integer intervals as pairs; merge overlapping or touching endpoints (not adjacent integers), return sorted lists [start,end], and leave the input unchanged. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.merge_intervals"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.run_length_codec.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "encode_runs",
+      "tests": "assert encode_runs('aaabbcaa')==[('a',3),('b',2),('c',1),('a',2)]\nassert encode_runs('')==[]\nassert encode_runs('\u00e9\u00e9\ud83d\ude42\ud83d\ude42\ud83d\ude42')==[('\u00e9',2),('\ud83d\ude42',3)]"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.run_length_codec",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining encode_runs(text). Implement encode_runs(text), returning a list of (character, count) tuples for consecutive Unicode characters; an empty string returns an empty list. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.run_length_codec"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.signed_csv_sum.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "sum_csv",
+      "tests": "assert sum_csv(' 1, -2,, +3 ')==2\nassert sum_csv(' , , ')==0\nfor bad in ('1.0','2,a','1_000'):\n    try: sum_csv(bad)\n    except ValueError: pass\n    else: raise AssertionError(bad)"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.signed_csv_sum",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining sum_csv(text). Parse comma-separated integers, ignoring whitespace and empty fields, and return their sum. Empty input returns 0. Raise ValueError for any nonempty field that is not a signed base-10 integer; decimals and underscores are invalid. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.signed_csv_sum"
+  },
+  {
+    "capabilities": [
+      "text",
+      "code"
+    ],
+    "episode_id": "coding.nested_lookup.trial-1",
+    "family": "coding",
+    "fixture": {
+      "entry_point": "get_path",
+      "tests": "d={'a':{'b':None},'x':2}; assert get_path(d,['a','b'],'fallback') is None\nassert get_path(d,['x','y'],9)==9\nassert get_path(d,[]) is d\nassert get_path(d,['missing'],0)==0"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "code"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "coding.nested_lookup",
+    "max_calls": 8,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 4096,
+    "max_seconds": 180,
+    "prompt": "Write Python 3 code defining get_path(data, keys, default=None). Follow a list of dictionary keys through a nested dictionary. Return default if a key is missing or traversal meets a non-dictionary. An empty path returns the original object. Present None values remain None. Use only the standard library. Return only the code, without explanations or Markdown fences.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "executable",
+      "edge_cases",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "coding.nested_lookup"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.json_configuration_patch.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_json": {
+        "config.json": {
+          "logging": {
+            "json": true,
+            "level": "warning"
+          },
+          "region": "west",
+          "retries": 4
+        }
+      },
+      "files": {
+        "config.json": "{\n  \"logging\": {\n    \"json\": true,\n    \"level\": \"debug\"\n  },\n  \"region\": \"west\",\n  \"retries\": 1\n}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.json_configuration_patch",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read config.json. Change only retries to 4 and logging.level to warning; preserve all other values. Save config.json.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.json_configuration_patch"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.directory_manifest.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "notes/a.txt": "A\n",
+        "notes/b.txt": "B\n",
+        "notes/ignore.csv": "x\n",
+        "notes/nested/c.txt": "C\n"
+      },
+      "expected_json": {
+        "manifest.json": [
+          "notes/a.txt",
+          "notes/b.txt",
+          "notes/nested/c.txt"
+        ]
+      },
+      "files": {
+        "notes/a.txt": "A\n",
+        "notes/b.txt": "B\n",
+        "notes/ignore.csv": "x\n",
+        "notes/nested/c.txt": "C\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.directory_manifest",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "List only .txt input files recursively under notes. Write manifest.json as a sorted JSON array of their relative paths from the workspace root. Exclude other extensions.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.directory_manifest"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.escaped_path_write.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_files": {
+        "drafts/Quarter 1 [final].txt": "alpha & beta\n",
+        "exports/Quarter 1.txt": "ALPHA & BETA\n"
+      },
+      "files": {
+        "drafts/Quarter 1 [final].txt": "alpha & beta\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.escaped_path_write",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Read the file whose literal relative path is drafts/Quarter 1 [final].txt. Convert its text to uppercase, preserve the newline, and write exports/Quarter 1.txt.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.escaped_path_write"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "tools.integer_ledger_total.trial-1",
+    "family": "tools",
+    "fixture": {
+      "expected_json": {
+        "ledger.json": [
+          120,
+          -20,
+          5,
+          0,
+          -7
+        ],
+        "total.json": {
+          "count": 5,
+          "sum": 98
+        }
+      },
+      "files": {
+        "ledger.json": "[\n  120,\n  -20,\n  5,\n  0,\n  -7\n]\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "tools.integer_ledger_total",
+    "max_calls": 6,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Sum signed integer amounts from ledger.json and write total.json as an object with sum and count. Do not modify ledger.json.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "tools.integer_ledger_total"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.sqlite_foreign_key_scope.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "Applications should enable foreign keys with PRAGMA foreign_keys = ON for each database connection. Changing enforcement within a multi-statement transaction has no effect.",
+          "title": "SQLite foreign-key enforcement",
+          "url": "https://www.sqlite.org/foreignkeys.html"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "changes_inside_transaction_take_effect": false,
+        "citations": [
+          "https://www.sqlite.org/foreignkeys.html"
+        ],
+        "enabled_per_connection": true
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.sqlite_foreign_key_scope",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Where must SQLite foreign-key enforcement be enabled, and can its PRAGMA switch take effect in the middle of a transaction? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"changes_inside_transaction_take_effect\": \"boolean\", \"citations\": \"array of supporting source URL strings\", \"enabled_per_connection\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "train",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.sqlite_foreign_key_scope"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.http_conditional_not_modified.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "304 Not Modified indicates that a conditional GET or HEAD need not transfer the selected representation because it has not changed. A 304 response cannot contain content or trailers.",
+          "title": "HTTP 304",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-304-not-modified"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://www.rfc-editor.org/rfc/rfc9110.html#name-304-not-modified"
+        ],
+        "representation_transfer_needed": false,
+        "response_content_allowed": false,
+        "status": 304
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.http_conditional_not_modified",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "What does HTTP status 304 say about a conditional GET representation, and does the response contain representation content? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"representation_transfer_needed\": \"boolean\", \"response_content_allowed\": \"boolean\", \"status\": \"number\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "train",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.http_conditional_not_modified"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.json_duplicate_keys.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "Names within an object SHOULD be unique. If names are not unique, receiving software behavior is unpredictable; implementations may report the last pair, report an error, or expose all pairs.",
+          "title": "JSON object member names",
+          "url": "https://www.rfc-editor.org/rfc/rfc8259.html#section-4"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://www.rfc-editor.org/rfc/rfc8259.html#section-4"
+        ],
+        "duplicate_behavior_predictable": false,
+        "unique_names_recommended": true
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.json_duplicate_keys",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "Are duplicate JSON object member names recommended, and is parser behavior interoperably predictable when duplicates occur? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"duplicate_behavior_predictable\": \"boolean\", \"unique_names_recommended\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "train",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.json_duplicate_keys"
+  },
+  {
+    "capabilities": [
+      "text",
+      "search"
+    ],
+    "episode_id": "search.toml_literal_strings.trial-1",
+    "family": "search",
+    "fixture": {
+      "documents": [
+        {
+          "text": "Literal strings are enclosed by single quotes and do not support escaping. They preserve content literally but cannot contain an unescaped single quote. Basic double-quoted strings process backslash escape sequences.",
+          "title": "TOML strings",
+          "url": "https://toml.io/en/v1.0.0#string"
+        }
+      ],
+      "network_required": false,
+      "snapshot_kind": "authored_summary_of_public_reference"
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "answer": {
+        "citations": [
+          "https://toml.io/en/v1.0.0#string"
+        ],
+        "literal_single_quotes_preserve_backslashes": true,
+        "single_quote_allowed_inside_single_line_literal": false
+      },
+      "kind": "json"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "search.toml_literal_strings",
+    "max_calls": 2,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 180,
+    "prompt": "In TOML 1.0, which single-line quote form should preserve a Windows path's backslashes without escaping, and what is the limiting quote character? Use only the frozen evidence. Return only one JSON object with exactly these fields and value types: {\"citations\": \"array of supporting source URL strings\", \"literal_single_quotes_preserve_backslashes\": \"boolean\", \"single_quote_allowed_inside_single_line_literal\": \"boolean\"}.",
+    "source": "public_reference_with_authored_question",
+    "split": "train",
+    "tags": [
+      "frozen_evidence",
+      "public_reference",
+      "citation_support",
+      "structured_facts",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "search.toml_literal_strings"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.invoice_reconciliation_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "data/invoices.json": "[\n  {\n    \"cents\": 500,\n    \"id\": \"I2\"\n  },\n  {\n    \"cents\": 1000,\n    \"id\": \"I1\"\n  }\n]\n",
+        "data/payments.json": "[\n  {\n    \"cents\": 300,\n    \"id\": \"P1\",\n    \"invoice\": \"I1\"\n  },\n  {\n    \"cents\": 600,\n    \"id\": \"P2\",\n    \"invoice\": \"I2\"\n  },\n  {\n    \"cents\": 25,\n    \"id\": \"P3\",\n    \"invoice\": \"I9\"\n  }\n]\n"
+      },
+      "expected_json": {
+        "output/balances.json": [
+          {
+            "balance_cents": 700,
+            "id": "I1"
+          },
+          {
+            "balance_cents": -100,
+            "id": "I2"
+          }
+        ],
+        "output/unmatched.json": [
+          "P3"
+        ]
+      },
+      "files": {
+        "data/invoices.json": "[\n  {\n    \"cents\": 500,\n    \"id\": \"I2\"\n  },\n  {\n    \"cents\": 1000,\n    \"id\": \"I1\"\n  }\n]\n",
+        "data/payments.json": "[\n  {\n    \"cents\": 300,\n    \"id\": \"P1\",\n    \"invoice\": \"I1\"\n  },\n  {\n    \"cents\": 600,\n    \"id\": \"P2\",\n    \"invoice\": \"I2\"\n  },\n  {\n    \"cents\": 25,\n    \"id\": \"P3\",\n    \"invoice\": \"I9\"\n  }\n]\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.invoice_reconciliation_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Reconcile invoices with payments by invoice ID using integer cents. Write output/balances.json sorted by invoice ID with balance_cents, retaining overpayments as negative. Write output/unmatched.json containing payment IDs whose invoice is unknown. Preserve input files.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.invoice_reconciliation_project"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.documentation_link_audit.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "docs/guide.md": "# Intro\n",
+        "docs/index.md": "[Guide](guide.md#intro)\n[Missing](missing.md)\n[Web](https://example.org)\n[Spec](specs/api.md)\n",
+        "docs/specs/api.md": "# API\n",
+        "reports/status.txt": "FAIL\n"
+      },
+      "expected_json": {
+        "reports/links.json": {
+          "existing": [
+            "guide.md",
+            "specs/api.md"
+          ],
+          "missing": [
+            "missing.md"
+          ]
+        }
+      },
+      "files": {
+        "docs/guide.md": "# Intro\n",
+        "docs/index.md": "[Guide](guide.md#intro)\n[Missing](missing.md)\n[Web](https://example.org)\n[Spec](specs/api.md)\n",
+        "docs/specs/api.md": "# API\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.documentation_link_audit",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Audit local Markdown links in docs/index.md relative to that file; ignore https URLs and strip #fragments before checking existence. Write reports/links.json with sorted existing and missing target arrays. Write reports/status.txt as PASS or FAIL followed by a newline, FAIL if any target is missing.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.documentation_link_audit"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.record_migration_project.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "data/users-v1.json": "[\n  {\n    \"enabled\": false,\n    \"id\": 2,\n    \"legacy_note\": \"old\",\n    \"name\": \" Bo \"\n  },\n  {\n    \"id\": 1,\n    \"name\": \" Ada \"\n  }\n]\n"
+      },
+      "expected_json": {
+        "data/users-v2.json": [
+          {
+            "display_name": "Ada",
+            "enabled": true,
+            "id": 1
+          },
+          {
+            "display_name": "Bo",
+            "enabled": false,
+            "id": 2
+          }
+        ],
+        "schema.json": {
+          "owner": "ops",
+          "version": 2
+        }
+      },
+      "files": {
+        "data/users-v1.json": "[\n  {\n    \"enabled\": false,\n    \"id\": 2,\n    \"legacy_note\": \"old\",\n    \"name\": \" Bo \"\n  },\n  {\n    \"id\": 1,\n    \"name\": \" Ada \"\n  }\n]\n",
+        "schema.json": "{\n  \"owner\": \"ops\",\n  \"version\": 1\n}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.record_migration_project",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Migrate data/users-v1.json to data/users-v2.json: id stays unchanged; name becomes trimmed display_name; enabled defaults to true only when absent (preserve false); remove all legacy_note fields. Sort users by id. Update schema.json version to 2, preserving its other fields.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.record_migration_project"
+  },
+  {
+    "capabilities": [
+      "text",
+      "tools"
+    ],
+    "episode_id": "agents.incident_log_report.trial-1",
+    "family": "agents",
+    "fixture": {
+      "expected_files": {
+        "affected.txt": "api\nworker\n",
+        "logs/app.jsonl": "{\"service\":\"api\",\"level\":\"ERROR\"}\nnot json\n{\"service\":\"worker\",\"level\":\"WARN\"}\n{\"service\":\"api\",\"level\":\"ERROR\"}\n{\"service\":\"worker\",\"level\":\"ERROR\"}\n"
+      },
+      "expected_json": {
+        "report.json": {
+          "error_by_service": {
+            "api": 2,
+            "worker": 1
+          },
+          "malformed_lines": 1,
+          "warning_count": 1
+        }
+      },
+      "files": {
+        "logs/app.jsonl": "{\"service\":\"api\",\"level\":\"ERROR\"}\nnot json\n{\"service\":\"worker\",\"level\":\"WARN\"}\n{\"service\":\"api\",\"level\":\"ERROR\"}\n{\"service\":\"worker\",\"level\":\"ERROR\"}\n"
+      }
+    },
+    "fixture_version": "balanced-product-seed-v1",
+    "grader": {
+      "kind": "workspace"
+    },
+    "grader_version": "deterministic-product-grading-v1",
+    "group_id": "agents.incident_log_report",
+    "max_calls": 12,
+    "max_input_tokens": 24000,
+    "max_output_tokens": 2048,
+    "max_seconds": 300,
+    "prompt": "Analyze logs/app.jsonl. Count ERROR events by service, count malformed JSON lines, and count WARN events separately. Write report.json with error_by_service, malformed_lines, and warning_count. Write affected.txt with alphabetically sorted services that had ERROR events, one per line.",
+    "source": "newly_authored",
+    "split": "train",
+    "tags": [
+      "resettable_workspace",
+      "terminal_state",
+      "seed_corpus",
+      "underpowered",
+      "single_trial"
+    ],
+    "template_id": "agents.incident_log_report"
+  }
+]

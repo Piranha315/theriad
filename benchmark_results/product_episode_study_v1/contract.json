@@ -1,0 +1,37 @@
+{
+  "alternatives": [
+    "deepseek/deepseek-v4-flash-0731",
+    "openai/gpt-5.6-luna"
+  ],
+  "baseline_hash": "ce7440ce55fabeb70accad489ef031d2bf76c6dd2a4f567cfb004422ac62fee2",
+  "budget_usd": 100,
+  "catalog_hash": "af34a59291aae1116daf6226da503a151172e24c16c27a83bcc8b86b944e5721",
+  "control_hashes": {
+    "pilot": "505516fce06678417b4b40393a5cad3101e125a0364db31a1255e9672f7ed062",
+    "smoke": "4fd43833173554fcd39e8933fe27892cf305e98514c673b587d04cedea6bb0e6",
+    "test": "562b36d3280d7bd4f38514aeabdfd9b3a3f7f38d334991717eeec6da93ba2f4e",
+    "train": "7d84eb1f6df8d4857d1d5499c41f37d08fd42c68b03da22d77fd769cccdb3399",
+    "validation": "7d9b10169d7c1f21fb744674e735356e565431a2f969844bf073e99f23724d94"
+  },
+  "corpus_hash": "0bafd89dce43f3128101e656fe23129105e0cfe9f6fb191b68f40abede173a28",
+  "created_at": "2026-09-07T22:13:47.387291+00:00",
+  "family_weights": {
+    "agents": 0.2,
+    "chat": 0.2,
+    "coding": 0.2,
+    "search": 0.2,
+    "tools": 0.2
+  },
+  "judge": "versioned deterministic checks; no paid judge or embedding calls",
+  "scope": "resettable product fixtures; no customer data or deployment",
+  "seed": 731,
+  "selection_cost_ratio": 0.95,
+  "split_hashes": {
+    "pilot": "92c9e5ea723b4dcb148167b1c50d2e5bbf96240758b9b474b0266fdc5ce3dd5f",
+    "smoke": "eec6d20671a24f68cf715b60d535410fd4795d7cdc01b1569b0617de4d21013e",
+    "test": "741b63db236c001b25f0d8f5c5fda018b31e2f100b147c862695142b26350aea",
+    "train": "bc4efec8820d075a38967089701ca68be8514248ae13ad9105a11b1888c58610",
+    "validation": "52eea30555fda811095f8af73f5b38145814f3af805c0ba2544feb824061c6b4"
+  },
+  "version": "product-episodes-v1"
+}
